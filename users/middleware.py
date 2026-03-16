@@ -13,6 +13,18 @@ class VisitorTrackingMiddleware:
         if any(path.startswith(prefix) for prefix in ['/static/', '/media/', '/admin/', '/favicon.ico']):
             return response
 
+        ch = request.GET.get('ch')
+        if ch:
+            ch = ''.join(c for c in ch if c.isalnum() or c in ('-', '_'))[:32]
+            if ch:
+                response.set_cookie(
+                    'src_ch',
+                    ch,
+                    max_age=60 * 60 * 24 * 90,
+                    samesite='Lax',
+                    secure=request.is_secure()
+                )
+
         # Get IP
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         if x_forwarded_for:
@@ -27,7 +39,7 @@ class VisitorTrackingMiddleware:
             VisitorLog.objects.create(
                 user=user,
                 ip_address=ip,
-                path=path,
+                path=request.get_full_path()[:255],
                 method=request.method,
                 user_agent=request.META.get('HTTP_USER_AGENT', '')[:255]
             )
