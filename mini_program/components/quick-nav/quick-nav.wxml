@@ -1,0 +1,27 @@
+<view class="quick-nav-bar" catchtouchmove="preventTouchMove" style="bottom: {{hasCustomTabbar ? 'calc(120rpx + constant(safe-area-inset-bottom))' : '0'}}; bottom: {{hasCustomTabbar ? 'calc(120rpx + env(safe-area-inset-bottom))' : '0'}}; padding-bottom: {{hasTabbar || hasCustomTabbar ? '10rpx' : 'env(safe-area-inset-bottom)'}}">
+  <block wx:if="{{!hasTabbar}}">
+    <view class="nav-item" bindtap="goHome">
+      <view class="nav-icon-bg bg-blue">
+        <text class="nav-emoji">🏠</text>
+      </view>
+      <text class="nav-text">{{homeText}}</text>
+    </view>
+    <view class="divider"></view>
+  </block>
+
+  <view class="nav-item" bindtap="goCrew">
+    <view class="nav-icon-bg bg-cyan">
+      <text class="nav-emoji">👨‍✈️</text>
+    </view>
+    <text class="nav-text">{{crewText}}</text>
+  </view>
+  
+  <view class="divider"></view>
+  
+  <view class="nav-item" bindtap="switchLang">
+    <view class="nav-icon-bg bg-purple">
+      <text class="nav-emoji">🌐</text>
+    </view>
+    <text class="nav-text">{{langText}}</text>
+  </view>
+</view>

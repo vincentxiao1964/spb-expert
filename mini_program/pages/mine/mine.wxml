@@ -1,0 +1,172 @@
+<view class="container" catchtouchmove="preventTouchMove">
+  <scroll-view scroll-y="true" style="height: 100vh;" enable-back-to-top="true">
+    <view style="padding-bottom: 150rpx;">
+      <view class="user-header" bindtap="goLogin">
+        <view class="avatar-container">
+            <image class="avatar" src="{{userInfo.avatarUrl || '/images/user_default.png'}}" mode="cover"></image>
+        </view>
+        <view class="user-info">
+          <text class="nickname">{{userInfo.nickName || userInfo.username || t.login_register}}</text>
+          <text class="status" wx:if="{{hasUserInfo}}">{{t.logged_in}}</text>
+          <text class="status" wx:else>{{t.not_logged_in}}</text>
+        </view>
+        <view class="header-action">
+             <view class="logout-btn" catchtap="logout" wx:if="{{hasUserInfo}}">
+                <text>{{t.logout}}</text>
+             </view>
+             <view class="arrow" wx:if="{{!hasUserInfo}}">></view>
+        </view>
+      </view>
+
+      <official-account />
+
+      <!-- Merchant Stats Section -->
+      <view class="stats-card" wx:if="{{hasUserInfo}}">
+          <view class="stats-header">
+              <text class="stats-title">{{t.data_center || 'Data Center'}}</text>
+          </view>
+          <view class="stats-row">
+              <view class="stats-item">
+                  <text class="stats-num">{{stats.total_views || 0}}</text>
+                  <text class="stats-label">{{t.total_exposure || 'Total Exposure'}}</text>
+              </view>
+              <view class="stats-item">
+                  <text class="stats-num">{{stats.total_contacts || 0}}</text>
+                  <text class="stats-label">{{t.contact_clicks || 'Contact Clicks'}}</text>
+              </view>
+          </view>
+      </view>
+
+      <view class="menu-list">
+        <view class="menu-item" bindtap="goToProfile">
+          <text class="menu-text">{{t.profile}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToContact">
+          <text class="menu-text">{{t.contact_info}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="bindWeChat">
+          <view class="menu-label">
+            <text class="menu-text">{{t.bind_wechat}}</text>
+            <text class="status-text" wx:if="{{userInfo.is_wechat_bound}}" style="color: #07c160; font-size: 24rpx; margin-left: 20rpx;">({{t.bound}})</text>
+            <text class="status-text" wx:else style="color: #999; font-size: 24rpx; margin-left: 20rpx;">({{t.unbound}})</text>
+          </view>
+          <text class="arrow">></text>
+        </view>
+        
+        <!-- Publisher Section -->
+        <view class="menu-group-title">{{t.my_published}}</view>
+        <view class="menu-item" bindtap="goToMyShips">
+          <text class="menu-text">{{t.my_ships}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToMyCrewProfile">
+          <text class="menu-text">{{t.my_crew}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToMyNews">
+          <text class="menu-text">{{t.my_news}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToMyAds">
+          <text class="menu-text">{{t.my_ads}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToMyForum">
+          <text class="menu-text">{{t.my_forum}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToDrafts">
+          <text class="menu-text">{{t.drafts}}</text>
+          <text class="arrow">></text>
+        </view>
+
+        <!-- Admin Section -->
+        <block wx:if="{{isAdmin}}">
+            <view class="menu-group-title" style="margin-top: 20rpx; color: red;">{{t.admin_approval}}</view>
+            <view class="menu-item" bindtap="goToUserStats">
+                <text class="menu-text">{{t.user_stats || '用户管理'}}</text>
+                <text class="arrow">></text>
+            </view>
+            <view class="menu-item" bindtap="goToTransactionManager">
+                <text class="menu-text">{{t.transaction_manager}}</text>
+                <text class="arrow">></text>
+            </view>
+            <view class="menu-item" bindtap="goToShipApproval">
+                <text class="menu-text">{{t.ship_approval}}</text>
+                <text class="arrow">></text>
+            </view>
+            <view class="menu-item" bindtap="goToNewsApproval">
+                <text class="menu-text">{{t.news_approval}}</text>
+                <text class="arrow">></text>
+            </view>
+            <view class="menu-item" bindtap="goToAdApproval">
+                <text class="menu-text">{{t.ad_approval}}</text>
+                <text class="arrow">></text>
+            </view>
+            <view class="menu-item" bindtap="goToForumManagement">
+                <text class="menu-text">{{t.forum_mgmt}}</text>
+                <text class="arrow">></text>
+            </view>
+            <view class="menu-item" bindtap="goToCrewManagement">
+                <text class="menu-text">{{t.crew_mgmt}}</text>
+                <text class="arrow">></text>
+            </view>
+        </block>
+
+        <view class="menu-group-title" style="margin-top: 20rpx;">{{t.my_interactions}}</view>
+        <view class="menu-item" bindtap="goToOrders">
+          <text class="menu-text">{{t.my_orders || 'My Orders'}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToInquiries">
+          <text class="menu-text">{{t.my_inquiries || 'My Inquiries'}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToTransactions">
+          <text class="menu-text">{{t.my_transactions}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToFavorites">
+          <text class="menu-text">{{t.favorites}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToMatches">
+          <view class="menu-label">
+            <text class="menu-text">{{t.my_matches}}</text>
+            <view class="badge" wx:if="{{stats.match_count > 0}}">{{stats.match_count}}</view>
+          </view>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToInbox">
+          <view class="menu-label">
+            <text class="menu-text">{{t.who_contacted_me}}</text>
+            <view class="badge" wx:if="{{stats.unread_message_count > 0}}">{{stats.unread_message_count}}</view>
+          </view>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToFollowing">
+          <text class="menu-text">{{t.following}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="goToFollowers">
+          <view class="menu-label">
+            <text class="menu-text">{{t.followers}}</text>
+            <view class="badge" wx:if="{{stats.favorite_me_count > 0}}">{{stats.favorite_me_count}}</view>
+          </view>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" bindtap="showAdminContact">
+          <text class="menu-text">{{t.contact_admin}}</text>
+          <text class="arrow">></text>
+        </view>
+        <view class="menu-item" wx:if="{{hasUserInfo}}" bindtap="deleteAccount" style="justify-content: center; margin-top: 10rpx;">
+          <text class="menu-text" style="color:#e64340">{{t.delete_account}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  
+  <quick-nav hasTabbar="{{true}}" />
+</view>

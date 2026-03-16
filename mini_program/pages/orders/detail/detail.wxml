@@ -1,0 +1,62 @@
+<view class="container" wx:if="{{!loading}}">
+  <view class="status-header">
+    <text class="status-text">{{order.status_display}}</text>
+    <text class="order-number">NO. {{order.order_number}}</text>
+  </view>
+
+  <view class="address-section">
+    <view class="contact-row">
+      <text class="name">{{order.contact_name}}</text>
+      <text class="phone">{{order.contact_phone}}</text>
+    </view>
+    <view class="address" wx:if="{{order.shipping_address}}">{{order.shipping_address}}</view>
+  </view>
+
+  <view class="item-list">
+    <view class="item" wx:for="{{order.items}}" wx:key="id">
+       <view class="item-main">
+          <text class="item-title">{{item.item_detail.title || item.item_detail.name || item.item_name}}</text>
+          <view class="item-price-qty">
+             <text class="price">¥{{item.price}}</text>
+             <text class="qty">x{{item.quantity}}</text>
+          </view>
+       </view>
+       <!-- Per Item Review Action -->
+       <view class="item-actions" wx:if="{{order.status === 'COMPLETED' && isBuyer}}">
+          <button 
+            wx:if="{{!item.is_reviewed}}" 
+            class="btn btn-sm btn-outline" 
+            size="mini"
+            bindtap="onReview" 
+            data-item-id="{{item.id}}"
+          >评价</button>
+          <text wx:else class="reviewed-tag">已评价</text>
+       </view>
+    </view>
+  </view>
+
+  <view class="order-info">
+    <view class="info-row">
+      <text class="label">下单时间</text>
+      <text class="value">{{order.created_at}}</text>
+    </view>
+    <view class="info-row total-row">
+      <text class="label">总计</text>
+      <text class="value price">¥{{order.total_amount}}</text>
+    </view>
+  </view>
+
+  <!-- Actions -->
+  <view class="footer-actions">
+     <!-- Buyer Actions -->
+     <block wx:if="{{isBuyer}}">
+        <button wx:if="{{order.status === 'PENDING'}}" class="btn btn-primary" bindtap="onPay">立即支付</button>
+        <button wx:if="{{order.status === 'SHIPPED' || order.status === 'IN_SERVICE'}}" class="btn btn-primary" bindtap="onComplete">确认收货/完成</button>
+     </block>
+     
+     <!-- Seller Actions -->
+     <block wx:if="{{isSeller}}">
+        <button wx:if="{{order.status === 'PAID' || order.status === 'PROCESSING'}}" class="btn btn-primary" bindtap="onShip">发货/服务</button>
+     </block>
+  </view>
+</view>

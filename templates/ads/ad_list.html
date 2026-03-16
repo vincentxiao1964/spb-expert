@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2>{% trans "Advertisements" %}</h2>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'ads:ad_create' %}" class="btn btn-primary">{% trans "Post Ad" %}</a>
+    </div>
+</div>
+
+<div class="row">
+    {% for ad in ads %}
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                {% if ad.image %}
+                    <img src="{{ ad.image.url }}" class="card-img-top" alt="{{ ad.title }}" style="height: 200px; object-fit: cover;" loading="lazy">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ ad.title }}</h5>
+                    <p class="card-text text-muted small">
+                        {% trans "Posted by" %} {{ ad.user.username|default:"Admin" }} | {{ ad.activated_at|date:"Y-m-d" }}
+                    </p>
+                    <p class="card-text">{{ ad.description|truncatewords:20 }}</p>
+                    {% if ad.link %}
+                        <a href="{{ ad.link }}" class="btn btn-outline-primary" target="_blank">{% trans "Visit Link" %}</a>
+                    {% endif %}
+                    <a href="{% url 'ads:ad_detail' ad.pk %}" class="btn btn-outline-secondary">{% trans "Details" %}</a>
+                    {% if user == ad.user or user.is_superuser %}
+                    <div class="mt-2">
+                         <a href="{% url 'ads:ad_update' ad.pk %}" class="btn btn-sm btn-outline-primary me-1">{% trans "Edit" %}</a>
+                         <a href="{% url 'ads:ad_delete' ad.pk %}" class="btn btn-sm btn-outline-danger">{% trans "Delete" %}</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                {% trans "No advertisements available yet." %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

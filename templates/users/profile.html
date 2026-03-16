@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <!-- Profile Sidebar -->
+    <div class="col-md-3">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h4 class="mb-0">{% trans "Profile" %}</h4>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <!-- Placeholder for Avatar -->
+                    <div style="width: 80px; height: 80px; background-color: #eee; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; font-size: 24px;">
+                        {{ user.username|first|upper }}
+                    </div>
+                </div>
+                <p class="mb-1"><strong>{% trans "Username" %}:</strong> {{ user.username }}</p>
+                <p class="mb-1"><strong>{% trans "Email" %}:</strong> {{ user.email }}</p>
+                <p class="mb-1"><strong>{% trans "Phone" %}:</strong> {{ user.phone_number }}</p>
+                <p class="mb-1"><strong>{% trans "Company" %}:</strong> {{ user.company_name }}</p>
+                <p class="mb-1"><strong>{% trans "Membership Level" %}:</strong> Level {{ user.membership_level }}</p>
+                <p class="mb-0"><strong>{% trans "Approved Posts" %}:</strong> {{ user.approved_posts_count }}</p>
+                <div class="d-grid gap-2 mt-3">
+                    <a href="{% url 'users:password_change' %}" class="btn btn-outline-primary btn-sm">{% trans "Change Password" %}</a>
+                </div>
+            </div>
+        </div>
+        
+        {% if user.is_staff or user.is_superuser %}
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0">{% trans "Admin" %}</h5>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="/admin/" class="list-group-item list-group-item-action">{% trans "Go to Admin Panel" %}</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="profileTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="ships-tab" data-bs-toggle="tab" data-bs-target="#ships" type="button" role="tab" aria-controls="ships" aria-selected="true">{% trans "My Ships" %}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="news-tab" data-bs-toggle="tab" data-bs-target="#news" type="button" role="tab" aria-controls="news" aria-selected="false">{% trans "My News" %}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="ads-tab" data-bs-toggle="tab" data-bs-target="#ads" type="button" role="tab" aria-controls="ads" aria-selected="false">{% trans "My Ads" %}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="forum-tab" data-bs-toggle="tab" data-bs-target="#forum" type="button" role="tab" aria-controls="forum" aria-selected="false">{% trans "My Forum" %}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="favorites-tab" data-bs-toggle="tab" data-bs-target="#favorites" type="button" role="tab" aria-controls="favorites" aria-selected="false">{% trans "Favorites" %}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="matches-tab" data-bs-toggle="tab" data-bs-target="#matches" type="button" role="tab" aria-controls="matches" aria-selected="false">{% trans "My Matches" %}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="following-tab" data-bs-toggle="tab" data-bs-target="#following" type="button" role="tab" aria-controls="following" aria-selected="false">{% trans "My Following" %}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="followers-tab" data-bs-toggle="tab" data-bs-target="#followers" type="button" role="tab" aria-controls="followers" aria-selected="false">{% trans "Followers" %}</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="contacted-tab" data-bs-toggle="tab" data-bs-target="#contacted" type="button" role="tab" aria-controls="contacted" aria-selected="false">{% trans "Contacted Me" %}</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="profileTabsContent">
+                    
+                    <!-- Ships Tab -->
+                    <div class="tab-pane fade show active" id="ships" role="tabpanel" aria-labelledby="ships-tab">
+                        <div class="d-flex justify-content-end mb-3">
+                            <a href="{% url 'market:create' %}" class="btn btn-primary btn-sm">{% trans "Post New Ship" %}</a>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            {% for listing in user.listings.all %}
+                            <div class="list-group-item px-0">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ listing }}</h5>
+                                    <small class="text-{{ listing.status|lower }}">
+                                        {{ listing.get_status_display }}
+                                    </small>
+                                </div>
+                                <p class="mb-1">{{ listing.created_at|date:"Y-m-d" }}</p>
+                                <div>
+                                    <a href="{% url 'market:detail' listing.pk %}" class="btn btn-sm btn-info">{% trans "View" %}</a>
+                                    <a href="{% url 'market:update' listing.pk %}" class="btn btn-sm btn-warning">{% trans "Edit" %}</a>
+                                    <a href="{% url 'market:delete' listing.pk %}" class="btn btn-sm btn-danger">{% trans "Delete" %}</a>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">{% trans "No listings yet." %}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- News Tab -->
+                    <div class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="news-tab">
+                        <div class="d-flex justify-content-end mb-3">
+                            <a href="{% url 'market:news_create' %}" class="btn btn-primary btn-sm">{% trans "Post News" %}</a>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            {% for news in user.news.all %}
+                            <div class="list-group-item px-0">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ news.title }}</h5>
+                                    <small class="text-{{ news.status|lower }}">
+                                        {{ news.get_status_display }}
+                                    </small>
+                                </div>
+                                <p class="mb-1">{{ news.created_at|date:"Y-m-d" }}</p>
+                                <div>
+                                    <a href="{% url 'market:news_detail' news.pk %}" class="btn btn-sm btn-info">{% trans "View" %}</a>
+                                    <a href="{% url 'market:news_update' news.pk %}" class="btn btn-sm btn-warning">{% trans "Edit" %}</a>
+                                    <a href="{% url 'market:news_delete' news.pk %}" class="btn btn-sm btn-danger">{% trans "Delete" %}</a>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">{% trans "No news posted yet." %}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Ads Tab -->
+                    <div class="tab-pane fade" id="ads" role="tabpanel" aria-labelledby="ads-tab">
+                        <div class="d-flex justify-content-end mb-3">
+                            <a href="{% url 'ads:ad_create' %}" class="btn btn-primary btn-sm">{% trans "Post Advertisement" %}</a>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            {% for ad in user.advertisement_set.all %}
+                            <div class="list-group-item px-0">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ ad.title }}</h5>
+                                    <small>
+                                        {% if ad.is_active %}
+                                        <span class="badge bg-success">{% trans "Active" %}</span>
+                                        {% else %}
+                                        <span class="badge bg-secondary">{% trans "Inactive" %}</span>
+                                        {% endif %}
+                                    </small>
+                                </div>
+                                <p class="mb-1">{{ ad.created_at|date:"Y-m-d" }}</p>
+                                <div>
+                                    <a href="{% url 'ads:ad_detail' ad.pk %}" class="btn btn-sm btn-info">{% trans "View" %}</a>
+                                    <a href="{% url 'ads:ad_update' ad.pk %}" class="btn btn-sm btn-warning">{% trans "Edit" %}</a>
+                                    <a href="{% url 'ads:ad_delete' ad.pk %}" class="btn btn-sm btn-danger">{% trans "Delete" %}</a>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">{% trans "No advertisements posted yet." %}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Forum Tab -->
+                    <div class="tab-pane fade" id="forum" role="tabpanel" aria-labelledby="forum-tab">
+                        <div class="d-flex justify-content-end mb-3">
+                            <a href="{% url 'member_messages' %}" class="btn btn-primary btn-sm">{% trans "Go to Forum" %}</a>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            {% for message in user.messages.all %}
+                            <div class="list-group-item px-0">
+                                <p class="mb-1">{{ message.content|truncatechars:100 }}</p>
+                                <small class="text-muted">{{ message.created_at|date:"Y-m-d H:i" }}</small>
+                                <div class="mt-2">
+                                    <!-- No individual detail view for forum messages yet, linking to list or just edit/delete -->
+                                    <a href="{% url 'member_message_update' message.pk %}" class="btn btn-sm btn-warning">{% trans "Edit" %}</a>
+                                    <a href="{% url 'member_message_delete' message.pk %}" class="btn btn-sm btn-danger">{% trans "Delete" %}</a>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">{% trans "No forum topics posted yet." %}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Favorites Tab -->
+                    <div class="tab-pane fade" id="favorites" role="tabpanel" aria-labelledby="favorites-tab">
+                        <div class="list-group list-group-flush">
+                            {% for favorite in user.favorites.all %}
+                            <div class="list-group-item px-0">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ favorite.listing }}</h5>
+                                    <small class="text-muted">{% trans "Favorited on" %} {{ favorite.created_at|date:"Y-m-d" }}</small>
+                                </div>
+                                <div class="mt-2">
+                                    <a href="{% url 'market:detail' favorite.listing.pk %}" class="btn btn-sm btn-info">{% trans "View Listing" %}</a>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">{% trans "No favorites yet." %}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- My Matches Tab -->
+                    <div class="tab-pane fade" id="matches" role="tabpanel" aria-labelledby="matches-tab">
+                        <div class="list-group list-group-flush">
+                            {% for match in my_matches %}
+                            <div class="list-group-item px-0">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ match.listing_target }}</h5>
+                                    <small class="text-success">{% trans "Score" %}: {{ match.score }}</small>
+                                </div>
+                                <p class="mb-1">{% trans "Matched with your listing" %}: {{ match.listing_source }}</p>
+                                <div class="mt-2">
+                                    <a href="{% url 'market:detail' match.listing_target.pk %}" class="btn btn-sm btn-info">{% trans "View Match" %}</a>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">{% trans "No matches found." %}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- My Following Tab -->
+                    <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
+                        <div class="list-group list-group-flush">
+                            {% for follow in following %}
+                            <div class="list-group-item px-0">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ follow.followed.username }}</h5>
+                                    <small class="text-muted">{% trans "Since" %}: {{ follow.created_at|date:"Y-m-d" }}</small>
+                                </div>
+                                <!-- Add link to user profile if available, for now just name -->
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">{% trans "You are not following anyone yet." %}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Followers Tab -->
+                    <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab">
+                        <div class="list-group list-group-flush">
+                            {% for follow in followers %}
+                            <div class="list-group-item px-0">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ follow.follower.username }}</h5>
+                                    <small class="text-muted">{% trans "Since" %}: {{ follow.created_at|date:"Y-m-d" }}</small>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">{% trans "No followers yet." %}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Contacted Me Tab -->
+                    <div class="tab-pane fade" id="contacted" role="tabpanel" aria-labelledby="contacted-tab">
+                        <div class="list-group list-group-flush">
+                            {% for message in received_messages %}
+                            <div class="list-group-item px-0">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ message.sender.username }}</h5>
+                                    <small class="text-muted">{{ message.created_at|date:"Y-m-d H:i" }}</small>
+                                </div>
+                                <p class="mb-1">{{ message.content|truncatechars:50 }}</p>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">{% trans "No messages received yet." %}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

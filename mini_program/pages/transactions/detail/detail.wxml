@@ -1,0 +1,156 @@
+<view class="container" style="padding-bottom: 300rpx;">
+  <block wx:if="{{transaction}}">
+    <view class="header">
+      <view class="status-badge {{transaction.status}}">{{transaction.status_display}}</view>
+      <view class="price" wx:if="{{transaction.price_agreed}}">¥{{transaction.price_agreed}}</view>
+      <!-- Display Title if available, or fallback -->
+      <view class="txn-title" wx:if="{{transaction.title}}">{{transaction.title}}</view>
+    </view>
+    
+    <!-- Info Section (Listing) - Only show if listing exists -->
+    <view class="section" wx:if="{{transaction.listing}}">
+      <view class="section-title">{{t.related_listing}}</view>
+      <navigator url="/pages/detail/detail?id={{transaction.listing}}" class="listing-link">
+        <text class="listing-title">{{transaction.listing_detail.title}}</text>
+        <text class="arrow">></text>
+      </navigator>
+    </view>
+
+    <!-- Documents Section -->
+    <view class="section">
+      <view class="section-title">{{t.transaction_docs}}</view>
+      <view class="action-bar" wx:if="{{isSeller || isBuyer}}">
+        <button size="mini" bindtap="chooseDocument" type="primary">+ {{t.upload_doc}}</button>
+      </view>
+      <view wx:if="{{!transaction.documents || transaction.documents.length === 0}}" class="empty-text">{{t.empty_docs}}</view>
+      <block wx:for="{{transaction.documents}}" wx:key="id">
+        <view class="doc-item" bindtap="previewDoc" data-url="{{item.file}}">
+            <view class="doc-info">
+                <text class="doc-name">【{{item.type_display}}】{{item.description}}</text>
+                <text class="doc-date">{{item.uploaded_at}}</text>
+            </view>
+            <text wx:if="{{item.is_verified}}" class="verified-badge">{{t.verified}}</text>
+            <text wx:else class="pending-badge">{{t.pending_verify}}</text>
+        </view>
+      </block>
+    </view>
+    
+    <!-- Action Section based on Status -->
+    <view class="section">
+        <view class="section-title">{{t.current_action}}</view>
+        <view class="action-buttons">
+            
+            <!-- DOCS STAGE (INITIATED or DOCS_REVIEW) -->
+            <block wx:if="{{transaction.status === 'INITIATED' || transaction.status === 'DOCS_REVIEW'}}">
+                
+                <!-- SELLER VIEW -->
+                <view wx:if="{{isSeller}}" class="status-block">
+                    <view wx:if="{{transaction.buyer_docs_feedback}}" class="feedback-alert error">
+                        <icon type="warn" size="18"/> {{t.buyer_feedback}}：{{transaction.buyer_docs_feedback}} ({{t.please_reupload}})
+                    </view>
+                    <view wx:else class="action-tip urgent">
+                        <icon type="info" size="20"/> {{t.upload_required_docs}}
+                    </view>
+                    
+                    <button bindtap="chooseDocument" type="primary" class="action-btn">{{t.upload_update_cert}}</button>
+                    <view class="sub-text">{{t.notify_buyer_audit}}</view>
+                </view>
+
+                <!-- BUYER VIEW -->
+                <view wx:if="{{isBuyer}}" class="status-block">
+                    <!-- Case 1: Verified -->
+                    <view wx:if="{{transaction.buyer_docs_verified}}" class="action-tip success">
+                        <icon type="success" size="20"/> {{t.buyer_docs_verified}}
+                    </view>
+
+                    <!-- Case 2: Waiting for Seller (No docs yet) -->
+                    <view wx:elif="{{!transaction.documents || transaction.documents.length === 0}}" class="action-tip">
+                        <icon type="waiting" size="20"/> {{t.waiting_seller_docs}}
+                    </view>
+
+                    <!-- Case 3: Review Docs (Docs exist, not verified) -->
+                    <view wx:else class="review-block">
+                        <view class="action-tip"><icon type="info" size="20"/> {{t.seller_docs_submitted}}</view>
+                        <view class="btn-row">
+                            <button type="primary" bindtap="approveDocs" class="btn-half">{{t.docs_complete_approve}}</button>
+                            <button type="warn" bindtap="rejectDocs" class="btn-half">{{t.docs_unclear_reject}}</button>
+                        </view>
+                    </view>
+                </view>
+                
+                <!-- ADMIN VIEW (If viewed by admin/staff) -->
+                 <view wx:if="{{!isBuyer && !isSeller}}" class="status-block">
+                    <view wx:if="{{transaction.buyer_docs_verified}}" class="action-tip success">
+                        {{t.admin_buyer_verified}}
+                    </view>
+                    <view wx:else class="action-tip">{{t.admin_waiting_docs}}</view>
+                </view>
+            </block>
+
+            <!-- CONTRACT_SIGNING: Sign Button -->
+            <block wx:if="{{transaction.status === 'CONTRACT_SIGNING'}}">
+                <view class="action-tip success"><icon type="success" size="20"/> {{t.stage_contract_signing}}</view>
+                
+                <view class="contract-preview" bindtap="previewContract">
+                    <image src="/images/pdf-icon.png" mode="aspectFit" class="pdf-icon"></image>
+                    <text>{{t.click_view_contract}}</text>
+                </view>
+
+                <view class="sign-status">
+                    <view class="party-status {{transaction.buyer_signed ? 'signed' : ''}}">
+                        {{t.buyer}}: {{transaction.buyer_signed ? t.verified : t.pending_verify}}
+                    </view>
+                    <view class="party-status {{transaction.seller_signed ? 'signed' : ''}}">
+                        {{t.seller}}: {{transaction.seller_signed ? t.verified : t.pending_verify}}
+                    </view>
+                </view>
+                
+                <button wx:if="{{isBuyer && !transaction.buyer_signed}}" type="primary" bindtap="openSignModal" class="action-btn">{{t.buyer_sign_btn}}</button>
+                <view wx:if="{{isBuyer && transaction.buyer_signed}}" class="action-tip">{{t.you_signed}}</view>
+                
+                <button wx:if="{{isSeller && !transaction.seller_signed}}" type="primary" bindtap="openSignModal" class="action-btn">{{t.seller_sign_btn}}</button>
+                <view wx:if="{{isSeller && transaction.seller_signed}}" class="action-tip">{{t.you_signed}}</view>
+            </block>
+
+            <!-- PAYMENT_PENDING: Buyer Pay -->
+            <block wx:if="{{transaction.status === 'PAYMENT_PENDING'}}">
+                <button wx:if="{{isBuyer}}" type="primary" bindtap="viewPaymentInfo" class="action-btn">{{t.view_account_pay}}</button>
+                <view wx:if="{{isSeller}}" class="action-tip"><icon type="waiting" size="20"/> {{t.contract_signed_waiting_pay}}</view>
+            </block>
+
+             <!-- PAYMENT_VERIFIED: Seller Transfer -->
+            <block wx:if="{{transaction.status === 'PAYMENT_VERIFIED'}}">
+                <view wx:if="{{isBuyer}}" class="action-tip success"><icon type="success" size="20"/> {{t.fund_received_waiting_transfer}}</view>
+                
+                <view wx:if="{{isSeller && !transaction.has_transfer_proof}}" class="action-tip urgent">
+                    <icon type="info" size="20"/> {{t.fund_confirmed_upload_transfer_proof}}
+                </view>
+                <view wx:if="{{isSeller && transaction.has_transfer_proof}}" class="action-tip">
+                    <icon type="success" size="20"/> {{t.transfer_proof_uploaded}}
+                </view>
+            </block>
+
+             <!-- COMPLETED -->
+            <view wx:if="{{transaction.status === 'COMPLETED'}}" class="action-tip success">
+                <icon type="success" size="20"/> {{t.transaction_completed_fund_released}}
+            </view>
+
+        </view>
+    </view>
+
+    <!-- Logs -->
+    <view class="section">
+       <view class="section-title">{{t.transaction_logs}}</view>
+       <block wx:for="{{transaction.logs}}" wx:key="id">
+           <view class="log-item">
+               <text class="log-date">{{item.created_at}}</text>
+               <text class="log-action">{{item.action}}</text>
+           </view>
+       </block>
+    </view>
+  </block>
+  <block wx:else>
+      <view class="loading">{{t.loading}}</view>
+  </block>
+  <quick-nav />
+</view>

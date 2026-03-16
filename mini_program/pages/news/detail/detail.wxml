@@ -1,0 +1,48 @@
+<view class="container">
+  <block wx:if="{{loading}}">
+    <view class="loading">{{t.loading}}</view>
+  </block>
+  <block wx:elif="{{news}}">
+    <view class="title">{{news.title}}</view>
+    <view class="unique-id" style="font-size: 24rpx; color: #999; margin-bottom: 20rpx;">ID: {{news.unique_id}}</view>
+    <view class="info-row">
+        <view class="date">{{news.created_at}}</view>
+        <view class="favorite-btn" bindtap="toggleFavorite">
+            <text class="iconfont {{isFavorite ? 'icon-star-filled' : 'icon-star'}}"></text>
+            <text>{{isFavorite ? t.favorited : t.favorite}}</text>
+        </view>
+    </view>
+    
+    <view class="author-section" wx:if="{{news.user}}">
+        <view class="author-info">
+            <text class="author-name">{{t.publisher}}: {{news.user_name}}</text>
+        </view>
+        <view class="action-buttons">
+            <button class="btn-action btn-follow {{isFollowing ? 'active' : ''}}" size="mini" bindtap="toggleFollow">
+                {{isFollowing ? t.unfollow_author : t.follow_author}}
+            </button>
+            <button class="btn-action btn-contact" size="mini" bindtap="contactUser">
+                {{t.contact_author}}
+            </button>
+        </view>
+    </view>
+
+    <view class="author-section" wx:if="{{news.is_owner}}" style="margin-top: 20rpx; border-top: 1rpx solid #eee; padding-top: 20rpx;">
+        <view class="action-buttons" style="justify-content: flex-start;">
+            <button class="btn-action" size="mini" type="primary" plain="true" bindtap="handleEdit" style="margin-right: 20rpx;">{{t.edit}}</button>
+            <button class="btn-action" size="mini" type="warn" plain="true" bindtap="handleDelete">{{t.delete}}</button>
+        </view>
+    </view>
+
+    <image wx:if="{{news.image}}" src="{{news.image}}" mode="widthFix" class="cover"></image>
+    <view class="content">
+      <text>{{news.content}}</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="error">{{t.not_found}}</view>
+  </block>
+
+  <view style="height: 150rpx;"></view>
+  <quick-nav />
+</view>

@@ -1,0 +1,18 @@
+.container {
+  background: #fff;
+  min-height: 100vh;
+}
+.content {
+  padding: 30rpx;
+  line-height: 1.6;
+  color: #333;
+  font-size: 28rpx;
+}
+.title {
+  font-size: 34rpx;
+  font-weight: 600;
+  margin-bottom: 20rpx;
+}
+.paragraph {
+  margin-bottom: 20rpx;
+}

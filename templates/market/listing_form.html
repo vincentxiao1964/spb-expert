@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load i18n crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">{% if object %}{% trans "Update Listing" %}{% else %}{% trans "Create Listing" %}{% endif %}</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form.listing_type|as_crispy_field }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.ship_category|as_crispy_field }}
+                        </div>
+                    </div>
+                    
+                    <h5 class="mt-3">{% trans "Dimensions" %}</h5>
+                    <div class="row">
+                        <div class="col-md-4">{{ form.length|as_crispy_field }}</div>
+                        <div class="col-md-4">{{ form.width|as_crispy_field }}</div>
+                        <div class="col-md-4">{{ form.depth|as_crispy_field }}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">{{ form.dwt|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ form.build_year|as_crispy_field }}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">{{ form.class_society|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ form.flag_state|as_crispy_field }}</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">{{ form.delivery_area|as_crispy_field }}</div>
+                        <div class="col-md-6">{{ form.start_time|as_crispy_field }}</div>
+                    </div>
+
+                    {{ form.contact_info|as_crispy_field }}
+
+                    <h5 class="mt-4">{% trans "Images" %}</h5>
+                    <p class="text-muted small">{% trans "Please use schematic or placeholder images initially." %}</p>
+                    {{ images.management_form }}
+                    {% for form in images %}
+                        <div class="card mb-2 p-2 bg-light">
+                            {{ form|crispy }}
+                        </div>
+                    {% endfor %}
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">{% trans "Save Listing" %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

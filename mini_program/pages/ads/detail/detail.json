@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "广告详情",
+  "usingComponents": {
+    "quick-nav": "/components/quick-nav/quick-nav"
+  }
+}

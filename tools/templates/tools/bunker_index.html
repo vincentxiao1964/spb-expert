@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Daily Bunker Prices" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary"><i class="fas fa-gas-pump me-2"></i>{% trans "Daily Bunker Prices" %}</h2>
+        <div class="text-muted">
+            {% trans "Updated" %}: <span class="fw-bold">{{ latest_date|date:"Y-m-d" }}</span>
+        </div>
+    </div>
+
+    <!-- Market Insights -->
+    <div class="alert alert-info shadow-sm mb-4">
+        <h5 class="alert-heading"><i class="fas fa-lightbulb me-2"></i>{% trans "Market Insights" %}</h5>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <strong>{% trans "Domestic Market (China)" %}</strong>
+                <ul class="mb-0 small">
+                    <li><strong>{% trans "Zhoushan" %}:</strong> {% trans "Benchmark price, usually the lowest in China." %}</li>
+                    <li><strong>{% trans "Shanghai" %}:</strong> {% trans "Slightly higher than Zhoushan, excellent service." %}</li>
+                    <li><strong>{% trans "Qingdao" %}:</strong> {% trans "Key for North/Northeast Asia." %}</li>
+                    <li><strong>{% trans "Guangzhou" %}:</strong> {% trans "Key for South/Southeast Asia routes." %}</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <strong>{% trans "Key Specifications" %}</strong>
+                <ul class="mb-0 small">
+                    <li><strong>{% trans "International" %}:</strong> VLSFO (0.5% S), LSMGO (0.1% S). Unit: <span class="badge bg-secondary">$/MT</span></li>
+                    <li><strong>{% trans "Domestic" %}:</strong> RME180 ({% trans "Low Sulfur High Heat" %}), 0# Diesel ({% trans "National VI" %}). Unit: <span class="badge bg-secondary">¥/Ton</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs mb-3" id="bunkerTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="domestic-tab" data-bs-toggle="tab" data-bs-target="#domestic" type="button" role="tab">{% trans "Domestic Ports (China)" %}</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="international-tab" data-bs-toggle="tab" data-bs-target="#international" type="button" role="tab">{% trans "International Ports" %}</button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="bunkerTabsContent">
+        <!-- Domestic Tab -->
+        <div class="tab-pane fade show active" id="domestic" role="tabpanel">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>{% trans "Port" %}</th>
+                                    <th>RME180 ({% trans "Low Sulfur" %})</th>
+                                    <th>0# Diesel ({% trans "National VI" %})</th>
+                                    <th>{% trans "Currency" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in domestic_list %}
+                                <tr>
+                                    <td class="fw-bold">{{ item.port }}</td>
+                                    <td>
+                                        {% if item.prices.RME180 %}
+                                            <span class="fw-bold">{{ item.prices.RME180.price }}</span>
+                                            {% if item.prices.RME180.change != 0 %}
+                                                <small class="{% if item.prices.RME180.change > 0 %}text-danger{% else %}text-success{% endif %} ms-1" style="font-size: 0.8em;">
+                                                    <i class="fas fa-caret-{% if item.prices.RME180.change > 0 %}up{% else %}down{% endif %}"></i> {{ item.prices.RME180.change }}
+                                                </small>
+                                            {% endif %}
+                                        {% else %}
+                                            <span class="text-muted">-</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if item.prices.DIESEL0 %}
+                                            <span class="fw-bold">{{ item.prices.DIESEL0.price }}</span>
+                                            {% if item.prices.DIESEL0.change != 0 %}
+                                                <small class="{% if item.prices.DIESEL0.change > 0 %}text-danger{% else %}text-success{% endif %} ms-1" style="font-size: 0.8em;">
+                                                    <i class="fas fa-caret-{% if item.prices.DIESEL0.change > 0 %}up{% else %}down{% endif %}"></i> {{ item.prices.DIESEL0.change }}
+                                                </small>
+                                            {% endif %}
+                                        {% else %}
+                                            <span class="text-muted">-</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border">¥/Ton</span>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr><td colspan="4" class="text-center py-3">{% trans "No data available" %}</td></tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- International Tab -->
+        <div class="tab-pane fade" id="international" role="tabpanel">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>{% trans "Port" %}</th>
+                                    <th>VLSFO (0.5%)</th>
+                                    <th>MGO (0.1%)</th>
+                                    <th>{% trans "Currency" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in international_list %}
+                                <tr>
+                                    <td class="fw-bold">{{ item.port }}</td>
+                                    <td>
+                                        {% if item.prices.VLSFO %}
+                                            <span class="fw-bold">{{ item.prices.VLSFO.price }}</span>
+                                            {% if item.prices.VLSFO.change != 0 %}
+                                                <small class="{% if item.prices.VLSFO.change > 0 %}text-danger{% else %}text-success{% endif %} ms-1" style="font-size: 0.8em;">
+                                                    <i class="fas fa-caret-{% if item.prices.VLSFO.change > 0 %}up{% else %}down{% endif %}"></i> {{ item.prices.VLSFO.change }}
+                                                </small>
+                                            {% endif %}
+                                        {% else %}
+                                            <span class="text-muted">-</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if item.prices.MGO %}
+                                            <span class="fw-bold">{{ item.prices.MGO.price }}</span>
+                                            {% if item.prices.MGO.change != 0 %}
+                                                <small class="{% if item.prices.MGO.change > 0 %}text-danger{% else %}text-success{% endif %} ms-1" style="font-size: 0.8em;">
+                                                    <i class="fas fa-caret-{% if item.prices.MGO.change > 0 %}up{% else %}down{% endif %}"></i> {{ item.prices.MGO.change }}
+                                                </small>
+                                            {% endif %}
+                                        {% else %}
+                                            <span class="text-muted">-</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-light text-dark border">$/MT</span>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr><td colspan="4" class="text-center py-3">{% trans "No data available" %}</td></tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-4 p-3 bg-light rounded">
+        <h6><i class="fas fa-link me-2"></i>{% trans "Quick References" %}</h6>
+        <p class="small text-muted mb-0">
+            {% trans "For urgent inquiries or official quotes, please refer to:" %} 
+            <a href="#" class="text-decoration-none">E-PORTS</a>, 
+            <a href="#" class="text-decoration-none">{% trans "JinLianChuang (JLC)" %}</a>.
+        </p>
+        <p class="small text-muted mt-1">
+            <i class="fas fa-info-circle me-1"></i> {% trans "Prices are for reference only. Actual bunkering prices may vary based on quantity, supplier, and delivery time. Delivery terms (FOB/CIF/Ex-Wharf) should be confirmed with suppliers." %}
+        </p>
+    </div>
+</div>
+{% endblock %}

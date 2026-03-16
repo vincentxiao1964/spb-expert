@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load i18n crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">{% trans "Password Login" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:sms_login' %}">{% trans "SMS Login" %}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {% if next %}
+                        <input type="hidden" name="next" value="{{ next }}">
+                    {% endif %}
+                    {{ form|crispy }}
+                    <div class="d-grid gap-2 mt-3">
+                        <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
+                    </div>
+                </form>
+                <div class="mt-3 text-center">
+                    <p>{% trans "Don't have an account?" %} <a href="{% url 'users:register' %}">{% trans "Register" %}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-8">
+        <h2>{% trans "Market News" %}</h2>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'market:news_create' %}" class="btn btn-primary">{% trans "Post News" %}</a>
+    </div>
+</div>
+
+<div class="row">
+    {% for news in news_list %}
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            {% if news.image %}
+                <img src="{{ news.image.url }}" class="card-img-top" alt="{{ news.title }}" style="height: 200px; object-fit: cover;">
+            {% endif %}
+            <div class="card-body">
+                {% get_current_language as LANGUAGE_CODE %}
+                <h5 class="card-title">
+                    {% if LANGUAGE_CODE == 'en' and news.title_en %}
+                        {{ news.title_en }}
+                    {% else %}
+                        {{ news.title }}
+                    {% endif %}
+                    {% if news.status != 'APPROVED' %}
+                        <span class="badge bg-warning text-dark">{% trans "Pending" %}</span>
+                    {% endif %}
+                </h5>
+                <p class="card-text text-truncate">
+                    {% if LANGUAGE_CODE == 'en' and news.content_en %}
+                        {{ news.content_en }}
+                    {% else %}
+                        {{ news.content }}
+                    {% endif %}
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">{{ news.created_at|date:"Y-m-d" }}</small>
+                    <div>
+                        <a href="{% url 'market:news_detail' news.pk %}" class="btn btn-sm btn-outline-primary">{% trans "Read More" %}</a>
+                        {% if user == news.user or user.is_superuser %}
+                            <a href="{% url 'market:news_update' news.pk %}" class="btn btn-sm btn-outline-warning">{% trans "Edit" %}</a>
+                            <a href="{% url 'market:news_delete' news.pk %}" class="btn btn-sm btn-outline-danger">{% trans "Delete" %}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-info">
+            {% trans "No news available yet." %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% if is_paginated %}
+<nav aria-label="Page navigation" class="mt-4">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a></li>
+        {% endif %}
+        <li class="page-item disabled"><a class="page-link" href="#">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</a></li>
+        {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans "Next" %}</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}

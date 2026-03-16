@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "船源列表",
+  "disableScroll": true,
+  "usingComponents": {
+    "quick-nav": "/components/quick-nav/quick-nav"
+  }
+}

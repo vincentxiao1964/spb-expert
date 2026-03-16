@@ -1,0 +1,82 @@
+<view class="container" style="padding-bottom: 300rpx;">
+  <view class="header">
+    <view class="name-row">
+      <text class="name">{{crew.name}}</text>
+      <text class="position">{{crew.position}}</text>
+    </view>
+    <text class="status">{{crew.status_display}} | {{crew.nationality_type_display}}</text>
+  </view>
+
+  <view class="info-section">
+    <view class="section-title">{{t.basic_info}}</view>
+    <view class="info-row">
+      <text class="label">{{t.gender}}</text>
+      <text class="value">{{crew.gender_display}}</text>
+    </view>
+    <view class="info-row">
+      <text class="label">{{t.nationality}}</text>
+      <text class="value">{{crew.nationality}}</text>
+    </view>
+    <view class="info-row">
+      <text class="label">{{t.residence}}</text>
+      <text class="value">{{crew.residence || t.login_to_view}}</text>
+    </view>
+    <view class="info-row">
+      <text class="label">{{t.cert_number}}</text>
+      <text class="value">{{crew.cert_number || t.login_to_view}}</text>
+    </view>
+  </view>
+
+  <view class="info-section">
+    <view class="section-title">{{t.exp_req}}</view>
+    <view class="info-row">
+      <text class="label">{{t.total_exp}}</text>
+      <text class="value">{{crew.total_sea_experience}} {{t.year}}</text>
+    </view>
+    <view class="info-row">
+      <text class="label">{{t.rank_exp}}</text>
+      <text class="value">{{crew.current_rank_experience}} {{t.year}}</text>
+    </view>
+    <view class="info-row">
+      <text class="label">{{t.expected_salary}}</text>
+      <text class="value">{{crew.expected_salary}}</text>
+    </view>
+  </view>
+
+  <view class="info-section">
+    <view class="section-title">{{t.resume}}</view>
+    <text class="resume-text">{{crew.resume}}</text>
+  </view>
+
+  <view class="info-section">
+    <view class="section-title">{{t.contact_info}}</view>
+    <block wx:if="{{crew.phone || crew.email}}">
+      <view class="info-row" wx:if="{{crew.phone}}" bindtap="makePhoneCall" data-phone="{{crew.phone}}">
+        <text class="label">{{t.phone}}</text>
+        <text class="value link">{{crew.phone}}</text>
+      </view>
+      <view class="info-row" wx:if="{{crew.email}}" bindtap="copyEmail" data-email="{{crew.email}}">
+        <text class="label">{{t.email}}</text>
+        <text class="value link">{{crew.email}}</text>
+      </view>
+    </block>
+    <view class="login-mask" wx:else bindtap="contactCrew">
+       <text>{{t.login_to_view_contact}}</text>
+       <text class="login-link">{{t.login}}</text>
+    </view>
+  </view>
+
+  <view class="info-section action-section">
+    <button class="btn-action {{crew.is_following ? 'active' : ''}}" bindtap="toggleFollow" size="mini">
+      {{crew.is_following ? t.following : t.follow}}
+    </button>
+    <button class="btn-action {{crew.is_favorited ? 'active' : ''}}" bindtap="toggleFavorite" size="mini">
+      {{crew.is_favorited ? t.favorited : t.favorite}}
+    </button>
+    <button class="btn-action btn-primary" bindtap="contactCrew" size="mini">
+      {{t.contact_crew}}
+    </button>
+  </view>
+  
+  <quick-nav />
+</view>

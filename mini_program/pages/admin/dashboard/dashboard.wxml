@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="stats-grid">
+    <view class="stat-card" bindtap="goToUsers">
+      <view class="stat-value">{{stats.user_count}}</view>
+      <view class="stat-label">总用户数</view>
+    </view>
+    <view class="stat-card">
+      <view class="stat-value">{{stats.new_users_today}}</view>
+      <view class="stat-label">今日新增</view>
+    </view>
+    <view class="stat-card" bindtap="goToShips">
+      <view class="stat-value">{{stats.listing_count}}</view>
+      <view class="stat-label">总船盘</view>
+    </view>
+    <view class="stat-card highlight" bindtap="goToPendingListings">
+      <view class="stat-value">{{stats.listing_pending}}</view>
+      <view class="stat-label">待审核</view>
+    </view>
+  </view>
+
+  <view class="menu-list">
+    <view class="menu-item" bindtap="goToUsers">
+      <text class="menu-text">👤 用户管理</text>
+      <text class="arrow">></text>
+    </view>
+    <view class="menu-item" bindtap="goToPendingListings">
+      <text class="menu-text">🚢 待审核船盘</text>
+      <text class="arrow">></text>
+    </view>
+  </view>
+</view>

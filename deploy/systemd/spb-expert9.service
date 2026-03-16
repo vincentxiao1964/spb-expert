@@ -1,0 +1,29 @@
+[Unit]
+Description=spb-expert9 gunicorn (unix socket)
+After=network.target
+
+[Service]
+Type=simple
+User=spbexpert
+Group=spbexpert
+UMask=0007
+WorkingDirectory=/srv/spb-expert9
+EnvironmentFile=/srv/spb-expert9/.env
+Environment=DJANGO_SETTINGS_MODULE=spb_expert.settings
+
+RuntimeDirectory=spb-expert9
+RuntimeDirectoryMode=0755
+
+ExecStart=/srv/spb-expert9/venv/bin/python3 -m gunicorn spb_expert.wsgi:application --bind unix:/run/spb-expert9/spb-expert9.sock --workers 2 --threads 2 --timeout 60 --access-logfile - --error-logfile - --umask 007 --group spbexpert
+
+Restart=always
+RestartSec=3
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
+

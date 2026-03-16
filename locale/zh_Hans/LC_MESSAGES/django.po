@@ -1,0 +1,1780 @@
+msgid ""
+
+msgstr ""
+
+"Project-Id-Version: PACKAGE VERSION\n"
+
+"Report-Msgid-Bugs-To: \n"
+
+"POT-Creation-Date: 2026-01-28 20:40+0800\n"
+
+"PO-Revision-Date: 2026-01-28 20:40+0800\n"
+
+"Last-Translator: \n"
+
+"Language-Team: \n"
+
+"Language: zh_Hans\n"
+
+"MIME-Version: 1.0\n"
+
+"Content-Type: text/plain; charset=UTF-8\n"
+
+"Content-Transfer-Encoding: 8bit\n"
+
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+
+
+#: templates/base.html
+
+msgid "Buy/Sell Ships"
+
+msgstr "船舶买卖"
+
+
+
+#: templates/base.html
+
+msgid "Charter Ships"
+
+msgstr "船舶租赁"
+
+
+
+#: templates/base.html
+
+msgid "Member Messages"
+
+msgstr "会员留言"
+
+
+
+#: templates/base.html
+
+msgid "Market News"
+
+msgstr "市场资讯"
+
+
+
+#: templates/base.html
+
+msgid "Welcome"
+
+msgstr "欢迎"
+
+
+
+#: templates/base.html
+
+msgid "Profile"
+
+msgstr "个人中心"
+
+
+
+#: templates/base.html
+
+msgid "Logout"
+
+msgstr "退出登录"
+
+
+
+#: templates/base.html
+
+msgid "Login"
+
+msgstr "登录"
+
+
+
+#: templates/base.html
+
+msgid "Register"
+
+msgstr "注册"
+
+
+
+#: templates/base.html
+
+msgid "Contact Us"
+
+msgstr "联系我们"
+
+
+
+#: templates/base.html
+
+msgid "Admin Phone"
+
+msgstr "管理员电话"
+
+
+
+#: templates/base.html
+
+msgid "Admin Email"
+
+msgstr "管理员邮箱"
+
+
+
+#: templates/base.html
+
+msgid "Website Rules"
+
+msgstr "网站规则"
+
+
+
+#: templates/base.html
+
+msgid "ANY QUESTIONS TO ADMINISTRATOR?"
+
+msgstr "联系管理员"
+
+
+
+#: templates/base.html
+
+msgid "Your Name"
+
+msgstr "您的姓名"
+
+
+
+#: templates/base.html
+
+msgid "Company Name"
+
+msgstr "公司名称"
+
+
+
+#: templates/base.html
+
+msgid "Phone Number"
+
+msgstr "电话号码"
+
+
+
+#: templates/base.html
+
+msgid "Leave your details, and we'll contact you"
+
+msgstr "留下您的详细信息，我们将联系您"
+
+
+
+#: templates/base.html
+
+msgid "SUBMIT"
+
+msgstr "提交"
+
+
+
+#: templates/core/home.html
+
+msgid "Sell Ship"
+
+msgstr "出售船舶"
+
+
+
+#: templates/core/home.html
+
+msgid "Buy Ship"
+
+msgstr "购买船舶"
+
+
+
+#: templates/core/home.html
+
+msgid "Charter Offer"
+
+msgstr "出租船舶"
+
+
+
+#: templates/core/home.html
+
+msgid "Charter Request"
+
+msgstr "求租船舶"
+
+
+
+#: templates/core/home.html
+
+msgid "Member Message"
+
+msgstr "会员留言"
+
+
+
+#: templates/core/home.html
+
+msgid "Search"
+
+msgstr "搜索"
+
+
+
+#: templates/core/home.html
+
+msgid "Search..."
+
+msgstr "搜索..."
+
+
+
+#: templates/core/home.html
+
+msgid "This website is deeply rooted in the charter and sales sector of self-propelled and non-self-propelled barges..."
+
+msgstr "本网站深耕于自航及非自航甲板驳船的租赁买卖板块..."
+
+
+
+#: templates/core/home.html
+
+msgid "Browse Listings"
+
+msgstr "浏览列表"
+
+
+
+#: templates/core/home.html
+
+msgid "Ad"
+
+msgstr "广告"
+
+
+
+#: templates/core/home.html
+
+msgid "POSTING"
+
+msgstr "发布信息"
+
+
+
+#: users/models.py
+
+msgid "Level 1 Member"
+
+msgstr "一级会员"
+
+
+
+#: users/models.py
+
+msgid "Level 2 Member"
+
+msgstr "二级会员"
+
+
+
+#: users/models.py
+
+msgid "Membership Level"
+
+msgstr "会员等级"
+
+
+
+#: users/models.py
+
+msgid "Approved Posts Count"
+
+msgstr "发帖数量"
+
+
+
+#: market/models.py
+
+msgid "Listing Type"
+
+msgstr "发布类型"
+
+
+
+#: market/models.py
+
+msgid "Charter Offer (Owner)"
+
+msgstr "出租 (船东)"
+
+
+
+#: market/models.py
+
+msgid "Charter Request (Renter)"
+
+msgstr "求租 (租家)"
+
+
+
+#: market/models.py
+
+msgid "Ship Category"
+
+msgstr "船舶分类"
+
+
+
+#: market/models.py
+
+msgid "Self-Propelled Deck Barge"
+
+msgstr "自航甲板驳"
+
+
+
+#: market/models.py
+
+msgid "Non-Self-Propelled Deck Barge"
+
+msgstr "非自航甲板驳"
+
+
+
+#: market/models.py
+
+msgid "Tugboat"
+
+msgstr "拖轮"
+
+
+
+#: market/models.py
+
+msgid "Engineering Ship"
+
+msgstr "工程船"
+
+
+
+#: market/models.py
+
+msgid "Multi-Purpose Ship"
+
+msgstr "多用途船"
+
+
+
+#: market/models.py
+
+msgid "Sand Carrier"
+
+msgstr "运沙船"
+
+
+
+#: market/models.py
+
+msgid "Other"
+
+msgstr "其他"
+
+
+
+#: market/models.py
+
+msgid "Deadweight Tonnage (DWT)"
+
+msgstr "载重吨 (DWT)"
+
+
+
+#: market/models.py
+
+msgid "Year of Build"
+
+msgstr "建造年份"
+
+
+
+#: market/models.py
+
+msgid "Classification Society"
+
+msgstr "船级社"
+
+
+
+#: market/models.py
+
+msgid "Flag State"
+
+msgstr "船旗国"
+
+
+
+#: market/models.py
+
+msgid "Price / Rate"
+
+msgstr "价格 / 费率"
+
+
+
+#: market/models.py
+
+msgid "Description"
+
+msgstr "描述"
+
+
+
+#: market/models.py
+
+msgid "Contact Info"
+
+msgstr "联系方式"
+
+
+
+#: market/models.py
+
+msgid "Status"
+
+msgstr "状态"
+
+
+
+#: market/models.py
+
+msgid "Pending Approval"
+
+msgstr "待审核"
+
+
+
+#: market/models.py
+
+msgid "Approved"
+
+msgstr "已通过"
+
+
+
+#: market/models.py
+
+msgid "Rejected"
+
+msgstr "已拒绝"
+
+
+
+#: market/models.py
+
+msgid "Created At"
+
+msgstr "创建时间"
+
+
+
+#: market/models.py
+
+msgid "Updated At"
+
+msgstr "更新时间"
+
+
+
+#: market/models.py
+
+msgid "Image"
+
+msgstr "图片"
+
+
+
+#: market/models.py
+
+msgid "Is Main Image"
+
+msgstr "是否主图"
+
+
+
+#: market/models.py
+
+msgid "Title"
+
+msgstr "标题"
+
+
+
+#: market/models.py
+
+msgid "Content"
+
+msgstr "内容"
+
+
+
+#: core/views.py
+
+msgid "Message sent to administrator."
+
+msgstr "消息已发送给管理员。"
+
+
+
+#: core/views.py
+
+msgid "Please login to leave a message."
+
+msgstr "请登录后留言。"
+
+
+
+#: core/views.py
+
+msgid "Message posted successfully."
+
+msgstr "留言发布成功。"
+
+
+
+#: templates/market/listing_confirm_delete.html
+
+msgid "Confirm Delete"
+
+msgstr "确认删除"
+
+
+
+#: templates/market/listing_confirm_delete.html
+
+msgid "Are you sure you want to delete this listing?"
+
+msgstr "您确定要删除此条信息吗？"
+
+
+
+#: templates/market/listing_confirm_delete.html
+
+msgid "Cancel"
+
+msgstr "取消"
+
+
+
+#: templates/market/news_list.html
+
+msgid "Post News"
+
+msgstr "发布资讯"
+
+
+
+#: templates/market/news_list.html
+
+msgid "No Image"
+
+msgstr "无图片"
+
+
+
+#: templates/market/news_list.html
+
+msgid "Read More"
+
+msgstr "阅读更多"
+
+
+
+#: templates/market/news_list.html
+
+msgid "No news available yet."
+
+msgstr "暂无资讯。"
+
+
+
+#: templates/market/news_list.html
+
+msgid "Previous"
+
+msgstr "上一页"
+
+
+
+#: templates/market/news_list.html
+
+msgid "Next"
+
+msgstr "下一页"
+
+
+
+#: templates/market/news_form.html
+
+msgid "Edit News"
+
+msgstr "编辑资讯"
+
+
+
+#: templates/market/news_form.html
+
+msgid "Save"
+
+msgstr "保存"
+
+
+
+#: templates/market/news_detail.html
+
+msgid "Posted by"
+
+msgstr "发布者"
+
+
+
+#: templates/market/news_detail.html
+
+msgid "Edit"
+
+msgstr "编辑"
+
+
+
+#: templates/market/news_detail.html
+
+msgid "Delete"
+
+msgstr "删除"
+
+
+
+#: templates/market/news_confirm_delete.html
+
+msgid "Are you sure you want to delete this news?"
+
+msgstr "您确定要删除此条资讯吗？"
+
+
+
+#: templates/core/member_message_list.html
+
+msgid "Post Message"
+
+msgstr "发布留言"
+
+
+
+#: templates/core/member_message_list.html
+
+msgid "Leave a Message"
+
+msgstr "留言内容"
+
+
+
+#: templates/core/member_message_list.html
+
+msgid "Please"
+
+msgstr "请"
+
+
+
+#: templates/core/member_message_list.html
+
+msgid "login"
+
+msgstr "登录"
+
+
+
+#: templates/core/member_message_list.html
+
+msgid "to leave a message."
+
+msgstr "以进行留言。"
+
+
+
+#: templates/core/member_message_list.html
+
+msgid "No messages yet."
+
+msgstr "暂无留言。"
+
+
+
+#: market/admin.py
+
+msgid "Approve selected listings"
+
+msgstr "批准选中的列表"
+
+
+
+#: market/admin.py
+
+msgid "Approve selected news"
+
+msgstr "批准选中的新闻"
+
+
+
+# New additions from listing_list.html
+
+msgid "Ship Listings"
+
+msgstr "船源列表"
+
+
+
+msgid "Post New Listing"
+
+msgstr "发布新船源"
+
+
+
+msgid "All Types"
+
+msgstr "所有类型"
+
+
+
+msgid "All Categories"
+
+msgstr "所有分类"
+
+
+
+msgid "Self-propelled"
+
+msgstr "自航"
+
+
+
+msgid "Non-self-propelled"
+
+msgstr "非自航"
+
+
+
+msgid "Search by class, flag, etc..."
+
+msgstr "搜索船级、船旗等..."
+
+
+
+msgid "Filter"
+
+msgstr "筛选"
+
+
+
+msgid "Type"
+
+msgstr "类型"
+
+
+
+msgid "Category"
+
+msgstr "分类"
+
+
+
+msgid "DWT"
+
+msgstr "载重吨"
+
+
+
+msgid "Build Year"
+
+msgstr "建造年份"
+
+
+
+msgid "Class"
+
+msgstr "船级"
+
+
+
+msgid "Area"
+
+msgstr "地区"
+
+
+
+msgid "Date"
+
+msgstr "日期"
+
+
+
+msgid "Actions"
+
+msgstr "操作"
+
+
+
+msgid "View"
+
+msgstr "查看"
+
+
+
+msgid "No listings found."
+
+msgstr "未找到相关船源。"
+
+
+
+msgid "Delivery Area"
+
+msgstr "交船地点"
+
+
+
+msgid "Start Time"
+
+msgstr "起租时间"
+
+
+
+msgid "Admin Notes"
+
+msgstr "管理员备注"
+
+
+
+msgid "Length (m)"
+
+msgstr "长(m)"
+
+
+
+msgid "Width (m)"
+
+msgstr "宽(m)"
+
+
+
+msgid "Depth (m)"
+
+msgstr "深(m)"
+
+
+
+# New additions from listing_detail.html
+
+msgid "Schematic / Placeholder Image"
+
+msgstr "示意图 / 占位图"
+
+
+
+msgid "Details"
+
+msgstr "详细信息"
+
+
+
+msgid "Dimensions (LxWxD)"
+
+msgstr "尺寸 (长x宽x深)"
+
+
+
+msgid "Class Society"
+
+msgstr "船级社"
+
+
+
+msgid "Contact Information"
+
+msgstr "联系方式"
+
+
+
+msgid "Please login to view contact details."
+
+msgstr "请登录查看联系方式。"
+
+
+
+msgid "Edit Listing"
+
+msgstr "编辑船源"
+
+
+
+msgid "Delete Listing"
+
+msgstr "删除船源"
+
+
+
+# New additions from listing_form.html
+
+msgid "Update Listing"
+
+msgstr "更新船源"
+
+
+
+msgid "Create Listing"
+
+msgstr "创建船源"
+
+
+
+msgid "Dimensions"
+
+msgstr "尺寸"
+
+
+
+msgid "Images"
+
+msgstr "图片"
+
+
+
+msgid "Please use schematic or placeholder images initially."
+
+msgstr "请先使用示意图或占位图。"
+
+
+
+msgid "Save Listing"
+
+msgstr "保存船源"
+
+
+
+#: templates/users/login.html
+
+msgid "Don't have an account?"
+
+msgstr "还没有账号？"
+
+
+
+#: templates/users/register.html
+
+msgid "Already have an account?"
+
+msgstr "已有账号？"
+
+
+
+#: users/forms.py
+
+msgid "SMS Verification Code"
+
+msgstr "短信验证码"
+
+
+
+#: users/forms.py
+
+msgid "Enter '123456' for testing."
+
+msgstr "测试请输入 '123456'。"
+
+
+
+#: users/forms.py
+
+msgid "Invalid verification code. Use '123456' for testing."
+
+msgstr "验证码无效。测试请使用 '123456'。"
+
+
+
+msgid "Get Code"
+
+msgstr "获取验证码"
+
+
+
+msgid "Please enter your phone number first."
+
+msgstr "请先输入手机号码。"
+
+
+
+msgid "Verification code sent: 123456"
+
+msgstr "验证码已发送：123456"
+
+
+
+# Ads
+
+msgid "Advertisements"
+
+msgstr "广告"
+
+
+
+msgid "Post Ad"
+
+msgstr "发布广告"
+
+
+
+msgid "Post Advertisement"
+
+msgstr "发布广告"
+
+
+
+msgid "Visit Link"
+
+msgstr "访问链接"
+
+
+
+msgid "No advertisements available yet."
+
+msgstr "暂无广告。"
+
+
+
+msgid "The oldest ad was deactivated to make space for your new ad."
+
+msgstr "为了给您的新广告腾出空间，最旧的广告已被停用。"
+
+
+
+msgid "Ad posted successfully."
+
+msgstr "广告发布成功。"
+
+
+
+
+
+# Crew App
+
+msgid "Crew Services"
+
+msgstr "服务船员"
+
+
+
+msgid "Crew Listing"
+
+msgstr "船员信息"
+
+
+
+msgid "Crew Listings"
+
+msgstr "船员信息列表"
+
+
+
+msgid "Gender"
+
+msgstr "性别"
+
+
+
+msgid "Male"
+
+msgstr "男"
+
+
+
+msgid "Female"
+
+msgstr "女"
+
+
+
+msgid "Crew Type"
+
+msgstr "船员类型"
+
+
+
+msgid "Chinese Crew"
+
+msgstr "中国船员"
+
+
+
+msgid "Foreign Crew"
+
+msgstr "外国船员"
+
+
+
+msgid "Nationality"
+
+msgstr "国籍"
+
+
+
+msgid "Residence Address"
+
+msgstr "住址"
+
+
+
+msgid "Rank/Position"
+
+msgstr "职务"
+
+
+
+msgid "Total Sea Experience (Years)"
+
+msgstr "总海龄 (年)"
+
+
+
+msgid "Experience in Current Rank (Years)"
+
+msgstr "当前职务海龄 (年)"
+
+
+
+msgid "Seaman's Book / Certificate No."
+
+msgstr "海员证号"
+
+
+
+msgid "Phone Number"
+
+msgstr "电话号码"
+
+
+
+msgid "Email Address"
+
+msgstr "电子邮箱"
+
+
+
+msgid "Expected Salary"
+
+msgstr "期望工资"
+
+
+
+msgid "Resume"
+
+msgstr "船员简历"
+
+
+
+msgid "Describe past ships, ranks, shipping companies, manning agencies, etc."
+
+msgstr "描述过往服务过的船舶、职务、船公司、船员公司等经历。"
+
+
+
+msgid "Available"
+
+msgstr "待聘"
+
+
+
+msgid "Hired"
+
+msgstr "已聘"
+
+
+
+msgid "Join as Crew"
+
+msgstr "注册船员"
+
+
+
+msgid "My Profile"
+
+msgstr "我的简历"
+
+
+
+msgid "Login to Join"
+
+msgstr "登录后注册"
+
+
+
+msgid "Search by name, position, nationality..."
+
+msgstr "搜索姓名、职务、国籍..."
+
+
+
+msgid "Exp"
+
+msgstr "海龄"
+
+
+
+msgid "Years"
+
+msgstr "年"
+
+
+
+msgid "View Details"
+
+msgstr "查看详情"
+
+
+
+msgid "Contact the crew directly for hiring."
+
+msgstr "直接联系船员进行招聘。"
+
+
+
+msgid "Edit Crew Profile"
+
+msgstr "编辑船员简历"
+
+
+
+msgid "Create Crew Profile"
+
+msgstr "创建船员简历"
+
+
+
+msgid "Save Profile"
+
+msgstr "保存简历"
+
+
+
+msgid "Are you a Chinese or Foreign Crew?"
+
+msgstr "您是中国船员还是外国船员？"
+
+
+
+msgid "User"
+
+msgstr "用户"
+
+
+
+msgid "Residence"
+
+msgstr "住址"
+
+
+
+msgid "Total Experience"
+
+msgstr "总海龄"
+
+
+
+msgid "Rank Experience"
+
+msgstr "当前职务海龄"
+
+
+
+msgid "Last Updated"
+
+msgstr "最后更新"
+
+
+
+msgid "Resume / Experience"
+
+msgstr "简历 / 经历"
+
+
+
+msgid "Certificate No."
+
+msgstr "海员证号"
+
+
+
+msgid "Edit Profile"
+
+msgstr "编辑简历"
+
+
+
+msgid "Describe your experience..."
+
+msgstr "请描述您的经历..."
+
+
+
+msgid "You already have a crew profile. You can edit it here."
+
+msgstr "您已经创建了船员简历，可以在此编辑。"
+
+
+
+msgid "Crew profile created successfully."
+
+msgstr "船员简历创建成功。"
+
+
+
+msgid "Crew profile updated successfully."
+
+msgstr "船员简历更新成功。"
+
+
+
+msgid "No crew profiles found."
+
+msgstr "未找到船员信息。"
+
+
+
+msgid "e.g. China, Philippines, India"
+
+msgstr "例如：中国、菲律宾、印度"
+
+
+
+msgid "e.g. Captain, Chief Engineer, Able Seaman"
+
+msgstr "例如：船长、轮机长、水手"
+
+
+
+msgid "e.g. 5000 USD/Month"
+
+msgstr "例如：5000美元/月"
+
+
+
+
+
+
+
+# Voyage Estimator
+
+msgid "Voyage Profit Estimator"
+
+msgstr "航次效益测算"
+
+
+
+msgid "Voyage Estimator"
+
+msgstr "航次测算器"
+
+
+
+msgid "Currency"
+
+msgstr "货币"
+
+
+
+msgid "Route & Cargo"
+
+msgstr "航线与货物"
+
+
+
+msgid "Port Ops (Days & PDA)"
+
+msgstr "港口作业 (天数 & 港使费)"
+
+
+
+msgid "Load Days"
+
+msgstr "装货天数"
+
+
+
+msgid "Disch Days"
+
+msgstr "卸货天数"
+
+
+
+msgid "Load PDA"
+
+msgstr "装港费"
+
+
+
+msgid "Disch PDA"
+
+msgstr "卸港费"
+
+
+
+msgid "Financials"
+
+msgstr "财务指标"
+
+
+
+msgid "Consumables (Cons. & Price)"
+
+msgstr "消耗品 (油耗 & 价格)"
+
+
+
+msgid "Item"
+
+msgstr "项目"
+
+
+
+msgid "Cons/Day"
+
+msgstr "日耗"
+
+
+
+msgid "Price/MT"
+
+msgstr "单价/吨"
+
+
+
+msgid "HFO (Main)"
+
+msgstr "重油 (主机)"
+
+
+
+msgid "MGO (Aux)"
+
+msgstr "轻油 (辅机)"
+
+
+
+msgid "Water"
+
+msgstr "淡水"
+
+
+
+msgid "Calculate"
+
+msgstr "开始计算"
+
+
+
+msgid "Reset"
+
+msgstr "重置"
+
+
+
+msgid "Results"
+
+msgstr "测算结果"
+
+
+
+msgid "Mode"
+
+msgstr "模式"
+
+
+
+msgid "Time Charter Equivalent"
+
+msgstr "等价期租水平"
+
+
+
+msgid "TCE (Daily)"
+
+msgstr "TCE (日租金)"
+
+
+
+msgid "Total Profit"
+
+msgstr "总利润"
+
+
+
+msgid "Freight Rate"
+
+msgstr "运价"
+
+
+
+msgid "Time Analysis"
+
+msgstr "时间分析"
+
+
+
+msgid "One-Way Sailing"
+
+msgstr "单程航行"
+
+
+
+msgid "Port Time"
+
+msgstr "在港时间"
+
+
+
+msgid "days"
+
+msgstr "天"
+
+
+
+msgid "Total Days"
+
+msgstr "总天数"
+
+
+
+msgid "Gross Income"
+
+msgstr "总收入"
+
+
+
+msgid "Total Fuel Cost"
+
+msgstr "燃油总成本"
+
+
+
+msgid "Total PDA"
+
+msgstr "港使费总计"
+
+
+
+msgid "Commission"
+
+msgstr "佣金"
+
+
+
+msgid "Fuel & Water Details"
+
+msgstr "油水详情"
+
+
+
+msgid "Type"
+
+msgstr "类型"
+
+
+
+msgid "Days"
+
+msgstr "天数"
+
+
+
+msgid "Cons. (MT)"
+
+msgstr "消耗量 (吨)"
+
+
+
+msgid "Price"
+
+msgstr "单价"
+
+
+
+msgid "Cost"
+
+msgstr "成本"
+
+
+
+msgid "(Sea)"
+
+msgstr "(航行)"
+
+
+
+msgid "(All)"
+
+msgstr "(合计)"
+
+
+
+msgid "Fresh Water"
+
+msgstr "淡水"
+
+
+
+msgid "Ready to Calculate"
+
+msgstr "准备计算"
+
+
+
+msgid "Fill in the parameters on the left and click Calculate to see detailed voyage estimation."
+
+msgstr "请在左侧填写参数，点击计算查看详细航次估算。"
+
+
+
+msgid "Search Port..."
+
+msgstr "搜索港口..."
+
+
+msgid "Contact"
+msgstr "联系"
+
+msgid "Contact Author"
+msgstr "联系发布者"
+
+msgid "Contact User"
+msgstr "联系用户"
+
+msgid "Forum"
+msgstr "论坛"
+
+msgid "Go to Admin Panel"
+msgstr "进入管理后台"
+
+msgid "My Ships"
+msgstr "我的船舶"
+
+msgid "My News"
+msgstr "我的资讯"
+
+msgid "My Ads"
+msgstr "我的广告"
+
+msgid "My Forum"
+msgstr "我的帖子"
+
+msgid "Favorites"
+msgstr "我的收藏"
+
+msgid "My Matches"
+msgstr "我的匹配"
+
+msgid "My Following"
+msgstr "我的关注"
+
+msgid "Followers"
+msgstr "我的粉丝"
+
+msgid "Contacted Me"
+msgstr "联系我的"
+
+msgid "Post New Ship"
+msgstr "发布船舶"
+
+msgid "View Match"
+msgstr "查看匹配"
+
+msgid "Since"
+msgstr "自"
+
+msgid "You are not following anyone yet."
+msgstr "您还没有关注任何人。"
+
+msgid "No followers yet."
+msgstr "暂无粉丝。"
+
+msgid "Message"
+msgstr "消息"
+
+msgid "Enter your message here..."
+msgstr "在此输入您的消息..."
+
+msgid "Send Message"
+msgstr "发送消息"
+
+msgid "Follow User"
+msgstr "关注用户"
+
+msgid "Unfollow"
+msgstr "取消关注"
+
+msgid "Favorite"
+msgstr "收藏"
+
+msgid "Unfavorite"
+msgstr "取消收藏"
+
+msgid "Tools"
+msgstr "工具"
+
+msgid "Port Distance Calculator"
+msgstr "港口距离计算器"
+
+msgid "Daily Bunker Prices"
+msgstr "每日燃油价格"
+
+msgid "Contract Templates"
+msgstr "合同模板"
+
+msgid "Forum Rules"
+msgstr "论坛守则"
+
+msgid "Topics should focus on Self-Propelled Barges (Shipbuilding, Design, Equipment, Classification Society, Maritime Regulations, etc.)."
+msgstr "话题专注甲板船领域（造船、设计、设备、船级社、海事法规等）。"
+
+msgid "Strictly prohibit posting content that violates laws/regulations, is politically sensitive, or prohibited."
+msgstr "严禁发布违反法律法规、政治敏感及违禁内容。"
+
+msgid "Please communicate civilly and jointly maintain a good environment."
+msgstr "请文明发言，共同维护良好环境。"
+
+msgid "Post Topic"
+msgstr "发布话题"
+
+msgid "Post"
+msgstr "发布"
+
+msgid "Forum"
+msgstr "论坛"
+
+msgid "Contact Author"
+msgstr "联系作者"
+
+msgid "Follow User"
+msgstr "关注用户"
+
+msgid "Replies"
+msgstr "回复"
+
+msgid "Reply"
+msgstr "回复"
+
+msgid "to post a topic."
+msgstr "以发布话题。"
+
+

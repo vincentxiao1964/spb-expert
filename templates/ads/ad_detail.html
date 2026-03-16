@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'ads:ad_list' %}">{% trans "Advertisements" %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ ad.title }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card shadow-sm border-0">
+            {% if ad.image %}
+                <div class="text-center bg-light rounded-top overflow-hidden" style="max-height: 500px;">
+                    <img src="{{ ad.image.url }}" class="img-fluid" alt="{{ ad.title }}" style="object-fit: contain; max-height: 500px; width: 100%;">
+                </div>
+            {% endif %}
+            
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <h1 class="card-title h2 mb-0">{{ ad.title }}</h1>
+                    <span class="badge bg-warning text-dark">{% trans "Advertisement" %}</span>
+                </div>
+
+                <div class="d-flex align-items-center text-muted mb-4 border-bottom pb-3">
+                    <i class="fas fa-user-circle fa-lg me-2"></i>
+                    <span class="me-3">
+                        {% if ad.user %}
+                            {{ ad.user.username }}
+                            {% if ad.user.company_name %}
+                                <span class="text-secondary small">({{ ad.user.company_name }})</span>
+                            {% endif %}
+                        {% else %}
+                            {% trans "System Administrator" %}
+                        {% endif %}
+                    </span>
+                    <i class="far fa-clock me-2"></i>
+                    <span>{{ ad.created_at|date:"Y-m-d" }}</span>
+
+                    {% if user == ad.user or user.is_superuser %}
+                        <div class="ms-auto">
+                            <a href="{% url 'ads:ad_update' ad.pk %}" class="btn btn-sm btn-outline-primary me-1">
+                                <i class="fas fa-edit"></i> {% trans "Edit" %}
+                            </a>
+                            <a href="{% url 'ads:ad_delete' ad.pk %}" class="btn btn-sm btn-outline-danger">
+                                <i class="fas fa-trash"></i> {% trans "Delete" %}
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Action Toolbar -->
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                    {% if ad.user and ad.user != request.user %}
+                        {% if user.is_authenticated %}
+                            <button class="btn btn-outline-primary btn-follow" 
+                                    data-user-id="{{ ad.user.id }}"
+                                    data-text-follow="{% trans 'Follow User' %}"
+                                    data-text-unfollow="{% trans 'Unfollow' %}">
+                                <i class="fas fa-user-plus"></i> {% trans "Follow User" %}
+                            </button>
+                            
+                            <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#contactUserModal" data-user-id="{{ ad.user.id }}" data-username="{{ ad.user.username }}">
+                                <i class="fas fa-envelope"></i> {% trans "Contact Author" %}
+                            </button>
+                        {% else %}
+                            <a href="{% url 'users:login' %}?next={{ request.path }}" class="btn btn-outline-primary">
+                                <i class="fas fa-user-plus"></i> {% trans "Follow User" %}
+                            </a>
+                            <a href="{% url 'users:login' %}?next={{ request.path }}" class="btn btn-outline-info">
+                                <i class="fas fa-envelope"></i> {% trans "Contact Author" %}
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                    
+                    {% if user.is_authenticated %}
+                        <button class="btn btn-outline-warning btn-favorite" 
+                                data-object-id="{{ ad.id }}" 
+                                data-content-type="advertisement"
+                                data-text-favorite="{% trans 'Favorite' %}"
+                                data-text-unfavorite="{% trans 'Unfavorite' %}">
+                            <i class="fas fa-star"></i> {% trans "Favorite" %}
+                        </button>
+                    {% else %}
+                        <a href="{% url 'users:login' %}?next={{ request.path }}" class="btn btn-outline-warning">
+                            <i class="fas fa-star"></i> {% trans "Favorite" %}
+                        </a>
+                    {% endif %}
+
+                    {% if ad.link %}
+                    <a href="{{ ad.link }}" target="_blank" class="btn btn-success ms-auto">
+                        <i class="fas fa-external-link-alt"></i> {% trans "Visit Website" %}
+                    </a>
+                    {% endif %}
+                    
+                    <button class="btn btn-outline-secondary {% if not ad.link %}ms-auto{% endif %}" onclick="copyToClipboard()">
+                        <i class="fas fa-share-alt"></i> {% trans "Share" %}
+                    </button>
+                </div>
+                
+                {% if ad.description %}
+                <div class="card-text">
+                    <h5 class="border-start border-4 border-primary ps-2 mb-3">{% trans "Description" %}</h5>
+                    <div class="text-secondary" style="white-space: pre-wrap; line-height: 1.6;">{{ ad.description }}</div>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+        {% if other_ads %}
+        <div class="mt-5">
+            <h4 class="mb-3 border-bottom pb-2">{% trans "More from this user" %}</h4>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                {% for other in other_ads %}
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <a href="{% url 'ads:ad_detail' other.pk %}" class="text-decoration-none">
+                            {% if other.image %}
+                            <div class="bg-light text-center rounded-top overflow-hidden" style="height: 150px;">
+                                <img src="{{ other.image.url }}" class="img-fluid" alt="{{ other.title }}" style="object-fit: cover; height: 100%; width: 100%;">
+                            </div>
+                            {% else %}
+                            <div class="bg-light text-center py-5 text-muted rounded-top" style="height: 150px;">
+                                <i class="fas fa-image fa-3x"></i>
+                            </div>
+                            {% endif %}
+                            <div class="card-body">
+                                <h6 class="card-title text-dark text-truncate mb-1">{{ other.title }}</h6>
+                                <small class="text-muted"><i class="far fa-clock me-1"></i>{{ other.created_at|date:"Y-m-d" }}</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/social-actions.js"></script>
+<script>
+    function copyToClipboard() {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+            // You can use a toast or just a simple alert
+            // Since we have bootstrap, maybe a tooltip or just alert is fine for now
+            alert('{% trans "Link copied to clipboard!" %}');
+        }, function(err) {
+            console.error('Async: Could not copy text: ', err);
+        });
+    }
+</script>
+{% endblock %}

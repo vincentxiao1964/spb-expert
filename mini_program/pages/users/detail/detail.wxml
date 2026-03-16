@@ -1,0 +1,37 @@
+<view class="container" wx:if="{{!loading && user}}">
+  <view class="profile-header">
+    <view class="avatar-container">
+      <image class="avatar" src="/assets/icons/default-avatar.png" mode="aspectFill"></image>
+    </view>
+    <view class="user-info">
+      <text class="username">{{user.username}}</text>
+      <text class="company" wx:if="{{user.company_name}}">{{user.company_name}}</text>
+      <text class="job" wx:if="{{user.job_title}}">{{user.job_title}}</text>
+    </view>
+  </view>
+
+  <view class="stats-row">
+    <view class="stat-item">
+      <text class="stat-num">{{user.followers_count}}</text>
+      <text class="stat-label">{{t['followers'] || 'Followers'}}</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-num">{{user.following_count}}</text>
+      <text class="stat-label">{{t['following'] || 'Following'}}</text>
+    </view>
+  </view>
+
+  <view class="action-buttons">
+    <button class="btn-action {{isFollowing ? 'btn-outline' : 'btn-primary'}}" bindtap="toggleFollow">
+      {{isFollowing ? (t['following_status'] || 'Following') : (t['follow'] || 'Follow')}}
+    </button>
+    <button class="btn-action btn-secondary" bindtap="navigateToChat">
+      {{t['message'] || 'Message'}}
+    </button>
+  </view>
+</view>
+
+<view class="loading-container" wx:if="{{loading}}">
+  <view class="loading-spinner"></view>
+</view>

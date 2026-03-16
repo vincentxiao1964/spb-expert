@@ -1,0 +1,99 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/listings/list/list",
+    "pages/news/list/list",
+    "pages/messages/list/list",
+    "pages/mine/mine",
+    "pages/mine/profile/profile",
+    "pages/mine/matches/matches",
+    "pages/mine/favorites/favorites",
+    "pages/mine/contacts/contacts",
+    "pages/mine/followers/followers",
+    "pages/mine/forum/forum",
+    "pages/mine/following/following",
+    "pages/listings/detail/detail",
+    "pages/ads/detail/detail",
+    "pages/news/detail/detail",
+    "pages/messages/add/add",
+    "pages/messages/detail/detail",
+    "pages/messages/chat/chat",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/admin/news/list/list",
+    "pages/admin/news/edit/edit",
+    "pages/admin/ships/list/list",
+    "pages/admin/ships/edit/edit",
+    "pages/admin/ads/list/list",
+    "pages/admin/ads/edit/edit",
+    "pages/admin/messages/list/list",
+    "pages/admin/messages/edit/edit",
+    "pages/admin/transactions/manager/manager",
+    "pages/admin/transactions/create/create",
+    "pages/transactions/list/list",
+    "pages/transactions/detail/detail",
+    "pages/crew/list/list",
+    "pages/crew/detail/detail",
+    "pages/crew/edit/edit",
+    "pages/company/edit/edit",
+    "pages/hymart/match/match",
+    "pages/admin/dashboard/dashboard",
+    "pages/admin/users/list/list",
+    "pages/admin/user_stats/user_stats",
+    "pages/orders/list/list",
+    "pages/orders/detail/detail",
+    "pages/inquiries/list/list",
+    "pages/legal/agreement/agreement",
+    "pages/legal/privacy/privacy",
+    "pages/inquiries/detail/detail",
+    "pages/reviews/add/add"
+  ],
+  "usingComponents": {
+    "quick-nav": "/components/quick-nav/quick-nav"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "甲板船家 | SPB EXPERT",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#007aff",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home_active.png"
+      },
+      {
+        "pagePath": "pages/listings/list/list",
+        "text": "租售",
+        "iconPath": "images/tabbar/ship.png",
+        "selectedIconPath": "images/tabbar/ship_active.png"
+      },
+      {
+        "pagePath": "pages/news/list/list",
+        "text": "资讯",
+        "iconPath": "images/tabbar/news.png",
+        "selectedIconPath": "images/tabbar/news_active.png"
+      },
+      {
+        "pagePath": "pages/messages/list/list",
+        "text": "论坛",
+        "iconPath": "images/tabbar/message.png",
+        "selectedIconPath": "images/tabbar/message_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tabbar/mine.png",
+        "selectedIconPath": "images/tabbar/mine_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

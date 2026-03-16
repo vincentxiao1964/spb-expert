@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="form-group">
+    <text class="label">标题 *</text>
+    <input class="input" placeholder="请输入标题" value="{{title}}" bindinput="handleInput" data-field="title" />
+  </view>
+
+  <view class="form-group">
+    <text class="label">链接</text>
+    <input class="input" placeholder="请输入跳转链接" value="{{link}}" bindinput="handleInput" data-field="link" />
+  </view>
+  
+  <view class="form-group">
+    <text class="label">描述</text>
+    <textarea class="textarea" placeholder="请输入描述" value="{{description}}" bindinput="handleInput" data-field="description" />
+  </view>
+
+  <view class="form-group">
+    <text class="label">状态</text>
+    <switch checked="{{is_active}}" bindchange="handleSwitch" />
+    <text class="status-text">{{is_active ? '激活' : '未激活'}}</text>
+  </view>
+
+  <view class="form-group">
+    <text class="label">图片</text>
+    <view class="image-uploader" bindtap="chooseImage" wx:if="{{!image}}">
+      <view class="placeholder">
+        <text class="plus">+</text>
+        <text class="tip">点击上传图片</text>
+      </view>
+    </view>
+    <view class="preview-box" wx:else>
+      <image src="{{image}}" mode="aspectFill" class="preview-image"></image>
+      <view class="btn-remove-image" catchtap="removeImage">删除图片</view>
+    </view>
+  </view>
+
+  <button class="btn-submit" type="primary" loading="{{submitting}}" bindtap="handleSubmit">提交</button>
+</view>

@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="rating-section">
+    <text class="label">评分</text>
+    <view class="stars">
+      <view 
+        wx:for="{{[1,2,3,4,5]}}" 
+        wx:key="*this" 
+        class="star {{item <= rating ? 'active' : ''}}"
+        bindtap="onRate"
+        data-score="{{item}}"
+      >★</view>
+    </view>
+  </view>
+  
+  <view class="comment-section">
+    <textarea 
+      placeholder="分享您的购买体验..." 
+      bindinput="onInput" 
+      value="{{comment}}"
+    ></textarea>
+  </view>
+  
+  <view class="btn-area">
+    <button type="primary" loading="{{loading}}" bindtap="submit">提交评价</button>
+  </view>
+</view>

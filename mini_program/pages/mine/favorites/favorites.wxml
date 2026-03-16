@@ -1,0 +1,112 @@
+<view class="container">
+  <scroll-view scroll-y="true" class="listings-scroll" bindscrolltolower="onReachBottom" refresher-enabled="{{true}}" refresher-triggered="{{isRefreshing}}" bindrefresherrefresh="onPullDownRefresh">
+    <block wx:if="{{listings.length > 0}}">
+      <view class="listing-item" wx:for="{{listings}}" wx:key="id" bindtap="goDetail" data-item="{{item}}">
+        
+        <!-- Ship Listing Layout -->
+        <block wx:if="{{item.type === 'shiplisting'}}">
+            <view class="listing-content">
+            <view class="listing-header">
+                <text class="listing-type tag {{item.detail.listing_type}}">{{item.detail.listing_type_display}}</text>
+                <text class="listing-date">{{item.created_at_formatted}}</text>
+            </view>
+            
+            <view class="listing-main">
+                <image wx:if="{{item.detail.images && item.detail.images.length > 0}}" src="{{item.detail.images[0].image}}" class="listing-thumb" mode="aspectFill"></image>
+                <view class="listing-info">
+                <text class="listing-title">{{item.detail.ship_category_display}} {{item.detail.dwt}}吨</text>
+                <view class="listing-specs">
+                    <text>建造: {{item.detail.build_year}}年</text>
+                    <text wx:if="{{item.detail.length}}"> | 长: {{item.detail.length}}m</text>
+                    <text wx:if="{{item.detail.depth}}"> | 深: {{item.detail.depth}}m</text>
+                </view>
+                <view class="listing-area" wx:if="{{item.detail.delivery_area}}">
+                    <text class="icon-location">📍</text> {{item.detail.delivery_area}}
+                </view>
+                </view>
+            </view>
+
+            <view class="listing-footer">
+                <text class="status-text {{item.detail.status}}">{{item.detail.status_display}}</text>
+                <button class="btn-detail" size="mini">查看详情</button>
+            </view>
+            </view>
+        </block>
+
+        <!-- Market News Layout -->
+        <block wx:elif="{{item.type === 'marketnews'}}">
+            <view class="listing-content">
+                <view class="listing-header">
+                    <text class="listing-type tag news">资讯</text>
+                    <text class="listing-date">{{item.created_at_formatted}}</text>
+                </view>
+                <view class="listing-main">
+                    <image wx:if="{{item.detail.image}}" src="{{item.detail.image}}" class="listing-thumb" mode="aspectFill"></image>
+                    <view class="listing-info">
+                        <text class="listing-title">{{item.detail.title}}</text>
+                        <view class="listing-specs">
+                            <text class="text-truncate">{{item.detail.content}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+        <!-- Advertisement Layout -->
+        <block wx:elif="{{item.type === 'advertisement'}}">
+             <view class="listing-content">
+                <view class="listing-header">
+                    <text class="listing-type tag ad">广告</text>
+                    <text class="listing-date">{{item.created_at_formatted}}</text>
+                </view>
+                <view class="listing-main">
+                    <image wx:if="{{item.detail.image}}" src="{{item.detail.image}}" class="listing-thumb" mode="aspectFill"></image>
+                    <view class="listing-info">
+                        <text class="listing-title">{{item.detail.title}}</text>
+                         <view class="listing-specs">
+                            <text class="text-truncate">{{item.detail.description}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+        <!-- Member Message (Forum) Layout -->
+        <block wx:elif="{{item.type === 'membermessage'}}">
+             <view class="listing-content">
+                <view class="listing-header">
+                    <text class="listing-type tag forum">论坛</text>
+                    <text class="listing-date">{{item.created_at_formatted}}</text>
+                </view>
+                <view class="listing-main">
+                    <view class="listing-info" style="margin-left: 0;">
+                        <text class="listing-title">{{item.detail.user_name}} 的话题</text>
+                        <view class="listing-specs">
+                            <text class="text-truncate">{{item.detail.content}}</text>
+                        </view>
+                         <view class="listing-area">
+                            <text>回复: {{item.detail.replies ? item.detail.replies.length : 0}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+
+      </view>
+      
+      <view class="loading-more" wx:if="{{isLoadingMore}}">
+        <text>加载中...</text>
+      </view>
+      <view class="no-more" wx:if="{{!hasMore && listings.length > 0}}">
+        <text>没有更多数据了</text>
+      </view>
+    </block>
+    
+    <block wx:else>
+      <view class="empty-state">
+        <text>暂无收藏信息</text>
+      </view>
+    </block>
+  </scroll-view>
+  <quick-nav />
+</view>

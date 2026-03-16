@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block meta_description %}
+{{ news.title }} - {{ news.content|default:news.content_en|truncatewords:20 }}
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/social-actions.js"></script>
+{% endblock %}
+
+{% block meta_keywords %}
+{{ news.title }}, market news, shipping news, {{ news.title_en }}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'market:news_list' %}">{% trans "Market News" %}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ news.title }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            {% if news.image %}
+                <img src="{{ news.image.url }}" class="card-img-top" alt="{{ news.title }}">
+            {% endif %}
+            <div class="card-body">
+                <h1 class="card-title">{{ news.title }}</h1>
+                <p class="text-muted mb-2">ID: {{ news.unique_id }}</p>
+                <p class="text-muted">
+                    {% trans "Posted by" %} {{ news.user.username }} | {{ news.created_at|date:"Y-m-d H:i" }}
+                    {% if user == news.user or user.is_superuser %}
+                        <a href="{% url 'market:news_update' news.pk %}" class="btn btn-sm btn-outline-secondary ms-2">{% trans "Edit" %}</a>
+                        <a href="{% url 'market:news_delete' news.pk %}" class="btn btn-sm btn-outline-danger">{% trans "Delete" %}</a>
+                    {% endif %}
+                </p>
+                
+                <div class="mb-3">
+                    {% if user.is_authenticated and news.user and news.user != user %}
+                        <button class="btn btn-outline-primary btn-sm btn-follow" 
+                                data-user-id="{{ news.user.id }}"
+                                data-text-follow="{% trans 'Follow User' %}"
+                                data-text-unfollow="{% trans 'Unfollow' %}">
+                            <i class="fas fa-user-plus"></i> {% trans "Follow User" %}
+                        </button>
+                        
+                        <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#contactUserModal" data-user-id="{{ news.user.id }}" data-username="{{ news.user.username }}">
+                            <i class="fas fa-envelope"></i> {% trans "Contact Author" %}
+                        </button>
+                    {% endif %}
+                    
+                    {% if user.is_authenticated %}
+                    <button class="btn btn-outline-warning btn-sm btn-favorite" 
+                            data-object-id="{{ news.id }}" 
+                            data-content-type="marketnews"
+                            data-text-favorite="{% trans 'Favorite' %}"
+                            data-text-unfavorite="{% trans 'Unfavorite' %}">
+                        <i class="fas fa-star"></i> {% trans "Favorite" %}
+                    </button>
+                    {% endif %}
+                </div>
+
+                <div class="card-text mt-4">
+                    {% if LANGUAGE_CODE == 'en' and news.content_en %}
+                        {{ news.content_en|linebreaks }}
+                    {% else %}
+                        {{ news.content|linebreaks }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

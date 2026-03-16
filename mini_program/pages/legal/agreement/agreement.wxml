@@ -1,0 +1,12 @@
+<view class="container">
+  <scroll-view scroll-y="true" style="height: 100vh;">
+    <view class="content">
+      <view class="title">{{t.user_agreement || '用户协议'}}</view>
+      <view class="paragraph">本服务遵守国家互联网相关法律法规，用户在使用本平台时应遵守法律、法规及平台规则。</view>
+      <view class="paragraph">禁止发布违法、政治敏感、涉黄涉暴、谣言等不当内容；平台保留对违规内容的处理权。</view>
+      <view class="paragraph">用户应保证提交信息真实、准确、合法；因信息不实导致的责任由用户自行承担。</view>
+      <view class="paragraph">平台可根据运营需要调整服务内容与规则，更新后将以公告或页面展示方式告知。</view>
+      <view class="paragraph">更多条款请以平台最新发布的正式文本为准。</view>
+    </view>
+  </scroll-view>
+</view>

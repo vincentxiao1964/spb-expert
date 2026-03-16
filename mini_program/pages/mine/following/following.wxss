@@ -1,0 +1,42 @@
+.container {
+    padding: 20rpx;
+    padding-bottom: 300rpx;
+}
+
+.loading, .empty {
+    text-align: center;
+    margin-top: 100rpx;
+    color: #999;
+}
+
+.following-item {
+    background: #fff;
+    padding: 20rpx;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2rpx 5rpx rgba(0,0,0,0.1);
+}
+
+.following-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+}
+
+.time {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+}

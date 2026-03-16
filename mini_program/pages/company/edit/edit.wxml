@@ -1,0 +1,50 @@
+<view class="container">
+  <form bindsubmit="onSubmit">
+    <view class="section-title">基本信息</view>
+    
+    <view class="form-group">
+      <view class="label">公司名称</view>
+      <input class="input" name="company_name" value="{{userInfo.company_name}}" placeholder="请输入公司名称" />
+    </view>
+
+    <view class="form-group">
+      <view class="label">联系人</view>
+      <input class="input" name="contact_person" value="{{userInfo.contact_person}}" placeholder="请输入联系人姓名" />
+    </view>
+
+    <view class="form-group">
+      <view class="label">联系电话</view>
+      <input class="input" name="contact_phone" value="{{userInfo.contact_phone}}" placeholder="请输入联系电话" />
+    </view>
+
+    <view class="form-group">
+      <view class="label">公司地址</view>
+      <input class="input" name="address" value="{{userInfo.address}}" placeholder="请输入公司地址" />
+    </view>
+
+    <view class="section-title">认证信息</view>
+
+    <view class="form-group">
+      <view class="label">营业执照号</view>
+      <input class="input" name="business_license_no" value="{{userInfo.business_license_no}}" placeholder="请输入营业执照号" />
+    </view>
+
+    <view class="form-group">
+      <view class="label">营业执照图片</view>
+      <view class="image-uploader" bindtap="chooseImage">
+        <image wx:if="{{userInfo.business_license_img}}" src="{{userInfo.business_license_img}}" mode="aspectFit" class="uploaded-img"></image>
+        <view wx:else class="placeholder">
+          <text class="plus">+</text>
+          <text>上传图片</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <view class="label">公司简介</view>
+      <textarea class="textarea" name="description" value="{{userInfo.description}}" placeholder="请输入公司简介" auto-height />
+    </view>
+
+    <button class="btn-submit" form-type="submit" loading="{{saving}}">提交认证</button>
+  </form>
+</view>

@@ -1,0 +1,55 @@
+<view class="container">
+  <view class="tabs">
+      <view class="tab {{activeTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">关注我的人</view>
+      <view class="tab {{activeTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">收藏我信息的人</view>
+  </view>
+
+  <block wx:if="{{loading}}">
+    <view class="loading">加载中...</view>
+  </block>
+  
+  <!-- Tab 0: User Followers -->
+  <block wx:elif="{{activeTab === 0}}">
+      <block wx:if="{{userFollowers.length > 0}}">
+        <block wx:for="{{userFollowers}}" wx:key="id">
+          <view class="follower-item">
+            <view class="follower-info">
+                <text class="username">{{item.follower_user_name}}</text>
+                <text class="action">关注了您</text>
+                <text class="time">{{item.created_at}}</text>
+            </view>
+            <view class="actions">
+                 <button size="mini" type="primary" bindtap="goChat" data-userid="{{item.follower}}" data-username="{{item.follower_user_name}}">联系对方</button>
+            </view>
+          </view>
+        </block>
+      </block>
+      <block wx:else>
+        <view class="empty">暂无关注者</view>
+      </block>
+  </block>
+
+  <!-- Tab 1: Listing Favorites -->
+  <block wx:elif="{{activeTab === 1}}">
+      <block wx:if="{{listingFavorites.length > 0}}">
+        <block wx:for="{{listingFavorites}}" wx:key="id">
+          <view class="follower-item">
+            <view class="follower-info">
+                <text class="username">{{item.username}}</text>
+                <text class="action">收藏了您的信息：</text>
+                <text class="listing-title">{{item.listing_title}}</text>
+                <text class="time">{{item.created_at}}</text>
+            </view>
+            <view class="actions">
+                 <button size="mini" type="primary" bindtap="goChat" data-userid="{{item.user_id}}" data-username="{{item.username}}">联系对方</button>
+            </view>
+          </view>
+        </block>
+      </block>
+      <block wx:else>
+        <view class="empty">暂无收藏信息</view>
+      </block>
+  </block>
+  
+  <quick-nav />
+</view>

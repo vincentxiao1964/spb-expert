@@ -1,0 +1,186 @@
+.container {
+  padding: 30rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #fff;
+  padding: 40rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  background-color: #e0e0e0;
+  color: #333;
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+
+.status-badge.INITIATED { background-color: #e3f2fd; color: #1976d2; }
+.status-badge.NEGOTIATION { background-color: #fff3e0; color: #f57c00; }
+.status-badge.COMPLETED { background-color: #e8f5e9; color: #388e3c; }
+
+.section {
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  border-left: 8rpx solid #007aff;
+  padding-left: 20rpx;
+}
+
+.listing-link {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.listing-title {
+    font-size: 32rpx;
+    color: #333;
+}
+
+.log-item {
+    padding: 15rpx 0;
+    border-bottom: 1rpx solid #eee;
+    font-size: 26rpx;
+    color: #666;
+}
+
+.log-date {
+    margin-right: 20rpx;
+    color: #999;
+}
+
+.doc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #eee;
+}
+
+.doc-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-name {
+    font-size: 28rpx;
+    color: #333;
+    margin-bottom: 8rpx;
+}
+
+.doc-date {
+    font-size: 22rpx;
+    color: #999;
+}
+
+.action-bar {
+    margin-bottom: 20rpx;
+    text-align: right;
+}
+
+/* New Action UI Styles */
+.feedback-alert {
+    padding: 20rpx;
+    background: #ffebee;
+    color: #c62828;
+    border-radius: 8rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+}
+.feedback-alert icon { margin-right: 15rpx; }
+
+.review-block {
+    background: #e3f2fd;
+    padding: 20rpx;
+    border-radius: 8rpx;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20rpx;
+}
+
+.btn-half {
+    width: 48%;
+    font-size: 28rpx;
+}
+
+.contract-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    padding: 40rpx;
+    border: 2rpx dashed #ddd;
+    border-radius: 10rpx;
+    margin-bottom: 30rpx;
+    color: #666;
+}
+
+.pdf-icon {
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 20rpx;
+}
+
+.sign-status {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30rpx;
+}
+
+.party-status {
+    width: 48%;
+    text-align: center;
+    padding: 20rpx;
+    background: #eee;
+    border-radius: 8rpx;
+    color: #999;
+    font-size: 26rpx;
+}
+
+.party-status.signed {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1rpx solid #c8e6c9;
+}
+
+.action-btn {
+    margin: 0 !important;
+    font-size: 28rpx;
+}
+
+.info-text {
+    color: #1976d2;
+    font-size: 28rpx;
+    padding: 10rpx 0;
+}
+
+.verified-badge {
+    color: green;
+    font-size: 24rpx;
+}
+.pending-badge {
+    color: orange;
+    font-size: 24rpx;
+}

@@ -1,0 +1,13 @@
+.container { padding: 10px; background: #f5f5f5; min-height: 100vh; }
+.info { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 10px; }
+.title { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+.status { color: #ff6600; font-size: 14px; margin-bottom: 10px; }
+.content { font-size: 14px; color: #333; margin-bottom: 10px; line-height: 1.5; }
+.meta { font-size: 12px; color: #999; display: flex; justify-content: space-between; }
+.quotes { background: #fff; padding: 15px; border-radius: 8px; }
+.quote-header { font-size: 16px; font-weight: bold; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.quote-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 10px; background: #f9f9f9; border-radius: 5px; }
+.quote-price { color: #e64340; font-weight: bold; font-size: 16px; }
+.quote-seller { font-size: 12px; color: #666; }
+.footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 10px; background: #fff; border-top: 1px solid #eee; }
+.btn-block { width: 100%; }

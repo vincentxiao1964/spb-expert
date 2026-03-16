@@ -1,0 +1,3858 @@
+[
+{
+  "model": "users.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$MnaSySYuxZ3T8KOxrbVDML$2L0X9C4i2BksN0TTjILlvEm2ziwx4TBWqPqAqEMipf0=",
+    "last_login": "2026-02-06T11:58:10.622Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@barge-expert.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-01-28T23:24:36.818Z",
+    "phone_number": "+86 180 1911 9595",
+    "membership_level": 1,
+    "approved_posts_count": 3,
+    "company_name": "人通传承船舶",
+    "openid": null,
+    "unionid": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$LAo7919ay2vrTLspxBGiN5$IjyEWQJgwC5xNI9wecnHYlfUNjSR8SoptBgYaow+bpI=",
+    "last_login": "2026-01-28T23:39:57.331Z",
+    "is_superuser": true,
+    "username": "vincent",
+    "first_name": "",
+    "last_name": "",
+    "email": "wencong_xiao@163.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-01-28T23:39:56.642Z",
+    "phone_number": "18019119595",
+    "membership_level": 1,
+    "approved_posts_count": 0,
+    "company_name": "RTCC Ship Management Company Ltd",
+    "openid": "oYAcn7UbYEq_KA5MYAO3gTqHQWV4",
+    "unionid": "oFddS2R-l7kmZ2FZBELpJbzqRfuw",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$2dsk1ug7uBybrOQ8jrCKT7$k+0/htoz6kQiwkeDjIbuiAnBj7SGn3mH4bDH0dJPu3k=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test_seller",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-02-03T09:47:28.489Z",
+    "phone_number": "",
+    "membership_level": 1,
+    "approved_posts_count": 0,
+    "company_name": "",
+    "openid": null,
+    "unionid": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$T1OYZfoUWzboiTL2nrmIYc$3jd9SFt2Idt0PyviP35hbIZeaLnQPs47wrqID5EO+90=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "test_buyer",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-02-03T09:47:47.150Z",
+    "phone_number": "13800000002",
+    "membership_level": 1,
+    "approved_posts_count": 0,
+    "company_name": "",
+    "openid": null,
+    "unionid": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$38Jo0cm15tdJRmt0szzGml$Ow0mBD0prpgzVz+vDz3g882pQ+1CSoFC+/JFM+IWR7Y=",
+    "last_login": "2026-02-06T11:54:18.037Z",
+    "is_superuser": false,
+    "username": "u13816138289",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-02-03T10:36:25.213Z",
+    "phone_number": "13816138289",
+    "membership_level": 1,
+    "approved_posts_count": 1,
+    "company_name": "",
+    "openid": null,
+    "unionid": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$QHwfJ56iEHoTGh3HT4wfIJ$V/o+AkKf/33VHJ38Xo/GHWLTn0a83JsmjUN9EXZzUbk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "u13916022678",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-02-03T13:26:26.714Z",
+    "phone_number": "13916022678",
+    "membership_level": 1,
+    "approved_posts_count": 0,
+    "company_name": "",
+    "openid": null,
+    "unionid": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.customuser",
+  "pk": 8,
+  "fields": {
+    "password": "!oBPPS8fyMdKMYKCWl77IO2nDOPBzUwgOFBudtb0l",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "13916138289",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-02-06T13:23:04.981Z",
+    "phone_number": "13916138289",
+    "membership_level": 1,
+    "approved_posts_count": 0,
+    "company_name": "",
+    "openid": null,
+    "unionid": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "users.userfollow",
+  "pk": 1,
+  "fields": {
+    "follower": 1,
+    "followed": 6,
+    "created_at": "2026-02-04T04:19:47.554Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 1,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:29:31.813Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 2,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:29:31.834Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 3,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/mine/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:29:31.813Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 4,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/listings/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:30:30.505Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 5,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/ads/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:30:30.503Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 6,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/news/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:30:30.508Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 7,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/auth/wechat/",
+    "method": "POST",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:34:44.231Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 8,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:34:45.989Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 9,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/mine/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:34:46.010Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 10,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:10.891Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 11,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/mine/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:10.906Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 12,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:13.327Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 13,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/listings/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:13.348Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 14,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:17.206Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 15,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/mine/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:17.209Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 16,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/news/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:20.577Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 17,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:25.361Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 18,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/mine/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:25.396Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 19,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/messages/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:29.345Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 20,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:32.519Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 21,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/mine/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:32.544Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 22,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/crew/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:35.618Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 23,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:38.910Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 24,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/mine/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:35:38.941Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 25,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/ads/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:42:51.187Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 26,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/listings/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:42:51.201Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 27,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/news/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:42:51.193Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 28,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/ads/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:43:24.801Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 29,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/listings/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:43:24.843Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 30,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/news/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:43:24.858Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 31,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/ads/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:43:31.794Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 32,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/listings/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:43:31.810Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 33,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/news/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:43:31.800Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 34,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:43:53.010Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 35,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/mine/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:43:53.020Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 36,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:43:53.054Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 37,
+  "fields": {
+    "user": null,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/auth/wechat/",
+    "method": "POST",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:43:59.751Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 38,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:44:01.408Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 39,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/mine/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:44:01.442Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 40,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/admin/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:44:05.116Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 41,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/user/info/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:44:39.561Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 42,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/mine/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:44:39.595Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 43,
+  "fields": {
+    "user": 2,
+    "ip_address": "192.168.3.69",
+    "path": "/api/v1/admin/stats/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/2.01.2510260 MicroMessenger/8.0.5 Language/zh_CN webview/ hash/365723177 sid/CrejM4Q7CF",
+    "created_at": "2026-02-09T00:44:42.856Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 44,
+  "fields": {
+    "user": 1,
+    "ip_address": "127.0.0.1",
+    "path": "/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+    "created_at": "2026-02-09T01:03:00.745Z"
+  }
+},
+{
+  "model": "users.visitorlog",
+  "pk": 45,
+  "fields": {
+    "user": 1,
+    "ip_address": "127.0.0.1",
+    "path": "/users/admin/dashboard/",
+    "method": "GET",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0",
+    "created_at": "2026-02-09T01:03:03.723Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 441,
+  "fields": {
+    "source_id": "SS102726",
+    "source": "eship",
+    "source_url": "https://m.eshiptrading.com/SS102726.html",
+    "ship_category": "Deck Barge",
+    "dwt": "4830T",
+    "build_year": 2021,
+    "width": "22 M",
+    "length": "99.28 M",
+    "depth": "5.4 M",
+    "full_description": "The vessel is under way.",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T11:48:00.012Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 442,
+  "fields": {
+    "source_id": "SS102725",
+    "source": "eship",
+    "source_url": "https://m.eshiptrading.com/SS102725.html",
+    "ship_category": "Deck Barge",
+    "dwt": "3664T",
+    "build_year": 2021,
+    "width": "18.8 M",
+    "length": "88.34 M",
+    "depth": "4.88 M",
+    "full_description": "The vessel is under way.",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T11:48:00.119Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 443,
+  "fields": {
+    "source_id": "SS102696",
+    "source": "eship",
+    "source_url": "https://m.eshiptrading.com/SS102696.html",
+    "ship_category": "Deck Barge",
+    "dwt": "5145T",
+    "build_year": 2026,
+    "width": "20.78 M",
+    "length": "105.72 M",
+    "depth": "5.65 M",
+    "full_description": "This vessel is a newly-built ship， scheduled to be launched before the end of the year and handed over after the New Year.",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T11:48:00.214Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 444,
+  "fields": {
+    "source_id": "SS102679",
+    "source": "eship",
+    "source_url": "https://m.eshiptrading.com/SS102679.html",
+    "ship_category": "Deck Barge",
+    "dwt": "3100T",
+    "build_year": 2017,
+    "width": "18 M",
+    "length": "82.7 M",
+    "depth": "4.5 M",
+    "full_description": "The vessel is under way.",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T11:48:00.306Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 445,
+  "fields": {
+    "source_id": "SS102643",
+    "source": "eship",
+    "source_url": "https://m.eshiptrading.com/SS102643.html",
+    "ship_category": "Deck Barge",
+    "dwt": "5000T",
+    "build_year": 2022,
+    "width": "20.78 M",
+    "length": "96.56 M",
+    "depth": "5.58 M",
+    "full_description": "The vessel is under way.",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T11:48:00.444Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 446,
+  "fields": {
+    "source_id": "SS99508",
+    "source": "eship",
+    "source_url": "https://m.eshiptrading.com/SS99508.html",
+    "ship_category": "Deck Barge",
+    "dwt": "2260T",
+    "build_year": 2010,
+    "width": "16 M",
+    "length": "88.9 M",
+    "depth": "4.3 M",
+    "full_description": "No Remarks",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T11:48:00.547Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 447,
+  "fields": {
+    "source_id": "19356",
+    "source": "horizon",
+    "source_url": "https://horizonship.com/ship/2-x-self-propelled-deck-barge-2015-2014-deck1600-1795-m2/",
+    "ship_category": "Self Propelled Barge",
+    "dwt": "5200",
+    "build_year": 2015,
+    "width": "72'",
+    "length": "289'",
+    "depth": "16'",
+    "full_description": "2 x Self-Propelled Deck Barge 2015 & 2014 - Deck:1600 /1795 m2\n\nPublished: 2026-01-11T20:22:54+00:00",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T12:17:22.169Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 448,
+  "fields": {
+    "source_id": "19148",
+    "source": "horizon",
+    "source_url": "https://horizonship.com/ship/116m-self-propelled-deck-barge-2023-china-dwt-10483/",
+    "ship_category": "Self Propelled Barge",
+    "dwt": "10483",
+    "build_year": 2023,
+    "width": "92'",
+    "length": "381'",
+    "depth": "20'",
+    "full_description": "116m Self Propelled Deck Barge 2023 China DWT 10483\n\nPublished: 2025-11-26T20:18:57+00:00",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T12:17:24.565Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 449,
+  "fields": {
+    "source_id": "19123",
+    "source": "horizon",
+    "source_url": "https://horizonship.com/ship/91m-self-propelled-batge-2018-china-dwt-4838/",
+    "ship_category": "Self Propelled Barge",
+    "dwt": "4838",
+    "build_year": 2018,
+    "width": "72'",
+    "length": "299'",
+    "depth": "13'",
+    "full_description": "91m Self Propelled Batge 2018 China DWT 4838\n\nPublished: 2025-11-24T20:38:57+00:00",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T12:17:27.059Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 450,
+  "fields": {
+    "source_id": "19119",
+    "source": "horizon",
+    "source_url": "https://horizonship.com/ship/106m-lct-deck-carrier-2021-for-sale-china-dwt-6060-mt/",
+    "ship_category": "Self Propelled Barge",
+    "dwt": "6060",
+    "build_year": 2021,
+    "width": "",
+    "length": "348'",
+    "depth": "",
+    "full_description": "\n\nPublished: 2025-11-24T16:49:11+00:00",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T12:17:29.514Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 451,
+  "fields": {
+    "source_id": "19030",
+    "source": "horizon",
+    "source_url": "https://horizonship.com/ship/142m-self-propelled-barge-2017-china-dwt-12708/",
+    "ship_category": "Self Propelled Barge",
+    "dwt": "12708",
+    "build_year": 2017,
+    "width": "105'",
+    "length": "466'",
+    "depth": "16'",
+    "full_description": "142m Self Propelled Barge 2017 China DWT 12708\n\nPublished: 2025-11-07T20:36:16+00:00",
+    "remark": "",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-05T12:17:31.876Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 452,
+  "fields": {
+    "source_id": "S76327",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljdcli",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "5700",
+    "build_year": 2018,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S76327\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljdcli\n\n--- Ship Specifications ---\nDWT: 5700\nYear: 2018\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:05.604Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 453,
+  "fields": {
+    "source_id": "S76666",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljjjji",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "2300",
+    "build_year": 2009,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S76666\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljjjji\n\n--- Ship Specifications ---\nDWT: 2300\nYear: 2009\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:05.965Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 454,
+  "fields": {
+    "source_id": "S76744",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljlffi",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "2600",
+    "build_year": 2018,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S76744\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljlffi\n\n--- Ship Specifications ---\nDWT: 2600\nYear: 2018\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:06.405Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 455,
+  "fields": {
+    "source_id": "S76937",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljedli",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "540",
+    "build_year": 2024,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S76937\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljedli\n\n--- Ship Specifications ---\nDWT: 540\nYear: 2024\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:06.782Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 456,
+  "fields": {
+    "source_id": "S78091",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbkeai",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "4400",
+    "build_year": 2012,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78091\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbkeai\n\n--- Ship Specifications ---\nDWT: 4400\nYear: 2012\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:07.349Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 457,
+  "fields": {
+    "source_id": "S78092",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbkeci",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "2000",
+    "build_year": 2002,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78092\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbkeci\n\n--- Ship Specifications ---\nDWT: 2000\nYear: 2002\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:07.872Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 458,
+  "fields": {
+    "source_id": "S78940",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbefki",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2020,
+    "width": "20.78",
+    "length": "99.28",
+    "depth": "5.8",
+    "full_description": "Original ID: S78940\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbefki\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2020\nStatus: 有效\nWidth: 20.78\nLength: 99.28\nDepth: 5.8",
+    "remark": "备　　注： 出售 2020年浙江造5000吨（后驾驶）甲板驳船 建造地：江苏 建造日期：2020年10月 船舶检验机构：ZC 航区：国内近海 船舶尺寸：总长99.28m/船宽20.78m/型深5.8m 满 载 吃 水：4.2m 参考载重吨：5011T 主机型号：宁波中策N6210ZC34/374kW / 2台 满载航速：11节 财富热线： 我司开具船舶交易专用发票",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:08.365Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 459,
+  "fields": {
+    "source_id": "S65411",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=jhfaai",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "102000",
+    "build_year": 2022,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S65411\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=jhfaai\n\n--- Ship Specifications ---\nDWT: 102000\nYear: 2022\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 出售2022年3月 10200吨前驾驶大件甲板驳船 江苏造 检验机构：ZC检验 总长：125.07m 船宽：28m 型深：7.2m 满载吃水：5.14m 参考载货量：10200吨 总吨/净吨：6831/3825 前驾驶台：大件 结构型式：双底双壳 航区：近海A1+A2 货舱数量：1个/甲板 主机：宁动6300/1471KW*两台， 在航船，可转户。无抵押 财富热线， 13960274280 15392234666，老钱 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款）等服务，我司高价回收各类船舶拆解并提供拆解报告（有拆解资质），船舶融资，欢迎来电咨询合作。",
+    "contact_info": "Mobile: 13960274280",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:08.963Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 460,
+  "fields": {
+    "source_id": "S78837",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbbdli",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "19257",
+    "build_year": 2023,
+    "width": "36",
+    "length": "150.30",
+    "depth": "9",
+    "full_description": "Original ID: S78837\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbbdli\n\n--- Ship Specifications ---\nDWT: 19257\nYear: 2023\nStatus: 有效\nWidth: 36\nLength: 150.30\nDepth: 9",
+    "remark": "备　　注： 出售 外贸甲板驳 19257吨  主机宁动双机 2023年造 总长150.30，船宽36, 80，满载吃水6.200，型深9米，参考载货19257",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:09.579Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 461,
+  "fields": {
+    "source_id": "S78119",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbaaei",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "8400",
+    "build_year": 2021,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S78119\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbaaei\n\n--- Ship Specifications ---\nDWT: 8400\nYear: 2021\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售2021年8400吨前驾驶甲板驳船 船舶检验机构：CCS 船舶类型：甲板驳船 建造时间：2021年 建造地点：浙江 总长：118.0m 船宽：23.80m 型深：7.00m 满载吃水：5.00m 参考载货吨：8400吨 主机：广柴6320 1324KW ×2台 航区：近海 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(提航速，降油耗，5年不长海蛎)，航运投资，欢迎来电咨询合作。",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/78119_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:10.192Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 462,
+  "fields": {
+    "source_id": "S76357",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljdhli",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "3500",
+    "build_year": 2010,
+    "width": "16.8",
+    "length": "90.6",
+    "depth": "4.6",
+    "full_description": "Original ID: S76357\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljdhli\n\n--- Ship Specifications ---\nDWT: 3500\nYear: 2010\nStatus: 有效\nWidth: 16.8\nLength: 90.6\nDepth: 4.6",
+    "remark": "备　　注： 出售10年国内ZC检验3500吨后驾驶甲板船 建造年月：2010年 建造地：中国 船级社：ZC 总长90.6m/船宽16.8m/型深4.6m 满载吃水：3.4m 空载吃水：2.9m 主机型号:潍柴Z8170ZLCZ-1 主机功率：300KW*2 航区：沿海 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/76357_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:10.808Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 463,
+  "fields": {
+    "source_id": "S75526",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lhhcji",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "16000",
+    "build_year": 2022,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S75526\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lhhcji\n\n--- Ship Specifications ---\nDWT: 16000\nYear: 2022\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售16000吨前驾驶驳船（带跳板） 建造日期：2022年 建造地点：江苏造 检验机构：ZC 总长：140.50米 船宽：36.00米 型深：8.20米 满载吃水：5.80米 航区：国内近海航区 主机：宁动8300/2500KW /2台 满载航速：15节 有贷款3500万，可以给新买家使用。 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/75526_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:11.300Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 464,
+  "fields": {
+    "source_id": "S78346",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbdfji",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "8100",
+    "build_year": 2022,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78346\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbdfji\n\n--- Ship Specifications ---\nDWT: 8100\nYear: 2022\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:11.843Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 465,
+  "fields": {
+    "source_id": "S78376",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbdlji",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "9200",
+    "build_year": 2021,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78376\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbdlji\n\n--- Ship Specifications ---\nDWT: 9200\nYear: 2021\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:12.197Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 466,
+  "fields": {
+    "source_id": "S78740",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lblfki",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "2500",
+    "build_year": 2018,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78740\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lblfki\n\n--- Ship Specifications ---\nDWT: 2500\nYear: 2018\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:12.570Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 467,
+  "fields": {
+    "source_id": "S79091",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lekeai",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "2300",
+    "build_year": 2023,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79091\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lekeai\n\n--- Ship Specifications ---\nDWT: 2300\nYear: 2023\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:13.016Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 468,
+  "fields": {
+    "source_id": "S76351",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljdhai",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "3200",
+    "build_year": 2017,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S76351\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljdhai\n\n--- Ship Specifications ---\nDWT: 3200\nYear: 2017\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:13.435Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 469,
+  "fields": {
+    "source_id": "S76552",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljhhci",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "11000",
+    "build_year": 2005,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S76552\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljhhci\n\n--- Ship Specifications ---\nDWT: 11000\nYear: 2005\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:13.828Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 470,
+  "fields": {
+    "source_id": "S76938",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljedbi",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "450",
+    "build_year": 2021,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S76938\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljedbi\n\n--- Ship Specifications ---\nDWT: 450\nYear: 2021\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:14.265Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 471,
+  "fields": {
+    "source_id": "S76488",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljfbbi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "10107",
+    "build_year": 2009,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S76488\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljfbbi\n\n--- Ship Specifications ---\nDWT: 10107\nYear: 2009\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 出售2009年6月 10107吨前驾驶甲板驳船 江苏造 检验机构：ZC检验 总长：128m 船宽：25m 型深：7.5m 满载吃水：5.6m 参考载货量：10107吨 总吨/净吨：6440/3606 结构型式：双底双壳 航区：近海A1+A2 货舱数量：1个/甲板 主机：无锡8300/2206KW*两台， 在航船，可转户。无抵押 财富热线， 13960274280 15392234666，老钱 我司开具船舶交易专用发票（新造、二手船均可，费率优",
+    "contact_info": "Mobile: 13960274280",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:14.707Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 472,
+  "fields": {
+    "source_id": "S78939",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbedei",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2021,
+    "width": "22",
+    "length": "100",
+    "depth": "6",
+    "full_description": "Original ID: S78939\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbedei\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2021\nStatus: 有效\nWidth: 22\nLength: 100\nDepth: 6",
+    "remark": "备　　注： 出售 2021年江苏造5000吨（前驾驶）甲板驳船 建造地：江苏 建造日期：2021年1月 船舶检验机构：ccs 航区：国内近海 船舶尺寸：总长100m/船宽22m/型深6m 满 载 吃 水：4.3m 参考载重吨：4612 主机型号：潍柴6200/350kW / 2台 满载航速：11节 财富热线： 我司开具船舶交易专用发票",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:15.146Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 473,
+  "fields": {
+    "source_id": "S78971",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbelai",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "11600",
+    "build_year": 2015,
+    "width": "35",
+    "length": "115",
+    "depth": "7.5",
+    "full_description": "Original ID: S78971\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbelai\n\n--- Ship Specifications ---\nDWT: 11600\nYear: 2015\nStatus: 有效\nWidth: 35\nLength: 115\nDepth: 7.5",
+    "remark": "备　　注： 出售 2015年江苏造11600吨（前驾驶）甲板驳 ，带前跳板 建造地：江苏 建造日期：2015年9月 船舶检验机构：ZC 航区：国内近海 船舶尺寸：总长115m/船宽35m/型深7.5m 满 载 吃 水：5.5m 参考载重吨：11570 主机型号：广柴6G26/1998kW / 2台 带港澳证书 满载航速：11节 财富热线： 我司开具船舶交易专用发票",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:15.491Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 474,
+  "fields": {
+    "source_id": "S74982",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lfebci",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "6000",
+    "build_year": 2015,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S74982\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lfebci\n\n--- Ship Specifications ---\nDWT: 6000\nYear: 2015\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/74982_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:17.009Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 475,
+  "fields": {
+    "source_id": "S67364",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=jldjfi",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "3600",
+    "build_year": 2021,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S67364\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=jldjfi\n\n--- Ship Specifications ---\nDWT: 3600\nYear: 2021\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/67364_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:17.465Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 476,
+  "fields": {
+    "source_id": "S64311",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=jfdaai",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "4900",
+    "build_year": 2022,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S64311\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=jfdaai\n\n--- Ship Specifications ---\nDWT: 4900\nYear: 2022\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 前驾驶，无跳板。",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/64311_z.jpg",
+      "https://sp.sol.com.cn/reg/photo/64311_c1.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:17.879Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 477,
+  "fields": {
+    "source_id": "S73333",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lddddi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "2300",
+    "build_year": 2013,
+    "width": "17",
+    "length": "76",
+    "depth": "4.2",
+    "full_description": "Original ID: S73333\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lddddi\n\n--- Ship Specifications ---\nDWT: 2300\nYear: 2013\nStatus: 有效\nWidth: 17\nLength: 76\nDepth: 4.2",
+    "remark": "备　　注： 出售  2300吨  甲板货船 建造年月：2013年 建造地：中国浙江 船级社：zc 总长76m/宽17m/型深4.2m 满  载 吃 水：3.1m 空载吃水：2.2m 货舱数量：0 结构：单底单壳 主机型号：淄柴Z8170*2 主机额定功率：218KW*2 航区：沿海 总吨 / 净吨：1570/880 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73333_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:18.349Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 478,
+  "fields": {
+    "source_id": "S73335",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldddhi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "2300",
+    "build_year": 2013,
+    "width": "16",
+    "length": "80",
+    "depth": "4",
+    "full_description": "Original ID: S73335\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldddhi\n\n--- Ship Specifications ---\nDWT: 2300\nYear: 2013\nStatus: 有效\nWidth: 16\nLength: 80\nDepth: 4",
+    "remark": "备　　注： 出售  2300吨  甲板货船 建造年月：2013年 建造地：中国安徽 船级社：zc 总长80m/宽16m/型深4m 满  载 吃 水：2.9m 空载吃水：0.8m 货舱数量：1 结构：单底单壳 主机型号：宁动N8170*2 常柴ZS1115*1 主机额定功率：330KW*2 15.7KW*1 航区：沿海 总吨 / 净吨：1620/900 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73335_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:18.810Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 479,
+  "fields": {
+    "source_id": "S73339",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldddei",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "7200",
+    "build_year": 2013,
+    "width": "25.2",
+    "length": "106.1",
+    "depth": "6.5",
+    "full_description": "Original ID: S73339\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldddei\n\n--- Ship Specifications ---\nDWT: 7200\nYear: 2013\nStatus: 有效\nWidth: 25.2\nLength: 106.1\nDepth: 6.5",
+    "remark": "备　　注： 出售7200吨   甲板货船 建造年月：2013年 建造地：中国江苏 船级社：ZC 长106.1m/宽25.2m/型深6.5m 满载吃水：4.58m 空载吃水：3.9m 货舱：0 主机型号：淄柴6210*2 主机功率：882KW*2 参考载重吨：7200吨 总吨/净吨：5835/3265 航区：近海 A1+A2 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73339_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:19.240Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 480,
+  "fields": {
+    "source_id": "S73442",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldffci",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "3100",
+    "build_year": 2017,
+    "width": "18",
+    "length": "83",
+    "depth": "4.8",
+    "full_description": "Original ID: S73442\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldffci\n\n--- Ship Specifications ---\nDWT: 3100\nYear: 2017\nStatus: 有效\nWidth: 18\nLength: 83\nDepth: 4.8",
+    "remark": "备　　注： 出售3100吨   甲板货船 建造年月：2017年 建造地：中国江苏 船级社：ZC 总长83船宽18m/型深4.8m 满载吃水：3.35m 空载吃水：1.8m 参考载重吨：4600吨 结构：单壳 货舱：0 主机型号：广西6C730*2 主机功率：220KW*2 总吨/净吨：1865/1045 航区：沿海 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73442_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:19.648Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 481,
+  "fields": {
+    "source_id": "S73450",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldfhki",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "3600",
+    "build_year": 2019,
+    "width": "18.2",
+    "length": "102.8",
+    "depth": "5.1",
+    "full_description": "Original ID: S73450\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldfhki\n\n--- Ship Specifications ---\nDWT: 3600\nYear: 2019\nStatus: 有效\nWidth: 18.2\nLength: 102.8\nDepth: 5.1",
+    "remark": "备　　注： 出售3600吨   甲板货船 建造年月：2019 建造地：中国浙江 船级社：ZC 总长102.8m/宽18.2m/型深5.1m 满  载 吃 水：3.80M 空载吃水：2.15m 参考载重吨：3600吨 货舱数量：0 结构：双底 主机型号：潍柴CW6200*2 主机额定功率：350KW*2 航区：沿海 总吨 / 净吨：2295/1285 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73450_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:20.096Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 482,
+  "fields": {
+    "source_id": "S78955",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbehhi",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "3400",
+    "build_year": 2019,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78955\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbehhi\n\n--- Ship Specifications ---\nDWT: 3400\nYear: 2019\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:20.492Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 483,
+  "fields": {
+    "source_id": "S75483",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lhfbdi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "16000",
+    "build_year": 2022,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S75483\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lhfbdi\n\n--- Ship Specifications ---\nDWT: 16000\nYear: 2022\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售16000吨前驾驶驳船（带跳板） 建造日期：2022年 建造地点：江苏造 检验机构：ZC 总长：140.50米 船宽：36.00米 型深：8.20米 满载吃水：5.80米 航区：国内近海航区 主机：宁动8300/2500KW /2台 满载航速：15节 有贷款3500万，可以给新买家使用。 19959951019，15968607999，老金 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆～有机硅(5年不长海蛎)，欢迎来电咨询合作。",
+    "contact_info": "Mobile: 19959951019",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/75483_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:20.908Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 484,
+  "fields": {
+    "source_id": "S76642",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljjfci",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "10200",
+    "build_year": 2021,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S76642\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljjfci\n\n--- Ship Specifications ---\nDWT: 10200\nYear: 2021\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售：2021年10200吨ZC检验甲板驳船 建造地点：中国江苏 船级社：ZC 总长：129米 / 船宽：28米 / 型深：7米 满载吃水：5米 航区：近海 主机型号：青岛淄柴6N260 主机额定功率：1470千瓦×2台 船体结构：双壳双底 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/76642_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:21.261Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 485,
+  "fields": {
+    "source_id": "S76808",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljbkbi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "12200",
+    "build_year": 2021,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S76808\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljbkbi\n\n--- Ship Specifications ---\nDWT: 12200\nYear: 2021\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售2021年12200吨ZC检验后驾驶甲板驳船 建造地点：中国江苏 船级社：ZC 总长：120米 船宽：28米 型深：7.6米 满载吃水：5.6米 航区：近海 主机型号：广柴6320 主机额定功率：1765千瓦×2台 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/76808_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:21.625Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 486,
+  "fields": {
+    "source_id": "S74796",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lfleji",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2020,
+    "width": "20",
+    "length": "106",
+    "depth": "5",
+    "full_description": "Original ID: S74796\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lfleji\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2020\nStatus: 有效\nWidth: 20\nLength: 106\nDepth: 5",
+    "remark": "备　　注： 出售 5000吨 甲板货船 前驾 建造年月：2020年 建造地：浙江 船级社：ZC 长 106米/宽 20米/深 5米 满载吃水：3.8m 空载吃水：2.5m 货舱数量：0 结构：双底 主机型号：宁动N6210*2 主机额定功率：374KW*2 总吨/净吨：2996/1678 航区：沿海 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/74796_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:22.062Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 487,
+  "fields": {
+    "source_id": "S78739",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbldei",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "11000",
+    "build_year": 2023,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78739\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbldei\n\n--- Ship Specifications ---\nDWT: 11000\nYear: 2023\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:22.545Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 488,
+  "fields": {
+    "source_id": "S78345",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbdfhi",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "12000",
+    "build_year": 2022,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78345\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbdfhi\n\n--- Ship Specifications ---\nDWT: 12000\nYear: 2022\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:22.976Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 489,
+  "fields": {
+    "source_id": "S78531",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbhdai",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "2800",
+    "build_year": 2025,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78531\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbhdai\n\n--- Ship Specifications ---\nDWT: 2800\nYear: 2025\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:23.398Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 490,
+  "fields": {
+    "source_id": "S78711",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lblaai",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2026,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78711\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lblaai\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2026\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:23.817Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 491,
+  "fields": {
+    "source_id": "S78712",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lblaci",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "3800",
+    "build_year": 2026,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78712\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lblaci\n\n--- Ship Specifications ---\nDWT: 3800\nYear: 2026\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:24.191Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 492,
+  "fields": {
+    "source_id": "S78244",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbcffi",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "7800",
+    "build_year": 2021,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78244\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbcffi\n\n--- Ship Specifications ---\nDWT: 7800\nYear: 2021\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:24.571Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 493,
+  "fields": {
+    "source_id": "S78266",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbcjji",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "1300",
+    "build_year": 2014,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78266\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbcjji\n\n--- Ship Specifications ---\nDWT: 1300\nYear: 2014\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:24.926Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 494,
+  "fields": {
+    "source_id": "S73288",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldcbbi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "4400",
+    "build_year": 2009,
+    "width": "22",
+    "length": "98",
+    "depth": "5",
+    "full_description": "Original ID: S73288\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldcbbi\n\n--- Ship Specifications ---\nDWT: 4400\nYear: 2009\nStatus: 有效\nWidth: 22\nLength: 98\nDepth: 5",
+    "remark": "备　　注： 出售4400 甲板船 建造年月：2009年 建造地：中国 船级社：ZC 总长98m/宽22m/深5m 满  载 吃 水：3.600m 空载吃水：2.788m 货舱数量：6 结构：双底单壳 主机型号：宁动G6300*2 主机额定功率：1103KW 航区：近海 总吨 / 净吨：2998/1679 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73288_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:25.295Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 495,
+  "fields": {
+    "source_id": "S73967",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldejli",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "1450",
+    "build_year": 2014,
+    "width": "16",
+    "length": "67",
+    "depth": "3.7",
+    "full_description": "Original ID: S73967\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldejli\n\n--- Ship Specifications ---\nDWT: 1450\nYear: 2014\nStatus: 有效\nWidth: 16\nLength: 67\nDepth: 3.7",
+    "remark": "备　　注： 出售 1450吨  甲板船 建造年月：2014年 建造地：中国浙江 船级社：ZC 总长67m宽16m型深3.7m 满  载 吃 水：2.600m 空载吃水：1.736m 货舱数量：0 结构：双底 主机型号：淄柴Z6170*2 主机额定功率：330KW*2 航区：沿海 总吨  净吨：1200t/670T 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73967_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:25.680Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 496,
+  "fields": {
+    "source_id": "S76604",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljjkfi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "13600",
+    "build_year": 2022,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S76604\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljjkfi\n\n--- Ship Specifications ---\nDWT: 13600\nYear: 2022\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售：2022年13600吨ZC检验前驾甲板驳船 建造地点：中国江苏 船级社：中国船级社(ZC) 总长：129米 / 船宽：30米 / 型深：7.6米 满载吃水：5.35米 航区：近海 参考载货吨：13600吨 主机型号：广柴8320 主机额定功率：2060千瓦×2台 船体结构：双底 燃料类型：可烧重油 特点：做工非常好，大马力，航速快，有围板，有跳板，无需改装，可直接出口 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/76604_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:27.163Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 497,
+  "fields": {
+    "source_id": "S77814",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=llbafi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "4000",
+    "build_year": 2014,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S77814\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=llbafi\n\n--- Ship Specifications ---\nDWT: 4000\nYear: 2014\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售2014年4000吨ZC检验后驾驶甲板驳船（带跳板） 建造地点：中国江苏 船舶检验机构：ZC 总长：99.8米 船宽：18米 型深：5.1米 满载吃水：4.0米 航区：沿海 主机型号：潍柴6200 主机额定功率：350千瓦×2台 备注：今年刚保养花了100多万元，前跳板换新，主机大保养过，螺旋桨是铜的，两个主轴换了油封 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(提航速，降油耗，5年不长海蛎)，航运投资，欢迎来电咨询合作。",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/77814_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:27.672Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 498,
+  "fields": {
+    "source_id": "S73287",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldcbli",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "1700",
+    "build_year": 2010,
+    "width": "15.9",
+    "length": "77.8",
+    "depth": "3.5",
+    "full_description": "Original ID: S73287\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldcbli\n\n--- Ship Specifications ---\nDWT: 1700\nYear: 2010\nStatus: 有效\nWidth: 15.9\nLength: 77.8\nDepth: 3.5",
+    "remark": "备　　注： 出售1700吨甲板驳 建造年月：2010年 建造地：中国江苏 船级社：ZC 总长77.8m/宽15.9m/深3.5m 满  载 吃 水：2.3M 空载吃水：1.2m 结构：双底单壳 主机型号:淄柴8170*2 主机额定功率：540KW*2 航区：沿海A1+A2 总吨 / 净吨：1220/700 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73287_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:28.110Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 499,
+  "fields": {
+    "source_id": "S73330",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldddki",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "1000",
+    "build_year": 2013,
+    "width": "14.5",
+    "length": "60.5",
+    "depth": "3.3",
+    "full_description": "Original ID: S73330\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldddki\n\n--- Ship Specifications ---\nDWT: 1000\nYear: 2013\nStatus: 有效\nWidth: 14.5\nLength: 60.5\nDepth: 3.3",
+    "remark": "备　　注： 出售1000吨   甲板货船 建造年月：2013年 建造地：中国浙江 船级社：ZC 总长60.5m/船宽14.5m/型深3.3 满载吃水：2.15 空载吃水：1.45 参考载重吨：1000吨 结构：单 货舱：1 主机型号：淄柴6170*2 主机功率：218KW*2 总吨/净吨：830/465 航区：沿海 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73330_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:28.527Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 500,
+  "fields": {
+    "source_id": "S73331",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldddai",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "1450",
+    "build_year": 2013,
+    "width": "16",
+    "length": "81",
+    "depth": "3.9",
+    "full_description": "Original ID: S73331\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldddai\n\n--- Ship Specifications ---\nDWT: 1450\nYear: 2013\nStatus: 有效\nWidth: 16\nLength: 81\nDepth: 3.9",
+    "remark": "备　　注： 出售1450吨 甲板货船 建造年月：2013年 建造地：中国江苏船级社：ZC 总长81m 船宽16m 型深3.9m 满载吃水：2.9m 空载吃水：1m 参考载重吨：1450吨 主机型号：潍柴8170*2 主机功率：816KW*2 总吨/净吨：1830/1024 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73331_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:28.905Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 501,
+  "fields": {
+    "source_id": "S73282",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldcbci",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "1600",
+    "build_year": 2014,
+    "width": "16.20",
+    "length": "67.10",
+    "depth": "3.68",
+    "full_description": "Original ID: S73282\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldcbci\n\n--- Ship Specifications ---\nDWT: 1600\nYear: 2014\nStatus: 有效\nWidth: 16.20\nLength: 67.10\nDepth: 3.68",
+    "remark": "备　　注： 出售 2014年1600吨  后驾 甲板货船 建造年月：2014 建造地：中国 船级社：ZC 长67.10/宽16.20m/型深3.68m 满  载 吃 水：2.600M 空载吃水：1.600 货舱数量：0 主机型号：淄柴Z617ZLC*2 主机额定功率：218*2 航区：沿海 船员额定“14”” 总顿/净吨“：1185/663” 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73282_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:29.266Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 502,
+  "fields": {
+    "source_id": "S73283",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldcbdi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "2000",
+    "build_year": 2009,
+    "width": "16.3",
+    "length": "65",
+    "depth": "4.2",
+    "full_description": "Original ID: S73283\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldcbdi\n\n--- Ship Specifications ---\nDWT: 2000\nYear: 2009\nStatus: 有效\nWidth: 16.3\nLength: 65\nDepth: 4.2",
+    "remark": "备　　注： 出售2000吨甲板驳 建造年月：2009年 建造地：中国浙江 船级社：ZC 总长65m/宽16.3m/深4.2m 满载吃水：3.0m 空载吃水：2.2m 货舱数量：0 结构：单底单壳 主机型号:淄柴6170*2 主机额定功率：218KW*2 航区：沿海 总吨 / 净吨：1320/750 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73283_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:29.685Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 503,
+  "fields": {
+    "source_id": "S73476",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldflji",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2020,
+    "width": "20",
+    "length": "99",
+    "depth": "5",
+    "full_description": "Original ID: S73476\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldflji\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2020\nStatus: 有效\nWidth: 20\nLength: 99\nDepth: 5",
+    "remark": "备　　注： 出售5000吨  甲板驳船 后驾驶 建造年月：2020年 建造地：中国 船级社：ZC 总长99m/船宽20m/型深5m 满载吃水：4.200m 空载吃水：3.251m 跳板：有 围板：有 结构：双底 主机型号:宁动N6210ZC26*2 主机功率：374KW 总吨位/净吨位:2921/1635 航区：A1+A2 18MM厚的钢板 硬！ 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73476_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:30.068Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 504,
+  "fields": {
+    "source_id": "S73421",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldfcai",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "2300",
+    "build_year": 2016,
+    "width": "17",
+    "length": "75",
+    "depth": "4.2",
+    "full_description": "Original ID: S73421\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldfcai\n\n--- Ship Specifications ---\nDWT: 2300\nYear: 2016\nStatus: 有效\nWidth: 17\nLength: 75\nDepth: 4.2",
+    "remark": "备　　注： 出售  2300吨  甲板货船 建造年月：2016年 改建时间：2021年 建造地：中国江苏 船级社：zc 总长75m/宽17m/型深4.2m 满  载 吃 水：3.1m 空载吃水：1.8m 货舱数量：0 结构：双底 主机型号：潍柴CW6200*2 主机额定功率：350KW*2 航区：沿海 总吨 / 净吨：1570/880 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73421_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:30.435Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 505,
+  "fields": {
+    "source_id": "S72422",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lcfcci",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "3700",
+    "build_year": 2021,
+    "width": "18.8",
+    "length": "97.5",
+    "depth": "4.9",
+    "full_description": "Original ID: S72422\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lcfcci\n\n--- Ship Specifications ---\nDWT: 3700\nYear: 2021\nStatus: 有效\nWidth: 18.8\nLength: 97.5\nDepth: 4.9",
+    "remark": "备　　注： 出售3700吨甲板货船 建造年月：2021年 建造地：中国江苏 船级社：ZC 总长97.5m/船宽18.8m/型深4.9m 满载吃水：3.7m 空载吃水：2.9m 参考载重吨：3700吨 货舱：1 结构：双底 主机型号：广西YC6CL510L*2 主机功率：374KW*2 总吨/净吨：2250/1260 航区：沿海 台州长隆船舶经纪人 周经理 电话 13282712222  微信：bb0040302    邮箱：517885753@qq.com专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/72422_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:30.835Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 506,
+  "fields": {
+    "source_id": "S77840",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=llbfki",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "3000",
+    "build_year": 2013,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S77840\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=llbfki\n\n--- Ship Specifications ---\nDWT: 3000\nYear: 2013\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售2013年3000吨前驾驶甲板驳船 船舶检验机构：ZC 船舶类型：甲板驳船 建造时间：2013年 建造地点：江苏 总长：81.2m 船宽：16.80m 型深：4.00m 满载吃水：2.90m 参考载货吨：3000吨 主机：淄柴8170 300KW ×2台 航区：沿海",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/77840_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:31.232Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 507,
+  "fields": {
+    "source_id": "S76581",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljhbai",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "13600",
+    "build_year": 2022,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S76581\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljhbai\n\n--- Ship Specifications ---\nDWT: 13600\nYear: 2022\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售：2022年13600吨ZC检验前驾甲板驳船 建造地点：中国江苏 船级社：中国船级社(ZC) 总长：129米 / 船宽：30米 / 型深：7.6米 满载吃水：5.35米 航区：近海 参考载货吨：13600吨 主机型号：广柴8320 主机额定功率：2060千瓦×2台 船体结构：双底 燃料类型：可烧重油 特点：做工非常好，大马力，航速快，有围板，有跳板，无需改装，可直接出口 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～ 船舶买卖阿清: 顺泰99 800w 出售2017年5100吨江苏造散货船 船舶类型：散货船 建造时间：2017年03月 建造地点：江苏 总长／船宽／型深：92m／16.20m/6.80m 满载吃水：5.30m 参考载货吨：5100吨 总吨/净吨:2980/1668 主机： 潍柴XCW6200×698KW×2台 货舱数数量：1 舱口盖形式:钢制风雨密 航区：国内沿海 船舶检验机构：ZC 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～",
+    "contact_info": "Mobile: 18959946619",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:31.677Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 508,
+  "fields": {
+    "source_id": "S76209",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljckei",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "6000",
+    "build_year": 2022,
+    "width": "22",
+    "length": "106",
+    "depth": "6.0",
+    "full_description": "Original ID: S76209\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljckei\n\n--- Ship Specifications ---\nDWT: 6000\nYear: 2022\nStatus: 有效\nWidth: 22\nLength: 106\nDepth: 6.0",
+    "remark": "备　　注： 出售22年国内ZC检验6000吨前驾驶甲板船 建造年月：2022年 建造地：中国 船级社：ZC 总长106m/船宽22m/型深6.0m 满载吃水：4.3m 空载吃水：2.4m 跳板：无 结构：双底单壳 主机型号:淄柴6210ZLC-24/920 主机功率：920KW*2 总吨位/净吨位:3733/2093 航区：近海 甲板装货面积：93X22 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/76209_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:32.056Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 509,
+  "fields": {
+    "source_id": "S78263",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbcjdi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "8400",
+    "build_year": 2021,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S78263\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbcjdi\n\n--- Ship Specifications ---\nDWT: 8400\nYear: 2021\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售2021年8400吨前驾驶甲板驳船 船舶检验机构：CCS 船舶类型：甲板驳船 建造时间：2021年 建造地点：浙江 总长：118.0m 船宽：23.80m 型深：7.00m 满载吃水：5.00m 参考载货吨：8400吨 主机：广柴6320 1324KW ×2台 航区：近海 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(提航速，降油耗，5年不长海蛎)，航运投资，欢迎来电咨询合作。",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/78263_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:32.511Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 510,
+  "fields": {
+    "source_id": "S78417",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbfali",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "3200",
+    "build_year": 2014,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78417\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbfali\n\n--- Ship Specifications ---\nDWT: 3200\nYear: 2014\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:32.896Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 511,
+  "fields": {
+    "source_id": "S78498",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbfebi",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "11500",
+    "build_year": 2022,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78498\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbfebi\n\n--- Ship Specifications ---\nDWT: 11500\nYear: 2022\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:33.342Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 512,
+  "fields": {
+    "source_id": "S78499",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbfeei",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "7500",
+    "build_year": 2022,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78499\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbfeei\n\n--- Ship Specifications ---\nDWT: 7500\nYear: 2022\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:33.694Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 513,
+  "fields": {
+    "source_id": "S78778",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbllbi",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "11600",
+    "build_year": 2015,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S78778\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbllbi\n\n--- Ship Specifications ---\nDWT: 11600\nYear: 2015\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:34.149Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 514,
+  "fields": {
+    "source_id": "S79039",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lekdei",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "2000",
+    "build_year": 2022,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79039\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lekdei\n\n--- Ship Specifications ---\nDWT: 2000\nYear: 2022\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:34.558Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 515,
+  "fields": {
+    "source_id": "S73437",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldfdli",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "4600",
+    "build_year": 2016,
+    "width": "16.6",
+    "length": "116",
+    "depth": "6.2",
+    "full_description": "Original ID: S73437\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldfdli\n\n--- Ship Specifications ---\nDWT: 4600\nYear: 2016\nStatus: 有效\nWidth: 16.6\nLength: 116\nDepth: 6.2",
+    "remark": "备　　注： 出售4600吨   甲板货船 建造年月：2016 建造地：中国浙江 船级社：ZC 总长116m/宽16.6m/型深6.2m 满  载 吃 水：4.50M 空载吃水：2.95m 参考载重吨：4600吨 货舱数量：0 结构：双底 主机型号：潍柴CW6250 主机额定功率：735KW 航区：近海 总吨 / 净吨：2976/1666 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73437_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:35.022Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 516,
+  "fields": {
+    "source_id": "S73440",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldffki",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "8500",
+    "build_year": 2016,
+    "width": "27.5",
+    "length": "114",
+    "depth": "7.2",
+    "full_description": "Original ID: S73440\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldffki\n\n--- Ship Specifications ---\nDWT: 8500\nYear: 2016\nStatus: 有效\nWidth: 27.5\nLength: 114\nDepth: 7.2",
+    "remark": "备　　注： 出售8500吨   甲板货船 建造年月：2016年 建造地：中国江苏 船级社：ZC 总长114m/船宽27.5m/型深7.2m 满载吃水：5.1m 空载吃水：1.5m 参考载重吨：8500吨 货舱：0 结构：双底 主机型号：广柴6320*2 主机功率：1470KW*2 总吨/净吨：5505/3085 航区：近海 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73440_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:35.458Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 517,
+  "fields": {
+    "source_id": "S73328",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lddcbi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "1500",
+    "build_year": 2013,
+    "width": "14.20",
+    "length": "63.3",
+    "depth": "3.2",
+    "full_description": "Original ID: S73328\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lddcbi\n\n--- Ship Specifications ---\nDWT: 1500\nYear: 2013\nStatus: 有效\nWidth: 14.20\nLength: 63.3\nDepth: 3.2",
+    "remark": "备　　注： 出售950吨甲板驳船  实际1500载重吨 建造年月：2013年 建造地：中国 船级社：ZC 总长63.3m/宽14.20m/深3.2m 满  载 吃 水：2.150m 空载吃水：1.346m 货舱数量：0 结构：双底单壳 主机型号：淄柴Z6170ZLC*2 主机额定功率：330KW*2 航区：沿海 总吨 / 净吨：845/473 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73328_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:35.933Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 518,
+  "fields": {
+    "source_id": "S73489",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldfbei",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "27800",
+    "build_year": 2022,
+    "width": "47",
+    "length": "172",
+    "depth": "10",
+    "full_description": "Original ID: S73489\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldfbei\n\n--- Ship Specifications ---\nDWT: 27800\nYear: 2022\nStatus: 有效\nWidth: 47\nLength: 172\nDepth: 10",
+    "remark": "备　　注： 出售 27800吨 甲板货船（前驾） 建造年月：2022年 建造地：江苏 船级社：\t国际CCS 长 172米/宽 47米/深 10米 满载吃水：6.8m 结构: 双壳双底 主机型号：广柴9G32*2 主机额定功率：4400KW*2 总吨/净吨：19630/5890 航区：无限航区 冰区B级加强 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73489_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:37.579Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 519,
+  "fields": {
+    "source_id": "S73446",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldffji",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "3300",
+    "build_year": 2018,
+    "width": "18",
+    "length": "90",
+    "depth": "4.5",
+    "full_description": "Original ID: S73446\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldffji\n\n--- Ship Specifications ---\nDWT: 3300\nYear: 2018\nStatus: 有效\nWidth: 18\nLength: 90\nDepth: 4.5",
+    "remark": "备　　注： 出售3300吨 甲板货船 建造年月：2018年 建造地：中国浙江 船级社：ZC 总长90m 船宽18m 型深4.5m 满载吃水：3.6m 空载吃水：1.9m 结构：双底 参考载重吨：3300吨 主机型号：潍柴6200*2 主机功率：350KW*2 总吨/净吨：1990/1114 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73446_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:38.000Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 520,
+  "fields": {
+    "source_id": "S77841",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=llbfai",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "27500",
+    "build_year": 2024,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S77841\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=llbfai\n\n--- Ship Specifications ---\nDWT: 27500\nYear: 2024\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售2024年27500吨前驾驶甲板驳船 船舶检验机构：CCS 船舶类型：甲板驳船 建造时间：2024年 建造地点：江苏 总长：172.80m 船宽：40.20m 型深：10.60m 满载吃水：7.15m 参考载货吨：27500吨 总吨：19400 净吨：5800 主机：8N280ZLC 3676KW ×2台 航区：无限航区",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/77841_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:38.422Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 521,
+  "fields": {
+    "source_id": "S75484",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lhfbfi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "8500",
+    "build_year": 2022,
+    "width": "23.80",
+    "length": "110",
+    "depth": "6.80",
+    "full_description": "Original ID: S75484\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lhfbfi\n\n--- Ship Specifications ---\nDWT: 8500\nYear: 2022\nStatus: 有效\nWidth: 23.80\nLength: 110\nDepth: 6.80",
+    "remark": "备　　注： 出售8400吨甲板船前架 建造年月：2022年 建造地：浙江 船级社：CCs 总长110m/船宽23.80m/型深6.80m 满载吃水：5.0m 空载吃水：2.90m 参考载重吨：8400吨 航区:近海A1+A2 结构：双底 主机型号：广柴6320*2 主机功率：1324KW*2 总吨/净吨：4901/2745 航区：近海A1+A2 财富热线，19959951019，15968607999，老金 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆～有机硅(5年不长海蛎)，欢迎来电咨询合作。",
+    "contact_info": "Mobile: 19959951019",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/75484_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:38.765Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 522,
+  "fields": {
+    "source_id": "S75656",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lhjhji",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2025,
+    "width": "20.78",
+    "length": "105.72",
+    "depth": "5.65",
+    "full_description": "Original ID: S75656\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lhjhji\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2025\nStatus: 有效\nWidth: 20.78\nLength: 105.72\nDepth: 5.65",
+    "remark": "备　　注： 出售 2025年浙江造5000吨（后驾驶）甲板驳船 建造地：浙江 船舶检验机构：ZC 航区：国内沿海 船舶尺寸：总长105.72m/船宽20.78m/型深5.65m 满 载 吃 水：4.23m 参考载重吨：5000T 主机型号：宁波中策N6210ZC34/956kW / 2台 满载航速：11节 甲板负荷12吨/平米，高强度H36，19个厚 跳板长17米，宽6米 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/75656_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:39.243Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 523,
+  "fields": {
+    "source_id": "S79183",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=leabdi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "2800",
+    "build_year": 2009,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79183\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=leabdi\n\n--- Ship Specifications ---\nDWT: 2800\nYear: 2009\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 出售：2700吨近海甲板驳船 建造年份：2009年7月 建造地址：中国 安徽 船舶总长：80.00 船长：76.80 宽度：17.00 型深：4.20. 满载吃水：3.15 参考载货量：2770 船舶主机：6200 功率:216KW-2台 设备齐全，无跳板，适合国内用，也可用外贸出口 欢迎国内外客户咨询 财富热线：13586258818",
+    "contact_info": "Mobile: 13586258818",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79183_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:39.620Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 524,
+  "fields": {
+    "source_id": "S78876",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbblji",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "8400",
+    "build_year": 2015,
+    "width": "2",
+    "length": "99.80",
+    "depth": "",
+    "full_description": "Original ID: S78876\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbblji\n\n--- Ship Specifications ---\nDWT: 8400\nYear: 2015\nStatus: 有效\nWidth: 2\nLength: 99.80",
+    "remark": "备　　注： 出售：8400吨近海甲板驳船 建造年份：2015年10月 建造地址：中国 江苏 船舶总长：113.90 船长99.80 宽度：27.30 型深：7 满载吃水：5.1 参考载货量：8400 船舶主机：广州柴油6320ZCD-6 功率:1470KW-2台 设备齐全，适合国内用，也可用外贸出口 欢迎国内外客户咨询",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/78876_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:40.084Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 525,
+  "fields": {
+    "source_id": "S79002",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lekkci",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "2100",
+    "build_year": 2017,
+    "width": "2",
+    "length": "66.80",
+    "depth": "",
+    "full_description": "Original ID: S79002\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lekkci\n\n--- Ship Specifications ---\nDWT: 2100\nYear: 2017\nStatus: 有效\nWidth: 2\nLength: 66.80",
+    "remark": "备　　注： 出售：2100吨近海甲板驳船 建造年份：2017年12月 建造地址：中国 江苏 船舶总长：70.00 船长66.80 宽度：16.20 型深：4.00 满载吃水：2.95 参考载货量：2100 船舶主机：6190 功率:218KW-2台 设备齐全，适合国内用，也可用外贸出口 欢迎国内外客户咨询 已保养好了 财富热线：13586258818",
+    "contact_info": "Mobile: 13586258818",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79002_z.jpg",
+      "https://sp.sol.com.cn/reg/photo/79002_z1.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:40.538Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 526,
+  "fields": {
+    "source_id": "S79003",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lekkdi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2021,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79003\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lekkdi\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2021\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 出售：5000吨近海甲板驳船 建造年份：2021年12月 建造地址：中国 江苏 船舶总长：95.19 船长：88.88 宽度：21.80 型深：5.39 满载吃水：4.09 参考载货量：5000 船舶主机：2台宁波中策N6210ZC26 功率:374KW-2台 设备齐全，适合国内用，也可用外贸出口 欢迎国内外客户咨询 财富热线：13586258818",
+    "contact_info": "Mobile: 13586258818",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79003_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:40.891Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 527,
+  "fields": {
+    "source_id": "S79004",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lekkfi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "6600",
+    "build_year": 2021,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79004\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lekkfi\n\n--- Ship Specifications ---\nDWT: 6600\nYear: 2021\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 出售：6600吨近海甲板驳船 建造年份：2021年9月 建造地址：中国 浙江 船舶总长：109.00 船长：104.22 宽度：22 型深：6.25 满载吃水：4.5 参考载货量：6600 船舶主机：2台宁波中策N6210ZC26 功率:374KW-2台 设备齐全，适合国内用，也可用外贸出口 欢迎国内外客户咨询 财富热线：13586258818",
+    "contact_info": "Mobile: 13586258818",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79004_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:41.273Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 528,
+  "fields": {
+    "source_id": "S79008",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lekkbi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "10000",
+    "build_year": 2021,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79008\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lekkbi\n\n--- Ship Specifications ---\nDWT: 10000\nYear: 2021\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 出售：10000吨前驾驶甲板船 建造年份：2021年3月 建造地址：中国 江苏 船舶总长：119.30 船长：112.70 宽度：28.00 型深：7.2 满载吃水：5.17 参考载货量：10000 船舶主机：宁动G6300ZC26B 功率:1470KW-2台 设备齐全，适合国内用，也可用外贸出口 欢迎国内外客户咨询 财富热线：13586258818",
+    "contact_info": "Mobile: 13586258818",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79008_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:41.716Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 529,
+  "fields": {
+    "source_id": "S74470",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lfflki",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "20000",
+    "build_year": 2018,
+    "width": "15",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S74470\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lfflki\n\n--- Ship Specifications ---\nDWT: 20000\nYear: 2018\nStatus: 有效\nWidth: 15",
+    "remark": "备　　注： 出售甲板驳船宽15米/16米/18米/20米/22米/25米/28米.30米32米/36米/38米/40米/45米",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:42.161Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 530,
+  "fields": {
+    "source_id": "S76392",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljdeci",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "1100",
+    "build_year": 2013,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S76392\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljdeci\n\n--- Ship Specifications ---\nDWT: 1100\nYear: 2013\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:42.547Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 531,
+  "fields": {
+    "source_id": "S73457",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldfhli",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "4200",
+    "build_year": 2020,
+    "width": "21",
+    "length": "91",
+    "depth": "5",
+    "full_description": "Original ID: S73457\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldfhli\n\n--- Ship Specifications ---\nDWT: 4200\nYear: 2020\nStatus: 有效\nWidth: 21\nLength: 91\nDepth: 5",
+    "remark": "备　　注： 出售 4200吨  甲板货船 建造年月：2020年 建造地：中国福建 船级社：zc 总长91m/宽21m/型深5m 满  载 吃 水：3.8m 空载吃水：2.3m 货舱数量：1 结构：双底 主机型号：淄柴6210*2 主机额定功率：374KW*2 航区：沿海A1+A2 总吨 / 净吨：2600/1470 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73457_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:42.920Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 532,
+  "fields": {
+    "source_id": "S73481",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldfbai",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "4500",
+    "build_year": 2021,
+    "width": "24.20",
+    "length": "112.5",
+    "depth": "6.50",
+    "full_description": "Original ID: S73481\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldfbai\n\n--- Ship Specifications ---\nDWT: 4500\nYear: 2021\nStatus: 有效\nWidth: 24.20\nLength: 112.5\nDepth: 6.50",
+    "remark": "备　　注： 出售4500吨 甲板货船 建造年月：2021年 建造地：中国浙江 船级社：ZC 总长112.5m/宽24.20m/型深6.50 满载吃水：4.1m 空载吃水：3.7m 参考载重吨：4500吨 货舱：0 主机型号：宁动6210*2 主机功率：1103KW*2 总吨/净吨：4505/2525 航区：近海 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73481_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:43.222Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 533,
+  "fields": {
+    "source_id": "S73663",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldjjdi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "6600",
+    "build_year": 2021,
+    "width": "22",
+    "length": "109",
+    "depth": "6.2",
+    "full_description": "Original ID: S73663\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldjjdi\n\n--- Ship Specifications ---\nDWT: 6600\nYear: 2021\nStatus: 有效\nWidth: 22\nLength: 109\nDepth: 6.2",
+    "remark": "备　　注： 出售6600吨  前驾驶甲板货船 建造年月：2021年 建造地：中国 船级社：Zc 总长109m/船宽22m/型深6.2m 满载吃水：4.500m 空载吃水：3.246M 货仓：0 双底单壳 主机型号:青岛淄柴LB250ZLC-1*2 主机功率：360KW*2 总吨位/净吨位:3959/2217 航区：A1+A2 台州长隆船舶经纪人 周经理 电话 13282712222  微信：bb0040302    邮箱：517885753@qq.com专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73663_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:43.653Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 534,
+  "fields": {
+    "source_id": "S79037",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lekdli",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5700",
+    "build_year": 2018,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79037\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lekdli\n\n--- Ship Specifications ---\nDWT: 5700\nYear: 2018\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 出售：5700吨甲板货船 前跳板/后驾驶/ 建造年份：2018年 建造地址：中国 江苏 航    区：沿海（A1+A2） 船级社：ZC 船舶尺寸： •总长：108.60m •船宽：22.00m •型深：5.60m •满载吃水：4.50m 总吨:3571/净吨1999/ 主机型号：淄柴LC6250型 主机功率：1324KW-1800马力x2台总功率：3600马力 配有四锚定位/设备齐全/ 已经保养好/质量很好/ 适合外贸出口。 欢迎来自国内外客户咨询 (Ship broker) Tel：+86 136 8509 6458 郭经理 E-mail：1371380401@qq.com 【福安鸿诚船舶贸易有限公司】 专业经营二手船舶买卖交易、船舶评估、船舶修造、船舶买卖进出口交易一站式服务，让您的船舶交易无忧。",
+    "contact_info": "Company: 【福安鸿诚船舶贸易有限公司",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79037_c.jpeg",
+      "https://sp.sol.com.cn/reg/photo/79037_c1.jpeg"
+    ],
+    "crawled_at": "2026-02-07T13:38:43.990Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 535,
+  "fields": {
+    "source_id": "S73280",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldcbki",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "800",
+    "build_year": 2007,
+    "width": "14",
+    "length": "55",
+    "depth": "2.8",
+    "full_description": "Original ID: S73280\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldcbki\n\n--- Ship Specifications ---\nDWT: 800\nYear: 2007\nStatus: 有效\nWidth: 14\nLength: 55\nDepth: 2.8",
+    "remark": "备　　注： 出售800吨甲板驳 建造年月：2007年 建造地：中国安徽 船级社：ZC 总长55m/宽14m/深2.8m 满  载 吃 水：1.9M 空载吃水：0.75m 货舱数量：1 结构：双底单壳 主机型号:潍柴6160*2 主机额定功率：184KW*2 航区：沿海 总吨 / 净吨：600/340 台州长隆船舶经纪人 周经理 电话 13282712222  微信：bb0040302    邮箱：517885753@qq.com专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73280_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:44.361Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 536,
+  "fields": {
+    "source_id": "S73342",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lddfci",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "700",
+    "build_year": 2014,
+    "width": "15",
+    "length": "67.6",
+    "depth": "3.3",
+    "full_description": "Original ID: S73342\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lddfci\n\n--- Ship Specifications ---\nDWT: 700\nYear: 2014\nStatus: 有效\nWidth: 15\nLength: 67.6\nDepth: 3.3",
+    "remark": "备　　注： 出售700吨甲板驳 实际可载2200吨 建造年月：2014年 建造地：中国江苏 船级社：ZC 总长67.6m/宽15m/深3.3m 满  载 吃 水：1.7M 空载吃水：1.3m 结构：双底单壳 主机型号:淄柴6170*2 主机额定功率：350KW*2 航区：沿海 总吨 / 净吨：1030/580 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73342_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:44.796Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 537,
+  "fields": {
+    "source_id": "S79298",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lecebi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "4800",
+    "build_year": 2015,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79298\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lecebi\n\n--- Ship Specifications ---\nDWT: 4800\nYear: 2015\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：2888/1617 船级社：CCS 航区：近海 总长：94.90M 型宽/型深：20.80M/5.60M 空载/满载吃水：2.776M/4.200M 主机：淄博809kw，两台 发电机：2x120kw,1x50kw",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79298_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:45.263Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 538,
+  "fields": {
+    "source_id": "S79296",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=leceji",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "1500",
+    "build_year": 2017,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79296\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=leceji\n\n--- Ship Specifications ---\nDWT: 1500\nYear: 2017\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：1708/958 船级社：ZC 航区：沿海 总长：98.08M 型宽/型深：18.80M/3.20M 空载/满载吃水：0.950M/1.700M 主机：济南柴油360kw，两台 发电机：2x75kw,2x30kw 后驾驶",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79296_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:45.711Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 539,
+  "fields": {
+    "source_id": "S79294",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lecefi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "4700",
+    "build_year": 2015,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79294\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lecefi\n\n--- Ship Specifications ---\nDWT: 4700\nYear: 2015\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：2888/1617 船级社：CCS 航区：近海 总长：94.90M 型宽/型深：20.80M/5.60M 空载/满载吃水：2.794M/4.200M 主机：淄博809kw，两台 发电机：2x120kw,1x50kw 前驾驶",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79294_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:46.070Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 540,
+  "fields": {
+    "source_id": "S79295",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lecehi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "2900",
+    "build_year": 2016,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79295\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lecehi\n\n--- Ship Specifications ---\nDWT: 2900\nYear: 2016\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：1861/1042 船级社：ZC 航区：沿海 总长：67.28M 型宽/型深：14.8M/3.32M 空载/满载吃水：1.870M/3.350M 主机：玉柴352kw，两台 发电机：2x90kw,1x20kw 后驾驶",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79295_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:47.756Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 541,
+  "fields": {
+    "source_id": "S79293",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lecedi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "1200",
+    "build_year": 2014,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79293\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lecedi\n\n--- Ship Specifications ---\nDWT: 1200\nYear: 2014\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：955/534 船级社：ZC 航区：沿海 总长：67.28M 型宽/型深：14.8M/3.32M 空载/满载吃水：0.790M/2.370M 主机：淄博385kw，两台 发电机：2x15kw,1x50kw,1x75kw 后驾驶",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79293_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:48.141Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 542,
+  "fields": {
+    "source_id": "S79291",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=leceai",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "13000",
+    "build_year": 2010,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79291\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=leceai\n\n--- Ship Specifications ---\nDWT: 13000\nYear: 2010\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：6853/5756 船级社：ZC 航区：近海 总长：115.70M 型宽/型深：32.20M/7.00M 空载/满载吃水：1.100M/4.992M 发电机：2x160kw,2x30kw",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79291_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:48.546Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 543,
+  "fields": {
+    "source_id": "S79292",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lececi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "2400",
+    "build_year": 2018,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79292\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lececi\n\n--- Ship Specifications ---\nDWT: 2400\nYear: 2018\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：1685/943 船级社：ZC 航区：沿海 总长：88.85M 型宽/型深：16.80M/4.50M 空载/满载吃水：2.728M/3.450M 主机：潍柴350kw，两台 发电机：2x120kw,1x24kw 后驾驶",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79292_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:49.013Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 544,
+  "fields": {
+    "source_id": "S79276",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=leclji",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2020,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79276\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=leclji\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2020\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：2995/1677 船级社：ZC 航区：近海 总长：99.78M 型宽/型深：20.78M/5.58M 空载/满载吃水：3.210M/4.200M 主机：淄柴374kw，两台 发电机：2x120kw,1x50kw,1x30kw",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79276_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:49.442Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 545,
+  "fields": {
+    "source_id": "S79275",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=leclhi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2019,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79275\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=leclhi\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2019\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：2995/1677 船级社：ZC 航区：近海 总长：99.78M 型宽/型深：20.78M/5.58M 空载/满载吃水：3.210M/4.200M 主机：淄柴374kw，两台 发电机：2x120kw,1x50kw,1x30kw",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79275_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:49.840Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 546,
+  "fields": {
+    "source_id": "S79271",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=leclai",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "11500",
+    "build_year": 2015,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79271\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=leclai\n\n--- Ship Specifications ---\nDWT: 11500\nYear: 2015\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：6991/3914 船级社：ZC 航区：近海 总长：115M 型宽/型深：35M/7.50M 空载/满载吃水：4.222M/5.500M 主机：广柴1998kw，两台 发电机：2x200kw,1x50kw",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79271_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:50.248Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 547,
+  "fields": {
+    "source_id": "S79270",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=leclki",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2009,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79270\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=leclki\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2009\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：2974/892 船级社：ZC 航区：近海 总长：94.62M 型宽/型深：22.50M/5.15M 空载/满载吃水：2.648M/3.900M 主机：淄博372kw，两台 发电机：2x120kw,1x30kw",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79270_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:50.614Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 548,
+  "fields": {
+    "source_id": "S79269",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lecjei",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "4500",
+    "build_year": 2015,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79269\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lecjei\n\n--- Ship Specifications ---\nDWT: 4500\nYear: 2015\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：2974/892 船旗：巴拿马旗 船级社：IRS 航区：无限航区 总长：88.6M 型宽/型深：22M/6.2M 空载/满载吃水：3.249M/4.700M 主机：广柴1324kw，两台 发电机：3x120kw",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79269_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:51.043Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 549,
+  "fields": {
+    "source_id": "S73341",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lddfai",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "600",
+    "build_year": 2014,
+    "width": "14.6",
+    "length": "65",
+    "depth": "3.3",
+    "full_description": "Original ID: S73341\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lddfai\n\n--- Ship Specifications ---\nDWT: 600\nYear: 2014\nStatus: 有效\nWidth: 14.6\nLength: 65\nDepth: 3.3",
+    "remark": "备　　注： 出售600吨甲板驳 实际可载1200吨 建造年月：2014年 建造地：中国江苏 船级社：ZC 总长65..6m/宽14.6m/深3.3m 满  载 吃 水：1.6M 空载吃水：1.2m 结构：双底单壳 航区：沿海 总吨 / 净吨：960/540 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73341_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:51.397Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 550,
+  "fields": {
+    "source_id": "S78913",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lbeadi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5100",
+    "build_year": 2026,
+    "width": "6",
+    "length": "17",
+    "depth": "",
+    "full_description": "Original ID: S78913\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lbeadi\n\n--- Ship Specifications ---\nDWT: 5100\nYear: 2026\nStatus: 有效\nWidth: 6\nLength: 17",
+    "remark": "备　　注： 出售 2026年浙江造5100吨（后驾驶）甲板驳船（预计4月上水交付） 船舶检验机构：ZC 船舶类型：甲板驳船 建造时间：2026年 建造地点：浙江 总长：105.72米 船宽：20.78米 型深：5.65米 满载吃水：4.23米 参考载重吨：5100吨 主机型号：宁波中策N6210/956kW / 2台 航区：国内沿海 满载航速：11节 甲板负荷12吨/平米，高强度H36，19个厚 跳板长17米，宽6米 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） ，各类内外贸船舶订单新造及船舶买卖，双瑞船用油漆-有机硅(提航速，降油耗，5年不长海蛎，中船七二五所旗下)，欢迎来电咨询合作。",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/78913_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:51.822Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 551,
+  "fields": {
+    "source_id": "S76807",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljbkli",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "10200",
+    "build_year": 2022,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S76807\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljbkli\n\n--- Ship Specifications ---\nDWT: 10200\nYear: 2022\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售2022年10200吨ZC检验前驾驶甲板驳船 建造地点：中国江苏 船级社：ZC 总长：119米 船宽：27米 型深：7.2米 满载吃水：5米 航区：近海 主机型号：青岛淄柴6N260 主机额定功率：1470千瓦×2台 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～",
+    "contact_info": "Mobile: 18959946619",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/76807_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:52.203Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 552,
+  "fields": {
+    "source_id": "S79242",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lecfci",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "4300",
+    "build_year": 2012,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79242\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lecfci\n\n--- Ship Specifications ---\nDWT: 4300\nYear: 2012\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：2992/1675 船级社：ZC 航区：沿海 总长：98.00M 型宽/型深：22.00M/4.90M 空载/满载吃水：2.264M/3.500M 主机：潍柴1030kw，两台 发电机：1x90kw,1x30kw,1x180kw 后驾驶，带跳板围板",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79242_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:52.671Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 553,
+  "fields": {
+    "source_id": "S79238",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lecdbi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "2900",
+    "build_year": 2014,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S79238\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lecdbi\n\n--- Ship Specifications ---\nDWT: 2900\nYear: 2014\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 总/净吨：1868T / 1046T 船级社：ZC 航区：沿海 总长：81.07M 型宽/型深：18.00M/4.50M 空载/满载吃水：1.873M/3.350M 主机：淄柴博洋350kw，双机 发电机：2x75kw",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/79238_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:53.029Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 554,
+  "fields": {
+    "source_id": "S77410",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=llfaki",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "4800",
+    "build_year": 2010,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S77410\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=llfaki\n\n--- Ship Specifications ---\nDWT: 4800\nYear: 2010\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:53.470Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 555,
+  "fields": {
+    "source_id": "S77279",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=llclei",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "700",
+    "build_year": 2022,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S77279\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=llclei\n\n--- Ship Specifications ---\nDWT: 700\nYear: 2022\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:53.932Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 556,
+  "fields": {
+    "source_id": "S74081",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lfkbai",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "4800",
+    "build_year": 2010,
+    "width": "2",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S74081\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lfkbai\n\n--- Ship Specifications ---\nDWT: 4800\nYear: 2010\nStatus: 有效\nWidth: 2",
+    "remark": "备　　注： 出售：4800吨甲板货船（后驾驶无跳板） 证书有效期至：2025年01月 建造完工日期：2010年07月 船舶建造地：宁波 船级社：ZC 总长：98.00m 船宽：21.00m 型深：5.50m 满载吃水：4.100m 参考载货吨：4800吨 货舱数量 /货舱盖型式：0个货舱 航区：近海 主机型号：潍柴XCW6200ZC（2台） 主机功率：698.00kw（2台）",
+    "contact_info": "",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/74081_z.jpg",
+      "https://sp.sol.com.cn/reg/photo/74081_z1.jpg",
+      "https://sp.sol.com.cn/reg/photo/74081_z2.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:54.331Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 557,
+  "fields": {
+    "source_id": "S76308",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljdkbi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "12500",
+    "build_year": 2022,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S76308\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljdkbi\n\n--- Ship Specifications ---\nDWT: 12500\nYear: 2022\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 出售2022年12500吨前驾驶甲板货船（有围板 带跳板） 检验机构：ZC检验 总长：126.00m 船宽：28.00m 型深：7.20m 满载吃水：5.35m 参考载货量：12500吨 结构型式：双底 航区：近海 主机：广柴6320/1470KW*两台 财富热线：18959946619 小清 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆-有机硅(5年不长海蛎)，欢迎来电咨询合作～",
+    "contact_info": "Mobile: 18959946619",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:54.744Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 558,
+  "fields": {
+    "source_id": "S75481",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lhfbai",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "5000",
+    "build_year": 2022,
+    "width": "2",
+    "length": "05950146",
+    "depth": "",
+    "full_description": "Original ID: S75481\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lhfbai\n\n--- Ship Specifications ---\nDWT: 5000\nYear: 2022\nStatus: 有效\nWidth: 2\nLength: 05950146",
+    "remark": "备　　注： 低价出售5000吨吨大件船 建造完工：2022年 船舶检验机构：ZC 航区：沿海 A1+A2 建造地：江苏 总长：99.80米 船宽：22.00米 型深：5.40米 满载吃水：4.05米 参考载货量：4800吨 总吨/净吨：2992/1675 主机品牌：潍柴6200/900KW/2台 甲板厚度：20mm 甲板负荷：12吨/㎡ 备注：无跳板围板，运送海工配件，大件为主，在航船，无抵押。 财富热线，19959951019，15968607999，老金 我司开具船舶交易专用发票（新造、二手船均可，费率优惠，可验证后付款） 等服务，新造船订单，二手船舶买卖，船舶拆解（国家一级环保资质，有拆解资质），船用油漆～有机硅(5年不长海蛎)，欢迎来电咨询合作。",
+    "contact_info": "Mobile: 19959951019",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/75481_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:55.118Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 559,
+  "fields": {
+    "source_id": "S76936",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ljedji",
+    "ship_category": "NON_SELF_PROPELLED",
+    "dwt": "450",
+    "build_year": 2022,
+    "width": "0040302",
+    "length": "",
+    "depth": "",
+    "full_description": "Original ID: S76936\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ljedji\n\n--- Ship Specifications ---\nDWT: 450\nYear: 2022\nStatus: 有效\nWidth: 0040302",
+    "remark": "备　　注：",
+    "contact_info": "",
+    "images": [],
+    "crawled_at": "2026-02-07T13:38:55.530Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 560,
+  "fields": {
+    "source_id": "S73300",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=lddkki",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "1500",
+    "build_year": 2012,
+    "width": "16",
+    "length": "66",
+    "depth": "3.6",
+    "full_description": "Original ID: S73300\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=lddkki\n\n--- Ship Specifications ---\nDWT: 1500\nYear: 2012\nStatus: 有效\nWidth: 16\nLength: 66\nDepth: 3.6",
+    "remark": "备　　注： 出售  1500吨  甲板货船 建造年月：2012年 建造地：中国浙江 船级社：zc 总长66m/宽16m/型深3.6m 满  载 吃 水：2.6m 空载吃水：1.7m 货舱数量：0 结构：单底单壳 主机型号：淄柴Z6170*2 主机额定功率：350KW*2 航区：沿海 总吨 / 净吨：1160/650 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73300_c.png"
+    ],
+    "crawled_at": "2026-02-07T13:38:56.005Z"
+  }
+},
+{
+  "model": "market.crawledship",
+  "pk": 561,
+  "fields": {
+    "source_id": "S73285",
+    "source": "sol",
+    "source_url": "https://sp.sol.com.cn/sell_msg.asp?solid=ldcbhi",
+    "ship_category": "SELF_PROPELLED",
+    "dwt": "1600",
+    "build_year": 2010,
+    "width": "16.5",
+    "length": "79.60",
+    "depth": "4.5",
+    "full_description": "Original ID: S73285\nSource: https://sp.sol.com.cn/sell_msg.asp?solid=ldcbhi\n\n--- Ship Specifications ---\nDWT: 1600\nYear: 2010\nStatus: 有效\nWidth: 16.5\nLength: 79.60\nDepth: 4.5",
+    "remark": "备　　注： 出售1600吨   甲板货船 建造年月：2010年 建造地：中国江苏 船级社：ZC 总长79.60m/船宽16.5m/型深4.5m 满载吃水：2.6m 空载吃水：1.2m 参考载重吨：1600吨 货舱：0 结构：双底 主机型号：潍柴6200*2 主机功率：6200KW*2 总吨/净吨：1722/965 航区：沿海A1+A2 台州长隆船舶经纪人 周经理 电话:13282712222  微信：bb0040302    邮箱：517885753@qq.com 专注船舶交易买卖 建造",
+    "contact_info": "Mobile: 13282712222",
+    "images": [
+      "https://sp.sol.com.cn/reg/photo/73285_z.jpg"
+    ],
+    "crawled_at": "2026-02-07T13:38:56.471Z"
+  }
+},
+{
+  "model": "market.shiplisting",
+  "pk": 7,
+  "fields": {
+    "user": 1,
+    "listing_type": "BUY",
+    "ship_category": "SELF_PROPELLED",
+    "length": "130.0",
+    "width": "30.0",
+    "depth": "7.6",
+    "dwt": "13000.0",
+    "build_year": 2021,
+    "class_society": "",
+    "flag_state": "",
+    "delivery_area": "",
+    "start_time": null,
+    "description": "尺寸是大概数据",
+    "description_en": "",
+    "contact_info": "18019119595",
+    "status": "APPROVED",
+    "created_at": "2026-02-02T11:33:49.835Z",
+    "updated_at": "2026-02-02T11:33:49.835Z",
+    "admin_notes": ""
+  }
+},
+{
+  "model": "market.shiplisting",
+  "pk": 8,
+  "fields": {
+    "user": 1,
+    "listing_type": "CHARTER_REQUEST",
+    "ship_category": "SELF_PROPELLED",
+    "length": "14000以内",
+    "width": "32-36",
+    "depth": "8",
+    "dwt": "12000-16000",
+    "build_year": 2021,
+    "class_society": "",
+    "flag_state": "",
+    "delivery_area": "",
+    "start_time": null,
+    "description": "尺度可商量",
+    "description_en": "",
+    "contact_info": "18019119595",
+    "status": "APPROVED",
+    "created_at": "2026-02-02T12:35:33.546Z",
+    "updated_at": "2026-02-02T12:35:33.546Z",
+    "admin_notes": ""
+  }
+},
+{
+  "model": "market.shiplisting",
+  "pk": 10,
+  "fields": {
+    "user": 6,
+    "listing_type": "CHARTER_REQUEST",
+    "ship_category": "SELF_PROPELLED",
+    "length": "130",
+    "width": "30",
+    "depth": "7.6",
+    "dwt": "13000",
+    "build_year": 2018,
+    "class_society": "",
+    "flag_state": "",
+    "delivery_area": "",
+    "start_time": null,
+    "description": "数据大概，可以协商",
+    "description_en": "",
+    "contact_info": "13816138289",
+    "status": "APPROVED",
+    "created_at": "2026-02-03T11:26:18.195Z",
+    "updated_at": "2026-02-03T13:22:58.580Z",
+    "admin_notes": ""
+  }
+},
+{
+  "model": "market.shiplisting",
+  "pk": 11,
+  "fields": {
+    "user": 6,
+    "listing_type": "BUY",
+    "ship_category": "SELF_PROPELLED",
+    "length": "90",
+    "width": "24",
+    "depth": "6.5",
+    "dwt": "7000",
+    "build_year": 2017,
+    "class_society": "",
+    "flag_state": "",
+    "delivery_area": "",
+    "start_time": null,
+    "description": "船在南方",
+    "description_en": "",
+    "contact_info": "13816138289",
+    "status": "APPROVED",
+    "created_at": "2026-02-03T11:29:56.156Z",
+    "updated_at": "2026-02-03T13:22:42.940Z",
+    "admin_notes": ""
+  }
+},
+{
+  "model": "market.shiplisting",
+  "pk": 12,
+  "fields": {
+    "user": 6,
+    "listing_type": "CHARTER_OFFER",
+    "ship_category": "SELF_PROPELLED",
+    "length": "136",
+    "width": "36",
+    "depth": "8.2",
+    "dwt": "16000",
+    "build_year": 2022,
+    "class_society": "",
+    "flag_state": "",
+    "delivery_area": "",
+    "start_time": null,
+    "description": "租金优厚",
+    "description_en": "",
+    "contact_info": "13816138289",
+    "status": "APPROVED",
+    "created_at": "2026-02-03T11:31:34.391Z",
+    "updated_at": "2026-02-03T13:22:26.308Z",
+    "admin_notes": ""
+  }
+},
+{
+  "model": "market.shiplisting",
+  "pk": 16,
+  "fields": {
+    "user": 6,
+    "listing_type": "SELL",
+    "ship_category": "SELF_PROPELLED",
+    "length": "130",
+    "width": "30",
+    "depth": "7.6",
+    "dwt": "12000",
+    "build_year": 2023,
+    "class_society": "",
+    "flag_state": "",
+    "delivery_area": "",
+    "start_time": null,
+    "description": "交船在中国南方",
+    "description_en": "",
+    "contact_info": "13816138289",
+    "status": "APPROVED",
+    "created_at": "2026-02-04T12:27:03.056Z",
+    "updated_at": "2026-02-04T12:48:41.560Z",
+    "admin_notes": ""
+  }
+},
+{
+  "model": "market.listingimage",
+  "pk": 5,
+  "fields": {
+    "listing": 10,
+    "image": "listing_images/yP52ruBQXhAaa2b7f5bcce315df3ec5c7d04d0c5cd14.png",
+    "is_schematic": false,
+    "created_at": "2026-02-03T11:26:18.290Z"
+  }
+},
+{
+  "model": "market.listingimage",
+  "pk": 6,
+  "fields": {
+    "listing": 11,
+    "image": "listing_images/C3lcdqNn0tUaa64f00672cf9d474a70fd6ee52bc2b98.png",
+    "is_schematic": false,
+    "created_at": "2026-02-03T11:29:56.230Z"
+  }
+},
+{
+  "model": "market.listingimage",
+  "pk": 7,
+  "fields": {
+    "listing": 12,
+    "image": "listing_images/wVW5PywrkZBV60f9bc93c8fae2f38dd66ed81daf68fb.png",
+    "is_schematic": false,
+    "created_at": "2026-02-03T11:31:34.444Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "title": "福宁重工建造12000吨自航驳船（MW716-1）顺利上船台",
+    "title_en": "",
+    "content": "该船总长119.9米，型宽30米，型深7.15米，设计吃水4.96米，最大吃水4.96米，定员16人，服务航速10.3节，最大吃水状态下载重量约12200吨，无限航区。该船主要用于运输铝土矿、铁矿石块、铁矿粉、煤、沙、散件杂货等，入级中国船级社。\r\n\r\n该系列船共计划建造15艘，其中12艘由福宁重工负责建造，另外3艘由东南造船冠海基地负责建造。目前，该系列中的首制船MW716-1及第二艘MW716-2均已成功上船台。目前，项目团队科学策划、精细管理，通过强化生产组织、严控工艺质量、保障物资供应等多方面举措，确保各生产环节无缝衔接、高效协同，旨在将本系列船打造为精品工程，保障所有船舶按计划高质量交付。",
+    "content_en": "",
+    "image": "news_images/12200tspb.png",
+    "source_url": null,
+    "original_source": "",
+    "status": "APPROVED",
+    "created_at": "2026-01-29T00:34:41.486Z",
+    "updated_at": "2026-01-29T00:46:17.084Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 3,
+  "fields": {
+    "user": 6,
+    "title": "2026年自航驳船国内市场展望",
+    "title_en": "",
+    "content": "2026 年自航驳船国内航运市场展望：稳健增长，绿色智能转型提速\n2026 年国内自航驳船市场将呈现 **“需求分化、结构优化、绿色智能引领”的格局，整体保持5-8%的稳健增长，其中自航甲板驳（SPB）** 凭借海上风电、深远海工程等领域的爆发式需求，成为增长核心，全年新增订单规模预计突破120 亿元，也是你深耕的甲板船领域最具潜力的赛道。以下从核心驱动、细分市场、政策技术、竞争格局与挑战机遇五个维度展开分析。\n一、核心驱动因素：三重共振激活市场\n海上风电 “深远海转型” 刚需拉动\n2026 年国内海上风电新增装机预计超8-10GW，深远海项目占比提升至60%以上，催生对大载重自航甲板驳（5000 吨级以上）的迫切需求，用于运输导管架、漂浮式基础、大型塔筒与叶片\n深远海项目要求自航驳具备DP2/DP3 动力定位、甲板强度提升、耐波性增强等特性，单船价值量较传统近岸型提升30-50%\n内河航运升级与 “公转水” 政策深化\n《全国内河航道与港口布局规划》加速落地，长江、珠江等干线航道升级，推动标准化自航驳船（1000-3000 吨级）需求增长，预计 2026 年内河自航驳新增运力超91 万载重吨，增幅约5.3%\n“公转水” 政策持续发力，大宗散货（煤炭、矿石、建材）内河运输比例提升，自航驳因无需拖轮、调度灵活的优势，成为短途转运主力\n重大基建工程集中开工\n粤港澳大湾区跨海通道、长三角一体化水利枢纽、长江黄金水道整治等工程，带动工程类自航驳（如疏浚、打桩、起重驳）需求，预计 2026 年工程船市场规模达120 亿元\n港口智能化改造、码头扩建等项目，增加对特种自航驳（如大件运输、设备安装驳）的短期租赁需求\n二、细分市场表现：结构性机会凸显\n细分类型\t2026 年市场表现\t核心应用场景\t增长亮点\n自航甲板驳\t爆发增长（+40-50%）\t海上风电深远海设备运输、海洋平台构件转运\t5000 吨级以上大型化、DP 定位智能化、绿色动力改造\n内河散货自航驳\t稳定增长（+5-8%）\t长江 / 珠江大宗散货运输、内河港口中转\t标准化船型普及、LNG 双燃料动力渗透率提升\n工程作业自航驳\t快速增长（+15-20%）\t疏浚吹填、桥梁施工、近岸打桩\t多功能模块化设计、搭载智能施工设备\n液货自航驳\t温和增长（+3-5%）\t内河成品油 / 化学品运输、海岛淡水补给\t专用舱型升级、防污染系统强化\n重点场景详解：自航甲板驳的 “风电黄金时代”\n运输需求：单 GW 风电项目需8-12 艘5000 吨级自航甲板驳，用于从产业园至风场的设备运输，单船月租金可达80-120 万元，远高于传统散货驳\n功能升级：部分自航驳通过改装成为风电运维母船，具备人员居住、设备维修、备件存储等功能，延长生命周期、提升收益\n市场缺口：国内具备大型自航甲板驳建造能力的船厂不足10 家，交付周期达18-24 个月，导致 2026 年 “一船难求” 局面延续，租赁价格持续高位",
+    "content_en": "",
+    "image": "news_images/y26TQZ7wQg1C60687892f6fe3a1ace2626cebbdef4b6.png",
+    "source_url": null,
+    "original_source": "",
+    "status": "APPROVED",
+    "created_at": "2026-02-03T14:05:45.691Z",
+    "updated_at": "2026-02-05T07:31:04.845Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 4,
+  "fields": {
+    "user": 1,
+    "title": "2026 Global Shipping Market Outlook",
+    "title_en": "",
+    "content": "Experts predict a steady rise in bulk carrier demand in the first quarter of 2026 due to...\n\n(Source: Maritime Analyst)",
+    "content_en": "",
+    "image": "",
+    "source_url": null,
+    "original_source": "",
+    "status": "APPROVED",
+    "created_at": "2026-02-05T06:46:28.172Z",
+    "updated_at": "2026-02-05T06:51:30.788Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 5,
+  "fields": {
+    "user": 1,
+    "title": "New Green Energy Regulations for Barges",
+    "title_en": "",
+    "content": "The Inland Waterway Authority has issued new guidelines for low-emission engines...\n\n(Source: Gov News)",
+    "content_en": "",
+    "image": "",
+    "source_url": null,
+    "original_source": "",
+    "status": "APPROVED",
+    "created_at": "2026-02-05T06:46:28.189Z",
+    "updated_at": "2026-02-05T06:51:30.776Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 6,
+  "fields": {
+    "user": 1,
+    "title": "Port Congestion Eases in Southern China",
+    "title_en": "",
+    "content": "Recent data shows that turnaround times at major southern ports have improved by 20%...\n\n(Source: Port Authority)",
+    "content_en": "",
+    "image": "",
+    "source_url": null,
+    "original_source": "",
+    "status": "APPROVED",
+    "created_at": "2026-02-05T06:46:28.197Z",
+    "updated_at": "2026-02-05T06:51:30.764Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 16,
+  "fields": {
+    "user": 1,
+    "title": "探秘自航式甲板驳船企业:海洋运输的革新力量",
+    "title_en": "",
+    "content": "【摘要/Summary】\n自航式甲板驳船可以在不同的海域和航道中航行，无论是近海作业还是远洋运输，都能展现出良好的性能。再者，它的操作相对简便，船员可以更高效地完成货物的装卸和航行任务。自航式甲板驳船企业的核心业务与技术实力 自航式甲板驳船企业主要从事自航式甲板驳船的设计、建造、运营和管理等业务。在设计方面，企业拥有一支专业...\n\n【原文链接/Source Link】\nhttps://baijiahao.baidu.com/s?id=1850560849328328218&wfr=spider&for=pc\n\n【来源/Source】\nBaidu Search\n【抓取时间/Crawled Time】\n2026-02-05 07:26",
+    "content_en": "",
+    "image": "",
+    "source_url": "https://baijiahao.baidu.com/s?id=1850560849328328218&wfr=spider&for=pc",
+    "original_source": "Baidu Search",
+    "status": "APPROVED",
+    "created_at": "2026-02-05T07:26:52.208Z",
+    "updated_at": "2026-02-05T07:30:32.879Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 17,
+  "fields": {
+    "user": 1,
+    "title": "刷新纪录!九艘“中国造”驳船安全驶往欧洲!",
+    "title_en": "",
+    "content": "【摘要/Summary】\n近日,在常熟海事局周密组织和全程护航下,荷兰籍大件运输船“波弗特海”(BIGROLL BEAUFORT)轮在常熟港专用航道新泰码头前沿水域,成功完成了9艘驳船的吊装作业。本次出口的驳船单体最大重量达2800吨,刷新了常熟港吊装作业单件货物重量纪录。 面对此次作业中驳船数...\n\n【原文链接/Source Link】\nhttps://mp.weixin.qq.com/s?__biz=MjM5MTIxMDgyNg==&mid=2650690334&idx=1&sn=50cde88cef4e0379f434507ed07930de&chksm=bf10d0584de7dcf76b947019621eedb1df25ea51ce8babe39648712ec40cf1979e78c83cbcff&scene=27\n\n【来源/Source】\nBaidu Search\n【抓取时间/Crawled Time】\n2026-02-05 07:26",
+    "content_en": "",
+    "image": "",
+    "source_url": "https://mp.weixin.qq.com/s?__biz=MjM5MTIxMDgyNg==&mid=2650690334&idx=1&sn=50cde88cef4e0379f434507ed07930de&chksm=bf10d0584de7dcf76b947019621eedb1df25ea51ce8babe39648712ec40cf1979e78c83cbcff&scene=27",
+    "original_source": "Baidu Search",
+    "status": "APPROVED",
+    "created_at": "2026-02-05T07:26:52.214Z",
+    "updated_at": "2026-02-05T07:30:24.033Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 18,
+  "fields": {
+    "user": 1,
+    "title": "自航式甲板驳船优质厂家怎么选?关键看这三大核心能力",
+    "title_en": "",
+    "content": "【摘要/Summary】\n此外，材料工艺是技术实力的另一体现。优质厂家会采用高强度钢材焊接船体，并通过无损检测技术确保焊缝质量；甲板表面处理需兼顾防滑与耐腐蚀，通常采用特殊涂层或热喷锌工艺，延长设备使用寿命。这些细节决定了驳船能否在长期高负荷作业中保持可靠性。二、生产经验：从案例到口碑的长期积累 自航式甲板驳船属于非标定制化设备...\n\n【原文链接/Source Link】\nhttps://baijiahao.baidu.com/s?id=1854901195169979117&wfr=spider&for=pc\n\n【来源/Source】\nBaidu Search\n【抓取时间/Crawled Time】\n2026-02-05 07:26",
+    "content_en": "",
+    "image": "",
+    "source_url": "https://baijiahao.baidu.com/s?id=1854901195169979117&wfr=spider&for=pc",
+    "original_source": "Baidu Search",
+    "status": "APPROVED",
+    "created_at": "2026-02-05T07:26:52.220Z",
+    "updated_at": "2026-02-05T07:30:17.085Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 19,
+  "fields": {
+    "user": 1,
+    "title": "Self Propelled Transport Barge Market | Global Market Analysis Report - 2035",
+    "title_en": "",
+    "content": "【摘要/Summary】\nThe self-propelled transport barge market is valued at USD 6.7 billion in 2025 and is expected to grow at a CAGR of 3.7%. This growth is driven...\n\n【原文链接/Source Link】\nhttps://www.futuremarketinsights.com/reports/self-propelled-transport-barge-market\n\n【来源/Source】\nFuture Market Insights\n【抓取时间/Crawled Time】\n2026-02-05 07:27",
+    "content_en": "",
+    "image": "",
+    "source_url": "https://www.futuremarketinsights.com/reports/self-propelled-transport-barge-market",
+    "original_source": "Future Market Insights",
+    "status": "APPROVED",
+    "created_at": "2026-02-05T07:27:54.908Z",
+    "updated_at": "2026-02-05T07:30:05.121Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 24,
+  "fields": {
+    "user": 1,
+    "title": "ZPMC successfully delivered a 5,000-ton self-propelled revolving derrick barge",
+    "title_en": "",
+    "content": "【摘要/Summary】\nZPMC successfully delivered a 5,000-ton self-propelled revolving derrick barge ... On December 26, Shanghai Zhenhua Port Machinery (ZPMC)...\n\n【原文链接/Source Link】\nhttps://www.imarinenews.com/18147.html\n\n【来源/Source】\niMarine\n【抓取时间/Crawled Time】\n2026-02-05 07:27",
+    "content_en": "",
+    "image": "",
+    "source_url": "https://www.imarinenews.com/18147.html",
+    "original_source": "iMarine",
+    "status": "APPROVED",
+    "created_at": "2026-02-05T07:27:54.950Z",
+    "updated_at": "2026-02-05T07:29:39.479Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 27,
+  "fields": {
+    "user": 1,
+    "title": "China’s new barges could make a tough task easier - invading Taiwan",
+    "title_en": "",
+    "content": "【摘要/Summary】\nTheir debut suggests China may be closer to landing tens of thousands of troops on Taiwan's shores. Read more at straitstimes.com.\n\n【原文链接/Source Link】\nhttps://www.straitstimes.com/asia/east-asia/chinas-new-barges-could-make-a-tough-task-easier-invading-taiwan\n\n【来源/Source】\nThe Straits Times\n【抓取时间/Crawled Time】\n2026-02-05 07:27",
+    "content_en": "",
+    "image": "",
+    "source_url": "https://www.straitstimes.com/asia/east-asia/chinas-new-barges-could-make-a-tough-task-easier-invading-taiwan",
+    "original_source": "The Straits Times",
+    "status": "APPROVED",
+    "created_at": "2026-02-05T07:27:54.972Z",
+    "updated_at": "2026-02-05T07:29:31.291Z"
+  }
+},
+{
+  "model": "market.marketnews",
+  "pk": 42,
+  "fields": {
+    "user": 1,
+    "title": "自航驳船的最新相关信息",
+    "title_en": "",
+    "content": "【摘要/Summary】\nNo summary available.\n\n【原文链接/Source Link】\nhttps://www.baidu.com/s?tn=news&rtt=1&bsst=1&wd=%E8%87%AA%E8%88%AA%E9%A9%B3%E8%88%B9&cl=2\n\n【来源/Source】\nBaidu Search\n【抓取时间/Crawled Time】\n2026-02-05 08:37",
+    "content_en": "",
+    "image": "",
+    "source_url": "https://www.baidu.com/s?tn=news&rtt=1&bsst=1&wd=%E8%87%AA%E8%88%AA%E9%A9%B3%E8%88%B9&cl=2",
+    "original_source": "Baidu Search",
+    "status": "APPROVED",
+    "created_at": "2026-02-05T08:37:50.125Z",
+    "updated_at": "2026-02-07T00:21:57.877Z"
+  }
+},
+{
+  "model": "market.listingmatch",
+  "pk": 5,
+  "fields": {
+    "listing_source": 12,
+    "listing_target": 8,
+    "score": 0.5,
+    "is_notified": false,
+    "created_at": "2026-02-03T12:55:45.321Z"
+  }
+},
+{
+  "model": "market.listingmatch",
+  "pk": 6,
+  "fields": {
+    "listing_source": 8,
+    "listing_target": 12,
+    "score": 0.5,
+    "is_notified": false,
+    "created_at": "2026-02-03T12:55:45.327Z"
+  }
+},
+{
+  "model": "market.favorite",
+  "pk": 3,
+  "fields": {
+    "user": 6,
+    "content_type": 12,
+    "object_id": 1,
+    "created_at": "2026-02-04T04:31:04.671Z"
+  }
+},
+{
+  "model": "market.dailybriefing",
+  "pk": 1,
+  "fields": {
+    "content": "🚢 每日船舶市场简报 / Daily Ship Market Briefing\n📅 2026-02-08 10:10\n========================================\n\n🔥 新增船舶信息 (110 条)\n\n[SOL]\n1. 1600 DWT, Built 2010, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldcbhi\n   ℹ️ Original ID: S73285...\n2. 1500 DWT, Built 2012, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lddkki\n   ℹ️ Original ID: S73300...\n3. 450 DWT, Built 2022, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljedji\n   ℹ️ Original ID: S76936...\n4. 5000 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lhfbai\n   ℹ️ Original ID: S75481...\n5. 12500 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljdkbi\n   ℹ️ Original ID: S76308...\n6. 4800 DWT, Built 2010, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lfkbai\n   ℹ️ Original ID: S74081...\n7. 700 DWT, Built 2022, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=llclei\n   ℹ️ Original ID: S77279...\n8. 4800 DWT, Built 2010, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=llfaki\n   ℹ️ Original ID: S77410...\n9. 2900 DWT, Built 2014, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lecdbi\n   ℹ️ Original ID: S79238...\n10. 4300 DWT, Built 2012, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lecfci\n   ℹ️ Original ID: S79242...\n11. 10200 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljbkli\n   ℹ️ Original ID: S76807...\n12. 5100 DWT, Built 2026, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbeadi\n   ℹ️ Original ID: S78913...\n13. 600 DWT, Built 2014, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lddfai\n   ℹ️ Original ID: S73341...\n14. 4500 DWT, Built 2015, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lecjei\n   ℹ️ Original ID: S79269...\n15. 5000 DWT, Built 2009, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=leclki\n   ℹ️ Original ID: S79270...\n16. 11500 DWT, Built 2015, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=leclai\n   ℹ️ Original ID: S79271...\n17. 5000 DWT, Built 2019, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=leclhi\n   ℹ️ Original ID: S79275...\n18. 5000 DWT, Built 2020, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=leclji\n   ℹ️ Original ID: S79276...\n19. 2400 DWT, Built 2018, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lececi\n   ℹ️ Original ID: S79292...\n20. 13000 DWT, Built 2010, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=leceai\n   ℹ️ Original ID: S79291...\n21. 1200 DWT, Built 2014, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lecedi\n   ℹ️ Original ID: S79293...\n22. 2900 DWT, Built 2016, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lecehi\n   ℹ️ Original ID: S79295...\n23. 4700 DWT, Built 2015, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lecefi\n   ℹ️ Original ID: S79294...\n24. 1500 DWT, Built 2017, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=leceji\n   ℹ️ Original ID: S79296...\n25. 4800 DWT, Built 2015, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lecebi\n   ℹ️ Original ID: S79298...\n26. 700 DWT, Built 2014, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lddfci\n   ℹ️ Original ID: S73342...\n27. 800 DWT, Built 2007, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldcbki\n   ℹ️ Original ID: S73280...\n28. 5700 DWT, Built 2018, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lekdli\n   ℹ️ Original ID: S79037...\n29. 6600 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldjjdi\n   ℹ️ Original ID: S73663...\n30. 4500 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldfbai\n   ℹ️ Original ID: S73481...\n31. 4200 DWT, Built 2020, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldfhli\n   ℹ️ Original ID: S73457...\n32. 1100 DWT, Built 2013, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljdeci\n   ℹ️ Original ID: S76392...\n33. 20000 DWT, Built 2018, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lfflki\n   ℹ️ Original ID: S74470...\n34. 10000 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lekkbi\n   ℹ️ Original ID: S79008...\n35. 6600 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lekkfi\n   ℹ️ Original ID: S79004...\n36. 5000 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lekkdi\n   ℹ️ Original ID: S79003...\n37. 2100 DWT, Built 2017, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lekkci\n   ℹ️ Original ID: S79002...\n38. 8400 DWT, Built 2015, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbblji\n   ℹ️ Original ID: S78876...\n39. 2800 DWT, Built 2009, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=leabdi\n   ℹ️ Original ID: S79183...\n40. 5000 DWT, Built 2025, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lhjhji\n   ℹ️ Original ID: S75656...\n41. 8500 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lhfbfi\n   ℹ️ Original ID: S75484...\n42. 27500 DWT, Built 2024, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=llbfai\n   ℹ️ Original ID: S77841...\n43. 3300 DWT, Built 2018, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldffji\n   ℹ️ Original ID: S73446...\n44. 27800 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldfbei\n   ℹ️ Original ID: S73489...\n45. 1500 DWT, Built 2013, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lddcbi\n   ℹ️ Original ID: S73328...\n46. 8500 DWT, Built 2016, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldffki\n   ℹ️ Original ID: S73440...\n47. 4600 DWT, Built 2016, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldfdli\n   ℹ️ Original ID: S73437...\n48. 2000 DWT, Built 2022, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lekdei\n   ℹ️ Original ID: S79039...\n49. 11600 DWT, Built 2015, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbllbi\n   ℹ️ Original ID: S78778...\n50. 7500 DWT, Built 2022, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbfeei\n   ℹ️ Original ID: S78499...\n51. 11500 DWT, Built 2022, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbfebi\n   ℹ️ Original ID: S78498...\n52. 3200 DWT, Built 2014, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbfali\n   ℹ️ Original ID: S78417...\n53. 8400 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbcjdi\n   ℹ️ Original ID: S78263...\n54. 6000 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljckei\n   ℹ️ Original ID: S76209...\n55. 13600 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljhbai\n   ℹ️ Original ID: S76581...\n56. 3000 DWT, Built 2013, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=llbfki\n   ℹ️ Original ID: S77840...\n57. 3700 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lcfcci\n   ℹ️ Original ID: S72422...\n58. 2300 DWT, Built 2016, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldfcai\n   ℹ️ Original ID: S73421...\n59. 5000 DWT, Built 2020, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldflji\n   ℹ️ Original ID: S73476...\n60. 2000 DWT, Built 2009, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldcbdi\n   ℹ️ Original ID: S73283...\n61. 1600 DWT, Built 2014, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldcbci\n   ℹ️ Original ID: S73282...\n62. 1450 DWT, Built 2013, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldddai\n   ℹ️ Original ID: S73331...\n63. 1000 DWT, Built 2013, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldddki\n   ℹ️ Original ID: S73330...\n64. 1700 DWT, Built 2010, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldcbli\n   ℹ️ Original ID: S73287...\n65. 4000 DWT, Built 2014, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=llbafi\n   ℹ️ Original ID: S77814...\n66. 13600 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljjkfi\n   ℹ️ Original ID: S76604...\n67. 1450 DWT, Built 2014, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldejli\n   ℹ️ Original ID: S73967...\n68. 4400 DWT, Built 2009, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldcbbi\n   ℹ️ Original ID: S73288...\n69. 1300 DWT, Built 2014, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbcjji\n   ℹ️ Original ID: S78266...\n70. 7800 DWT, Built 2021, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbcffi\n   ℹ️ Original ID: S78244...\n71. 3800 DWT, Built 2026, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lblaci\n   ℹ️ Original ID: S78712...\n72. 5000 DWT, Built 2026, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lblaai\n   ℹ️ Original ID: S78711...\n73. 2800 DWT, Built 2025, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbhdai\n   ℹ️ Original ID: S78531...\n74. 12000 DWT, Built 2022, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbdfhi\n   ℹ️ Original ID: S78345...\n75. 11000 DWT, Built 2023, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbldei\n   ℹ️ Original ID: S78739...\n76. 5000 DWT, Built 2020, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lfleji\n   ℹ️ Original ID: S74796...\n77. 12200 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljbkbi\n   ℹ️ Original ID: S76808...\n78. 10200 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljjfci\n   ℹ️ Original ID: S76642...\n79. 16000 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lhfbdi\n   ℹ️ Original ID: S75483...\n80. 3400 DWT, Built 2019, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbehhi\n   ℹ️ Original ID: S78955...\n81. 3600 DWT, Built 2019, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldfhki\n   ℹ️ Original ID: S73450...\n82. 3100 DWT, Built 2017, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldffci\n   ℹ️ Original ID: S73442...\n83. 7200 DWT, Built 2013, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldddei\n   ℹ️ Original ID: S73339...\n84. 2300 DWT, Built 2013, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ldddhi\n   ℹ️ Original ID: S73335...\n85. 2300 DWT, Built 2013, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lddddi\n   ℹ️ Original ID: S73333...\n86. 4900 DWT, Built 2022, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=jfdaai\n   ℹ️ Original ID: S64311...\n87. 3600 DWT, Built 2021, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=jldjfi\n   ℹ️ Original ID: S67364...\n88. 6000 DWT, Built 2015, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lfebci\n   ℹ️ Original ID: S74982...\n89. 11600 DWT, Built 2015, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbelai\n   ℹ️ Original ID: S78971...\n90. 5000 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbedei\n   ℹ️ Original ID: S78939...\n91. 10107 DWT, Built 2009, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljfbbi\n   ℹ️ Original ID: S76488...\n92. 450 DWT, Built 2021, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljedbi\n   ℹ️ Original ID: S76938...\n93. 11000 DWT, Built 2005, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljhhci\n   ℹ️ Original ID: S76552...\n94. 3200 DWT, Built 2017, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljdhai\n   ℹ️ Original ID: S76351...\n95. 2300 DWT, Built 2023, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lekeai\n   ℹ️ Original ID: S79091...\n96. 2500 DWT, Built 2018, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lblfki\n   ℹ️ Original ID: S78740...\n97. 9200 DWT, Built 2021, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbdlji\n   ℹ️ Original ID: S78376...\n98. 8100 DWT, Built 2022, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbdfji\n   ℹ️ Original ID: S78346...\n99. 16000 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lhhcji\n   ℹ️ Original ID: S75526...\n100. 3500 DWT, Built 2010, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljdhli\n   ℹ️ Original ID: S76357...\n101. 8400 DWT, Built 2021, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbaaei\n   ℹ️ Original ID: S78119...\n102. 19257 DWT, Built 2023, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbbdli\n   ℹ️ Original ID: S78837...\n103. 102000 DWT, Built 2022, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=jhfaai\n   ℹ️ Original ID: S65411...\n104. 5000 DWT, Built 2020, SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbefki\n   ℹ️ Original ID: S78940...\n105. 2000 DWT, Built 2002, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbkeci\n   ℹ️ Original ID: S78092...\n106. 4400 DWT, Built 2012, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=lbkeai\n   ℹ️ Original ID: S78091...\n107. 540 DWT, Built 2024, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljedli\n   ℹ️ Original ID: S76937...\n108. 2600 DWT, Built 2018, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljlffi\n   ℹ️ Original ID: S76744...\n109. 2300 DWT, Built 2009, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljjjji\n   ℹ️ Original ID: S76666...\n110. 5700 DWT, Built 2018, NON_SELF_PROPELLED\n   🔗 https://sp.sol.com.cn/sell_msg.asp?solid=ljdcli\n   ℹ️ Original ID: S76327...\n\nℹ️ 过去24小时无新增市场新闻。\n\n========================================\n🤖 生成自 SPB Expert 智能助手",
+    "status": "DRAFT",
+    "created_at": "2026-02-08T10:10:08.327Z"
+  }
+},
+{
+  "model": "core.adminmessage",
+  "pk": 1,
+  "fields": {
+    "name": "肖文聪",
+    "company_name": "RTCC Ship Management Company Ltd",
+    "phone_number": "18019119595",
+    "message": "TEST",
+    "created_at": "2026-01-28T23:41:05.170Z"
+  }
+},
+{
+  "model": "core.adminmessage",
+  "pk": 2,
+  "fields": {
+    "name": "www",
+    "company_name": "RTCC Ship Management Company Ltd",
+    "phone_number": "18019119595",
+    "message": "找人",
+    "created_at": "2026-01-29T02:31:15.525Z"
+  }
+},
+{
+  "model": "core.membermessage",
+  "pk": 5,
+  "fields": {
+    "user": 6,
+    "content": "【System Test】 This is a test notification from the system to verify your account binding. Currently, only in-app messages are supported.",
+    "created_at": "2026-02-05T06:21:29.475Z"
+  }
+},
+{
+  "model": "core.messagereply",
+  "pk": 3,
+  "fields": {
+    "message": 5,
+    "user": 6,
+    "content": "good",
+    "created_at": "2026-02-07T03:07:50.864Z"
+  }
+},
+{
+  "model": "core.messagereply",
+  "pk": 4,
+  "fields": {
+    "message": 5,
+    "user": 6,
+    "content": "好的",
+    "created_at": "2026-02-07T03:08:35.315Z"
+  }
+},
+{
+  "model": "core.privatemessage",
+  "pk": 2,
+  "fields": {
+    "sender": 1,
+    "receiver": 6,
+    "content": "hi",
+    "is_read": false,
+    "created_at": "2026-02-04T04:12:16.830Z"
+  }
+},
+{
+  "model": "core.privatemessage",
+  "pk": 3,
+  "fields": {
+    "sender": 1,
+    "receiver": 6,
+    "content": "hi",
+    "is_read": false,
+    "created_at": "2026-02-04T04:20:00.783Z"
+  }
+},
+{
+  "model": "ads.advertisement",
+  "pk": 12,
+  "fields": {
+    "user": null,
+    "title": "甲板船融资",
+    "image": "banners/w9eZrgYLurSjcba6c66ebf227c152e42771301d69669.png",
+    "link": "",
+    "description": "为甲板船造船，买卖船，提供融资方案。",
+    "is_active": true,
+    "created_at": "2026-02-06T08:57:10.702Z",
+    "activated_at": "2026-02-06T09:01:27.169Z"
+  }
+},
+{
+  "model": "ads.advertisement",
+  "pk": 13,
+  "fields": {
+    "user": null,
+    "title": "甲板船家事",
+    "image": "banners/wiRi7ho8HumN60f9bc93c8fae2f38dd66ed81daf68fb.png",
+    "link": "",
+    "description": "买甲板船？找甲板船家。卖甲板船？找甲板船家。租甲板船?找甲板船家。",
+    "is_active": true,
+    "created_at": "2026-02-06T09:25:36.877Z",
+    "activated_at": "2026-02-06T09:30:24.929Z"
+  }
+},
+{
+  "model": "crew.crewlisting",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "name": "王二",
+    "gender": "M",
+    "nationality_type": "DOMESTIC",
+    "nationality": "中国",
+    "residence": "上海",
+    "position": "大副",
+    "total_sea_experience": "10.0",
+    "current_rank_experience": "2.0",
+    "cert_number": "1234567",
+    "phone": "18019118056",
+    "email": "vincent_xiao@rtcc-ship.com",
+    "expected_salary": "3000",
+    "resume": "1，\r\n2，\r\n3，",
+    "status": "AVAILABLE",
+    "created_at": "2026-02-06T11:24:38.003Z",
+    "updated_at": "2026-02-06T11:27:21.279Z"
+  }
+},
+{
+  "model": "crew.crewlisting",
+  "pk": 2,
+  "fields": {
+    "user": 6,
+    "name": "张三",
+    "gender": "M",
+    "nationality_type": "DOMESTIC",
+    "nationality": "中国",
+    "residence": "上海",
+    "position": "船长",
+    "total_sea_experience": "10.0",
+    "current_rank_experience": "2.0",
+    "cert_number": "1234567",
+    "phone": "18019118056",
+    "email": "info@rtcc-ship.com",
+    "expected_salary": "3000",
+    "resume": "1，\r\n2，\r\n3，",
+    "status": "AVAILABLE",
+    "created_at": "2026-02-06T11:55:45.103Z",
+    "updated_at": "2026-02-06T11:55:45.103Z"
+  }
+}
+]

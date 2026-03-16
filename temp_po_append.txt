@@ -1,0 +1,139 @@
+
+# Voyage Estimator
+msgid "Voyage Profit Estimator"
+msgstr "航次效益测算"
+
+msgid "Voyage Estimator"
+msgstr "航次测算器"
+
+msgid "Currency"
+msgstr "货币"
+
+msgid "Route & Cargo"
+msgstr "航线与货物"
+
+msgid "Port Ops (Days & PDA)"
+msgstr "港口作业 (天数 & 港使费)"
+
+msgid "Load Days"
+msgstr "装货天数"
+
+msgid "Disch Days"
+msgstr "卸货天数"
+
+msgid "Load PDA"
+msgstr "装港费"
+
+msgid "Disch PDA"
+msgstr "卸港费"
+
+msgid "Financials"
+msgstr "财务指标"
+
+msgid "Consumables (Cons. & Price)"
+msgstr "消耗品 (油耗 & 价格)"
+
+msgid "Item"
+msgstr "项目"
+
+msgid "Cons/Day"
+msgstr "日耗"
+
+msgid "Price/MT"
+msgstr "单价/吨"
+
+msgid "HFO (Main)"
+msgstr "重油 (主机)"
+
+msgid "MGO (Aux)"
+msgstr "轻油 (辅机)"
+
+msgid "Water"
+msgstr "淡水"
+
+msgid "Calculate"
+msgstr "开始计算"
+
+msgid "Reset"
+msgstr "重置"
+
+msgid "Results"
+msgstr "测算结果"
+
+msgid "Mode"
+msgstr "模式"
+
+msgid "Time Charter Equivalent"
+msgstr "等价期租水平"
+
+msgid "TCE (Daily)"
+msgstr "TCE (日租金)"
+
+msgid "Total Profit"
+msgstr "总利润"
+
+msgid "Freight Rate"
+msgstr "运价"
+
+msgid "Time Analysis"
+msgstr "时间分析"
+
+msgid "One-Way Sailing"
+msgstr "单程航行"
+
+msgid "Port Time"
+msgstr "在港时间"
+
+msgid "days"
+msgstr "天"
+
+msgid "Total Days"
+msgstr "总天数"
+
+msgid "Gross Income"
+msgstr "总收入"
+
+msgid "Total Fuel Cost"
+msgstr "燃油总成本"
+
+msgid "Total PDA"
+msgstr "港使费总计"
+
+msgid "Commission"
+msgstr "佣金"
+
+msgid "Fuel & Water Details"
+msgstr "油水详情"
+
+msgid "Type"
+msgstr "类型"
+
+msgid "Days"
+msgstr "天数"
+
+msgid "Cons. (MT)"
+msgstr "消耗量 (吨)"
+
+msgid "Price"
+msgstr "单价"
+
+msgid "Cost"
+msgstr "成本"
+
+msgid "(Sea)"
+msgstr "(航行)"
+
+msgid "(All)"
+msgstr "(合计)"
+
+msgid "Fresh Water"
+msgstr "淡水"
+
+msgid "Ready to Calculate"
+msgstr "准备计算"
+
+msgid "Fill in the parameters on the left and click Calculate to see detailed voyage estimation."
+msgstr "请在左侧填写参数，点击计算查看详细航次估算。"
+
+msgid "Search Port..."
+msgstr "搜索港口..."

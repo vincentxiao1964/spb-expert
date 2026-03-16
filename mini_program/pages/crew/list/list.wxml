@@ -1,0 +1,45 @@
+<view class="container" style="padding-bottom: 300rpx;">
+  <!-- Search -->
+  <view class="search-bar">
+    <input class="search-input" placeholder="{{t.search_placeholder_crew}}" bindconfirm="onSearch" confirm-type="search" />
+  </view>
+
+  <!-- Tabs -->
+  <view class="tabs">
+    <view class="tab-item {{currentTab === 'DOMESTIC' ? 'active' : ''}}" bindtap="switchTab" data-tab="DOMESTIC">{{t.domestic_crew}}</view>
+    <view class="tab-item {{currentTab === 'INTERNATIONAL' ? 'active' : ''}}" bindtap="switchTab" data-tab="INTERNATIONAL">{{t.international_crew}}</view>
+  </view>
+
+  <!-- List -->
+  <view class="crew-list">
+    <block wx:if="{{crewList.length > 0}}">
+      <view class="crew-item" wx:for="{{crewList}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+        <view class="crew-header">
+          <text class="crew-name">{{item.name}}</text>
+          <text class="crew-position">{{item.position}}</text>
+        </view>
+        <view class="crew-info">
+          <text class="info-item">{{t.gender}}: {{item.gender_display}}</text>
+          <text class="info-item">{{t.total_exp}}: {{item.total_sea_experience}}{{t.year}}</text>
+          <text class="info-item">{{t.rank_exp}}: {{item.current_rank_experience}}{{t.year}}</text>
+          <text class="info-item">{{t.expected_salary}}: {{item.expected_salary}}</text>
+        </view>
+        <view class="crew-tags">
+          <text class="tag">{{item.nationality}}</text>
+          <text class="tag">{{item.status_display}}</text>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="empty-state">{{t.empty_data}}</view>
+    </block>
+  </view>
+
+  <!-- FAB to Create Profile -->
+  <view class="fab-btn" bindtap="goCreate">
+    <text class="fab-icon">+</text>
+    <text>{{t.post}}</text>
+  </view>
+  
+  <quick-nav />
+</view>

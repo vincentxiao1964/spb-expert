@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="form-group">
+    <text class="label">标题 (中文) *</text>
+    <input class="input" placeholder="请输入标题" value="{{title}}" bindinput="handleInput" data-field="title" />
+  </view>
+
+  <view class="form-group">
+    <text class="label">标题 (英文)</text>
+    <input class="input" placeholder="请输入英文标题" value="{{title_en}}" bindinput="handleInput" data-field="title_en" />
+  </view>
+
+  <view class="form-group">
+    <text class="label">内容 (中文) *</text>
+    <textarea class="textarea" placeholder="请输入内容" value="{{content}}" bindinput="handleInput" data-field="content" maxlength="-1"></textarea>
+  </view>
+
+  <view class="form-group">
+    <text class="label">内容 (英文)</text>
+    <textarea class="textarea" placeholder="请输入英文内容" value="{{content_en}}" bindinput="handleInput" data-field="content_en" maxlength="-1"></textarea>
+  </view>
+
+  <view class="form-group">
+    <text class="label">配图</text>
+    <view class="image-uploader" bindtap="chooseImage">
+      <image wx:if="{{imagePath}}" src="{{imagePath}}" mode="aspectFill" class="preview-image"></image>
+      <view wx:else class="placeholder">
+        <text class="plus">+</text>
+        <text class="tip">点击上传图片</text>
+      </view>
+    </view>
+    <view wx:if="{{imagePath}}" class="btn-remove-image" catchtap="removeImage">删除图片</view>
+  </view>
+
+  <button class="btn-submit" type="primary" bindtap="handleSubmit" loading="{{submitting}}">提交</button>
+</view>

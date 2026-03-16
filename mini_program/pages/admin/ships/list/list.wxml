@@ -1,0 +1,34 @@
+<view class="container">
+  <view class="header">
+    <button class="btn-add" type="primary" size="mini" bindtap="navigateToAdd">发布船源</button>
+  </view>
+
+  <view class="list">
+    <block wx:for="{{shipList}}" wx:key="id">
+      <view class="item">
+        <view class="item-content" bindtap="navigateToEdit" data-id="{{item.id}}">
+          <view class="item-title">
+            <text class="tag-type">{{item.listing_type_display}}</text>
+            <text class="tag-category">{{item.ship_category_display}}</text>
+            <text wx:if="{{item.dwt}}" class="text-dwt">{{item.dwt}} DWT</text>
+          </view>
+          <view class="item-info">
+            <text class="item-status {{item.status == 'approved' ? 'status-approved' : 'status-pending'}}">{{item.status_display || item.status}}</text>
+            <text class="item-date">{{item.created_at}}</text>
+          </view>
+        </view>
+        <view class="item-actions">
+          <block wx:if="{{isAdmin}}">
+             <view class="btn-action btn-approve" catchtap="handleAudit" data-id="{{item.id}}" data-status="APPROVED" wx:if="{{item.status !== 'APPROVED'}}">通过</view>
+             <view class="btn-action btn-reject" catchtap="handleAudit" data-id="{{item.id}}" data-status="REJECTED" wx:if="{{item.status !== 'REJECTED'}}">拒绝</view>
+          </block>
+          <view class="btn-action btn-edit" bindtap="navigateToEdit" data-id="{{item.id}}">编辑</view>
+          <view class="btn-action btn-delete" bindtap="handleDelete" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{shipList.length === 0}}" class="empty-tip">暂无数据</view>
+  </view>
+
+  <quick-nav />
+</view>

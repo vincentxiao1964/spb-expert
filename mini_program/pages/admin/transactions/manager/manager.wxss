@@ -1,0 +1,63 @@
+.container {
+    padding: 20rpx;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.header {
+    margin-bottom: 30rpx;
+}
+
+.btn-create {
+    width: 100%;
+    background-color: #007aff;
+}
+
+.list-header {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+    color: #333;
+}
+
+.item {
+    background: #fff;
+    padding: 20rpx;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 2rpx 5rpx rgba(0,0,0,0.1);
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10rpx;
+}
+
+.id {
+    font-weight: bold;
+    color: #666;
+}
+
+.status {
+    color: #007aff;
+    font-weight: bold;
+}
+
+.details {
+    color: #666;
+    font-size: 26rpx;
+}
+
+.date {
+    font-size: 24rpx;
+    color: #999;
+    text-align: right;
+    margin-top: 10rpx;
+}
+
+.empty {
+    text-align: center;
+    color: #999;
+    margin-top: 100rpx;
+}

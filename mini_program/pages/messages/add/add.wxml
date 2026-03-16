@@ -1,0 +1,20 @@
+<view class="container" style="padding-bottom: 150rpx;">
+  <view class="tips">
+    <text class="tips-title">发帖须知：</text>
+    <text>1. 专注甲板船领域交流（造船/设计/设备/船级社/法规等）。</text>
+    <text>2. 严禁发布违法违规内容。</text>
+  </view>
+
+  <view class="form-group">
+    <textarea 
+      class="input-area" 
+      placeholder="请输入您的帖子内容..." 
+      model:value="{{content}}"
+      maxlength="500"
+    ></textarea>
+    <view class="char-count">{{content.length}}/500</view>
+  </view>
+  
+  <button class="btn-submit" type="primary" bindtap="submit" disabled="{{submitting}}">发布帖子</button>
+
+</view>

@@ -1,0 +1,45 @@
+<view class="container">
+  <view class="stats-grid">
+    <view class="stat-card">
+        <view class="label">现在访客人数</view>
+        <view class="value text-green">{{stats.visitor_stats.current_count || 0}}</view>
+    </view>
+    <view class="stat-card">
+        <view class="label">累计访客</view>
+        <view class="value text-blue">{{stats.visitor_stats.cumulative_count || 0}}</view>
+    </view>
+  </view>
+
+  <view class="section-title">今日访问曲线</view>
+  <view class="chart-container">
+    <canvas type="2d" id="curveCanvas" style="width: 100%; height: 200px;"></canvas>
+  </view>
+
+  <view class="section-title">在线访客信息</view>
+  <view class="list-container" wx:if="{{stats.visitor_stats.online_visitors.length > 0}}">
+    <view class="list-item" wx:for="{{stats.visitor_stats.online_visitors}}" wx:key="ip">
+        <view class="row">
+            <text class="user">{{item.username}}</text>
+            <text class="ip">{{item.ip}}</text>
+        </view>
+        <view class="row">
+            <text class="time">{{item.last_seen}}</text>
+        </view>
+    </view>
+  </view>
+  <view class="empty-text" wx:else>无在线访客</view>
+
+  <view class="section-title">最近访客记录</view>
+  <view class="list-container">
+    <view class="list-item" wx:for="{{stats.visitor_stats.recent_visitors}}" wx:key="index">
+        <view class="row">
+            <text class="user">{{item.username}}</text>
+            <text class="ip">{{item.ip}}</text>
+        </view>
+        <view class="row">
+            <text class="path">{{item.path}}</text>
+            <text class="time">{{item.time}}</text>
+        </view>
+    </view>
+  </view>
+</view>

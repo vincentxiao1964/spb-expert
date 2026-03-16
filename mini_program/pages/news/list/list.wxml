@@ -1,0 +1,34 @@
+<view class="container" catchtouchmove="preventTouchMove">
+  <scroll-view scroll-y="true" style="height: 100vh;" enable-back-to-top="true" 
+    refresher-enabled="{{true}}" 
+    refresher-triggered="{{isRefreshing}}" 
+    bindrefresherrefresh="onRefresherRefresh" 
+    bindscrolltolower="onReachBottom">
+    
+    <view style="padding-bottom: 150rpx;">
+      <view class="news-list">
+        <block wx:if="{{newsList.length > 0}}">
+          <view class="news-item" wx:for="{{newsList}}" wx:key="id" bindtap="viewNews" data-id="{{item.id}}">
+            <image class="news-image" src="{{item.image || '/images/user_default.png'}}" mode="aspectFill"></image>
+            <view class="news-content">
+              <view class="news-title">{{item.title}}</view>
+              <view class="news-date">{{item.created_at}}</view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="empty-tip">{{t.empty_news}}</view>
+        </block>
+      </view>
+      <view class="loading-more" wx:if="{{loading}}">{{t.loading}}...</view>
+      <view class="no-more" wx:if="{{!hasMore && newsList.length > 0}}">{{t.no_more_data}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- Floating Publish Button -->
+  <view class="fab-btn" bindtap="onPublish" style="bottom: 140rpx;">
+    <text>+</text>
+  </view>
+  
+  <quick-nav hasTabbar="{{true}}" />
+</view>

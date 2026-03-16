@@ -1,0 +1,77 @@
+<view class="container">
+  <form bindsubmit="onSubmit">
+    <view class="form-group">
+      <view class="form-item">
+        <text class="label">{{t.name}}</text>
+        <input class="input" name="name" value="{{crew.name}}" placeholder="{{t.placeholder_name}}" />
+      </view>
+      <view class="form-item">
+        <text class="label">{{t.position}}</text>
+        <input class="input" name="position" value="{{crew.position}}" placeholder="{{t.placeholder_position}}" />
+      </view>
+      <view class="form-item">
+        <text class="label">{{t.gender}}</text>
+        <picker bindchange="onGenderChange" value="{{genderIndex}}" range="{{genders}}" range-key="label">
+          <view class="picker">{{genders[genderIndex].label}}</view>
+        </picker>
+      </view>
+      <view class="form-item">
+        <text class="label">{{t.type}}</text>
+        <picker bindchange="onTypeChange" value="{{typeIndex}}" range="{{types}}" range-key="label">
+          <view class="picker">{{types[typeIndex].label}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <view class="form-item">
+        <text class="label">{{t.total_exp}}({{t.year}})</text>
+        <input class="input" name="total_sea_experience" type="digit" value="{{crew.total_sea_experience}}" placeholder="0.0" />
+      </view>
+      <view class="form-item">
+        <text class="label">{{t.rank_exp}}({{t.year}})</text>
+        <input class="input" name="current_rank_experience" type="digit" value="{{crew.current_rank_experience}}" placeholder="0.0" />
+      </view>
+      <view class="form-item">
+        <text class="label">{{t.expected_salary}}</text>
+        <input class="input" name="expected_salary" value="{{crew.expected_salary}}" placeholder="{{t.placeholder_salary}}" />
+      </view>
+    </view>
+
+    <view class="form-group">
+      <view class="form-item">
+        <text class="label">{{t.nationality}}</text>
+        <input class="input" name="nationality" value="{{crew.nationality}}" placeholder="{{t.placeholder_nationality}}" />
+      </view>
+      <view class="form-item">
+        <text class="label">{{t.residence}}</text>
+        <input class="input" name="residence" value="{{crew.residence}}" placeholder="{{t.placeholder_residence}}" />
+      </view>
+      <view class="form-item">
+        <text class="label">{{t.cert_number}}</text>
+        <input class="input" name="cert_number" value="{{crew.cert_number}}" placeholder="{{t.placeholder_cert}}" />
+      </view>
+      <view class="form-item">
+        <text class="label">{{t.phone}}</text>
+        <input class="input" name="phone" value="{{crew.phone}}" placeholder="{{t.placeholder_phone}}" />
+      </view>
+      <view class="form-item">
+        <text class="label">{{t.email}}</text>
+        <input class="input" name="email" value="{{crew.email}}" placeholder="{{t.placeholder_email}}" />
+      </view>
+      <view class="form-item">
+        <text class="label">{{t.status}}</text>
+        <picker bindchange="onStatusChange" value="{{statusIndex}}" range="{{statuses}}" range-key="label">
+          <view class="picker">{{statuses[statusIndex].label}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="textarea-wrap">
+      <text class="textarea-label">{{t.resume}}</text>
+      <textarea class="textarea" name="resume" value="{{crew.resume}}" placeholder="{{t.placeholder_resume}}" maxlength="500"></textarea>
+    </view>
+
+    <button class="submit-btn" form-type="submit" loading="{{loading}}">{{t.save}}</button>
+  </form>
+</view>

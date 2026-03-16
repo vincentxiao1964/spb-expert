@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>{% trans "Market Intelligence: Crawled Ships" %}</h1>
+        <span class="badge bg-secondary">{% trans "Internal Use Only" %}</span>
+    </div>
+
+    <!-- Filters -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label">{% trans "Width (Min)" %}</label>
+                    <input type="number" step="0.1" name="width_min" class="form-control" value="{{ request.GET.width_min }}">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">{% trans "Width (Max)" %}</label>
+                    <input type="number" step="0.1" name="width_max" class="form-control" value="{{ request.GET.width_max }}">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">{% trans "Search" %}</label>
+                    <input type="text" name="q" class="form-control" placeholder="ID or Description..." value="{{ request.GET.q }}">
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">{% trans "Filter" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Data Table -->
+    <div class="card shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>{% trans "Type" %}</th>
+                        <th>{% trans "DWT" %}</th>
+                        <th>{% trans "Dimensions (L x W x D)" %}</th>
+                        <th>{% trans "Year" %}</th>
+                        <th>{% trans "Crawled At" %}</th>
+                        <th>{% trans "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ship in ships %}
+                    <tr>
+                        <td>
+                            <a href="{{ ship.source_url }}" target="_blank" class="text-decoration-none">
+                                {{ ship.source_id }} <i class="bi bi-box-arrow-up-right small"></i>
+                            </a>
+                        </td>
+                        <td>
+                            {% if ship.ship_category == 'SELF_PROPELLED' %}
+                                <span class="badge bg-info text-dark">{% trans "Self-Propelled" %}</span>
+                            {% else %}
+                                <span class="badge bg-warning text-dark">{% trans "Deck Barge" %}</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ ship.dwt }}</td>
+                        <td>
+                            {{ ship.length|default:"-" }} x 
+                            <strong>{{ ship.width|default:"-" }}</strong> x 
+                            {{ ship.depth|default:"-" }} m
+                        </td>
+                        <td>{{ ship.build_year|default:"-" }}</td>
+                        <td class="text-muted small">{{ ship.crawled_at|date:"Y-m-d H:i" }}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#descModal{{ ship.id }}">
+                                {% trans "View Raw" %}
+                            </button>
+                        </td>
+                    </tr>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="descModal{{ ship.id }}" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Raw Data: {{ ship.source_id }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <pre class="bg-light p-3 border rounded">{{ ship.full_description }}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center py-5 text-muted">
+                            {% trans "No crawled data found." %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}&q={{ request.GET.q }}&width_min={{ request.GET.width_min }}&width_max={{ request.GET.width_max }}">Previous</a>
+            </li>
+            {% endif %}
+            
+            <li class="page-item disabled">
+                <span class="page-link">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+            </li>
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}&q={{ request.GET.q }}&width_min={{ request.GET.width_min }}&width_max={{ request.GET.width_max }}">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %}

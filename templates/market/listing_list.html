@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>{% trans "Ship Listings" %}</h2>
+    <a href="{% url 'market:create' %}" class="btn btn-success">{% trans "Post New Listing" %}</a>
+</div>
+
+<!-- Filters -->
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-3">
+                <select name="type" class="form-select">
+                    <option value="">{% trans "All Types" %}</option>
+                    <option value="SELL" {% if request.GET.type == "SELL" %}selected{% endif %}>{% trans "Sell Ship" %}</option>
+                    <option value="BUY" {% if request.GET.type == "BUY" %}selected{% endif %}>{% trans "Buy Ship" %}</option>
+                    <option value="CHARTER_OFFER" {% if request.GET.type == "CHARTER_OFFER" %}selected{% endif %}>{% trans "Charter Offer" %}</option>
+                    <option value="CHARTER_REQUEST" {% if request.GET.type == "CHARTER_REQUEST" %}selected{% endif %}>{% trans "Charter Request" %}</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select name="category" class="form-select">
+                    <option value="">{% trans "All Categories" %}</option>
+                    <option value="SELF_PROPELLED" {% if request.GET.category == "SELF_PROPELLED" %}selected{% endif %}>{% trans "Self-propelled" %}</option>
+                    <option value="NON_SELF_PROPELLED" {% if request.GET.category == "NON_SELF_PROPELLED" %}selected{% endif %}>{% trans "Non-self-propelled" %}</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <input type="text" name="q" class="form-control" placeholder="{% trans 'Search by class, flag, etc...' %}" value="{{ request.GET.q }}">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">{% trans "Filter" %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Listings Table -->
+<div class="table-responsive">
+    <table class="table table-hover align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>{% trans "Type" %}</th>
+                <th>{% trans "Category" %}</th>
+                <th>{% trans "DWT" %}</th>
+                <th>{% trans "Build Year" %}</th>
+                <th>{% trans "Class" %}</th>
+                <th>{% trans "Area" %}</th>
+                <th>{% trans "Date" %}</th>
+                <th>{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for listing in listings %}
+            <tr>
+                <td>
+                    <span class="badge bg-secondary">{{ listing.get_listing_type_display }}</span>
+                    {% if listing.status != 'APPROVED' %}
+                        <span class="badge bg-warning text-dark">{% trans "Pending" %}</span>
+                    {% endif %}
+                </td>
+                <td>{{ listing.get_ship_category_display }}</td>
+                <td>{{ listing.dwt|default:"-" }}</td>
+                <td>{{ listing.build_year|default:"-" }}</td>
+                <td>{{ listing.class_society|default:"-" }}</td>
+                <td>{{ listing.delivery_area|default:"-" }}</td>
+                <td>{{ listing.created_at|date:"Y-m-d" }}</td>
+                <td>
+                    <a href="{% url 'market:detail' listing.pk %}" class="btn btn-sm btn-outline-primary">{% trans "View" %}</a>
+                    {% if user == listing.user or user.is_superuser %}
+                        <a href="{% url 'market:update' listing.pk %}" class="btn btn-sm btn-outline-warning">{% trans "Edit" %}</a>
+                        <a href="{% url 'market:delete' listing.pk %}" class="btn btn-sm btn-outline-danger">{% trans "Delete" %}</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8" class="text-center py-4">{% trans "No listings found." %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination -->
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+        {% endif %}
+        {% for i in page_obj.paginator.page_range %}
+        <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+        </li>
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}

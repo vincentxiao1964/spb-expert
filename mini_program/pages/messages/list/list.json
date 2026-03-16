@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "会员论坛",
+  "disableScroll": true,
+  "usingComponents": {
+    "quick-nav": "/components/quick-nav/quick-nav"
+  }
+}

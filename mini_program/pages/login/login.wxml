@@ -1,0 +1,140 @@
+<view class="container" style="padding-bottom: 150rpx;">
+  <view class="login-header" style="margin-top: 200rpx;">
+    <text style="font-size: 40rpx; font-weight: bold; color: #333;" wx:if="{{!isAdmin}}">{{t.login_welcome}}</text>
+    <text style="font-size: 40rpx; font-weight: bold; color: #333;" wx:else>{{t.admin_login_title}}</text>
+  </view>
+  
+  <view class="login-form">
+    <!-- Bind Phone Mode -->
+    <block wx:if="{{isBinding}}">
+      <view style="text-align: center; margin-bottom: 20px;">
+        <text style="font-size: 18px; font-weight: bold;">{{t.bind_title}}</text>
+        <view style="font-size: 14px; color: #666; margin-top: 5px;">{{t.bind_desc}}</view>
+      </view>
+
+      <view class="input-group">
+        <text class="label">{{t.login_phone}}</text>
+        <input class="input" type="number" placeholder="{{t.login_phone_placeholder}}" bindinput="handleInput" data-field="phone" value="{{phone}}" />
+      </view>
+      
+      <view class="input-group code-group">
+        <text class="label">{{t.login_code}}</text>
+        <view class="code-input-wrapper">
+          <input class="input code-input" type="number" placeholder="{{t.login_code_placeholder}}" bindinput="handleInput" data-field="code" value="{{code}}" />
+          <button class="btn-code" size="mini" bindtap="sendCode" disabled="{{counting}}">{{counting ? count + 's' : t.login_get_code}}</button>
+        </view>
+      </view>
+
+      <view class="input-group">
+        <text class="label">{{t.login_company}}</text>
+        <input class="input" type="text" placeholder="{{t.login_company_placeholder}}" bindinput="handleInput" data-field="companyName" value="{{companyName}}" />
+      </view>
+
+      <view class="input-group">
+        <text class="label">{{t.login_job}}</text>
+        <input class="input" type="text" placeholder="{{t.login_job_placeholder}}" bindinput="handleInput" data-field="jobTitle" value="{{jobTitle}}" />
+      </view>
+
+      <view class="input-group">
+        <text class="label">{{t.login_business}}</text>
+        <textarea class="input" style="height: 80px; padding: 10px;" placeholder="{{t.login_business_placeholder}}" bindinput="handleInput" data-field="businessContent" value="{{businessContent}}" />
+      </view>
+
+      <view style="margin: 10px 0; font-size: 12px; color: #666; text-align: center;">
+         <text>{{t.bind_hint}}</text>
+      </view>
+
+      <view class="agreement-box">
+        <checkbox-group bindchange="handleAgreementChange">
+            <label class="checkbox">
+            <checkbox value="agreed" checked="{{isAgreed}}" color="#007aff" style="transform:scale(0.7)"/>
+            </label>
+        </checkbox-group>
+        <view class="agreement-text">
+            {{t.read_agree}} <text class="link" catchtap="openUserAgreement">《{{t.user_agreement}}》</text> {{t.and}} <text class="link" catchtap="openPrivacyPolicy">《{{t.privacy_policy}}》</text>
+        </view>
+      </view>
+
+      <button class="btn-login" type="primary" bindtap="handleBindPhone">{{t.login_submit_bind}}</button>
+      <button class="btn-wechat" style="background-color: #f8f9fa; color: #333; border: 1px solid #ddd; margin-top: 15px; box-shadow: none;" bindtap="cancelBind">{{t.login_return}}</button>
+    </block>
+
+    <!-- Phone Login Mode -->
+    <block wx:elif="{{isPhoneLogin}}">
+      <view style="text-align: center; margin-bottom: 20px;">
+        <text style="font-size: 18px; font-weight: bold;">{{t.login_phone_title}}</text>
+      </view>
+
+      <view class="login-tabs" style="display: flex; justify-content: center; margin-bottom: 20px;">
+          <view bindtap="switchLoginType" data-type="sms" style="margin: 0 10px; padding: 5px 10px; border-bottom: {{loginType === 'sms' ? '2px solid #007aff' : 'none'}}; color: {{loginType === 'sms' ? '#007aff' : '#333'}}">{{t.login_tab_sms}}</view>
+          <view bindtap="switchLoginType" data-type="password" style="margin: 0 10px; padding: 5px 10px; border-bottom: {{loginType === 'password' ? '2px solid #007aff' : 'none'}}; color: {{loginType === 'password' ? '#007aff' : '#333'}}">{{t.login_tab_pwd}}</view>
+      </view>
+
+      <view class="input-group">
+        <text class="label">{{t.login_phone_user}}</text>
+        <input class="input" type="text" placeholder="{{t.login_phone_user_placeholder}}" bindinput="handleInput" data-field="phone" value="{{phone}}" />
+      </view>
+      
+      <!-- SMS Code Input -->
+      <view class="input-group code-group" wx:if="{{loginType === 'sms'}}">
+        <text class="label">{{t.login_code}}</text>
+        <view class="code-input-wrapper">
+          <input class="input code-input" type="number" placeholder="{{t.login_code_placeholder}}" bindinput="handleInput" data-field="code" value="{{code}}" />
+          <button class="btn-code" size="mini" bindtap="sendCode" disabled="{{counting}}">{{counting ? count + 's' : t.login_get_code}}</button>
+        </view>
+      </view>
+
+      <!-- Password Input -->
+      <view class="input-group" wx:if="{{loginType === 'password'}}">
+        <text class="label">{{t.login_pwd}}</text>
+        <input class="input" type="text" password="true" placeholder="{{t.login_pwd_placeholder}}" bindinput="handleInput" data-field="password" value="{{password}}" />
+      </view>
+
+      <view class="agreement-box">
+        <checkbox-group bindchange="handleAgreementChange">
+            <label class="checkbox">
+            <checkbox value="agreed" checked="{{isAgreed}}" color="#007aff" style="transform:scale(0.7)"/>
+            </label>
+        </checkbox-group>
+        <view class="agreement-text">
+            {{t.read_agree}} <text class="link" catchtap="openUserAgreement">《{{t.user_agreement}}》</text> {{t.and}} <text class="link" catchtap="openPrivacyPolicy">《{{t.privacy_policy}}》</text>
+        </view>
+      </view>
+
+      <button class="btn-login" type="primary" bindtap="handlePhoneLogin">{{t.login_btn}}</button>
+      <button class="btn-wechat" style="background-color: #f8f9fa; color: #333; border: 1px solid #ddd; margin-top: 15px; box-shadow: none;" bindtap="switchMode" data-mode="wechat">{{t.login_return_wechat}}</button>
+      
+      <view style="margin-top: 20px; text-align: center;">
+        <text style="color: #007aff; font-size: 14px;" bindtap="goToRegister">{{t.login_register_link}}</text>
+      </view>
+    </block>
+
+    <!-- Only WeChat Login Mode -->
+    <block wx:else>
+        <view style="margin-top: 100rpx; padding: 0 40rpx;">
+            <view class="agreement-box" style="margin-bottom: 20px;">
+                <checkbox-group bindchange="handleAgreementChange">
+                    <label class="checkbox">
+                    <checkbox value="agreed" checked="{{isAgreed}}" color="#007aff" style="transform:scale(0.7)"/>
+                    </label>
+                </checkbox-group>
+                <view class="agreement-text">
+                    {{t.read_agree}} <text class="link" catchtap="openUserAgreement">《{{t.user_agreement}}》</text> {{t.and}} <text class="link" catchtap="openPrivacyPolicy">《{{t.privacy_policy}}》</text>
+                </view>
+            </view>
+            <button class="btn-wechat" bindtap="handleWeChatLogin" loading="{{wechatLoading}}" disabled="{{wechatLoading}}">{{t.login_wechat_btn}}</button>
+            <button class="btn-login" style="margin-top: 20px; background-color: #fff; color: #333; border: 1px solid #ddd;" bindtap="switchMode" data-mode="phone">{{t.login_phone_btn}}</button>
+            
+            <view style="margin-top: 20px; text-align: center;">
+                <text style="color: #007aff; font-size: 14px;" bindtap="goToRegister">{{t.login_register_link}}</text>
+            </view>
+        </view>
+        
+        <view style="margin-top: 40px; text-align: center;">
+            <text style="color: #999; font-size: 12px; text-decoration: underline;" bindtap="clearCache">清除缓存(测试用)</text>
+        </view>
+    </block>
+  </view>
+  
+  <quick-nav />
+</view>

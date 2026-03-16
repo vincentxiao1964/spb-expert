@@ -1,0 +1,77 @@
+<view class="container">
+  <!-- Search/Filter Bar -->
+  <view class="filter-bar">
+    <view class="filter-item {{activeTab === 'all' ? 'active' : ''}}" bindtap="onTabChange" data-type="all">
+      <text>{{t.all}}</text>
+    </view>
+    <view class="filter-item {{activeTab === 'BUY' ? 'active' : ''}}" bindtap="onTabChange" data-type="BUY">
+      <text>{{t.buy_ship}}</text>
+    </view>
+    <view class="filter-item {{activeTab === 'SELL' ? 'active' : ''}}" bindtap="onTabChange" data-type="SELL">
+      <text>{{t.sell_ship}}</text>
+    </view>
+    <view class="filter-item {{activeTab === 'CHARTER_OFFER' ? 'active' : ''}}" bindtap="onTabChange" data-type="CHARTER_OFFER">
+      <text>{{t.charter_offer}}</text>
+    </view>
+    <view class="filter-item {{activeTab === 'CHARTER_REQUEST' ? 'active' : ''}}" bindtap="onTabChange" data-type="CHARTER_REQUEST">
+      <text>{{t.charter_request}}</text>
+    </view>
+  </view>
+
+  <!-- Listings List -->
+  <scroll-view scroll-y="true" class="listings-scroll" bindscrolltolower="onReachBottom" refresher-enabled="{{true}}" refresher-triggered="{{isRefreshing}}" bindrefresherrefresh="onRefresherRefresh">
+    <view style="padding-bottom: 150rpx;">
+    <block wx:if="{{listings.length > 0}}">
+      <view class="listing-item" wx:for="{{listings}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+        <view class="listing-content">
+          <view class="listing-header">
+            <text class="listing-type tag {{item.listing_type}}">{{item.listing_type_display}}</text>
+            <text class="listing-date">{{item.created_at_formatted}}</text>
+          </view>
+          
+          <view class="listing-main">
+            <image wx:if="{{item.images && item.images.length > 0}}" src="{{item.images[0].image}}" class="listing-thumb" mode="aspectFill" lazy-load></image>
+            <view class="listing-info">
+              <text class="listing-title">{{item.ship_category_display}} {{item.dwt}}吨</text>
+              <view class="listing-specs">
+                <text>{{t.build_year}}: {{item.build_year}}{{t.year}}</text>
+                <text wx:if="{{item.length}}"> | {{t.length}}: {{item.length}}m</text>
+                <text wx:if="{{item.depth}}"> | {{t.depth}}: {{item.depth}}m</text>
+              </view>
+              <view class="listing-area" wx:if="{{item.delivery_area}}">
+                <text class="icon-location">📍</text> {{item.delivery_area}}
+              </view>
+            </view>
+          </view>
+
+          <view class="listing-footer">
+            <text class="status-text {{item.status}}">{{item.status_display}}</text>
+            <button class="btn-detail" size="mini">{{t.view_detail}}</button>
+          </view>
+        </view>
+      </view>
+      
+      <view class="loading-more" wx:if="{{isLoadingMore}}">
+        <text>{{t.loading}}...</text>
+      </view>
+      <view class="no-more" wx:if="{{!hasMore && listings.length > 0}}">
+        <text>{{t.no_more_data}}</text>
+      </view>
+    </block>
+    
+    <block wx:else>
+      <view class="empty-state">
+        <text>{{t.empty_listings}}</text>
+      </view>
+    </block>
+    </view>
+  </scroll-view>
+
+  <!-- Floating Post Button -->
+  <view class="fab-btn" bindtap="goPost" style="bottom: 140rpx;">
+    <text class="fab-icon">+</text>
+    <text class="fab-text">{{t.post || '发布'}}</text>
+  </view>
+  
+  <quick-nav hasTabbar="{{true}}" />
+</view>

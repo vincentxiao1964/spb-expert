@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Bunker Prices & Market Atmosphere" %}{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-3 px-3">
+    <div class="row mb-3">
+        <div class="col-12 text-center">
+            <h4 class="mb-0 text-primary"><i class="fas fa-gas-pump me-2"></i>{% trans "Global Bunker Prices & Shipping Atmosphere" %}</h4>
+            <p class="text-muted small mt-1">{% trans "Latest market rates from major ports" %} ({{ latest_date|date:"Y-m-d" }})</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Domestic Market (China) -->
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm h-100 border-info">
+                <div class="card-header bg-info text-white">
+                    <h5 class="card-title mb-0"><i class="fas fa-ship me-2"></i>{% trans "Domestic Market (China)" %}</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>{% trans "Port" %}</th>
+                                    <th class="text-end">RME180 (CNY)</th>
+                                    <th class="text-end">0# Diesel (CNY)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in domestic_list %}
+                                <tr>
+                                    <td>
+                                        <strong>{{ item.port.name_zh|default:item.port.name_en }}</strong>
+                                        <br>
+                                        <small class="text-muted">{{ item.port.name_en }}</small>
+                                    </td>
+                                    <td class="text-end">
+                                        {% with price=item.prices.RME180 %}
+                                            {% if price %}
+                                                <span class="fw-bold text-success">{{ price.price|floatformat:0 }}</span>
+                                                {% if price.source %}<i class="fas fa-info-circle text-muted ms-1" title="{{ price.source }}"></i>{% endif %}
+                                            {% else %}
+                                                <span class="text-muted">-</span>
+                                            {% endif %}
+                                        {% endwith %}
+                                    </td>
+                                    <td class="text-end">
+                                        {% with price=item.prices.DIESEL0 %}
+                                            {% if price %}
+                                                <span class="fw-bold text-primary">{{ price.price|floatformat:0 }}</span>
+                                                {% if price.source %}<i class="fas fa-info-circle text-muted ms-1" title="{{ price.source }}"></i>{% endif %}
+                                            {% else %}
+                                                <span class="text-muted">-</span>
+                                            {% endif %}
+                                        {% endwith %}
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted py-3">{% trans "No domestic data available." %}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- International Market -->
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm h-100 border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0"><i class="fas fa-globe-asia me-2"></i>{% trans "International Market" %}</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover mb-0 align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>{% trans "Port" %}</th>
+                                    <th class="text-end">VLSFO (USD)</th>
+                                    <th class="text-end">LSMGO (USD)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in international_list %}
+                                <tr>
+                                    <td>
+                                        <strong>{{ item.port.name_en }}</strong>
+                                        <br>
+                                        <small class="text-muted">{{ item.port.country_en }}</small>
+                                    </td>
+                                    <td class="text-end">
+                                        {% with price=item.prices.VLSFO %}
+                                            {% if price %}
+                                                <span class="fw-bold text-success">${{ price.price|floatformat:1 }}</span>
+                                            {% else %}
+                                                <span class="text-muted">-</span>
+                                            {% endif %}
+                                        {% endwith %}
+                                    </td>
+                                    <td class="text-end">
+                                        {% with price=item.prices.MGO %}
+                                            {% if price %}
+                                                <span class="fw-bold text-primary">${{ price.price|floatformat:1 }}</span>
+                                            {% else %}
+                                                <span class="text-muted">-</span>
+                                            {% endif %}
+                                        {% endwith %}
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted py-3">{% trans "No international data available." %}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

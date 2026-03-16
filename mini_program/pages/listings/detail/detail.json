@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "详情",
+  "usingComponents": {
+    "quick-nav": "/components/quick-nav/quick-nav"
+  }
+}

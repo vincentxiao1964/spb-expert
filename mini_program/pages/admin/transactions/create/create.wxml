@@ -1,0 +1,82 @@
+<view class="container">
+    <view class="steps">
+        <view class="step {{currentStep >= 1 ? 'active' : ''}}">1.概要</view>
+        <view class="step {{currentStep >= 2 ? 'active' : ''}}">2.选卖家</view>
+        <view class="step {{currentStep >= 3 ? 'active' : ''}}">3.选买家</view>
+        <view class="step {{currentStep >= 4 ? 'active' : ''}}">4.确认</view>
+    </view>
+
+    <!-- Step 1: Transaction Summary -->
+    <view class="step-content" wx:if="{{currentStep === 1}}">
+        <view class="form-group">
+            <view class="label">交易名称 / 概要</view>
+            <input class="input-field" placeholder="例如：某某船买卖交易" bindinput="onTitleInput" value="{{transactionTitle}}" />
+            <view class="hint">请输入交易的简要描述，如船名、吨位等信息。</view>
+        </view>
+        <button type="primary" bindtap="confirmTitle" disabled="{{!transactionTitle}}" class="btn-next">下一步</button>
+    </view>
+
+    <!-- Step 2: Select Seller -->
+    <view class="step-content" wx:if="{{currentStep === 2}}">
+        <view class="selected-info" bindtap="resetStep1">
+            <text>交易名称: {{transactionTitle}}</text>
+            <text class="reselect">修改</text>
+        </view>
+
+        <view class="form-group">
+            <view class="label">选择卖家</view>
+            <picker bindchange="bindSellerChange" value="{{sellerIndex}}" range="{{userList}}" range-key="displayName">
+                <view class="input-field">
+                    {{selectedSeller ? selectedSeller.displayName : '点击选择卖家 (由发起人填写)'}}
+                </view>
+            </picker>
+        </view>
+
+        <button type="primary" bindtap="confirmSeller" disabled="{{!selectedSeller}}" class="btn-next">下一步</button>
+    </view>
+
+    <!-- Step 3: Select Buyer -->
+    <view class="step-content" wx:if="{{currentStep === 3}}">
+        <view class="selected-info" bindtap="resetStep1">
+            <text>交易名称: {{transactionTitle}}</text>
+        </view>
+        <view class="selected-info" bindtap="resetStep2">
+            <text>已选卖家: {{selectedSeller.username}}</text>
+            <text class="reselect">重选</text>
+        </view>
+
+        <view class="form-group">
+            <view class="label">选择买家</view>
+            <picker bindchange="bindBuyerChange" value="{{buyerIndex}}" range="{{userList}}" range-key="displayName">
+                <view class="input-field">
+                    {{selectedBuyer ? selectedBuyer.displayName : '点击选择买家 (同理)'}}
+                </view>
+            </picker>
+        </view>
+
+        <button type="primary" bindtap="confirmBuyer" disabled="{{!selectedBuyer}}" class="btn-next">下一步</button>
+    </view>
+
+    <!-- Step 4: Confirm -->
+    <view class="step-content" wx:if="{{currentStep === 4}}">
+        <view class="confirm-card">
+            <view class="section-title">交易预览</view>
+            
+            <view class="info-row">
+                <text class="label">交易名称:</text>
+                <text class="value">{{transactionTitle}}</text>
+            </view>
+            <view class="info-row">
+                <text class="label">卖家:</text>
+                <text class="value">{{selectedSeller.username}} ({{selectedSeller.phone_number}})</text>
+            </view>
+            <view class="info-row">
+                <text class="label">买家:</text>
+                <text class="value">{{selectedBuyer.username}} ({{selectedBuyer.phone_number}})</text>
+            </view>
+
+            <button type="primary" class="btn-submit" bindtap="submitTransaction" loading="{{loading}}">确认发起交易</button>
+            <button bindtap="resetStep3" class="btn-back">返回上一步</button>
+        </view>
+    </view>
+</view>

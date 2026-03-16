@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3">
+        <div class="list-group">
+            <a href="{% url 'market:list' %}?type=SELL" class="list-group-item list-group-item-action">
+                {% trans "Sell Ship" %}
+            </a>
+            <a href="{% url 'market:list' %}?type=BUY" class="list-group-item list-group-item-action">
+                {% trans "Buy Ship" %}
+            </a>
+            <a href="{% url 'market:list' %}?type=CHARTER_OFFER" class="list-group-item list-group-item-action">
+                {% trans "Charter Offer" %}
+            </a>
+            <a href="{% url 'market:list' %}?type=CHARTER_REQUEST" class="list-group-item list-group-item-action">
+                {% trans "Charter Request" %}
+            </a>
+            <a href="{% url 'member_messages' %}" class="list-group-item list-group-item-action">{% trans "Member Message" %}</a>
+            <a href="{% url 'market:news_list' %}" class="list-group-item list-group-item-action">{% trans "Market News" %}</a>
+        </div>
+
+        <div class="mt-4">
+            <h5>{% trans "Search" %}</h5>
+            <form action="{% url 'market:list' %}" method="get">
+                <div class="input-group mb-3">
+                    <input type="text" name="q" class="form-control" placeholder="{% trans 'Search...' %}">
+                    <button class="btn btn-outline-secondary" type="submit">Go</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-9">
+        <!-- Hero Section -->
+        <div class="p-5 mb-4 bg-light rounded-3 text-center">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">甲板船家 | SPB EXPERT</h1>
+                <p class="col-md-8 fs-4 mx-auto">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% if LANGUAGE_CODE == 'en' %}
+                        SPB EXPERT integrates the official website, WeChat Mini Program and WeChat Official Account into a unified platform. It is dedicated to releasing comprehensive industry information covering SPB(Self-Propelled Barge) sales & purchases, charters and crew services, and builds a professional, efficient and free information exchange hub for SPB industry peers, empowering practitioners in this field to achieve greater career success.
+                    {% else %}
+                        【甲板船家】整合官方网站、微信小程序、微信公众号三大平台，专注发布甲板船买卖、租赁、船员服务全维度行业信息，为甲板船业内同仁打造专业、高效的免费信息交流阵地，助力领域从业者深耕赛道、事业进阶。
+                    {% endif %}
+                </p>
+                <a href="{% url 'market:list' %}" class="btn btn-primary btn-lg" type="button">{% trans "Browse Listings" %}</a>
+            </div>
+        </div>
+
+        <!-- Ads Section -->
+        {% if ads %}
+        <div class="row mb-4">
+            {% for ad in ads %}
+            <div class="col-md-3">
+                <div class="card h-100">
+                    {% if ad.image %}
+                        <img src="{{ ad.image.url }}" class="card-img-top" alt="{{ ad.title }}">
+                    {% else %}
+                        <div class="card-body bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 150px;">
+                            <span>{% trans "Ad" %}</span>
+                        </div>
+                    {% endif %}
+                    <div class="card-body p-2 text-center">
+                        <h6 class="card-title text-truncate">{{ ad.title }}</h6>
+                        <a href="{% url 'ads:ad_detail' ad.pk %}" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="text-center">
+            <a href="{% url 'market:create' %}" class="btn btn-success btn-lg">
+                {% trans "POSTING" %}
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

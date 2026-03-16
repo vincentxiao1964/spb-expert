@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="mb-4">{% trans "Forum" %}</h2>
+
+        <div class="card mb-4 bg-light">
+            <div class="card-body">
+                <h5 class="card-title">{% trans "Forum Rules" %}</h5>
+                <ul class="mb-0 small text-muted">
+                    <li>1. {% trans "Topics should focus on Self-Propelled Barges (Shipbuilding, Design, Equipment, Classification Society, Maritime Regulations, etc.)." %}</li>
+                    <li>2. {% trans "Strictly prohibit posting content that violates laws/regulations, is politically sensitive, or prohibited." %}</li>
+                    <li>3. {% trans "Please communicate civilly and jointly maintain a good environment." %}</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                {% if user.is_authenticated %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="content" class="form-label">{% trans "Post Topic" %}</label>
+                        <textarea class="form-control" id="content" name="content" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">{% trans "Post" %}</button>
+                </form>
+                {% else %}
+                <p>{% trans "Please" %} <a href="{% url 'users:login' %}">{% trans "Login" %}</a> {% trans "to post a topic." %}</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="list-group">
+            {% for message in member_messages %}
+            <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ message.user.username }}</h5>
+                    <small class="text-muted">{{ message.created_at|date:"Y-m-d H:i" }}</small>
+                </div>
+                <p class="mb-1">{{ message.content }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <small class="me-2">Level {{ message.user.membership_level }}</small>
+                        {% if user.is_authenticated and message.user != user %}
+                            <button class="btn btn-sm btn-outline-primary btn-follow me-1" 
+                                    data-user-id="{{ message.user.id }}" 
+                                    data-icon-only="true"
+                                    data-text-follow="{% trans 'Follow User' %}"
+                                    data-text-unfollow="{% trans 'Unfollow' %}"
+                                    style="font-size: 0.75rem; padding: 0.1rem 0.4rem;" 
+                                    title="{% trans 'Follow User' %}">
+                                <i class="fas fa-user-plus"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-info me-1" data-bs-toggle="modal" data-bs-target="#contactUserModal" data-user-id="{{ message.user.id }}" data-username="{{ message.user.username }}" style="font-size: 0.75rem; padding: 0.1rem 0.4rem;" title="{% trans 'Contact Author' %}">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                            <button class="btn btn-sm btn-outline-warning btn-favorite" 
+                                    data-object-id="{{ message.id }}" 
+                                    data-content-type="membermessage" 
+                                    data-icon-only="true"
+                                    data-text-favorite="{% trans 'Favorite' %}"
+                                    data-text-unfavorite="{% trans 'Unfavorite' %}"
+                                    style="font-size: 0.75rem; padding: 0.1rem 0.4rem;" 
+                                    title="{% trans 'Favorite' %}">
+                                <i class="fas fa-star"></i>
+                            </button>
+                        {% endif %}
+                    </div>
+                    {% if user == message.user or user.is_superuser %}
+                    <div>
+                        <a href="{% url 'member_message_update' message.pk %}" class="btn btn-sm btn-outline-primary me-1">{% trans "Edit" %}</a>
+                        <a href="{% url 'member_message_delete' message.pk %}" class="btn btn-sm btn-outline-danger">{% trans "Delete" %}</a>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Replies -->
+                {% if message.replies.all %}
+                    <div class="mt-3 ms-4 border-start ps-3 bg-light p-2 rounded">
+                        {% for reply in message.replies.all %}
+                            <div class="mb-2 border-bottom pb-2">
+                                <div class="d-flex justify-content-between">
+                                    <small class="fw-bold">{{ reply.user.username }}</small>
+                                    <small class="text-muted" style="font-size: 0.8em;">{{ reply.created_at|date:"Y-m-d H:i" }}</small>
+                                </div>
+                                <div class="small">{{ reply.content }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- Reply Button/Form -->
+                {% if user.is_authenticated %}
+                    <div class="mt-2 text-end">
+                        <button class="btn btn-sm btn-link text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#replyForm{{ message.pk }}" aria-expanded="false">
+                            <i class="fas fa-reply"></i> {% trans "Reply" %}
+                        </button>
+                    </div>
+                    <div class="collapse mt-2" id="replyForm{{ message.pk }}">
+                        <form action="{% url 'member_message_reply' message.pk %}" method="post">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <input type="text" name="content" class="form-control form-control-sm" placeholder="{% trans "Write your reply..." %}" required>
+                                <button class="btn btn-sm btn-primary" type="submit">{% trans "Send" %}</button>
+                            </div>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+            {% empty %}
+            <div class="list-group-item">
+                <p>{% trans "No topics yet." %}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/social-actions.js"></script>
+{% endblock %}

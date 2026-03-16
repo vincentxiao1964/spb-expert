@@ -1,0 +1,97 @@
+.container {
+  padding: 30rpx;
+}
+
+.form-group {
+  margin-bottom: 40rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 15rpx;
+  font-weight: 500;
+}
+
+.input {
+  border: 1px solid #ddd;
+  padding: 0 20rpx;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+}
+
+.textarea {
+  border: 1px solid #ddd;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+  width: 100%;
+  height: 200rpx;
+  box-sizing: border-box;
+}
+
+.status-text {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.image-uploader {
+  width: 200rpx;
+  height: 200rpx;
+  border: 1px dashed #ddd;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f8f8;
+  overflow: hidden;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plus {
+  font-size: 60rpx;
+  color: #999;
+  line-height: 60rpx;
+}
+
+.tip {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.preview-box {
+  width: 200rpx;
+  height: 200rpx;
+  position: relative;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+
+.btn-remove-image {
+  font-size: 24rpx;
+  color: #f5222d;
+  margin-top: 10rpx;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.btn-submit {
+  margin-top: 60rpx;
+  width: 100%;
+}

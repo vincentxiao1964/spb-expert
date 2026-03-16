@@ -1,0 +1,32 @@
+<view class="container" style="padding-bottom: 150rpx;">
+  <view class="header">
+    <view class="title">广告列表</view>
+    <button class="btn-add" bindtap="goAdd">发布广告</button>
+  </view>
+
+  <view class="list">
+    <block wx:for="{{list}}" wx:key="id">
+      <view class="item" bindtap="goEdit" data-id="{{item.id}}">
+        <image class="image" src="{{item.image || '/assets/placeholder.png'}}" mode="aspectFill"></image>
+        <view class="content">
+          <view class="item-title">{{item.title}}</view>
+          <view class="item-info">
+            <text class="status {{item.is_active ? 'active' : ''}}">{{item.is_active ? '展示中' : '未激活'}}</text>
+            <text class="date">{{item.created_at_formatted}}</text>
+          </view>
+        </view>
+        <view class="actions">
+          <block wx:if="{{isAdmin}}">
+             <view class="btn-action btn-approve" catchtap="handleAudit" data-id="{{item.id}}" data-status="APPROVED" wx:if="{{item.status !== 'APPROVED'}}">通过</view>
+             <view class="btn-action btn-reject" catchtap="handleAudit" data-id="{{item.id}}" data-status="REJECTED" wx:if="{{item.status !== 'REJECTED'}}">拒绝</view>
+          </block>
+          <view class="btn-edit" catchtap="goEdit" data-id="{{item.id}}">编辑</view>
+          <view class="btn-delete" catchtap="handleDelete" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{list.length === 0 && !loading}}" class="empty">暂无广告</view>
+  </view>
+
+  <quick-nav />
+</view>

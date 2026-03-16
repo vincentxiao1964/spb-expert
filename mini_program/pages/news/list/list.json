@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "发船资讯",
+  "disableScroll": true,
+  "usingComponents": {
+    "quick-nav": "/components/quick-nav/quick-nav"
+  }
+}

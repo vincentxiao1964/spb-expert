@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block meta_description %}
+{{ listing.get_listing_type_display }} {{ listing.get_ship_category_display }} - {{ listing.dwt }} DWT. {{ listing.description|default:listing.description_en|truncatewords:20 }}
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/social-actions.js"></script>
+{% endblock %}
+
+{% block meta_keywords %}
+{{ listing.get_ship_category_display }}, {{ listing.get_listing_type_display }}, {{ listing.dwt }} DWT, ship, barge, deck ship, {{ listing.class_society }}
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <a href="{% url 'market:list' %}" class="btn btn-outline-secondary">{% trans "Back to Listings" %}</a>
+    <a href="{% url 'market:create' %}" class="btn btn-success">{% trans "Post New Listing" %}</a>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">{{ listing }}</h3>
+                <div>
+                    <span class="text-muted small me-2">ID: {{ listing.unique_id }}</span>
+                    <span class="badge bg-primary">{{ listing.get_listing_type_display }}</span>
+                </div>
+            </div>
+            
+            <!-- Images Carousel -->
+            {% if listing.images.all %}
+            <div id="listingCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for img in listing.images.all %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ img.image.url }}" class="d-block w-100" style="max-height: 400px; object-fit: contain;" alt="...">
+                        {% if img.is_schematic %}
+                        <div class="carousel-caption d-none d-md-block bg-dark opacity-75">
+                            <p>{% trans "Schematic / Placeholder Image" %}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#listingCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#listingCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            {% endif %}
+
+            <div class="card-body">
+                {% get_current_language as LANGUAGE_CODE %}
+                <h5 class="card-title">{% trans "Details" %}</h5>
+                
+                {% if listing.description or listing.description_en %}
+                <div class="mb-4">
+                    <h6>{% trans "Description" %}</h6>
+                    <p>
+                        {% if LANGUAGE_CODE == 'en' and listing.description_en %}
+                            {{ listing.description_en|linebreaks }}
+                        {% else %}
+                            {{ listing.description|linebreaks }}
+                        {% endif %}
+                    </p>
+                </div>
+                {% endif %}
+
+                <dl class="row">
+                    <dt class="col-sm-4">{% trans "Category" %}</dt>
+                    <dd class="col-sm-8">{{ listing.get_ship_category_display }}</dd>
+
+                    <dt class="col-sm-4">{% trans "Dimensions (LxWxD)" %}</dt>
+                    <dd class="col-sm-8">
+                        {{ listing.length|default:"-" }} x {{ listing.width|default:"-" }} x {{ listing.depth|default:"-" }} m
+                    </dd>
+
+                    <dt class="col-sm-4">{% trans "DWT" %}</dt>
+                    <dd class="col-sm-8">{{ listing.dwt }}</dd>
+
+                    <dt class="col-sm-4">{% trans "Year of Build" %}</dt>
+                    <dd class="col-sm-8">{{ listing.build_year }}</dd>
+
+                    <dt class="col-sm-4">{% trans "Class Society" %}</dt>
+                    <dd class="col-sm-8">{{ listing.class_society }}</dd>
+
+                    <dt class="col-sm-4">{% trans "Flag State" %}</dt>
+                    <dd class="col-sm-8">{{ listing.flag_state }}</dd>
+
+                    <dt class="col-sm-4">{% trans "Delivery Area" %}</dt>
+                    <dd class="col-sm-8">{{ listing.delivery_area }}</dd>
+
+                    {% if listing.start_time %}
+                    <dt class="col-sm-4">{% trans "Start Time" %}</dt>
+                    <dd class="col-sm-8">{{ listing.start_time }}</dd>
+                    {% endif %}
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">{% trans "Contact Information" %}</div>
+            <div class="card-body">
+                {% if user.is_authenticated %}
+                    <p class="card-text">{{ listing.contact_info|linebreaks }}</p>
+                    <hr>
+                    <p class="text-muted">{% trans "Posted by" %}: {{ listing.user.username }}</p>
+                    
+                    <div class="mb-3 d-grid gap-2">
+                        {% if listing.user != user %}
+                        <button class="btn btn-outline-primary btn-follow" 
+                                data-user-id="{{ listing.user.id }}"
+                                data-text-follow="{% trans 'Follow User' %}"
+                                data-text-unfollow="{% trans 'Unfollow' %}">
+                            <i class="fas fa-user-plus"></i> {% trans "Follow User" %}
+                        </button>
+                        
+                        <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#contactUserModal" data-user-id="{{ listing.user.id }}" data-username="{{ listing.user.username }}">
+                            <i class="fas fa-envelope"></i> {% trans "Contact Author" %}
+                        </button>
+                        {% endif %}
+                        
+                        <button class="btn btn-outline-warning btn-favorite" 
+                                data-object-id="{{ listing.id }}" 
+                                data-content-type="shiplisting"
+                                data-text-favorite="{% trans 'Favorite' %}"
+                                data-text-unfavorite="{% trans 'Unfavorite' %}">
+                            <i class="fas fa-star"></i> {% trans "Favorite" %}
+                        </button>
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning">
+                        {% trans "Please login to view contact details." %}
+                    </div>
+                    <a href="{% url 'users:login' %}?next={{ request.path }}" class="btn btn-primary w-100">{% trans "Login" %}</a>
+                {% endif %}
+            </div>
+        </div>
+        
+        {% if user == listing.user or user.is_superuser %}
+        <div class="d-grid gap-2">
+            <a href="{% url 'market:update' listing.pk %}" class="btn btn-warning">{% trans "Edit Listing" %}</a>
+            <a href="{% url 'market:delete' listing.pk %}" class="btn btn-danger">{% trans "Delete Listing" %}</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

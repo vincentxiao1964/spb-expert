@@ -1,0 +1,21 @@
+<view class="container">
+  <scroll-view scroll-y class="chat-list" scroll-into-view="{{toView}}" scroll-with-animation>
+    <view wx:for="{{messages}}" wx:key="id" id="msg-{{item.id}}" class="chat-item {{item.sender === myUserId ? 'my-msg' : 'other-msg'}}">
+      <image class="msg-avatar" src="{{item.sender_avatar || '/assets/icons/default-avatar.png'}}" mode="aspectFill" bindtap="goToProfile" data-id="{{item.sender}}"></image>
+      <view class="msg-content">
+        <block wx:if="{{item.image}}">
+           <image src="{{item.image}}" mode="widthFix" class="msg-image" data-src="{{item.image}}" bindtap="previewImage"></image>
+        </block>
+        <text wx:if="{{item.content}}">{{item.content}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  
+  <view class="input-area">
+    <view class="action-btn" bindtap="chooseImage">
+      <text class="plus-icon">+</text>
+    </view>
+    <input class="msg-input" value="{{inputValue}}" bindinput="onInput" placeholder="输入消息..." confirm-type="send" bindconfirm="sendMessage"/>
+    <button class="send-btn" bindtap="sendMessage" disabled="{{!inputValue}}">发送</button>
+  </view>
+</view>

@@ -1,0 +1,76 @@
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 300rpx;
+}
+
+.loading, .empty {
+  text-align: center;
+  color: #999;
+  padding-top: 50px;
+}
+
+.contact-item {
+  display: flex;
+  background-color: #fff;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #3f51b5;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.content {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.time {
+  font-size: 12px;
+  color: #999;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message {
+  color: #666;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.badge {
+  background-color: #ff3b30;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}

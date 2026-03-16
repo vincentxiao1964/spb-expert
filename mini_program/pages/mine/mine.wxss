@@ -1,0 +1,151 @@
+.container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.user-header {
+  background-color: #fff;
+  padding: 40rpx 30rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.avatar-container {
+  margin-right: 30rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+.user-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.nickname {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.status {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.arrow {
+  color: #ccc;
+  font-size: 32rpx;
+}
+
+.header-action {
+    display: flex;
+    align-items: center;
+}
+
+.logout-btn {
+    padding: 10rpx 20rpx;
+    background-color: #f5f5f5;
+    border: 1rpx solid #e0e0e0;
+    border-radius: 30rpx;
+    font-size: 24rpx;
+    color: #666;
+}
+
+/* Stats Card */
+.stats-card {
+  background-color: #fff;
+  margin: 0 20rpx 20rpx;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.stats-header {
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  padding-bottom: 15rpx;
+}
+
+.stats-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-num {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #1aad19;
+  margin-bottom: 10rpx;
+}
+
+.stats-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.menu-list {
+  background-color: transparent;
+}
+
+.menu-group-title {
+  padding: 20rpx 30rpx 10rpx;
+  font-size: 28rpx;
+  color: #666;
+  background-color: #f5f5f5;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-label {
+    display: flex;
+    align-items: center;
+}
+
+.menu-text {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.badge {
+    background-color: #ff3b30;
+    color: #fff;
+    font-size: 20rpx;
+    padding: 2rpx 10rpx;
+    border-radius: 20rpx;
+    margin-left: 10rpx;
+}
+
+.contact-btn::after {
+  border: none;
+}

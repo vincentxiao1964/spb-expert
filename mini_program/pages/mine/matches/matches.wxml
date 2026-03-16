@@ -1,0 +1,33 @@
+<view class="container">
+  <block wx:if="{{loading}}">
+    <view class="loading">加载中...</view>
+  </block>
+  <block wx:elif="{{matches.length > 0}}">
+    <block wx:for="{{matches}}" wx:key="id">
+      <view class="match-item">
+        <view class="match-header">
+           <text class="match-title">匹配推荐</text>
+           <text class="match-score">{{item.created_at_formatted}}</text>
+        </view>
+        <view class="match-body">
+           <view class="match-row">
+               <text class="label">我的需求：</text>
+               <text class="value">{{item.source_listing.listing_type_display}} {{item.source_listing.ship_category_display}} {{item.source_listing.dwt}}吨</text>
+           </view>
+           <view class="match-row">
+               <text class="label">为您匹配：</text>
+               <text class="value">{{item.target_listing.listing_type_display}} {{item.target_listing.ship_category_display}} {{item.target_listing.dwt}}吨</text>
+           </view>
+        </view>
+        <view class="match-actions">
+           <button size="mini" bindtap="goDetail" data-id="{{item.target_listing.id}}">查看详情</button>
+           <button size="mini" type="primary" bindtap="goChat" data-userid="{{item.target_listing.user}}" data-username="{{item.target_listing.user_name}}">联系对方</button>
+        </view>
+      </view>
+    </block>
+  </block>
+  <block wx:else>
+    <view class="empty">暂无匹配信息</view>
+  </block>
+  <quick-nav />
+</view>

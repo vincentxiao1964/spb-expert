@@ -1,0 +1,25 @@
+<view class="container" style="padding-bottom: 300rpx;">
+  <view class="header">
+    <text class="title">留言列表</text>
+  </view>
+
+  <view class="list-container">
+    <block wx:for="{{messages}}" wx:key="id">
+      <view class="list-item" bindtap="navigateToEdit" data-id="{{item.id}}">
+        <view class="item-header">
+          <text class="item-user">{{item.user_name}} (Lv.{{item.membership_level}})</text>
+          <text class="item-date">{{item.created_at}}</text>
+        </view>
+        <view class="item-content">
+          <text>{{item.content}}</text>
+        </view>
+        <view class="item-actions">
+          <button class="btn-delete" catchtap="handleDelete" data-id="{{item.id}}">删除</button>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{messages.length === 0}}" class="empty-tip">
+      <text>暂无留言</text>
+    </view>
+  </view>
+</view>

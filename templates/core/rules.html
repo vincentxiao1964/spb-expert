@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">{% trans "Website Rules" %}</h2>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <h4>{% trans "Chinese Version" %}</h4>
+            <p>
+                【甲板船家】整合官方网站、微信小程序、微信公众号三大平台，专注发布甲板船买卖、租赁、船员服务全维度行业信息，为甲板船业内同仁打造专业、高效的免费信息交流阵地，助力领域从业者深耕赛道、事业进阶。
+            </p>
+            <p>
+                发布信息者，需要先登录，没有账号，须注册，才有权发布信息。发布信息须经管理员批准，才可以发布。
+                登录须验证手机短信。通过后才可以注册和登录。
+            </p>
+            <!-- Add more rules from requirements as needed -->
+        </div>
+        <div class="col-md-6">
+            <h4>{% trans "English Version" %}</h4>
+            <p>
+                SPB EXPERT integrates the official website, WeChat Mini Program and WeChat Official Account into a unified platform. It is dedicated to releasing comprehensive industry information covering SPB(Self-Propelled Barge) sales & purchases, charters and crew services, and builds a professional, efficient and free information exchange hub for SPB industry peers, empowering practitioners in this field to achieve greater career success.
+            </p>
+            <p>
+                Publishers need to log in first. If you don't have an account, you must register to be authorized to publish information.
+                Published information must be approved by the administrator before it can be released.
+                Login requires SMS verification. Only after passing can you register and log in.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

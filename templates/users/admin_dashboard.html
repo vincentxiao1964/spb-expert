@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Admin Dashboard" %}{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h2 class="mb-4">{% trans "Admin Dashboard" %}</h2>
+    
+    <!-- Top Stats Cards -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm border-0 bg-primary text-white">
+                <div class="card-body text-center">
+                    <h6 class="card-title text-uppercase mb-2 opacity-75">{% trans "Current Visitors" %}</h6>
+                    <h2 class="display-4 fw-bold mb-0">{{ current_visitor_count }}</h2>
+                    <small class="opacity-75">{% trans "Active in last 10m" %}</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm border-0 bg-success text-white">
+                <div class="card-body text-center">
+                    <h6 class="card-title text-uppercase mb-2 opacity-75">{% trans "Total Users" %}</h6>
+                    <h2 class="display-4 fw-bold mb-0">{{ user_count }}</h2>
+                    <small class="opacity-75">+{{ new_users_today }} {% trans "today" %}</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm border-0 bg-info text-white">
+                <div class="card-body text-center">
+                    <h6 class="card-title text-uppercase mb-2 opacity-75">{% trans "Total Visits" %}</h6>
+                    <h2 class="display-4 fw-bold mb-0">{{ cumulative_visitors }}</h2>
+                    <small class="opacity-75">{% trans "Unique IPs" %}</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm border-0 bg-warning text-dark">
+                <div class="card-body text-center">
+                    <h6 class="card-title text-uppercase mb-2 opacity-75">{% trans "Pending Listings" %}</h6>
+                    <h2 class="display-4 fw-bold mb-0">{{ listing_pending }}</h2>
+                    <small class="opacity-75">{% trans "Needs Approval" %}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart Section -->
+    <div class="card shadow-sm mb-5">
+        <div class="card-header bg-white py-3">
+            <h5 class="mb-0 fw-bold">{% trans "Today's Traffic (Hourly)" %}</h5>
+        </div>
+        <div class="card-body">
+            <canvas id="visitorChart" style="max-height: 400px;"></canvas>
+        </div>
+    </div>
+
+    <!-- Backups Section -->
+    <div class="card shadow-sm mb-5">
+        <div class="card-header bg-white py-3">
+            <h5 class="mb-0 fw-bold">{% trans "System Backups" %} (Automatically generated daily)</h5>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>{% trans "Filename" %}</th>
+                            <th>{% trans "Created At" %}</th>
+                            <th>{% trans "Size" %}</th>
+                            <th>{% trans "Action" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for file in backup_files %}
+                        <tr>
+                            <td>{{ file.name }}</td>
+                            <td>{{ file.created }}</td>
+                            <td>{{ file.size }}</td>
+                            <td>
+                                <a href="{% url 'users:download_backup' file.name %}" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-download"></i> {% trans "Download" %}
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="4" class="text-center text-muted py-4">
+                                {% trans "No backups available yet." %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Online Visitors -->
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 fw-bold">{% trans "Online Visitors" %}</h5>
+                    <span class="badge bg-success">{{ online_visitors|length }} {% trans "Online" %}</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        {% for visitor in online_visitors %}
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">{{ visitor.username }}</h6>
+                                <small class="text-muted">{{ visitor.last_seen|date:"H:i:s" }}</small>
+                            </div>
+                            <small class="text-muted">IP: {{ visitor.ip }}</small>
+                        </div>
+                        {% empty %}
+                        <div class="p-4 text-center text-muted">
+                            {% trans "No active visitors right now." %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Logs -->
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-white py-3">
+                    <h5 class="mb-0 fw-bold">{% trans "Recent Access Logs" %}</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0 small">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>{% trans "Time" %}</th>
+                                    <th>{% trans "User" %}</th>
+                                    <th>{% trans "Path" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for log in recent_visitors %}
+                                <tr>
+                                    <td>{{ log.created_at|date:"H:i:s" }}</td>
+                                    <td>{{ log.user.username|default:"Guest" }}</td>
+                                    <td class="text-truncate" style="max-width: 150px;" title="{{ log.path }}">{{ log.path }}</td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="3" class="text-center py-4 text-muted">{% trans "No logs yet." %}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const ctx = document.getElementById('visitorChart').getContext('2d');
+        const visitorChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ chart_labels|safe }},
+                datasets: [{
+                    label: '{% trans "Visitors" %}',
+                    data: {{ chart_data|safe }},
+                    borderColor: 'rgb(75, 192, 192)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.1)',
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: '{% trans "Hour (0-23)" %}'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

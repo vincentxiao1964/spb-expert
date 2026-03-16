@@ -1,0 +1,119 @@
+/* pages/crew/detail/detail.wxss */
+.container {
+  padding-bottom: 120rpx;
+}
+
+.header {
+  background-color: #fff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.name {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.position {
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #007aff;
+  padding: 6rpx 20rpx;
+  border-radius: 8rpx;
+}
+
+.status {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+.info-section {
+  background-color: #fff;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  border-left: 8rpx solid #007aff;
+  padding-left: 20rpx;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.label {
+  width: 180rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.value {
+  flex: 1;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.resume-text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Action Section (Inline) */
+.action-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40rpx 20rpx;
+  margin-bottom: 40rpx;
+}
+
+.btn-action {
+  margin: 0 10rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: #007aff;
+  color: #fff;
+}
+
+.value.link {
+  color: #007aff;
+  text-decoration: underline;
+}
+
+.login-mask {
+  padding: 30rpx;
+  background-color: #f8f8f8;
+  text-align: center;
+  border-radius: 8rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.login-link {
+  color: #007aff;
+  margin-left: 10rpx;
+  font-weight: bold;
+}

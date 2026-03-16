@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="list">
+    <view class="item" wx:for="{{inquiries}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="title">{{item.title}}</view>
+      <view class="status">{{item.status}}</view>
+      <view class="time">{{item.created_at}}</view>
+    </view>
+    <view wx:if="{{inquiries.length === 0}}" class="empty">暂无询价</view>
+  </view>
+</view>

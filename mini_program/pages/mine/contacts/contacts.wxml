@@ -1,0 +1,26 @@
+<view class="container">
+  <block wx:if="{{loading}}">
+    <view class="loading">加载中...</view>
+  </block>
+  <block wx:elif="{{conversations.length > 0}}">
+    <block wx:for="{{conversations}}" wx:key="user_id">
+      <view class="contact-item" bindtap="goChat" data-userid="{{item.user_id}}" data-username="{{item.username}}">
+        <view class="avatar">{{item.username[0]}}</view>
+        <view class="content">
+            <view class="header">
+                <text class="username">{{item.username}}</text>
+                <text class="time">{{item.last_message_time}}</text>
+            </view>
+            <view class="footer">
+                <text class="message">{{item.last_message}}</text>
+                <view class="badge" wx:if="{{item.unread_count > 0}}">{{item.unread_count}}</view>
+            </view>
+        </view>
+      </view>
+    </block>
+  </block>
+  <block wx:else>
+    <view class="empty">暂无联系人</view>
+  </block>
+  <quick-nav />
+</view>

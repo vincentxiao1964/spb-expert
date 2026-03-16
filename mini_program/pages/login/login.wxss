@@ -1,0 +1,164 @@
+page {
+  background-color: #fff;
+}
+
+.container {
+  padding: 40rpx;
+}
+
+.login-header {
+  margin-top: 60rpx;
+  margin-bottom: 60rpx;
+  text-align: center;
+}
+
+.tabs {
+  display: none;
+}
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: none;
+}
+
+.tab.active::after {
+  display: none;
+}
+
+.code-group {
+    /* Special styling for code group if needed */
+}
+
+.code-input-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.code-input {
+    flex: 1;
+    margin-right: 20rpx;
+}
+
+.btn-code {
+    white-space: nowrap;
+    font-size: 26rpx;
+    padding: 0 30rpx;
+    height: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f7ff;
+    color: #007aff;
+    border-radius: 8rpx;
+}
+
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 40rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.input {
+  width: 100%;
+  height: 80rpx;
+  border: 1px solid #ddd;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+
+.btn-login {
+  margin-top: 60rpx;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  box-shadow: 0 6rpx 16rpx rgba(0, 122, 255, 0.25);
+  padding: 0;
+}
+
+.divider {
+  display: none;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #eee;
+}
+
+.divider-text {
+  padding: 0 20rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.btn-wechat {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #07c160 !important;
+  color: white !important;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  box-shadow: 0 6rpx 16rpx rgba(7, 193, 96, 0.25);
+  padding: 0;
+}
+
+.register-link {
+  display: none;
+}
+
+.agreement-box {
+  display: flex;
+  align-items: flex-start;
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 30rpx;
+  padding: 0 10rpx;
+}
+
+.agreement-box checkbox {
+  transform: scale(0.7);
+  margin-top: -4rpx; 
+}
+
+.agreement-text {
+  margin-left: 10rpx;
+  line-height: 1.5;
+}
+
+.agreement-text .link {
+  color: #007aff;
+  display: inline;
+}

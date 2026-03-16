@@ -1,0 +1,12 @@
+<view class="container">
+  <form bindsubmit="submitForm">
+    <view class="form-group">
+      <view class="label">留言内容</view>
+      <textarea class="textarea" name="content" value="{{content}}" placeholder="请输入留言内容" maxlength="500"></textarea>
+    </view>
+
+    <view class="btn-area">
+      <button formType="submit" class="btn-submit" loading="{{isSubmitting}}">保存修改</button>
+    </view>
+  </form>
+</view>

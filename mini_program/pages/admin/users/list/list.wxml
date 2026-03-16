@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索用户名/手机号" bindinput="onInput" bindconfirm="onSearch" value="{{query}}" />
+    <view class="search-btn" bindtap="onSearch">搜索</view>
+  </view>
+
+  <scroll-view scroll-y="true" class="user-list">
+    <block wx:for="{{users}}" wx:key="id">
+      <view class="user-item">
+        <view class="user-info">
+          <view class="user-name">
+            {{item.username}} 
+            <text class="user-company" wx:if="{{item.company_name}}">({{item.company_name}})</text>
+          </view>
+          <view class="user-meta">
+             <text wx:if="{{item.phone_number}}" bindtap="callUser" data-phone="{{item.phone_number}}" class="user-phone">📞 {{item.phone_number}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view class="empty" wx:if="{{users.length === 0 && !isLoading}}">
+      <text>未找到用户</text>
+    </view>
+  </scroll-view>
+</view>

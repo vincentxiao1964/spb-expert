@@ -1,0 +1,38 @@
+<view class="container">
+  <!-- Tabs -->
+  <view class="tabs">
+    <view 
+      wx:for="{{tabs}}" 
+      wx:key="key" 
+      class="tab-item {{activeTab === item.key ? 'active' : ''}}"
+      bindtap="onTabClick"
+      data-tab="{{item.key}}"
+    >
+      {{item.label}}
+    </view>
+  </view>
+
+  <!-- List -->
+  <view class="order-list">
+    <view class="order-item" wx:for="{{orders}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="header">
+        <text class="order-no">订单号: {{item.order_number}}</text>
+        <text class="status">{{item.status}}</text>
+      </view>
+      <view class="body">
+        <view class="item-info" wx:for="{{item.items}}" wx:key="id" wx:for-item="orderItem">
+           <text class="title">{{orderItem.item_detail.title || orderItem.item_detail.name || '商品'}}</text>
+           <text class="qty">x{{orderItem.quantity}}</text>
+           <text class="price">¥{{orderItem.price}}</text>
+        </view>
+      </view>
+      <view class="footer">
+        <text>合计: ¥{{item.total_amount}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view wx:if="{{orders.length === 0 && !loading}}" class="empty">
+    暂无订单
+  </view>
+</view>

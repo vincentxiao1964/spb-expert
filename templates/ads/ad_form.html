@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n crispy_forms_tags %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">{% trans "Post Advertisement" %}</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary">{% trans "Save" %}</button>
+                        <a href="{% url 'ads:ad_list' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

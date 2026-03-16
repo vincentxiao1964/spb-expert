@@ -1,0 +1,22 @@
+<view class="container" style="padding-bottom: 300rpx;">
+  <block wx:if="{{transactions.length > 0}}">
+    <block wx:for="{{transactions}}" wx:key="id">
+      <navigator url="/pages/transactions/detail/detail?id={{item.id}}" class="txn-card">
+        <view class="txn-header">
+            <text class="txn-id">#{{item.id}}</text>
+            <text class="txn-status {{item.status}}">{{item.status_display}}</text>
+        </view>
+        <view class="txn-body">
+            <view class="txn-title">{{item.listing_detail.title}}</view>
+            <view class="txn-date">{{t.created_date}}: {{item.created_at}}</view>
+        </view>
+      </navigator>
+    </block>
+  </block>
+  <block wx:elif="{{!loading}}">
+    <view class="empty-state">
+        <text>{{t.empty_transactions}}</text>
+    </view>
+  </block>
+  <quick-nav />
+</view>

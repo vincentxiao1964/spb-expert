@@ -1,0 +1,24 @@
+<view class="container" wx:if="{{!loading}}">
+  <view class="info">
+    <view class="title">{{inquiry.title}}</view>
+    <view class="status">{{inquiry.status}}</view>
+    <view class="content">{{inquiry.content}}</view>
+    <view class="meta">
+       <text>数量: {{inquiry.quantity}}</text>
+       <text>期望价格: ¥{{inquiry.expected_price || '面议'}}</text>
+    </view>
+  </view>
+  
+  <view class="quotes" wx:if="{{inquiry.quotes && inquiry.quotes.length}}">
+    <view class="quote-header">报价列表</view>
+    <view class="quote-item" wx:for="{{inquiry.quotes}}" wx:key="id">
+       <text class="quote-price">¥{{item.price}}</text>
+       <text class="quote-seller">{{item.seller_name}}</text>
+       <button wx:if="{{inquiry.status === 'QUOTED'}}" size="mini" type="primary" bindtap="onAcceptQuote" data-id="{{item.id}}">接受报价</button>
+    </view>
+  </view>
+  
+  <view class="footer" wx:if="{{canAccept}}">
+     <button class="btn-block" type="primary" bindtap="onAcceptQuote">接受最新报价生成订单</button>
+  </view>
+</view>

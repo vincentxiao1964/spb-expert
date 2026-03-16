@@ -1,0 +1,63 @@
+<view class="container">
+  <view class="post-card">
+    <view class="post-header">
+      <image class="avatar" src="{{message.user_avatar || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="user-info">
+        <text class="user-name">{{message.user_name || '匿名用户'}}</text>
+        <text class="post-time">{{message.created_at}}</text>
+      </view>
+      <view class="favorite-btn" bindtap="toggleFavorite">
+          <text class="iconfont {{isFavorite ? 'icon-star-filled' : 'icon-star'}}"></text>
+          <text>{{isFavorite ? '已收藏' : '收藏'}}</text>
+      </view>
+    </view>
+    
+    <view class="action-buttons" wx:if="{{message.user}}">
+        <button class="btn-action btn-follow {{isFollowing ? 'active' : ''}}" size="mini" bindtap="toggleFollow">
+            {{isFollowing ? '取消关注' : '关注作者'}}
+        </button>
+        <button class="btn-action btn-contact" size="mini" bindtap="contactUser">
+            联系作者
+        </button>
+    </view>
+
+    <view class="post-content">
+      <text user-select="true">{{message.content}}</text>
+    </view>
+  </view>
+
+  <view class="replies-section">
+    <view class="section-title">全部回复 ({{message.replies.length || 0}})</view>
+    <block wx:if="{{message.replies && message.replies.length > 0}}">
+      <view class="reply-item" wx:for="{{message.replies}}" wx:key="id">
+        <image class="reply-avatar" src="{{item.user_avatar || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+        <view class="reply-content-box">
+          <view class="reply-header">
+            <text class="reply-user">{{item.user_name || '匿名用户'}}</text>
+            <text class="reply-time">{{item.created_at}}</text>
+          </view>
+          <view class="reply-text">
+            <text user-select="true">{{item.content}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="empty-reply">暂无回复，快来抢沙发吧</view>
+    </block>
+  </view>
+
+  <!-- Bottom Spacer for Input Bar -->
+  <view style="height: 350rpx;"></view>
+
+  <view class="reply-bar">
+    <block wx:if="{{isLoggedIn}}">
+        <input class="reply-input" placeholder="写下你的回复..." value="{{replyContent}}" bindinput="onInputReply" confirm-type="send" bindconfirm="submitReply" cursor-spacing="20" focus="{{focusReply}}" />
+        <button class="reply-btn" bindtap="submitReply" disabled="{{!replyContent || submitting}}">发送</button>
+    </block>
+    <block wx:else>
+        <button class="login-btn" bindtap="goToLogin">登录后参与讨论</button>
+    </block>
+  </view>
+  <quick-nav />
+</view>

@@ -1,0 +1,38 @@
+.container {
+    padding: 20rpx;
+    padding-bottom: 40rpx;
+}
+
+.loading, .empty {
+    text-align: center;
+    margin-top: 100rpx;
+    color: #999;
+}
+
+.message-item {
+    background: #fff;
+    padding: 20rpx;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 2rpx 5rpx rgba(0,0,0,0.1);
+}
+
+.message-header {
+    margin-bottom: 10rpx;
+}
+
+.title {
+    font-size: 32rpx;
+    color: #333;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.message-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24rpx;
+    color: #999;
+}

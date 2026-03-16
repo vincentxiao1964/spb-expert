@@ -1,0 +1,96 @@
+<view class="container" catchtouchmove="preventTouchMove">
+  <scroll-view scroll-y="true" style="height: 100vh;" enable-back-to-top="true">
+    <view style="padding-bottom: 150rpx;">
+      <!-- Ads Section -->
+      <swiper class="ads-swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" wx:if="{{ads.length > 0}}">
+        <block wx:for="{{ads}}" wx:key="id">
+          <swiper-item bindtap="goAdDetail" data-id="{{item.id}}">
+            <image wx:if="{{item.image}}" src="{{item.image}}" class="slide-image" mode="aspectFill" binderror="onAdImageError" data-index="{{index}}"/>
+            <view wx:else class="slide-image placeholder">
+              <text>{{t.no_image}}</text>
+            </view>
+            <view class="ad-title">{{item.title}}</view>
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <!-- Platform Intro -->
+      <view class="platform-intro">
+        <view class="intro-title">{{t.about_us_title}}</view>
+        <text class="intro-text">{{t.about_us_content}}</text>
+      </view>
+
+      <!-- Hymart Entry -->
+      <view class="hymart-banner" bindtap="goHymartMatch">
+        <view class="hymart-content">
+          <text class="hymart-title">Hymart 智能匹配</text>
+          <text class="hymart-desc">根据货物需求，智能推荐合适船舶</text>
+        </view>
+        <button class="hymart-btn">立即体验</button>
+      </view>
+
+      <!-- Latest Listings -->
+      <view class="section-header" wx:if="{{listings.length > 0}}">
+        <text class="section-title">{{t.latest_listings}}</text>
+      </view>
+
+      <view class="listings-list">
+        <block wx:if="{{listings.length > 0}}">
+          <view class="listing-item" wx:for="{{listings}}" wx:key="id" bindtap="goListingDetail" data-id="{{item.id}}" data-type="{{item.listing_type}}">
+            <view class="listing-content">
+              <view class="listing-header">
+                <text class="listing-type tag {{item.listing_type}}">{{item.listing_type_display}}</text>
+                <text class="listing-date">{{item.created_at_formatted || item.created_at}}</text>
+              </view>
+              
+              <view class="listing-main">
+                <image wx:if="{{item.images && item.images.length > 0}}" src="{{item.images[0].image}}" class="listing-thumb" mode="aspectFill" lazy-load></image>
+                <view class="listing-info">
+                  <text class="listing-title">{{item.ship_category_display}} {{item.dwt}}吨</text>
+                  <view class="listing-specs">
+                    <text>{{t.build_year}}: {{item.build_year}}{{t.year}}</text>
+                    <text wx:if="{{item.length}}"> | {{t.length}}: {{item.length}}m</text>
+                    <text wx:if="{{item.depth}}"> | {{t.depth}}: {{item.depth}}m</text>
+                  </view>
+                  <view class="listing-area" wx:if="{{item.delivery_area}}">
+                    <text class="icon-location">📍</text> {{item.delivery_area}}
+                  </view>
+                </view>
+              </view>
+
+              <view class="listing-footer">
+                <text class="status-text {{item.status}}">{{item.status_display}}</text>
+                <button class="btn-detail" size="mini">{{t.view_detail}}</button>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="empty-state" wx:else>
+          <text>{{t.no_data}}</text>
+        </view>
+      </view>
+
+      <!-- Market News -->
+      <view class="section-header" wx:if="{{news.length > 0}}">
+        <text class="section-title">{{t.market_news}}</text>
+      </view>
+
+      <view class="news-list">
+        <block wx:if="{{news.length > 0}}">
+          <view class="news-item" wx:for="{{news}}" wx:key="id" bindtap="viewNews" data-id="{{item.id}}">
+            <image class="news-image" src="{{item.image || '/images/user_default.png'}}" mode="aspectFill"></image>
+            <view class="news-content">
+              <view class="news-title">{{item.title}}</view>
+              <view class="news-date">{{item.created_at}}</view>
+            </view>
+          </view>
+        </block>
+        <view class="empty-state" wx:else>
+          <text>{{t.empty_news}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <quick-nav hasTabbar="{{true}}" />
+</view>

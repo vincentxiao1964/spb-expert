@@ -1,0 +1,62 @@
+.quick-nav-bar {
+  position: fixed;
+  /* bottom is set via inline style in wxml */
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  box-sizing: content-box; /* Ensure padding adds to height */
+  background: #ffffff;
+  border-top: 1rpx solid #e0e0e0;
+  display: flex;
+  align-items: center; /* Center vertically since we reduced height */
+  justify-content: space-around;
+  z-index: 9998;
+  box-shadow: 0 -2rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.nav-item:active .nav-icon-bg {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}
+
+.nav-icon-bg {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6rpx;
+}
+
+.nav-emoji {
+  font-size: 30rpx;
+}
+
+.nav-text {
+  font-size: 22rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.divider {
+  width: 2rpx;
+  height: 50rpx;
+  background-color: #eee;
+}
+
+/* Background Colors */
+.bg-blue { background-color: #e6f7ff; color: #1890ff; }
+.bg-green { background-color: #f6ffed; color: #52c41a; }
+.bg-orange { background-color: #fff7e6; color: #fa8c16; }
+.bg-purple { background-color: #f9f0ff; color: #722ed1; }
+.bg-cyan { background-color: #e6fffb; color: #13c2c2; }

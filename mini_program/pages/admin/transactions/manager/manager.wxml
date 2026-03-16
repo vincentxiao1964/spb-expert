@@ -1,0 +1,30 @@
+<view class="container" style="padding-bottom: 220rpx;">
+    <view class="header">
+        <button type="primary" bindtap="goToCreate" class="btn-create">{{t.initiate_match_transaction}}</button>
+    </view>
+
+    <view class="list">
+        <view class="list-header">{{t.all_transactions}}</view>
+        <block wx:for="{{transactions}}" wx:key="id">
+            <navigator url="/pages/transactions/detail/detail?id={{item.id}}" class="item">
+                <view class="row">
+                    <text class="id">#{{item.id}}</text>
+                    <text class="status">{{item.status_display}}</text>
+                </view>
+                <view class="row">
+                    <text>{{t.listing_source}}: {{item.listing_detail.ship_category_display}} ({{item.listing_detail.dwt}}t)</text>
+                </view>
+                <view class="row details">
+                    <text>{{t.buyer}}: {{item.buyer_detail.username}}</text>
+                    <text> ↔ </text>
+                    <text>{{t.seller}}: {{item.seller_detail.username}}</text>
+                </view>
+                <view class="date">{{item.created_at}}</view>
+            </navigator>
+            <view class="row" style="justify-content: flex-end; padding: 10rpx 20rpx;">
+                <button class="btn-delete" size="mini" data-id="{{item.id}}" bindtap="handleCancel">取消交易</button>
+            </view>
+        </block>
+        <view wx:if="{{transactions.length === 0}}" class="empty">{{t.empty_data}}</view>
+    </view>
+</view>

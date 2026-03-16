@@ -1,0 +1,113 @@
+.container {
+  padding: 30rpx;
+  padding-bottom: 100rpx;
+}
+
+.form-group {
+  margin-bottom: 30rpx;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.half {
+  width: 48%;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 15rpx;
+  font-weight: 500;
+}
+
+.picker {
+  border: 1px solid #ddd;
+  padding: 0 20rpx;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+  background: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.input {
+  border: 1px solid #ddd;
+  padding: 0 20rpx;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.textarea {
+  border: 1px solid #ddd;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  font-size: 30rpx;
+  width: 100%;
+  height: 200rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-item {
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-remove-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 20rpx;
+  text-align: center;
+  padding: 6rpx 0;
+}
+
+.image-uploader {
+  width: 160rpx;
+  height: 160rpx;
+  border: 1px dashed #ddd;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f8f8;
+  margin-bottom: 20rpx;
+}
+
+.plus {
+  font-size: 60rpx;
+  color: #999;
+  line-height: 60rpx;
+}
+
+.btn-submit {
+  margin-top: 40rpx;
+  width: 100%;
+}

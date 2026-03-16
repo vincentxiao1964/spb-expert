@@ -1,0 +1,230 @@
+.container {
+  padding: 30rpx;
+  padding-bottom: 300rpx;
+}
+
+.loading, .error {
+  text-align: center;
+  color: #999;
+  margin-top: 50rpx;
+}
+
+.title {
+  margin-bottom: 30rpx;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.tag {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+  margin-right: 16rpx;
+  color: #fff;
+  font-weight: normal;
+}
+
+.tag.SELL { background-color: #ff5722; } /* 卖船 - Orange */
+.tag.BUY { background-color: #007aff; } /* 买船 - Blue */
+.tag.CHARTER_OFFER { background-color: #4cd964; } /* 出租 - Green */
+.tag.CHARTER_REQUEST { background-color: #ffc107; color: #333; } /* 求租 - Yellow */
+
+.fav-btn {
+  margin-left: auto;
+  font-size: 40rpx;
+  padding: 0 20rpx;
+}
+
+.info {
+  background: #f8f9fa;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+}
+
+.info view {
+  margin-bottom: 10rpx;
+  color: #333;
+}
+
+.description {
+  margin-bottom: 40rpx;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Hymart Extended Info Styles */
+.extended-info-section {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background-color: #e6f7ff; /* Light Blue to distinguish Hymart data */
+  border-radius: 12rpx;
+  border: 1px solid #bae7ff;
+}
+
+.info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15rpx;
+}
+
+.info-item {
+  width: 50%; /* 2 columns */
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item .label {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 5rpx;
+}
+
+.info-item .value {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #0050b3;
+}
+
+.contact-section {
+  border-top: 1rpx solid #eee;
+  padding-top: 30rpx;
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.contact-content {
+  font-size: 32rpx;
+  color: #007aff;
+  margin-bottom: 20rpx;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10rpx;
+    margin-top: 20rpx;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    margin: 0;
+    font-size: 24rpx;
+    padding: 0 20rpx;
+}
+
+.btn-follow {
+    background-color: #fff;
+    color: #007aff;
+    border: 1px solid #007aff;
+}
+
+.btn-follow.active {
+    background-color: #007aff;
+    color: #fff;
+}
+
+.btn-contact {
+    background-color: #fff;
+    color: #007aff;
+    border: 1px solid #007aff;
+}
+
+.btn-share {
+    background-color: #fff;
+    color: #28a745;
+    border: 1px solid #28a745;
+}
+
+.btn-favorite {
+    background-color: #fff;
+    color: #ff9900;
+    border: 1px solid #ff9900;
+}
+
+.btn-favorite.active {
+    background-color: #ff9900;
+    color: #fff;
+}
+
+.login-tip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fdf6ec;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  color: #e6a23c;
+}
+
+.btn-login {
+  background-color: #e6a23c;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 0 30rpx;
+}
+
+.owner-actions {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 40rpx;
+}
+
+.btn-edit {
+  flex: 1;
+  background-color: #007aff;
+  color: #fff;
+}
+
+.btn-delete {
+  flex: 1;
+  background-color: #ff3b30;
+  color: #fff;
+}
+
+.fab-btn {
+  position: fixed;
+  bottom: 180rpx;
+  right: 40rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #007aff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.3);
+  z-index: 100;
+}
+
+.fab-btn text {
+  color: #fff;
+  font-size: 60rpx;
+  line-height: 1;
+  margin-top: -10rpx;
+}
+
+.transaction-action {
+    margin-top: 20rpx;
+    padding: 20rpx 0;
+    border-top: 1rpx solid #eee;
+}
+
+.btn-transaction {
+    width: 100%;
+    background-color: #ff5722;
+    color: white;
+    font-weight: bold;
+    border-radius: 40rpx;
+}

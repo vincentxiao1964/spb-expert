@@ -1,0 +1,126 @@
+<view class="container">
+  <view class="header">
+    <text class="title">匹配船舶</text>
+    <text class="subtitle">Hymart 智能匹配系统将为您推荐合适船舶</text>
+  </view>
+
+  <form bindsubmit="submitForm">
+    <view class="form-group">
+      <view class="form-item">
+        <text class="label">货物类型</text>
+        <picker bindchange="bindCargoTypeChange" value="{{cargoTypeIndex}}" range="{{cargoTypes}}" range-key="label">
+          <view class="picker">
+            {{cargoTypes[cargoTypeIndex].label || '请选择'}}
+          </view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="label">重量 (吨)</text>
+        <input name="weight" type="digit" placeholder="请输入货物重量" />
+      </view>
+
+      <view class="form-item">
+        <text class="label">体积 (m³)</text>
+        <input name="volume" type="digit" placeholder="选填" />
+      </view>
+      
+      <view class="form-item">
+        <text class="label">最大吃水 (m)</text>
+        <input name="max_draft" type="digit" placeholder="选填，港口限制" />
+      </view>
+
+      <view class="form-item">
+        <text class="label">载重误差 (%)</text>
+        <input name="dwt_tolerance_percent" type="digit" placeholder="默认 10" />
+      </view>
+
+      <view class="form-item">
+        <text class="label">吃水误差 (%)</text>
+        <input name="draft_tolerance_percent" type="digit" placeholder="默认 10" />
+      </view>
+
+      <!-- 
+      <view class="form-item">
+        <text class="label">始发港</text>
+        <input name="origin" placeholder="请输入始发港/区域" />
+      </view>
+
+      <view class="form-item">
+        <text class="label">目的港</text>
+        <input name="destination" placeholder="请输入目的港/区域" />
+      </view>
+
+      <view class="form-item">
+        <text class="label">装货日期</text>
+        <picker mode="date" value="{{loadingDate}}" start="{{today}}" bindchange="bindDateChange">
+          <view class="picker">
+            {{loadingDate || '请选择'}}
+          </view>
+        </picker>
+      </view>
+      -->
+    </view>
+
+    <button form-type="submit" type="primary" class="submit-btn" loading="{{submitting}}">开始匹配</button>
+  </form>
+
+  <!-- Matching Results -->
+  <view class="results-section" wx:if="{{matches && matches.length > 0}}">
+    <view class="section-title">匹配结果 ({{matches.length}})</view>
+    <view class="sort-bar">
+      <text class="label">排序：</text>
+      <picker mode="selector" range="{{sortModes}}" range-key="label" value="{{sortModeIndex}}" bindchange="onSortModeChange">
+        <view class="picker">
+          {{sortModes[sortModeIndex].label}}
+        </view>
+      </picker>
+    </view>
+    <view class="match-list">
+      <block wx:for="{{matches}}" wx:key="id">
+        <view class="match-card" 
+              bindtap="viewShipDetail" 
+              bindlongpress="deleteMatch"
+              data-id="{{item.ship_listing.id}}" 
+              data-match-id="{{item.id}}">
+          <view class="match-header">
+            <view class="ship-title">
+              <view class="view-status-dot" wx:if="{{!item.is_viewed}}"></view>
+              <text class="ship-name">{{item.ship_listing.description || '未命名船舶'}}</text>
+            </view>
+            <view class="score-badge">
+                <text class="score-val">{{item.score * 100}}</text>
+                <text class="score-unit">%</text>
+            </view>
+          </view>
+          <view class="match-info">
+            <view class="info-row">
+                <text class="label">载重吨:</text> <text class="val">{{item.ship_listing.dwt}}t</text>
+            </view>
+            <view class="info-row">
+                <text class="label">区域:</text> <text class="val">{{item.ship_listing.delivery_area}}</text>
+            </view>
+            <view class="info-row" wx:if="{{item.dwt_diff_percent != null}}">
+                <text class="label">载重偏差:</text> <text class="val">{{item.dwt_diff_percent}}%</text>
+            </view>
+            <!-- Check extended info via ship_listing -->
+            <view class="info-row" wx:if="{{item.ship_listing.extended_info}}">
+                 <text class="label">满载吃水:</text> <text class="val">{{item.ship_listing.extended_info.draft_laden}}m</text>
+            </view>
+            <view class="info-row" wx:if="{{item.draft_utilization_percent != null}}">
+                <text class="label">吃水利用:</text> <text class="val">{{item.draft_utilization_percent}}%</text>
+            </view>
+          </view>
+          <view class="card-footer">
+            <text class="view-detail">查看详情 ></text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  
+  <view class="no-results" wx:if="{{matches && matches.length === 0}}">
+    <text>暂无匹配船舶，请稍后再试或调整条件。</text>
+  </view>
+
+</view>

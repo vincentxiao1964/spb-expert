@@ -1,0 +1,84 @@
+<view class="container">
+  <view class="form-group">
+    <text class="label">发布类型 *</text>
+    <picker bindchange="handleTypeChange" value="{{typeIndex}}" range="{{types}}" range-key="label">
+      <view class="picker">
+        {{types[typeIndex].label || '请选择类型'}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="form-group">
+    <text class="label">船舶分类 *</text>
+    <picker bindchange="handleCategoryChange" value="{{categoryIndex}}" range="{{categories}}" range-key="label">
+      <view class="picker">
+        {{categories[categoryIndex].label || '请选择分类'}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="form-group">
+    <text class="label">载重吨 (DWT)</text>
+    <input class="input" type="digit" placeholder="请输入DWT" value="{{dwt}}" bindinput="handleInput" data-field="dwt" />
+  </view>
+
+  <view class="form-row">
+    <view class="form-group half">
+      <text class="label">船长 (m)</text>
+      <input class="input" type="digit" placeholder="长度" value="{{length}}" bindinput="handleInput" data-field="length" />
+    </view>
+    <view class="form-group half">
+      <text class="label">船宽 (m)</text>
+      <input class="input" type="digit" placeholder="宽度" value="{{width}}" bindinput="handleInput" data-field="width" />
+    </view>
+  </view>
+
+  <view class="form-row">
+    <view class="form-group half">
+      <text class="label">型深 (m)</text>
+      <input class="input" type="digit" placeholder="深度" value="{{depth}}" bindinput="handleInput" data-field="depth" />
+    </view>
+    <view class="form-group half">
+      <text class="label">建造年份</text>
+      <input class="input" type="number" placeholder="年份" value="{{build_year}}" bindinput="handleInput" data-field="build_year" />
+    </view>
+  </view>
+
+  <view class="form-group">
+    <text class="label">描述 (中文)</text>
+    <textarea class="textarea" placeholder="请输入船舶描述" value="{{description}}" bindinput="handleInput" data-field="description" maxlength="-1"></textarea>
+  </view>
+
+  <view class="form-group">
+    <text class="label">联系方式 *</text>
+    <input class="input" placeholder="请输入联系人电话/邮箱" value="{{contact_info}}" bindinput="handleInput" data-field="contact_info" />
+  </view>
+
+  <view class="form-group">
+    <text class="label">图片</text>
+    <view class="image-list">
+      <block wx:for="{{existingImages}}" wx:key="id">
+        <view class="image-item">
+          <image src="{{item.image}}" mode="aspectFill" class="preview-image"></image>
+          <view class="btn-remove-image" bindtap="removeExistingImage" data-id="{{item.id}}" data-index="{{index}}">删除</view>
+        </view>
+      </block>
+      <block wx:for="{{newImages}}" wx:key="*this">
+        <view class="image-item">
+          <image src="{{item}}" mode="aspectFill" class="preview-image"></image>
+          <view class="btn-remove-image" bindtap="removeNewImage" data-index="{{index}}">删除</view>
+        </view>
+      </block>
+      <view class="image-uploader" bindtap="chooseImage">
+        <text class="plus">+</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{isAdmin && id}}" class="admin-actions" style="margin-bottom: 20rpx;">
+    <button class="btn-audit" type="primary" bindtap="handleAudit" data-status="APPROVED" wx:if="{{status !== 'APPROVED'}}" style="margin-bottom: 10px;">通过审批</button>
+    <button class="btn-audit" type="warn" bindtap="handleAudit" data-status="REJECTED" wx:if="{{status !== 'REJECTED'}}">拒绝审批</button>
+  </view>
+
+  <button class="btn-submit" type="primary" bindtap="handleSubmit" loading="{{submitting}}">提交修改</button>
+</view>

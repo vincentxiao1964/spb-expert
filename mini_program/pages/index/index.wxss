@@ -1,0 +1,318 @@
+/**index.wxss**/
+.container {
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+/* Ads Swiper */
+.ads-swiper {
+  width: 100%;
+  height: 400rpx;
+}
+
+/* Navigation Grid */
+.nav-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30rpx 20rpx;
+  background-color: #fff;
+  justify-content: space-between;
+}
+
+.nav-item {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.nav-icon-bg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10rpx;
+}
+
+.nav-emoji {
+  font-size: 50rpx;
+}
+
+.nav-text {
+  font-size: 24rpx;
+  color: #333;
+  text-align: center;
+}
+
+.bg-blue { background-color: #e6f7ff; color: #1890ff; }
+.bg-green { background-color: #f6ffed; color: #52c41a; }
+.bg-orange { background-color: #fff7e6; color: #fa8c16; }
+.bg-purple { background-color: #f9f0ff; color: #722ed1; }
+.bg-cyan { background-color: #e6fffb; color: #13c2c2; }
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+.ad-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10rpx 20rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Platform Intro */
+.platform-intro {
+  margin: 60rpx 40rpx;
+  padding-bottom: 20rpx;
+}
+
+/* Hymart Banner */
+.hymart-banner {
+  margin: 20rpx 30rpx 40rpx;
+  background: linear-gradient(135deg, #007aff, #0056b3);
+  border-radius: 16rpx;
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4rpx 12rpx rgba(0, 122, 255, 0.3);
+}
+
+.hymart-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hymart-title {
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.hymart-desc {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 24rpx;
+}
+
+.hymart-btn {
+  background-color: #fff;
+  color: #007aff;
+  font-size: 26rpx;
+  font-weight: bold;
+  padding: 10rpx 30rpx;
+  border-radius: 30rpx;
+  margin: 0;
+  line-height: 2;
+}
+
+.intro-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 40rpx;
+  text-align: center;
+  letter-spacing: 4rpx;
+  position: relative;
+}
+
+/* Optional decorative line under title */
+.intro-title::after {
+  content: '';
+  display: block;
+  width: 60rpx;
+  height: 4rpx;
+  background-color: #007aff;
+  margin: 16rpx auto 0;
+  border-radius: 2rpx;
+}
+
+.intro-text {
+  font-size: 30rpx;
+  color: #444;
+  line-height: 2;
+  letter-spacing: 3rpx;
+  text-align: justify;
+  display: block;
+}
+
+/* Section Header */
+.section-header {
+  padding: 0 30rpx;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  border-left: 8rpx solid #007aff;
+  padding-left: 20rpx;
+}
+
+/* Listings List */
+.listings-list {
+  padding: 0 30rpx;
+}
+
+.listing-item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  border: 1rpx solid #f0f0f0;
+}
+
+.listing-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.listing-type {
+  font-size: 24rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+  color: #fff;
+}
+.listing-type.SELL { background-color: #28a745; }
+.listing-type.BUY { background-color: #ffc107; color: #333; }
+.listing-type.CHARTER_OFFER { background-color: #17a2b8; }
+.listing-type.CHARTER_REQUEST { background-color: #6c757d; }
+
+.listing-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.listing-main {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.listing-thumb {
+  width: 160rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+  background-color: #eee;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.listing-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.listing-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.listing-specs {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.listing-area {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.listing-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1rpx solid #eee;
+  padding-top: 16rpx;
+}
+
+.status-text {
+  font-size: 24rpx;
+  padding: 2rpx 10rpx;
+  border-radius: 4rpx;
+}
+.status-text.PENDING { color: #ffc107; background: #fff3cd; }
+.status-text.APPROVED { color: #28a745; background: #d4edda; }
+.status-text.REJECTED { color: #dc3545; background: #f8d7da; }
+
+.btn-detail {
+  margin: 0;
+  background-color: #007aff;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+/* News List */
+.news-list {
+  padding: 0 30rpx;
+}
+
+.news-item {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+  border: 1rpx solid #f0f0f0;
+}
+
+.news-image {
+  width: 200rpx;
+  height: 150rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  background-color: #eee;
+}
+
+.news-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.news-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40rpx;
+  color: #999;
+  font-size: 28rpx;
+}

@@ -1,0 +1,119 @@
+<view class="container" catchtouchmove="preventTouchMove">
+  <view class="top-tabs">
+    <view class="tab-item {{currentTab==0?'active':''}}" bindtap="switchTab" data-idx="0">{{t.tab_forum}}</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" bindtap="switchTab" data-idx="1">
+       {{t.tab_chats}}
+       <view wx:if="{{unreadChatCount > 0}}" class="badge">{{unreadChatCount}}</view>
+    </view>
+    <view class="tab-item {{currentTab==2?'active':''}}" bindtap="switchTab" data-idx="2">
+       {{t.tab_notifications}}
+       <view wx:if="{{unreadNotifCount > 0}}" class="badge">{{unreadNotifCount}}</view>
+    </view>
+  </view>
+
+  <!-- Forum View -->
+  <scroll-view wx:if="{{currentTab==0}}" scroll-y="true" style="height: calc(100vh - 80rpx);" enable-back-to-top="true"
+    refresher-enabled="{{true}}" 
+    refresher-triggered="{{isRefreshing}}" 
+    bindrefresherrefresh="onRefresherRefresh" 
+    bindscrolltolower="onReachBottom">
+    
+    <view style="padding-bottom: 150rpx;">
+      <view class="forum-rules">
+        <view class="rules-title">{{t.forum_rules_title}}</view>
+        <view class="rules-content">
+          <view>{{t.forum_rules_1}}</view>
+          <view>{{t.forum_rules_2}}</view>
+          <view>{{t.forum_rules_3}}</view>
+        </view>
+      </view>
+
+      <view class="message-list">
+        <block wx:if="{{messages.length > 0}}">
+          <view class="message-item" wx:for="{{messages}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+            <view class="message-header">
+              <text class="user-name" catchtap="goToProfile" data-id="{{item.user}}">{{item.user_name || t.anonymous_member}}</text>
+              <text class="message-time">{{item.created_at}}</text>
+            </view>
+            <view class="message-content">
+              <text>{{item.content}}</text>
+            </view>
+            <view class="message-footer">
+                <view class="footer-left">
+                    <text class="reply-count">{{t.reply_count}} {{item.reply_count || 0}}</text>
+                </view>
+                <view class="footer-right">
+                    <view class="btn-reply" catchtap="goToReply" data-id="{{item.id}}">{{t.reply_now}}</view>
+                </view>
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="empty-tip">{{t.empty_messages}}</view>
+        </block>
+      </view>
+      
+      <view class="loading-more" wx:if="{{loading}}">{{t.loading}}...</view>
+      <view class="no-more" wx:if="{{!hasMore && messages.length > 0}}">{{t.no_more_data}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- Chats View -->
+  <scroll-view wx:if="{{currentTab==1}}" scroll-y="true" style="height: calc(100vh - 80rpx);" 
+    refresher-enabled="{{true}}"
+    refresher-triggered="{{isRefreshing}}"
+    bindrefresherrefresh="onRefresherRefresh">
+    <view style="padding-bottom: 150rpx;">
+      <block wx:if="{{conversations.length > 0}}">
+         <view class="conversation-item" wx:for="{{conversations}}" wx:key="user_id" bindtap="goToChat" data-id="{{item.user_id}}" data-name="{{item.username}}">
+           <image class="avatar" src="/images/default-avatar.png"></image>
+           <view class="conv-content">
+              <view class="conv-top">
+                 <text class="conv-name">{{item.username}}</text>
+                 <text class="conv-time">{{item.last_message_time_formatted}}</text>
+              </view>
+              <view class="conv-bottom">
+                 <text class="conv-msg">{{item.last_message}}</text>
+                 <view wx:if="{{item.unread_count > 0}}" class="conv-badge">{{item.unread_count}}</view>
+              </view>
+           </view>
+         </view>
+      </block>
+      <view wx:else class="empty-tip">{{t.no_conversations}}</view>
+    </view>
+  </scroll-view>
+
+  <!-- Notifications View -->
+  <scroll-view wx:if="{{currentTab==2}}" scroll-y="true" style="height: calc(100vh - 80rpx);"
+    refresher-enabled="{{true}}"
+    refresher-triggered="{{isRefreshing}}"
+    bindrefresherrefresh="onRefresherRefresh">
+    <view style="padding-bottom: 150rpx;">
+       <view class="mark-read-container" wx:if="{{notifications.length > 0}}">
+          <view class="mark-read-btn" bindtap="markAllRead">{{t.mark_all_read}}</view>
+       </view>
+       <block wx:if="{{notifications.length > 0}}">
+          <view class="notif-item {{item.is_read ? 'read' : 'unread'}}" wx:for="{{notifications}}" wx:key="id" bindtap="handleNotification" data-item="{{item}}">
+             <view class="notif-icon-box type-{{item.notification_type}}">
+                <text wx:if="{{item.notification_type == 'MESSAGE'}}" class="icon-text">私</text>
+                <text wx:elif="{{item.notification_type == 'REPLY'}}" class="icon-text">回</text>
+                <text wx:elif="{{item.notification_type == 'FOLLOW'}}" class="icon-text">粉</text>
+                <text wx:else class="icon-text">通</text>
+             </view>
+             <view class="notif-content">
+                <view class="notif-title">{{item.title}}</view>
+                <view class="notif-body">{{item.content}}</view>
+                <view class="notif-time">{{item.created_at_formatted}}</view>
+             </view>
+          </view>
+       </block>
+       <view wx:else class="empty-tip">{{t.no_notifications}}</view>
+    </view>
+  </scroll-view>
+  
+  <view class="fab-btn" bindtap="goAdd" style="bottom: 140rpx;" wx:if="{{currentTab==0}}">
+    <text>+</text>
+  </view>
+  
+  <quick-nav hasTabbar="{{true}}" />
+</view>

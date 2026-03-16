@@ -1,0 +1,45 @@
+<view class="container" style="padding-bottom: 300rpx;">
+  <view class="avatar-section" bindtap="chooseAvatar" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 40rpx; margin-top: 20rpx;">
+      <image class="avatar" src="{{userInfo.avatar || '/images/user_default.png'}}" mode="aspectFill" style="width: 160rpx; height: 160rpx; border-radius: 50%; background-color: #f0f0f0;"></image>
+      <view class="edit-hint" style="font-size: 24rpx; color: #666; margin-top: 10rpx;">点击修改头像</view>
+  </view>
+
+  <form bindsubmit="saveProfile">
+    <view class="form-group">
+      <view class="label">用户名</view>
+      <input class="input" name="username" value="{{userInfo.username}}" disabled />
+    </view>
+    
+    <view class="form-group">
+      <view class="label">手机号/联系方式</view>
+      <input class="input" name="phone_number" value="{{userInfo.phone_number}}" placeholder="请输入联系方式" />
+    </view>
+    
+    <view class="form-group">
+      <view class="label">公司名称</view>
+      <input class="input" name="company_name" value="{{userInfo.company_name}}" placeholder="请输入公司名称" />
+    </view>
+    
+    <view class="form-group">
+      <view class="label">职务</view>
+      <input class="input" name="job_title" value="{{userInfo.job_title}}" placeholder="请输入职务" />
+    </view>
+    
+    <button class="btn-save" form-type="submit" loading="{{saving}}">保存</button>
+  </form>
+
+  <view class="extra-actions">
+      <navigator url="/pages/company/edit/edit" class="action-item">
+          <text>企业认证</text>
+          <text class="arrow">></text>
+      </navigator>
+      <navigator url="/pages/crew/edit/edit" class="action-item">
+          <text>我的简历</text>
+          <text class="arrow">></text>
+      </navigator>
+  </view>
+  
+  <button class="btn-logout" bindtap="logout">退出登录</button>
+  
+  <quick-nav />
+</view>

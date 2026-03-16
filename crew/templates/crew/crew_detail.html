@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ crew.name }} - {% trans "Crew Profile" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'crew:crew_list' %}">{% trans "Crew Services" %}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ crew.name }}</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <!-- Main Profile Info -->
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">{{ crew.name }}</h4>
+                    <span class="badge bg-light text-dark">{{ crew.get_status_display }}</span>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p><strong>{% trans "Rank/Position" %}:</strong> <span class="text-primary fw-bold">{{ crew.position }}</span></p>
+                            <p><strong>{% trans "Gender" %}:</strong> {{ crew.get_gender_display }}</p>
+                            <p><strong>{% trans "Nationality" %}:</strong> {{ crew.nationality }} ({{ crew.get_nationality_type_display }})</p>
+                            <p><strong>{% trans "Residence" %}:</strong> {{ crew.residence }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>{% trans "Total Experience" %}:</strong> {{ crew.total_sea_experience }} {% trans "Years" %}</p>
+                            <p><strong>{% trans "Rank Experience" %}:</strong> {{ crew.current_rank_experience }} {% trans "Years" %}</p>
+                            <p><strong>{% trans "Expected Salary" %}:</strong> {{ crew.expected_salary }}</p>
+                            <p><strong>{% trans "Last Updated" %}:</strong> {{ crew.updated_at|date:"Y-m-d H:i" }}</p>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <h5 class="mt-4 mb-3"><i class="fas fa-file-alt me-2"></i>{% trans "Resume / Experience" %}</h5>
+                    <div class="bg-light p-3 rounded">
+                        {{ crew.resume|linebreaks }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact & Actions -->
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-info text-white">
+                    <i class="fas fa-address-card me-2"></i>{% trans "Contact Information" %}
+                </div>
+                <div class="card-body">
+                    <p class="mb-2"><i class="fas fa-phone me-2 text-muted"></i><strong>{% trans "Phone" %}:</strong></p>
+                    <p class="ms-4 mb-3"><a href="tel:{{ crew.phone }}">{{ crew.phone }}</a></p>
+                    
+                    <p class="mb-2"><i class="fas fa-envelope me-2 text-muted"></i><strong>{% trans "Email" %}:</strong></p>
+                    <p class="ms-4 mb-3"><a href="mailto:{{ crew.email }}">{{ crew.email }}</a></p>
+                    
+                    <p class="mb-2"><i class="fas fa-id-card me-2 text-muted"></i><strong>{% trans "Certificate No." %}:</strong></p>
+                    <p class="ms-4 mb-0">{{ crew.cert_number }}</p>
+                </div>
+                <div class="card-footer bg-light text-muted small">
+                    <i class="fas fa-info-circle me-1"></i>{% trans "Contact the crew directly for hiring." %}
+                </div>
+            </div>
+
+            {% if user == crew.user %}
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <a href="{% url 'crew:crew_update' crew.pk %}" class="btn btn-warning w-100">
+                        <i class="fas fa-edit me-1"></i>{% trans "Edit Profile" %}
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

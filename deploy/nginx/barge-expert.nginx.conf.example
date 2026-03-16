@@ -1,0 +1,31 @@
+server {
+    listen 80;
+    server_name www.barge-expert.com barge-expert.com;
+
+    location /static/ {
+        alias /srv/spb-expert9/staticfiles/;
+    }
+
+    location /media/ {
+        alias /srv/spb-expert9/media/;
+    }
+
+    location /api/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_redirect off;
+        proxy_pass http://unix:/run/spb-expert9/spb-expert9.sock;
+    }
+
+    location / {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_redirect off;
+        proxy_pass http://unix:/run/spb-expert9/spb-expert9.sock;
+    }
+}
+

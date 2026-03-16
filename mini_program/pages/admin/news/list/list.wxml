@@ -1,0 +1,26 @@
+<view class="container" style="padding-bottom: 150rpx;">
+  <view class="header">
+    <button class="btn-add" type="primary" size="mini" bindtap="navigateToAdd">发布新资讯</button>
+  </view>
+
+  <view class="list">
+    <block wx:for="{{newsList}}" wx:key="id">
+      <view class="item">
+        <view class="item-content" bindtap="navigateToEdit" data-id="{{item.id}}">
+          <text class="item-title">{{item.title}}</text>
+          <text class="item-status {{item.status == 'approved' ? 'status-approved' : 'status-pending'}}">{{item.status_display || item.status}}</text>
+          <text class="item-date">{{item.created_at}}</text>
+        </view>
+        <view class="item-actions">
+          <view wx:if="{{item.status === 'PENDING'}}" class="btn-action btn-approve" bindtap="handleAudit" data-id="{{item.id}}" data-status="APPROVED" style="color: green; margin-right: 20rpx;">通过</view>
+          <view wx:if="{{item.status === 'PENDING'}}" class="btn-action btn-reject" bindtap="handleAudit" data-id="{{item.id}}" data-status="REJECTED" style="color: red; margin-right: 20rpx;">拒绝</view>
+          <view class="btn-action btn-edit" bindtap="navigateToEdit" data-id="{{item.id}}">编辑</view>
+          <view class="btn-action btn-delete" bindtap="handleDelete" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{newsList.length === 0}}" class="empty-tip">暂无数据</view>
+  </view>
+
+  <quick-nav />
+</view>
