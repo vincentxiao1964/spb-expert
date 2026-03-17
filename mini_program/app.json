@@ -51,6 +51,7 @@
   "usingComponents": {
     "quick-nav": "/components/quick-nav/quick-nav"
   },
+  "lazyCodeLoading": "requiredComponents",
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
