@@ -7,7 +7,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('users', '0009_customuser_oa_openid'),
-        ('users', '0009_merge_20260310'),
     ]
 
     operations = [
