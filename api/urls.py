@@ -34,6 +34,7 @@ urlpatterns = [
     path('user/info/', views.UserInfoView.as_view(), name='user_info'),
     path('user/search/', views.UserSearchView.as_view(), name='user_search'),
     path('admin/stats/', views.AdminStatsView.as_view(), name='admin_stats'),
+    path('admin/channel-stats/', views.AdminChannelStatsView.as_view(), name='admin_channel_stats'),
     path('mine/stats/', views.MineStatsView.as_view(), name='mine_stats'),
     path('auth/wechat/', views.WeChatLoginView.as_view(), name='wechat_login'),
     path('auth/oa/authorize/', views.WeChatOAAuthorizeView.as_view(), name='oa_authorize'),

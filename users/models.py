@@ -3,6 +3,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.dispatch import receiver
 from django.contrib.auth.signals import user_logged_in
+from django.conf import settings
 
 class CustomUser(AbstractUser):
     class MembershipLevel(models.IntegerChoices):
@@ -79,3 +80,21 @@ def log_user_login(sender, request, user, **kwargs):
     ip = x_forwarded_for.split(',')[0] if x_forwarded_for else request.META.get('REMOTE_ADDR')
     user_agent = request.META.get('HTTP_USER_AGENT', '')
     LoginLog.objects.create(user=user, ip_address=ip, user_agent=user_agent)
+
+
+class ChannelEvent(models.Model):
+    class EventType(models.TextChoices):
+        LISTING_CREATE = 'LISTING_CREATE', _('Listing Create')
+        PRIVATE_MESSAGE_SENT = 'PRIVATE_MESSAGE_SENT', _('Private Message Sent')
+        FAVORITE_ADD = 'FAVORITE_ADD', _('Favorite Add')
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='channel_events')
+    source_channel = models.CharField(_('Source Channel'), max_length=32, blank=True, null=True, db_index=True)
+    event_type = models.CharField(_('Event Type'), max_length=40, choices=EventType.choices)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['event_type', 'created_at']),
+        ]
+        ordering = ['-created_at']

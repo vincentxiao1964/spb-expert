@@ -10,7 +10,7 @@ from django.contrib.contenttypes.models import ContentType
 from market.models import ShipListing, MarketNews, ListingImage, ListingMatch, Favorite
 from ads.models import Advertisement
 from core.models import MemberMessage, PrivateMessage, MessageReply, Notification
-from users.models import UserFollow, VisitorLog
+from users.models import UserFollow, VisitorLog, ChannelEvent
 from crew.models import CrewListing
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .serializers import (
@@ -126,6 +126,17 @@ def _apply_source_channel(user, channel):
         return
     user.source_channel = channel
     user.save(update_fields=['source_channel'])
+
+def _track_channel_event(request, user, event_type):
+    if not user:
+        return
+    channel = getattr(user, 'source_channel', None) or _get_source_channel(request)
+    channel = _sanitize_source_channel(channel)
+    ChannelEvent.objects.create(
+        user=user,
+        source_channel=channel,
+        event_type=event_type,
+    )
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
@@ -626,6 +637,35 @@ class AdminStatsView(views.APIView):
             'new_users_by_source_channel_last_7_days': _normalize(new_users_by_channel_7d),
         })
 
+class AdminChannelStatsView(views.APIView):
+    permission_classes = [IsAdminUser]
+    def get(self, request):
+        days = int(request.query_params.get('days') or 7)
+        days = max(1, min(days, 365))
+
+        since = timezone.now() - timedelta(days=days)
+        qs = ChannelEvent.objects.filter(created_at__gte=since)
+
+        rows = (
+            qs.values('source_channel', 'event_type')
+            .annotate(count=Count('id'))
+            .order_by('-count')
+        )
+
+        result = {}
+        for row in rows:
+            ch = row.get('source_channel') or 'UNKNOWN'
+            et = row.get('event_type')
+            if ch not in result:
+                result[ch] = {}
+            result[ch][et] = row.get('count', 0)
+
+        return Response({
+            'days': days,
+            'since': since,
+            'events_by_source_channel': result,
+        })
+
 class MineStatsView(views.APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request):
@@ -944,6 +984,7 @@ class ShipListingViewSet(viewsets.ModelViewSet):
              raise exceptions.ValidationError({'detail': reason})
              
         serializer.save(user=self.request.user)
+        _track_channel_event(self.request, self.request.user, ChannelEvent.EventType.LISTING_CREATE)
 
     def perform_update(self, serializer):
         # Security Check
@@ -1068,6 +1109,7 @@ class PrivateMessageViewSet(mixins.CreateModelMixin,
         if not is_safe:
              raise exceptions.ValidationError({'content': reason})
         serializer.save(sender=self.request.user)
+        _track_channel_event(self.request, self.request.user, ChannelEvent.EventType.PRIVATE_MESSAGE_SENT)
 
     @action(detail=False, methods=['GET'])
     def conversations(self, request):
@@ -1157,6 +1199,7 @@ class FavoriteViewSet(viewsets.ModelViewSet):
             favorite.delete()
             is_favorite = False
         else:
+            _track_channel_event(request, request.user, ChannelEvent.EventType.FAVORITE_ADD)
             is_favorite = True
             
         return Response({'is_favorite': is_favorite})
