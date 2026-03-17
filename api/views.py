@@ -36,6 +36,7 @@ from django.core.cache import cache
 import logging
 import re
 import time
+from urllib.parse import urlparse, parse_qs, unquote_plus
 from tencentcloud.common import credential
 from tencentcloud.common.profile.client_profile import ClientProfile
 from tencentcloud.common.profile.http_profile import HttpProfile
@@ -82,6 +83,50 @@ def _get_wechat_oa_access_token(appid, secret):
     cache.set(cache_key, token, timeout=max(60, expires_in - 120))
     return token
 
+def _sanitize_source_channel(value):
+    if not value:
+        return None
+    value = str(value).strip()
+    if not value:
+        return None
+    value = ''.join(c for c in value if c.isalnum() or c in ('-', '_'))[:32]
+    return value or None
+
+def _get_source_channel(request, *, fallback_state=None):
+    ch = None
+    try:
+        ch = request.COOKIES.get('src_ch')
+    except Exception:
+        ch = None
+    if not ch:
+        try:
+            ch = request.query_params.get('ch')
+        except Exception:
+            ch = None
+    if not ch:
+        try:
+            ch = request.data.get('source_channel')
+        except Exception:
+            ch = None
+    if not ch and fallback_state:
+        try:
+            state = unquote_plus(str(fallback_state))
+            parsed = urlparse(state)
+            q = parse_qs(parsed.query)
+            if q.get('ch'):
+                ch = q.get('ch')[0]
+        except Exception:
+            ch = None
+    return _sanitize_source_channel(ch)
+
+def _apply_source_channel(user, channel):
+    if not channel or not user:
+        return
+    if getattr(user, 'source_channel', None):
+        return
+    user.source_channel = channel
+    user.save(update_fields=['source_channel'])
+
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
@@ -116,6 +161,8 @@ class SMSLoginView(views.APIView):
             # Set a random password or unusable password since they logged in via SMS
             user.set_unusable_password()
             user.save()
+
+        _apply_source_channel(user, _get_source_channel(request))
             
         # Generate Token
         refresh = RefreshToken.for_user(user)
@@ -412,6 +459,7 @@ class RegisterView(views.APIView):
              return Response({'error': 'Username already exists'}, status=status.HTTP_400_BAD_REQUEST)
              
         user = User.objects.create_user(username=username, password=password, phone_number=phone_number)
+        _apply_source_channel(user, _get_source_channel(request))
         
         refresh = RefreshToken.for_user(user)
         
@@ -551,7 +599,32 @@ class UserSearchView(views.APIView):
 class AdminStatsView(views.APIView):
     permission_classes = [IsAdminUser]
     def get(self, request):
-        return Response({'message': 'Admin stats'})
+        now = timezone.now()
+        since = now - timedelta(days=7)
+
+        total_users = User.objects.count()
+        users_by_channel = User.objects.values('source_channel').annotate(count=Count('id')).order_by('-count')
+        new_users_by_channel_7d = (
+            User.objects.filter(date_joined__gte=since)
+            .values('source_channel')
+            .annotate(count=Count('id'))
+            .order_by('-count')
+        )
+
+        def _normalize(items):
+            result = []
+            for row in items:
+                result.append({
+                    'source_channel': row.get('source_channel') or 'UNKNOWN',
+                    'count': row.get('count', 0),
+                })
+            return result
+
+        return Response({
+            'total_users': total_users,
+            'users_by_source_channel': _normalize(users_by_channel),
+            'new_users_by_source_channel_last_7_days': _normalize(new_users_by_channel_7d),
+        })
 
 class MineStatsView(views.APIView):
     permission_classes = [IsAuthenticated]
@@ -624,6 +697,8 @@ class WeChatLoginView(views.APIView):
                 if unionid and not user.unionid:
                     user.unionid = unionid
                     user.save()
+
+                _apply_source_channel(user, _get_source_channel(request))
                     
                 refresh = RefreshToken.for_user(user)
                 
@@ -658,6 +733,8 @@ class WeChatLoginView(views.APIView):
                 )
                 user.set_unusable_password()
                 user.save()
+
+                _apply_source_channel(user, _get_source_channel(request))
                 
                 refresh = RefreshToken.for_user(user)
                 
@@ -825,6 +902,7 @@ class WeChatOACallbackView(views.APIView):
                 user.set_unusable_password()
                 user.save()
 
+            _apply_source_channel(user, _get_source_channel(request, fallback_state=state))
             return HttpResponseRedirect(state)
         except Exception as e:
             logger.exception("WeChat OA callback error")

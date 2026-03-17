@@ -3,18 +3,18 @@ from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser, LoginLog
 
 class CustomUserAdmin(UserAdmin):
-    list_display = ('username', 'phone_number', 'company_name', 'membership_level', 'is_staff', 'last_login', 'date_joined')
-    list_filter = ('membership_level', 'is_staff', 'is_active', 'groups', 'date_joined', 'last_login')
+    list_display = ('username', 'phone_number', 'company_name', 'membership_level', 'source_channel', 'is_staff', 'last_login', 'date_joined')
+    list_filter = ('membership_level', 'source_channel', 'is_staff', 'is_active', 'groups', 'date_joined', 'last_login')
     search_fields = ('username', 'phone_number', 'company_name', 'email')
     ordering = ('-date_joined',)
     
     fieldsets = UserAdmin.fieldsets + (
-        ('Custom Fields', {'fields': ('phone_number', 'company_name', 'membership_level', 'approved_posts_count', 'openid', 'unionid')}),
+        ('Custom Fields', {'fields': ('phone_number', 'company_name', 'membership_level', 'approved_posts_count', 'source_channel', 'openid', 'unionid', 'oa_openid')}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ('Custom Fields', {'fields': ('phone_number', 'company_name', 'membership_level', 'approved_posts_count')}),
+        ('Custom Fields', {'fields': ('phone_number', 'company_name', 'membership_level', 'approved_posts_count', 'source_channel')}),
     )
-    readonly_fields = ('openid', 'unionid')
+    readonly_fields = ('openid', 'unionid', 'oa_openid')
 
 @admin.register(LoginLog)
 class LoginLogAdmin(admin.ModelAdmin):

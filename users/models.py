@@ -23,6 +23,7 @@ class CustomUser(AbstractUser):
     openid = models.CharField(_('WeChat OpenID'), max_length=100, blank=True, null=True, unique=True)
     unionid = models.CharField(_('WeChat UnionID'), max_length=100, blank=True, null=True, unique=True)
     oa_openid = models.CharField(_('WeChat OA OpenID'), max_length=100, blank=True, null=True, unique=True)
+    source_channel = models.CharField(_('Source Channel'), max_length=32, blank=True, null=True, db_index=True)
 
     def __str__(self):
         return self.username
