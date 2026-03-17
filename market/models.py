@@ -189,6 +189,9 @@ class MarketNews(models.Model):
                 self.unique_id = generate_unique_id('NW')
         super().save(*args, **kwargs)
 
+    def get_absolute_url(self):
+        return reverse('market:news_detail', kwargs={'pk': self.pk})
+
 
 class ListingMatch(models.Model):
     listing_source = models.ForeignKey(ShipListing, on_delete=models.CASCADE, related_name='matches_as_source')
