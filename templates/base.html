@@ -8,6 +8,7 @@
     <meta name="google-site-verification" content="ygtD9HnZz7V77Rlxcdnd6aWM5mq8rA7BbOxL2JTBAok" />
     <meta name="description" content="{% block meta_description %}{% trans 'SPB Expert - Professional platform for self-propelled barges, deck ships, and barges. Buy, sell, and charter ships.' %}{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}{% trans 'self-propelled barge, deck ship, barge, ship trading, ship chartering, 甲板船, 自航驳船, 驳船, 船舶交易, 船舶租赁' %}{% endblock %}">
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
     <title>{% block title %}甲板船家 | SPB EXPERT{% endblock %}</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     {% load static %}

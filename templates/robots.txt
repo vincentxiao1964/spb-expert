@@ -2,6 +2,8 @@ User-agent: *
 Disallow: /admin/
 Disallow: /users/
 Disallow: /media/
+Disallow: /api/
 Allow: /
 
-Sitemap: http://www.barge-expert.com/sitemap.xml
+Host: www.barge-expert.com
+Sitemap: https://www.barge-expert.com/sitemap.xml
