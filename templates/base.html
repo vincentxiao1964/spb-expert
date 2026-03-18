@@ -109,6 +109,20 @@
                 <a href="{% url 'users:register' %}" class="btn btn-primary">{% trans "Register" %}</a>
             {% endif %}
 
+            <form action="{% url 'set_language' %}" method="post" class="ms-2">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        中/EN
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><button class="dropdown-item" type="submit" name="language" value="zh-hans">中文</button></li>
+                        <li><button class="dropdown-item" type="submit" name="language" value="en">English</button></li>
+                    </ul>
+                </div>
+            </form>
+
         </div>
     </div>
  </nav>
