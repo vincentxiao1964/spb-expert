@@ -196,11 +196,19 @@ Page({
               if (res.statusCode === 200) {
                   const { access, refresh, user_id, username, is_staff, membership_level } = res.data;
                   app.globalData.token = access;
-                  app.globalData.userInfo = { id: user_id, username, is_staff, membership_level };
+                  const userInfo = {
+                      id: user_id,
+                      username,
+                      is_staff,
+                      membership_level,
+                      phone_number: res.data.phone_number
+                  };
+                  app.globalData.userInfo = userInfo;
                   
                   wx.setStorageSync('access_token', access);
                   wx.setStorageSync('refresh_token', refresh);
-                  wx.setStorageSync('userInfo', app.globalData.userInfo);
+                  wx.setStorageSync('user_info', userInfo);
+                  wx.setStorageSync('userInfo', userInfo);
                   
                   wx.showToast({ title: '登录成功', icon: 'success' });
                   
