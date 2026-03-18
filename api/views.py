@@ -33,7 +33,7 @@ import requests
 import random
 import uuid
 from django.core.cache import cache
-from django.core.mail import send_mail
+from django.core.mail import send_mail, get_connection
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
 import logging
@@ -315,6 +315,7 @@ class SendEmailView(views.APIView):
         has_email_config = all([
             getattr(settings, 'EMAIL_HOST', ''),
             getattr(settings, 'EMAIL_HOST_USER', ''),
+            getattr(settings, 'EMAIL_HOST_PASSWORD', ''),
         ])
 
         subject = getattr(settings, 'EMAIL_VERIFICATION_SUBJECT', 'SPB EXPERT verification code')
@@ -329,12 +330,15 @@ class SendEmailView(views.APIView):
             return Response({'error': 'Email not configured'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         try:
+            timeout = int(getattr(settings, 'EMAIL_TIMEOUT', 15) or 15)
+            connection = get_connection(timeout=timeout)
             send_mail(
                 subject=subject,
                 message=body,
                 from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', None),
                 recipient_list=[email],
                 fail_silently=False,
+                connection=connection,
             )
             cache.set(cache_key, code, timeout=code_ttl)
             cache.set(cooldown_key, time.time() + send_interval, timeout=send_interval)
