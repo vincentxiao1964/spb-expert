@@ -36,6 +36,7 @@ urlpatterns = [
     path('admin/stats/', views.AdminStatsView.as_view(), name='admin_stats'),
     path('admin/channel-stats/', views.AdminChannelStatsView.as_view(), name='admin_channel_stats'),
     path('mine/stats/', views.MineStatsView.as_view(), name='mine_stats'),
+    path('auth/token/', views.CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('auth/wechat/', views.WeChatLoginView.as_view(), name='wechat_login'),
     path('auth/oa/authorize/', views.WeChatOAAuthorizeView.as_view(), name='oa_authorize'),
     path('auth/oa/callback/', views.WeChatOACallbackView.as_view(), name='oa_callback'),

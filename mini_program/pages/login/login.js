@@ -31,7 +31,7 @@ Page({
     }
 
     if (options.role === 'admin') {
-      this.setData({ isAdmin: true });
+      this.setData({ isAdmin: true, loginType: 'password' });
     }
   },
   

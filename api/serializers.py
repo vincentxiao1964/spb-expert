@@ -25,7 +25,15 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
                 except User.DoesNotExist:
                     pass
                     
-        return super().validate(attrs)
+        data = super().validate(attrs)
+        user = getattr(self, 'user', None)
+        if user:
+            data['user_id'] = user.id
+            data['username'] = user.username
+            data['is_staff'] = user.is_staff
+            data['membership_level'] = getattr(user, 'membership_level', None)
+            data['phone_number'] = getattr(user, 'phone_number', None)
+        return data
 
 class Base64ImageField(serializers.ImageField):
     def to_internal_value(self, data):
