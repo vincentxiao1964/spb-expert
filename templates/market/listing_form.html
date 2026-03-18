@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% load i18n crispy_forms_tags %}
 
+{% block extra_css %}
+<style>
+input[type="date"].date-hide-placeholder { color: transparent; }
+input[type="date"].date-hide-placeholder.has-value { color: inherit; }
+input[type="date"].date-hide-placeholder:focus { color: inherit; }
+input[type="date"].date-hide-placeholder::-webkit-datetime-edit { color: transparent; }
+input[type="date"].date-hide-placeholder.has-value::-webkit-datetime-edit { color: inherit; }
+input[type="date"].date-hide-placeholder:focus::-webkit-datetime-edit { color: inherit; }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-10">
@@ -61,4 +72,25 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var inputs = document.querySelectorAll('input[type="date"]');
+    inputs.forEach(function(input) {
+        input.classList.add('date-hide-placeholder');
+        var sync = function() {
+            if (input.value) {
+                input.classList.add('has-value');
+            } else {
+                input.classList.remove('has-value');
+            }
+        };
+        sync();
+        input.addEventListener('change', sync);
+        input.addEventListener('input', sync);
+    });
+});
+</script>
 {% endblock %}
