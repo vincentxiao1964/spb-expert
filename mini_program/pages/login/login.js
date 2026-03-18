@@ -181,7 +181,11 @@ Page({
       phone = phone ? String(phone).replace(/\s+/g, '') : '';
       
       if (!phone || !password) {
-          wx.showToast({ title: '请输入账号和密码', icon: 'none' });
+          wx.showToast({ title: '请输入手机号和密码', icon: 'none' });
+          return;
+      }
+      if (!/^1\d{10}$/.test(phone)) {
+          wx.showToast({ title: '请输入有效的手机号', icon: 'none' });
           return;
       }
       

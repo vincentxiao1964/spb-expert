@@ -72,7 +72,7 @@
 
       <view class="input-group">
         <text class="label">{{t.login_phone_user}}</text>
-        <input class="input" type="text" placeholder="{{t.login_phone_user_placeholder}}" bindinput="handleInput" data-field="phone" value="{{phone}}" />
+        <input class="input" type="number" placeholder="{{t.login_phone_user_placeholder}}" bindinput="handleInput" data-field="phone" value="{{phone}}" />
       </view>
       
       <!-- SMS Code Input -->
