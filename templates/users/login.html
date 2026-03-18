@@ -7,11 +7,12 @@
         <div class="card">
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
+                    {% get_current_language as LANGUAGE_CODE %}
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">密码登录</a>
+                        <a class="nav-link active" href="#">{% if LANGUAGE_CODE == 'en' %}Password Login{% else %}密码登录{% endif %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:sms_login' %}">短信登录</a>
+                        <a class="nav-link" href="{% url 'users:sms_login' %}">{% if LANGUAGE_CODE == 'en' %}SMS Login{% else %}短信登录{% endif %}</a>
                     </li>
                 </ul>
             </div>
