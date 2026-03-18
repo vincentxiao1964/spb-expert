@@ -6,19 +6,26 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link {% if mode == 'phone' %}active{% endif %}" href="?mode=phone">{% trans "Phone Register" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if mode == 'account' %}active{% endif %}" href="?mode=account">{% trans "Account Register" %}</a>
-                    </li>
-                </ul>
+                {% get_current_language as LANGUAGE_CODE %}
+                {% if LANGUAGE_CODE == 'en' %}
+                    <h5 class="mb-0">Email Register</h5>
+                {% else %}
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link {% if mode == 'phone' %}active{% endif %}" href="?mode=phone">{% trans "Phone Register" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if mode == 'account' %}active{% endif %}" href="?mode=account">{% trans "Account Register" %}</a>
+                        </li>
+                    </ul>
+                {% endif %}
             </div>
             <div class="card-body">
                 <form method="post">
                     {% csrf_token %}
-                    <input type="hidden" name="mode" value="{{ mode }}">
+                    {% if LANGUAGE_CODE != 'en' %}
+                        <input type="hidden" name="mode" value="{{ mode }}">
+                    {% endif %}
                     {{ form|crispy }}
                     <div class="d-grid gap-2 mt-3">
                         <button type="submit" class="btn btn-primary">{% trans "Register" %}</button>
@@ -32,6 +39,7 @@
     </div>
 </div>
 
+{% if LANGUAGE_CODE != 'en' %}
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var smsInput = document.getElementById("id_sms_code");
@@ -89,4 +97,5 @@
         }
     });
 </script>
+{% endif %}
 {% endblock %}

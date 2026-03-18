@@ -104,19 +104,25 @@ def admin_dashboard(request):
     return render(request, 'users/admin_dashboard.html', context)
 
 from django.contrib.auth import login
-from .forms import CustomUserCreationForm, WebSMSLoginForm, WebEmailLoginForm, AccountCreationForm
+from .forms import CustomUserCreationForm, WebSMSLoginForm, WebEmailLoginForm, AccountCreationForm, EmailPasswordCreationForm
 from django.contrib.auth.decorators import login_required
 from ads.models import Advertisement
 from market.models import ListingMatch
 from .models import UserFollow
 from core.models import PrivateMessage
+from django.utils.translation import get_language
 
 def register(request):
+    language = (get_language() or '').lower()
     mode = request.GET.get('mode', 'phone')
+    if language.startswith('en'):
+        mode = 'email'
     
     if request.method == 'POST':
         mode = request.POST.get('mode', mode)
-        if mode == 'account':
+        if mode == 'email':
+            form = EmailPasswordCreationForm(request.POST)
+        elif mode == 'account':
             form = AccountCreationForm(request.POST)
         else:
             form = CustomUserCreationForm(request.POST)
@@ -126,7 +132,9 @@ def register(request):
             login(request, user)
             return redirect('home')
     else:
-        if mode == 'account':
+        if mode == 'email':
+            form = EmailPasswordCreationForm()
+        elif mode == 'account':
             form = AccountCreationForm()
         else:
             form = CustomUserCreationForm()

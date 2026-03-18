@@ -104,3 +104,35 @@ class WebEmailLoginForm(forms.Form):
 
     def get_user(self):
         return getattr(self, 'user_cache', None)
+
+class EmailPasswordCreationForm(UserCreationForm):
+    email = forms.EmailField(label=_('Email'), required=True)
+
+    class Meta:
+        model = CustomUser
+        fields = ('email',)
+
+    def clean_email(self):
+        value = self.cleaned_data.get('email')
+        if not value:
+            raise forms.ValidationError(_("Email is required."))
+        email = str(value).strip().lower()
+        try:
+            validate_email(email)
+        except DjangoValidationError:
+            raise forms.ValidationError(_("Invalid email address."))
+
+        User = get_user_model()
+        if User.objects.filter(login_email__iexact=email).exists() or User.objects.filter(username__iexact=email).exists():
+            raise forms.ValidationError(_("This email is already registered."))
+        return email
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        email = self.cleaned_data['email']
+        user.username = email
+        user.email = email
+        user.login_email = email
+        if commit:
+            user.save()
+        return user
