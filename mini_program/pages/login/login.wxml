@@ -109,6 +109,44 @@
       </view>
     </block>
 
+    <!-- Email Login Mode -->
+    <block wx:elif="{{isEmailLogin}}">
+      <view style="text-align: center; margin-bottom: 20px;">
+        <text style="font-size: 18px; font-weight: bold;">{{t.login_email_title}}</text>
+      </view>
+
+      <view class="input-group">
+        <text class="label">{{t.login_email}}</text>
+        <input class="input" type="text" placeholder="{{t.login_email_placeholder}}" bindinput="handleInput" data-field="email" value="{{email}}" />
+      </view>
+      
+      <view class="input-group code-group">
+        <text class="label">{{t.login_code}}</text>
+        <view class="code-input-wrapper">
+          <input class="input code-input" type="number" placeholder="{{t.login_code_placeholder}}" bindinput="handleInput" data-field="emailCode" value="{{emailCode}}" />
+          <button class="btn-code" size="mini" bindtap="sendEmailCode" disabled="{{counting}}">{{counting ? count + 's' : t.login_get_code}}</button>
+        </view>
+      </view>
+
+      <view class="agreement-box">
+        <checkbox-group bindchange="handleAgreementChange">
+            <label class="checkbox">
+            <checkbox value="agreed" checked="{{isAgreed}}" color="#007aff" style="transform:scale(0.7)"/>
+            </label>
+        </checkbox-group>
+        <view class="agreement-text">
+            {{t.read_agree}} <text class="link" catchtap="openUserAgreement">《{{t.user_agreement}}》</text> {{t.and}} <text class="link" catchtap="openPrivacyPolicy">《{{t.privacy_policy}}》</text>
+        </view>
+      </view>
+
+      <button class="btn-login" type="primary" bindtap="handleEmailLogin">{{t.login_btn}}</button>
+      <button class="btn-wechat" style="background-color: #f8f9fa; color: #333; border: 1px solid #ddd; margin-top: 15px; box-shadow: none;" bindtap="switchMode" data-mode="wechat">{{t.login_return_wechat}}</button>
+      
+      <view style="margin-top: 20px; text-align: center;">
+        <text style="color: #007aff; font-size: 14px;" bindtap="goToRegister">{{t.login_register_link}}</text>
+      </view>
+    </block>
+
     <!-- Only WeChat Login Mode -->
     <block wx:else>
         <view style="margin-top: 100rpx; padding: 0 40rpx;">
@@ -124,6 +162,7 @@
             </view>
             <button class="btn-wechat" bindtap="handleWeChatLogin" loading="{{wechatLoading}}" disabled="{{wechatLoading}}">{{t.login_wechat_btn}}</button>
             <button class="btn-login" style="margin-top: 20px; background-color: #fff; color: #333; border: 1px solid #ddd;" bindtap="switchMode" data-mode="phone">{{t.login_phone_btn}}</button>
+            <button class="btn-login" style="margin-top: 12px; background-color: #fff; color: #333; border: 1px solid #ddd;" bindtap="switchMode" data-mode="email">{{t.login_email_btn}}</button>
             
             <view style="margin-top: 20px; text-align: center;">
                 <text style="color: #007aff; font-size: 14px;" bindtap="goToRegister">{{t.login_register_link}}</text>

@@ -11,6 +11,7 @@ class CustomUser(AbstractUser):
         LEVEL_2 = 2, _('Level 2 Member')
 
     phone_number = models.CharField(_('Phone Number'), max_length=20, unique=True, blank=True, null=True)
+    login_email = models.EmailField(_('Login Email'), blank=True, null=True, unique=True)
     avatar = models.ImageField(_('Avatar'), upload_to='avatars/', null=True, blank=True)
     membership_level = models.IntegerField(
         _('Membership Level'),

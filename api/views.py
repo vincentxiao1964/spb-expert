@@ -33,6 +33,9 @@ import requests
 import random
 import uuid
 from django.core.cache import cache
+from django.core.mail import send_mail
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
 import logging
 import re
 import time
@@ -60,6 +63,18 @@ def _normalize_cn_phone_number(phone_number):
 
 def _e164_cn(phone_number):
     return f"+86{phone_number}"
+
+def _normalize_email(email):
+    if email is None:
+        return None
+    value = str(email).strip().lower()
+    if not value:
+        return None
+    try:
+        validate_email(value)
+    except ValidationError:
+        return None
+    return value
 
 def _get_wechat_oa_access_token(appid, secret):
     cache_key = f"wechat_oa_access_token:{appid}"
@@ -276,6 +291,99 @@ class SendSMSView(views.APIView):
         except Exception as e:
             logger.exception("SMS send error")
             return Response({'error': 'SMS send error', 'detail': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class SendEmailView(views.APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        email = _normalize_email(request.data.get('email'))
+        if not email:
+            return Response({'error': 'Invalid email'}, status=status.HTTP_400_BAD_REQUEST)
+
+        send_interval = int(getattr(settings, 'EMAIL_SEND_INTERVAL_SECONDS', 60) or 60)
+        cooldown_key = f"email_send_cooldown_{email}"
+        cooldown_until = cache.get(cooldown_key)
+        if cooldown_until:
+            retry_after = int(max(1, float(cooldown_until) - time.time()))
+            return Response({'error': 'Too many requests', 'retry_after': retry_after}, status=429)
+
+        code_ttl = int(getattr(settings, 'EMAIL_CODE_TTL_SECONDS', 600) or 600)
+        code = str(random.randint(100000, 999999))
+
+        cache_key = f"email_code_{email}"
+
+        has_email_config = all([
+            getattr(settings, 'EMAIL_HOST', ''),
+            getattr(settings, 'EMAIL_HOST_USER', ''),
+        ])
+
+        subject = getattr(settings, 'EMAIL_VERIFICATION_SUBJECT', 'SPB EXPERT verification code')
+        ttl_minutes = str(max(1, code_ttl // 60))
+        body = f"Your verification code is: {code}\n\nIt will expire in {ttl_minutes} minutes."
+
+        if not has_email_config:
+            if getattr(settings, 'DEBUG', False):
+                cache.set(cache_key, code, timeout=code_ttl)
+                cache.set(cooldown_key, time.time() + send_interval, timeout=send_interval)
+                return Response({'message': 'Email sent successfully', 'code': code})
+            return Response({'error': 'Email not configured'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        try:
+            send_mail(
+                subject=subject,
+                message=body,
+                from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', None),
+                recipient_list=[email],
+                fail_silently=False,
+            )
+            cache.set(cache_key, code, timeout=code_ttl)
+            cache.set(cooldown_key, time.time() + send_interval, timeout=send_interval)
+            return Response({'message': 'Email sent successfully'})
+        except Exception as e:
+            logger.exception("Email send error")
+            return Response({'error': 'Email send failed', 'detail': str(e)}, status=status.HTTP_502_BAD_GATEWAY)
+
+class EmailLoginView(views.APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        email = _normalize_email(request.data.get('email'))
+        code = request.data.get('code')
+        if not email or not code:
+            return Response({'error': 'Email and code are required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        cache_key = f"email_code_{email}"
+        cached_code = cache.get(cache_key)
+        if not cached_code or str(cached_code) != str(code):
+            return Response({'error': 'Invalid or expired verification code'}, status=status.HTTP_400_BAD_REQUEST)
+
+        user = User.objects.filter(login_email__iexact=email).first()
+        if not user:
+            base = email.split('@')[0]
+            username = re.sub(r'[^a-zA-Z0-9_\\-]', '_', base)[:20] or 'user'
+            if User.objects.filter(username=username).exists():
+                username = f"em_{uuid.uuid4().hex[:8]}"
+            user = User.objects.create_user(username=username)
+            user.set_unusable_password()
+            user.login_email = email
+            user.email = email
+            user.save()
+
+        _apply_source_channel(user, _get_source_channel(request))
+
+        refresh = RefreshToken.for_user(user)
+        cache.delete(cache_key)
+
+        return Response({
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+            'user_id': user.id,
+            'username': user.username,
+            'is_staff': user.is_staff,
+            'membership_level': getattr(user, 'membership_level', None),
+            'phone_number': getattr(user, 'phone_number', None),
+            'login_email': getattr(user, 'login_email', None),
+        })
 
 class BindPhoneView(views.APIView):
     permission_classes = [IsAuthenticated]

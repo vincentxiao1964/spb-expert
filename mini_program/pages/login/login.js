@@ -7,6 +7,8 @@ Page({
     isAdmin: false,
     phone: '',
     code: '',
+    email: '',
+    emailCode: '',
     password: '',
     companyName: '',
     jobTitle: '',
@@ -16,6 +18,7 @@ Page({
     nextUrl: '',
     isBinding: false,
     isPhoneLogin: false,
+    isEmailLogin: false,
     wechatLoading: false,
     loginType: 'sms', // 'sms' or 'password'
     isAgreed: false
@@ -50,7 +53,8 @@ Page({
   switchMode(e) {
       const mode = e.currentTarget.dataset.mode;
       this.setData({
-          isPhoneLogin: mode === 'phone'
+          isPhoneLogin: mode === 'phone',
+          isEmailLogin: mode === 'email'
       });
   },
 
@@ -136,6 +140,55 @@ Page({
     });
   },
 
+  sendEmailCode() {
+    let { email } = this.data;
+    email = email ? String(email).trim() : '';
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      wx.showToast({ title: '请输入有效的邮箱', icon: 'none' });
+      return;
+    }
+    this.setData({ email, counting: true });
+    wx.request({
+      url: `${app.globalData.baseUrl}/auth/email/send/`,
+      method: 'POST',
+      data: { email },
+      success: (res) => {
+        if (res.statusCode === 200) {
+          wx.showToast({ title: '验证码已发送', icon: 'success' });
+          if (res.data.code) {
+            wx.showModal({
+              title: '测试验证码',
+              content: '验证码是: ' + res.data.code,
+              showCancel: false,
+              confirmText: '自动填写',
+              success: (modalRes) => {
+                if (modalRes.confirm) {
+                  this.setData({ emailCode: res.data.code });
+                }
+              }
+            });
+          }
+          let timer = setInterval(() => {
+            if (this.data.count <= 0) {
+              clearInterval(timer);
+              this.setData({ counting: false, count: 60 });
+            } else {
+              this.setData({ count: this.data.count - 1 });
+            }
+          }, 1000);
+        } else {
+          const msg = (res.data && (res.data.error || res.data.detail || res.data.sms_errmsg)) || '发送失败';
+          wx.showToast({ title: msg, icon: 'none' });
+          this.setData({ counting: false, count: 60 });
+        }
+      },
+      fail: () => {
+        wx.showToast({ title: '网络请求失败', icon: 'none' });
+        this.setData({ counting: false, count: 60 });
+      }
+    });
+  },
+
   handleAgreementChange(e) {
       this.setData({
           isAgreed: e.detail.value.length > 0
@@ -174,6 +227,54 @@ Page({
       } else {
           this.handlePasswordLogin();
       }
+  },
+
+  handleEmailLogin() {
+    if (!this.checkAgreement()) return;
+    let { email, emailCode } = this.data;
+    email = email ? String(email).trim() : '';
+    emailCode = emailCode ? String(emailCode).trim() : '';
+    if (!email || !emailCode) {
+      wx.showToast({ title: '请填写邮箱和验证码', icon: 'none' });
+      return;
+    }
+    wx.showLoading({ title: '登录中...', mask: true });
+    wx.request({
+      url: `${app.globalData.baseUrl}/auth/email/login/`,
+      method: 'POST',
+      data: { email, code: emailCode },
+      success: (res) => {
+        wx.hideLoading();
+        if (res.statusCode === 200) {
+          wx.showToast({ title: '登录成功', icon: 'success' });
+          wx.setStorageSync('access_token', res.data.access);
+          wx.setStorageSync('refresh_token', res.data.refresh);
+          const userInfo = {
+            id: res.data.user_id,
+            username: res.data.username,
+            is_staff: res.data.is_staff,
+            membership_level: res.data.membership_level,
+            phone_number: res.data.phone_number,
+            login_email: res.data.login_email
+          };
+          wx.setStorageSync('user_info', userInfo);
+          wx.setStorageSync('userInfo', userInfo);
+          setTimeout(() => {
+            if (this.data.nextUrl) {
+              wx.reLaunch({ url: this.data.nextUrl });
+            } else {
+              wx.switchTab({ url: '/pages/mine/mine' });
+            }
+          }, 1500);
+        } else {
+          wx.showToast({ title: '登录失败: ' + ((res.data && (res.data.error || res.data.detail)) || ''), icon: 'none' });
+        }
+      },
+      fail: () => {
+        wx.hideLoading();
+        wx.showToast({ title: '网络错误', icon: 'none' });
+      }
+    });
   },
 
   handlePasswordLogin() {

@@ -3,16 +3,16 @@ from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser, LoginLog, ChannelEvent
 
 class CustomUserAdmin(UserAdmin):
-    list_display = ('username', 'phone_number', 'company_name', 'membership_level', 'source_channel', 'is_staff', 'last_login', 'date_joined')
+    list_display = ('username', 'phone_number', 'login_email', 'company_name', 'membership_level', 'source_channel', 'is_staff', 'last_login', 'date_joined')
     list_filter = ('membership_level', 'source_channel', 'is_staff', 'is_active', 'groups', 'date_joined', 'last_login')
-    search_fields = ('username', 'phone_number', 'company_name', 'email')
+    search_fields = ('username', 'phone_number', 'login_email', 'company_name', 'email')
     ordering = ('-date_joined',)
     
     fieldsets = UserAdmin.fieldsets + (
-        ('Custom Fields', {'fields': ('phone_number', 'company_name', 'membership_level', 'approved_posts_count', 'source_channel', 'openid', 'unionid', 'oa_openid')}),
+        ('Custom Fields', {'fields': ('phone_number', 'login_email', 'company_name', 'membership_level', 'approved_posts_count', 'source_channel', 'openid', 'unionid', 'oa_openid')}),
     )
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ('Custom Fields', {'fields': ('phone_number', 'company_name', 'membership_level', 'approved_posts_count', 'source_channel')}),
+        ('Custom Fields', {'fields': ('phone_number', 'login_email', 'company_name', 'membership_level', 'approved_posts_count', 'source_channel')}),
     )
     readonly_fields = ('openid', 'unionid', 'oa_openid')
 

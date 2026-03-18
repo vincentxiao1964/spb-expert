@@ -23,7 +23,15 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
                     user = User.objects.get(phone_number=username)
                     attrs['username'] = user.username
                 except User.DoesNotExist:
-                    pass
+                    try:
+                        user = User.objects.get(login_email__iexact=username)
+                        attrs['username'] = user.username
+                    except User.DoesNotExist:
+                        try:
+                            user = User.objects.get(email__iexact=username)
+                            attrs['username'] = user.username
+                        except User.DoesNotExist:
+                            pass
                     
         data = super().validate(attrs)
         user = getattr(self, 'user', None)
@@ -33,6 +41,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
             data['is_staff'] = user.is_staff
             data['membership_level'] = getattr(user, 'membership_level', None)
             data['phone_number'] = getattr(user, 'phone_number', None)
+            data['login_email'] = getattr(user, 'login_email', None)
         return data
 
 class Base64ImageField(serializers.ImageField):
