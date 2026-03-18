@@ -43,6 +43,15 @@
             color: #0d6efd !important;
             border-bottom: 2px solid #0d6efd;
         }
+        input[type="file"].hide-file-name {
+            color: transparent;
+        }
+        input[type="file"].hide-file-name::file-selector-button {
+            color: inherit;
+        }
+        input[type="file"].hide-file-name::-webkit-file-upload-button {
+            color: inherit;
+        }
     </style>
 </head>
 <body>
@@ -227,6 +236,9 @@
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('input[type="file"]').forEach(function(input) {
+        input.classList.add('hide-file-name');
+    });
     const contactModal = document.getElementById('contactUserModal');
     const contactForm = document.getElementById('contactUserForm');
     const sendBtn = document.getElementById('sendContactMessageBtn');
