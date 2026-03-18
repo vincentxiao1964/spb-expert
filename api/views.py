@@ -1101,7 +1101,11 @@ class ShipListingViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     
     def get_queryset(self):
-        queryset = super().get_queryset()
+        queryset = super().get_queryset().select_related('user').select_related('extended_info').prefetch_related('images')
+
+        manage = self.request.query_params.get('manage')
+        if not self.request.user.is_authenticated or manage != 'true':
+            queryset = queryset.filter(status=ShipListing.Status.APPROVED)
         
         # Filter by listing_type
         listing_type = self.request.query_params.get('listing_type')
@@ -1109,7 +1113,6 @@ class ShipListingViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(listing_type=listing_type)
             
         # Filter by user (for management)
-        manage = self.request.query_params.get('manage')
         if manage == 'true' and self.request.user.is_authenticated:
             queryset = queryset.filter(user=self.request.user)
             

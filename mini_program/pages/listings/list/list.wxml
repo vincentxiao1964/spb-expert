@@ -61,7 +61,8 @@
     
     <block wx:else>
       <view class="empty-state">
-        <text>{{t.empty_listings}}</text>
+        <text wx:if="{{isLoadingMore}}">{{t.loading}}...</text>
+        <text wx:else>{{t.empty_listings}}</text>
       </view>
     </block>
     </view>

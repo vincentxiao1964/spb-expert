@@ -125,6 +125,7 @@ Page({
       url: url,
       method: 'GET',
       header: header,
+      timeout: 15000,
       success: (res) => {
         console.log('Fetch response:', res.statusCode, res.data);
         wx.hideNavigationBarLoading();
@@ -170,7 +171,8 @@ Page({
         wx.hideNavigationBarLoading();
         this.setData({ isLoadingMore: false, isRefreshing: false });
         wx.stopPullDownRefresh();
-        wx.showToast({ title: '网络请求失败', icon: 'none' });
+        const msg = err && err.errMsg && err.errMsg.indexOf('timeout') !== -1 ? '请求超时，请稍后重试' : '网络请求失败';
+        wx.showToast({ title: msg, icon: 'none' });
       }
     });
   },
