@@ -21,17 +21,17 @@
                     {% csrf_token %}
                     
                     <div class="mb-3">
-                        <label for="id_phone_number" class="form-label">{% trans "Phone Number" %}</label>
-                        <input type="text" name="phone_number" class="form-control" id="id_phone_number" required maxlength="11" placeholder="{% trans 'Enter your phone number' %}">
+                        <label for="id_phone_number" class="form-label">{% if LANGUAGE_CODE == 'en' %}Phone Number{% else %}电话号码{% endif %}</label>
+                        <input type="text" name="phone_number" class="form-control" id="id_phone_number" required maxlength="11" placeholder="{% if LANGUAGE_CODE == 'en' %}Enter your phone number{% else %}请输入手机号{% endif %}">
                     </div>
 
                     <div class="mb-3">
-                         <label for="id_code" class="form-label">{% trans "Verification Code" %}</label>
+                         <label for="id_code" class="form-label">{% if LANGUAGE_CODE == 'en' %}Verification Code{% else %}验证码{% endif %}</label>
                          <div class="input-group">
-                             <input type="text" name="code" class="form-control" id="id_code" required maxlength="6" placeholder="{% trans 'Enter verification code' %}">
-                             <button class="btn btn-outline-secondary" type="button" id="sendCodeBtn">{% trans "Get Code" %}</button>
+                             <input type="text" name="code" class="form-control" id="id_code" required maxlength="6" placeholder="{% if LANGUAGE_CODE == 'en' %}Enter verification code{% else %}请输入验证码{% endif %}">
+                             <button class="btn btn-outline-secondary" type="button" id="sendCodeBtn">{% if LANGUAGE_CODE == 'en' %}Get Code{% else %}获取验证码{% endif %}</button>
                          </div>
-                         <div id="smsHelp" class="form-text">{% trans "Use '123456' for testing." %}</div>
+                         <div id="smsHelp" class="form-text">{% if LANGUAGE_CODE == 'en' %}Use '123456' for testing.{% else %}测试验证码可用 '123456'{% endif %}</div>
                     </div>
 
                     {% if form.errors %}
@@ -48,11 +48,11 @@
                     {% endif %}
 
                     <div class="d-grid gap-2 mt-3">
-                        <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
+                        <button type="submit" class="btn btn-primary">{% if LANGUAGE_CODE == 'en' %}Login{% else %}登录{% endif %}</button>
                     </div>
                 </form>
                 <div class="mt-3 text-center">
-                    <p>{% trans "Don't have an account?" %} <a href="{% url 'users:register' %}">{% trans "Register" %}</a></p>
+                    <p>{% if LANGUAGE_CODE == 'en' %}Don't have an account?{% else %}还没有账号？{% endif %} <a href="{% url 'users:register' %}">{% if LANGUAGE_CODE == 'en' %}Register{% else %}注册{% endif %}</a></p>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
 document.getElementById('sendCodeBtn').addEventListener('click', function() {
     var phone = document.getElementById('id_phone_number').value;
     if (!phone) {
-        alert('{% trans "Please enter phone number first." %}');
+        alert('{% if LANGUAGE_CODE == "en" %}Please enter phone number first.{% else %}请先填写手机号{% endif %}');
         return;
     }
     
@@ -86,7 +86,7 @@ document.getElementById('sendCodeBtn').addEventListener('click', function() {
         return response.json();
     })
     .then(data => {
-        alert('{% trans "Code sent! (Check console log for mock code)" %}');
+        alert('{% if LANGUAGE_CODE == "en" %}Code sent!{% else %}验证码已发送{% endif %}');
         // Countdown
         var seconds = 60;
         var interval = setInterval(function() {
@@ -95,13 +95,13 @@ document.getElementById('sendCodeBtn').addEventListener('click', function() {
             if (seconds < 0) {
                 clearInterval(interval);
                 btn.disabled = false;
-                btn.innerText = '{% trans "Get Code" %}';
+                btn.innerText = '{% if LANGUAGE_CODE == "en" %}Get Code{% else %}获取验证码{% endif %}';
             }
         }, 1000);
     })
     .catch(error => {
         console.error('Error:', error);
-        var msg = '{% trans "Network error" %}';
+        var msg = '{% if LANGUAGE_CODE == "en" %}Network error{% else %}网络错误{% endif %}';
         if (error && error.error) {
             msg = error.error;
         } else if (error && error.detail) {

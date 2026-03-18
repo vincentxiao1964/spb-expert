@@ -24,11 +24,12 @@
                     {% endif %}
                     {{ form|crispy }}
                     <div class="d-grid gap-2 mt-3">
-                        <button type="submit" class="btn btn-primary">{% trans "Login" %}</button>
+                        {% get_current_language as LANGUAGE_CODE %}
+                        <button type="submit" class="btn btn-primary">{% if LANGUAGE_CODE == 'en' %}Login{% else %}登录{% endif %}</button>
                     </div>
                 </form>
                 <div class="mt-3 text-center">
-                    <p>{% trans "Don't have an account?" %} <a href="{% url 'users:register' %}">{% trans "Register" %}</a></p>
+                    <p>{% if LANGUAGE_CODE == 'en' %}Don't have an account?{% else %}还没有账号？{% endif %} <a href="{% url 'users:register' %}">{% if LANGUAGE_CODE == 'en' %}Register{% else %}注册{% endif %}</a></p>
                 </div>
             </div>
         </div>
