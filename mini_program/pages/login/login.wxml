@@ -1,4 +1,4 @@
-<view class="container" style="padding-bottom: 150rpx;">
+<view class="container" style="padding-bottom: 320rpx;">
   <view class="login-header" style="margin-top: 200rpx;">
     <text style="font-size: 40rpx; font-weight: bold; color: #333;" wx:if="{{!isAdmin}}">{{t.login_welcome}}</text>
     <text style="font-size: 40rpx; font-weight: bold; color: #333;" wx:else>{{t.admin_login_title}}</text>
