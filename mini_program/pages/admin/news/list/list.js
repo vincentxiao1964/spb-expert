@@ -32,14 +32,15 @@ Page({
 
     this.setData({ loading: true });
     wx.request({
-      url: `${app.globalData.baseUrl}/news/?manage=true`,
+      url: `${app.globalData.baseUrl}/news/?manage=true&page=1&page_size=100`,
       method: 'GET',
       header: {
         'Authorization': `Bearer ${token}`
       },
       success: (res) => {
         if (res.statusCode === 200) {
-          this.setData({ newsList: res.data });
+          const results = res.data.results || res.data;
+          this.setData({ newsList: results });
         } else if (res.statusCode === 401) {
           wx.removeStorageSync('access_token');
           wx.redirectTo({ url: '/pages/login/login' });

@@ -1173,11 +1173,18 @@ class ListingImageViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
 
 class MarketNewsViewSet(viewsets.ModelViewSet):
-    queryset = MarketNews.objects.all().order_by('-created_at')
+    queryset = MarketNews.objects.all().select_related('user').order_by('-created_at')
     serializer_class = MarketNewsSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     filter_backends = [filters.SearchFilter]
     search_fields = ['title', 'content', 'title_en', 'content_en']
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        manage = self.request.query_params.get('manage')
+        if manage == 'true' and self.request.user.is_authenticated and (self.request.user.is_staff or self.request.user.is_superuser):
+            return queryset
+        return queryset.filter(status=MarketNews.Status.APPROVED)
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

@@ -196,6 +196,7 @@ Page({
       const API_BASE = app.globalData.baseUrl;
       wx.request({
           url: `${API_BASE}/news/?page=1&page_size=3`,
+          timeout: 15000,
           success(res) {
               if (res.statusCode === 200) {
                 const results = res.data.results || res.data;
@@ -204,11 +205,13 @@ Page({
           },
           fail(err) {
               console.error('Fetch news failed', err);
+              wx.showToast({ title: '资讯加载超时/失败', icon: 'none' });
               wx.showToast({
                   title: '加载资讯失败',
                   icon: 'none'
               });
           },
+          complete() {
           complete() {
               if(callback) callback();
           }

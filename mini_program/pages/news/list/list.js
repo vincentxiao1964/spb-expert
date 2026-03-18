@@ -74,8 +74,10 @@ Page({
       method: 'GET',
       header: header,
       data: {
-        page: this.data.page
+        page: this.data.page,
+        page_size: 10
       },
+      timeout: 15000,
       success: (res) => {
         if (res.statusCode === 200) {
           const results = res.data.results || res.data;
@@ -85,26 +87,18 @@ Page({
             newsList: refresh ? processedResults : [...this.data.newsList, ...processedResults],
             page: this.data.page + 1,
             hasMore: !!res.data.next,
-            loading: false
+            loading: false,
+            isRefreshing: false
           });
         } else {
-          this.setData({ loading: false });
-          wx.showToast({ title: '加载失败', icon: 'none' });
-          wx.showModal({
-            title: '加载失败',
-            content: '状态码: ' + res.statusCode,
-            showCancel: false
-          });
+          this.setData({ loading: false, isRefreshing: false });
+          wx.showToast({ title: '加载失败: ' + res.statusCode, icon: 'none' });
         }
       },
       fail: (err) => {
         this.setData({ loading: false, isRefreshing: false });
-        wx.showToast({ title: '网络错误', icon: 'none' });
-        wx.showModal({
-            title: '网络错误',
-            content: '错误信息: ' + JSON.stringify(err),
-            showCancel: false
-        });
+        const msg = err && err.errMsg && err.errMsg.indexOf('timeout') !== -1 ? '请求超时，请稍后重试' : '网络错误';
+        wx.showToast({ title: msg, icon: 'none' });
       },
       complete: () => {
         if (refresh) wx.stopPullDownRefresh();
