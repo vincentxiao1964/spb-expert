@@ -226,6 +226,7 @@ Page({
     if (value == null) return '';
     let s = String(value);
     s = s.replace(/\u3000/g, ' ');
+    s = s.replace(/[\u200B-\u200D\uFEFF]/g, '');
     s = s.replace(/\s+/g, '');
     s = s.replace(/＠/g, '@').replace(/。/g, '.').replace(/．/g, '.');
     return s.toLowerCase();
