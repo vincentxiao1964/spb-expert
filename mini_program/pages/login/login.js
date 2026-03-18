@@ -175,8 +175,8 @@ Page({
 
   sendEmailCode() {
     let { email } = this.data;
-    email = email ? String(email).trim() : '';
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    email = this.normalizeEmail(email);
+    if (!email || !this.isValidEmail(email)) {
       wx.showToast({ title: '请输入有效的邮箱', icon: 'none' });
       return;
     }
@@ -222,6 +222,28 @@ Page({
     });
   },
 
+  normalizeEmail(value) {
+    if (value == null) return '';
+    let s = String(value);
+    s = s.replace(/\u3000/g, ' ');
+    s = s.replace(/\s+/g, '');
+    s = s.replace(/＠/g, '@').replace(/。/g, '.').replace(/．/g, '.');
+    return s.toLowerCase();
+  },
+
+  isValidEmail(email) {
+    const at = email.indexOf('@');
+    if (at <= 0) return false;
+    if (email.indexOf('@', at + 1) !== -1) return false;
+    const domain = email.slice(at + 1);
+    if (!domain) return false;
+    const dot = domain.lastIndexOf('.');
+    if (dot <= 0) return false;
+    if (dot >= domain.length - 1) return false;
+    if (domain.length < 3) return false;
+    return true;
+  },
+
   handleAgreementChange(e) {
       this.setData({
           isAgreed: e.detail.value.length > 0
@@ -265,10 +287,14 @@ Page({
   handleEmailLogin() {
     if (!this.checkAgreement()) return;
     let { email, emailCode } = this.data;
-    email = email ? String(email).trim() : '';
+    email = this.normalizeEmail(email);
     emailCode = emailCode ? String(emailCode).trim() : '';
     if (!email || !emailCode) {
       wx.showToast({ title: '请填写邮箱和验证码', icon: 'none' });
+      return;
+    }
+    if (!this.isValidEmail(email)) {
+      wx.showToast({ title: '请输入有效的邮箱', icon: 'none' });
       return;
     }
     wx.showLoading({ title: '登录中...', mask: true });
