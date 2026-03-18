@@ -4,6 +4,8 @@ from .models import CustomUser
 from django.utils.translation import gettext_lazy as _
 from django.core.cache import cache
 from django.contrib.auth import get_user_model
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError as DjangoValidationError
 
 class AccountCreationForm(UserCreationForm):
     company_name = forms.CharField(label=_('Company Name'), max_length=100, required=False)
@@ -63,6 +65,41 @@ class WebSMSLoginForm(forms.Form):
             except User.DoesNotExist:
                 raise forms.ValidationError(_("User with this phone number does not exist."))
                 
+        return cleaned_data
+
+    def get_user(self):
+        return getattr(self, 'user_cache', None)
+
+class WebEmailLoginForm(forms.Form):
+    email = forms.CharField(label=_('Email'), max_length=254)
+    code = forms.CharField(label=_('Verification Code'), max_length=6)
+
+    def clean(self):
+        cleaned_data = super().clean()
+        email = cleaned_data.get('email')
+        code = cleaned_data.get('code')
+
+        if email:
+            email = str(email).strip().lower()
+            try:
+                validate_email(email)
+            except DjangoValidationError:
+                raise forms.ValidationError(_("Invalid email address."))
+            cleaned_data['email'] = email
+
+        if email and code:
+            cache_key = f"email_code_{email}"
+            cached_code = cache.get(cache_key)
+            if not cached_code or str(cached_code) != str(code):
+                raise forms.ValidationError(_("Invalid or expired verification code."))
+
+            User = get_user_model()
+            user = User.objects.filter(login_email__iexact=email).first() or User.objects.filter(email__iexact=email).first()
+            if not user:
+                raise forms.ValidationError(_("Email not registered. Please register first."))
+
+            self.user_cache = user
+
         return cleaned_data
 
     def get_user(self):

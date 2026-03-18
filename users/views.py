@@ -104,7 +104,7 @@ def admin_dashboard(request):
     return render(request, 'users/admin_dashboard.html', context)
 
 from django.contrib.auth import login
-from .forms import CustomUserCreationForm, WebSMSLoginForm, AccountCreationForm
+from .forms import CustomUserCreationForm, WebSMSLoginForm, WebEmailLoginForm, AccountCreationForm
 from django.contrib.auth.decorators import login_required
 from ads.models import Advertisement
 from market.models import ListingMatch
@@ -144,6 +144,18 @@ def sms_login_view(request):
     else:
         form = WebSMSLoginForm()
     return render(request, 'users/login_sms.html', {'form': form})
+
+def email_login_view(request):
+    if request.method == 'POST':
+        form = WebEmailLoginForm(request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            if user:
+                login(request, user)
+                return redirect('home')
+    else:
+        form = WebEmailLoginForm()
+    return render(request, 'users/login_email.html', {'form': form})
 
 @login_required
 def profile(request):

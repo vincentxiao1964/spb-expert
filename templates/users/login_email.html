@@ -12,29 +12,28 @@
                         <a class="nav-link" href="{% url 'users:login' %}">{% if LANGUAGE_CODE == 'en' %}Password Login{% else %}密码登录{% endif %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">{% if LANGUAGE_CODE == 'en' %}SMS Login{% else %}短信登录{% endif %}</a>
+                        <a class="nav-link" href="{% url 'users:sms_login' %}">{% if LANGUAGE_CODE == 'en' %}SMS Login{% else %}短信登录{% endif %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'users:email_login' %}">{% if LANGUAGE_CODE == 'en' %}Email Login{% else %}邮箱登录{% endif %}</a>
+                        <a class="nav-link active" aria-current="page" href="#">{% if LANGUAGE_CODE == 'en' %}Email Login{% else %}邮箱登录{% endif %}</a>
                     </li>
                 </ul>
             </div>
             <div class="card-body">
-                <form method="post" id="smsLoginForm">
+                <form method="post" id="emailLoginForm">
                     {% csrf_token %}
-                    
+
                     <div class="mb-3">
-                        <label for="id_phone_number" class="form-label">{% if LANGUAGE_CODE == 'en' %}Phone Number{% else %}电话号码{% endif %}</label>
-                        <input type="text" name="phone_number" class="form-control" id="id_phone_number" required maxlength="11" placeholder="{% if LANGUAGE_CODE == 'en' %}Enter your phone number{% else %}请输入手机号{% endif %}">
+                        <label for="id_email" class="form-label">{% if LANGUAGE_CODE == 'en' %}Email{% else %}邮箱{% endif %}</label>
+                        <input type="text" name="email" class="form-control" id="id_email" required maxlength="254" placeholder="{% if LANGUAGE_CODE == 'en' %}Enter your email{% else %}请输入邮箱{% endif %}" value="{{ form.email.value|default_if_none:'' }}">
                     </div>
 
                     <div class="mb-3">
                          <label for="id_code" class="form-label">{% if LANGUAGE_CODE == 'en' %}Verification Code{% else %}验证码{% endif %}</label>
                          <div class="input-group">
-                             <input type="text" name="code" class="form-control" id="id_code" required maxlength="6" placeholder="{% if LANGUAGE_CODE == 'en' %}Enter verification code{% else %}请输入验证码{% endif %}">
-                             <button class="btn btn-outline-secondary" type="button" id="sendCodeBtn">{% if LANGUAGE_CODE == 'en' %}Get Code{% else %}获取验证码{% endif %}</button>
+                             <input type="text" name="code" class="form-control" id="id_code" required maxlength="6" placeholder="{% if LANGUAGE_CODE == 'en' %}Enter verification code{% else %}请输入验证码{% endif %}" value="{{ form.code.value|default_if_none:'' }}">
+                             <button class="btn btn-outline-secondary" type="button" id="sendEmailCodeBtn">{% if LANGUAGE_CODE == 'en' %}Get Code{% else %}获取验证码{% endif %}</button>
                          </div>
-                         <div id="smsHelp" class="form-text">{% if LANGUAGE_CODE == 'en' %}Use '123456' for testing.{% else %}测试验证码可用 '123456'{% endif %}</div>
                     </div>
 
                     {% if form.errors %}
@@ -63,24 +62,23 @@
 </div>
 
 <script>
-document.getElementById('sendCodeBtn').addEventListener('click', function() {
-    var phone = document.getElementById('id_phone_number').value;
-    if (!phone) {
-        alert('{% if LANGUAGE_CODE == "en" %}Please enter phone number first.{% else %}请先填写手机号{% endif %}');
+document.getElementById('sendEmailCodeBtn').addEventListener('click', function() {
+    var email = document.getElementById('id_email').value;
+    if (!email) {
+        alert('{% if LANGUAGE_CODE == "en" %}Please enter email first.{% else %}请先填写邮箱{% endif %}');
         return;
     }
-    
+
     var btn = this;
     btn.disabled = true;
-    
-    // Call API to send SMS
-    fetch('/api/v1/auth/sms/send/', {
+
+    fetch('/api/v1/auth/email/send/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': '{{ csrf_token }}'
         },
-        body: JSON.stringify({phone_number: phone})
+        body: JSON.stringify({email: email})
     })
     .then(response => {
         if (!response.ok) {
@@ -90,7 +88,6 @@ document.getElementById('sendCodeBtn').addEventListener('click', function() {
     })
     .then(data => {
         alert('{% if LANGUAGE_CODE == "en" %}Code sent!{% else %}验证码已发送{% endif %}');
-        // Countdown
         var seconds = 60;
         var interval = setInterval(function() {
             btn.innerText = seconds + 's';
@@ -112,7 +109,9 @@ document.getElementById('sendCodeBtn').addEventListener('click', function() {
         }
         alert(msg);
         btn.disabled = false;
+        btn.innerText = '{% if LANGUAGE_CODE == "en" %}Get Code{% else %}获取验证码{% endif %}';
     });
 });
 </script>
 {% endblock %}
+
