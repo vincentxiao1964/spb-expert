@@ -21,32 +21,20 @@ Page({
     isEmailLogin: false,
     wechatLoading: false,
     loginType: 'sms', // 'sms' or 'password'
-    isAgreed: false
+    isAgreed: false,
+    autoEntry: true
+  },
+
+  updateLocales() {
+    const lang = i18n.getLocale();
+    this.setData({ t: i18n.locales[lang] });
   },
 
   onLoad(options) {
-    // Set language
-    const lang = wx.getStorageSync('language') || 'zh';
-    this.setData({ t: i18n.locales[lang] });
+    this.updateLocales();
 
-    // Heuristic default: zh 系设备默认手机登录，非 zh 默认邮箱登录
-    try {
-      const sys = wx.getSystemInfoSync();
-      const deviceLang = (sys.language || '').toLowerCase();
-      if (!options.role) {
-        if (deviceLang.startsWith('zh')) {
-          this.setData({ isPhoneLogin: true, loginType: 'sms', isEmailLogin: false });
-        } else {
-          this.setData({ isEmailLogin: true, isPhoneLogin: false });
-        }
-      }
-    } catch (e) {
-      // Fallback: use stored app locale
-      if (lang === 'zh') {
-        this.setData({ isPhoneLogin: true, loginType: 'sms', isEmailLogin: false });
-      } else {
-        this.setData({ isEmailLogin: true, isPhoneLogin: false });
-      }
+    if (!options.role) {
+      this.applyDefaultEntry();
     }
 
     if (options.next) {
@@ -54,7 +42,31 @@ Page({
     }
 
     if (options.role === 'admin') {
-      this.setData({ isAdmin: true, loginType: 'password' });
+      this.setData({ isAdmin: true, loginType: 'password', isPhoneLogin: true, isEmailLogin: false, autoEntry: false });
+    }
+  },
+
+  onShow() {
+    this.updateLocales();
+    if (!this.data.isAdmin && this.data.autoEntry && !this.data.isBinding) {
+      this.applyDefaultEntry();
+    }
+  },
+
+  applyDefaultEntry() {
+    const storedLang = wx.getStorageSync('language') || '';
+    let deviceLang = '';
+    try {
+      deviceLang = (wx.getSystemInfoSync().language || '').toLowerCase();
+    } catch (e) {
+      deviceLang = '';
+    }
+
+    const effective = (storedLang ? storedLang : (deviceLang.startsWith('zh') ? 'zh' : 'en'));
+    if (effective === 'zh') {
+      this.setData({ isEmailLogin: false, isPhoneLogin: false });
+    } else {
+      this.setData({ isEmailLogin: true, isPhoneLogin: false });
     }
   },
   
@@ -74,7 +86,8 @@ Page({
       const mode = e.currentTarget.dataset.mode;
       this.setData({
           isPhoneLogin: mode === 'phone',
-          isEmailLogin: mode === 'email'
+          isEmailLogin: mode === 'email',
+          autoEntry: false
       });
   },
 
