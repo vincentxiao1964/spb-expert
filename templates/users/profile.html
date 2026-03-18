@@ -8,7 +8,7 @@
     <div class="col-md-3">
         <div class="card mb-3">
             <div class="card-header">
-                <h4 class="mb-0">{% trans "Profile" %}</h4>
+                <h4 class="mb-0">{% if LANGUAGE_CODE == 'en' %}Profile{% else %}个人中心{% endif %}</h4>
             </div>
             <div class="card-body">
                 <div class="text-center mb-3">
@@ -17,14 +17,14 @@
                         {{ user.username|first|upper }}
                     </div>
                 </div>
-                <p class="mb-1"><strong>{% trans "Username" %}:</strong> {{ user.username }}</p>
-                <p class="mb-1"><strong>{% trans "Email" %}:</strong> {{ user.email }}</p>
-                <p class="mb-1"><strong>{% trans "Phone" %}:</strong> {{ user.phone_number }}</p>
-                <p class="mb-1"><strong>{% trans "Company" %}:</strong> {{ user.company_name }}</p>
-                <p class="mb-1"><strong>{% trans "Membership Level" %}:</strong> Level {{ user.membership_level }}</p>
-                <p class="mb-0"><strong>{% trans "Approved Posts" %}:</strong> {{ user.approved_posts_count }}</p>
+                <p class="mb-1"><strong>{% if LANGUAGE_CODE == 'en' %}Username{% else %}用户名{% endif %}:</strong> {{ user.username }}</p>
+                <p class="mb-1"><strong>{% if LANGUAGE_CODE == 'en' %}Email{% else %}电子邮件{% endif %}:</strong> {{ user.email }}</p>
+                <p class="mb-1"><strong>{% if LANGUAGE_CODE == 'en' %}Phone{% else %}电话{% endif %}:</strong> {{ user.phone_number }}</p>
+                <p class="mb-1"><strong>{% if LANGUAGE_CODE == 'en' %}Company{% else %}公司{% endif %}:</strong> {{ user.company_name }}</p>
+                <p class="mb-1"><strong>{% if LANGUAGE_CODE == 'en' %}Membership Level{% else %}会员等级{% endif %}:</strong> {% if LANGUAGE_CODE == 'en' %}Level {{ user.membership_level }}{% else %}{{ user.membership_level }} 级{% endif %}</p>
+                <p class="mb-0"><strong>{% if LANGUAGE_CODE == 'en' %}Approved Posts{% else %}发帖数量{% endif %}:</strong> {{ user.approved_posts_count }}</p>
                 <div class="d-grid gap-2 mt-3">
-                    <a href="{% url 'users:password_change' %}" class="btn btn-outline-primary btn-sm">{% trans "Change Password" %}</a>
+                    <a href="{% url 'users:password_change' %}" class="btn btn-outline-primary btn-sm">{% if LANGUAGE_CODE == 'en' %}Change Password{% else %}修改密码{% endif %}</a>
                 </div>
             </div>
         </div>
