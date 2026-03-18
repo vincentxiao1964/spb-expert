@@ -361,17 +361,9 @@ class EmailLoginView(views.APIView):
         if not cached_code or str(cached_code) != str(code):
             return Response({'error': 'Invalid or expired verification code'}, status=status.HTTP_400_BAD_REQUEST)
 
-        user = User.objects.filter(login_email__iexact=email).first()
+        user = User.objects.filter(login_email__iexact=email).first() or User.objects.filter(email__iexact=email).first()
         if not user:
-            base = email.split('@')[0]
-            username = re.sub(r'[^a-zA-Z0-9_\\-]', '_', base)[:20] or 'user'
-            if User.objects.filter(username=username).exists():
-                username = f"em_{uuid.uuid4().hex[:8]}"
-            user = User.objects.create_user(username=username)
-            user.set_unusable_password()
-            user.login_email = email
-            user.email = email
-            user.save()
+            return Response({'error': 'Email not registered', 'code': 'email_not_registered'}, status=status.HTTP_400_BAD_REQUEST)
 
         _apply_source_channel(user, _get_source_channel(request))
 
@@ -388,6 +380,47 @@ class EmailLoginView(views.APIView):
             'phone_number': getattr(user, 'phone_number', None),
             'login_email': getattr(user, 'login_email', None),
         })
+
+class EmailRegisterView(views.APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        email = _normalize_email(request.data.get('email'))
+        code = request.data.get('code')
+        if not email or not code:
+            return Response({'error': 'Email and code are required'}, status=status.HTTP_400_BAD_REQUEST)
+
+        cache_key = f"email_code_{email}"
+        cached_code = cache.get(cache_key)
+        if not cached_code or str(cached_code) != str(code):
+            return Response({'error': 'Invalid or expired verification code'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if User.objects.filter(login_email__iexact=email).exists() or User.objects.filter(email__iexact=email).exists():
+            return Response({'error': 'Email already registered'}, status=status.HTTP_400_BAD_REQUEST)
+
+        base = email.split('@')[0]
+        username = re.sub(r'[^a-zA-Z0-9_\\-]', '_', base)[:20] or 'user'
+        if User.objects.filter(username=username).exists():
+            username = f"em_{uuid.uuid4().hex[:8]}"
+
+        user = User.objects.create_user(username=username, email=email)
+        user.set_unusable_password()
+        user.login_email = email
+        user.save()
+
+        _apply_source_channel(user, _get_source_channel(request))
+
+        refresh = RefreshToken.for_user(user)
+        cache.delete(cache_key)
+
+        return Response({
+            'status': 'registered',
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+            'user_id': user.id,
+            'username': user.username,
+            'login_email': user.login_email,
+        }, status=status.HTTP_201_CREATED)
 
 class BindPhoneView(views.APIView):
     permission_classes = [IsAuthenticated]

@@ -327,7 +327,25 @@ Page({
             }
           }, 1500);
         } else {
-          wx.showToast({ title: '登录失败: ' + ((res.data && (res.data.error || res.data.detail)) || ''), icon: 'none' });
+          const code = res.data && res.data.code;
+          const msg = (res.data && (res.data.error || res.data.detail)) || '登录失败';
+          if (code === 'email_not_registered') {
+            wx.showModal({
+              title: '邮箱未注册',
+              content: '该邮箱尚未注册，是否前往注册？',
+              confirmText: '去注册',
+              success: (mres) => {
+                if (mres.confirm) {
+                  const email = encodeURIComponent(this.data.email || '');
+                  wx.navigateTo({ url: `/pages/register/register?mode=email&email=${email}` });
+                } else {
+                  wx.showToast({ title: msg, icon: 'none' });
+                }
+              }
+            });
+          } else {
+            wx.showToast({ title: msg, icon: 'none' });
+          }
         }
       },
       fail: () => {

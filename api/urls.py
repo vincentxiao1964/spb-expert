@@ -44,6 +44,7 @@ urlpatterns = [
     path('auth/sms/login/', views.SMSLoginView.as_view(), name='sms_login'),
     path('auth/email/send/', views.SendEmailView.as_view(), name='send_email'),
     path('auth/email/login/', views.EmailLoginView.as_view(), name='email_login'),
+    path('auth/email/register/', views.EmailRegisterView.as_view(), name='email_register'),
     path('auth/bind-phone/', views.BindPhoneView.as_view(), name='bind_phone'),
     path('auth/bind-wechat/', views.BindWeChatView.as_view(), name='bind_wechat'),
     path('auth/unbind-wechat/', views.UnbindWeChatView.as_view(), name='unbind_wechat'),
