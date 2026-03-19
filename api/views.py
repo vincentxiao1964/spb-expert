@@ -28,6 +28,7 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils import timezone
 from datetime import timedelta
+from .pagination import DefaultPagination
 from django.db.models.functions import TruncHour
 import requests
 import random
@@ -1099,6 +1100,7 @@ class ShipListingViewSet(viewsets.ModelViewSet):
     queryset = ShipListing.objects.all().order_by('-created_at')
     serializer_class = ShipListingSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    pagination_class = DefaultPagination
     
     def get_queryset(self):
         queryset = super().get_queryset().select_related('user').select_related('extended_info').prefetch_related('images')
@@ -1178,6 +1180,7 @@ class MarketNewsViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     filter_backends = [filters.SearchFilter]
     search_fields = ['title', 'content', 'title_en', 'content_en']
+    pagination_class = DefaultPagination
 
     def get_queryset(self):
         queryset = super().get_queryset()
