@@ -212,7 +212,6 @@ Page({
               });
           },
           complete() {
-          complete() {
               if(callback) callback();
           }
       });
