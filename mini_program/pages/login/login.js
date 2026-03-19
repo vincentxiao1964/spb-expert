@@ -127,21 +127,6 @@ Page({
                     icon: 'success'
                  });
                  
-                 // Dev Helper
-                 if (res.data.code) {
-                    wx.showModal({
-                        title: '测试验证码',
-                        content: '验证码是: ' + res.data.code,
-                        showCancel: false,
-                        confirmText: '自动填写',
-                        success: (modalRes) => {
-                            if (modalRes.confirm) {
-                               this.setData({ code: res.data.code });
-                            }
-                        }
-                    });
-                 }
-
                  let timer = setInterval(() => {
                     if (this.data.count <= 0) {
                         clearInterval(timer);
@@ -188,19 +173,6 @@ Page({
       success: (res) => {
         if (res.statusCode === 200) {
           wx.showToast({ title: '验证码已发送', icon: 'success' });
-          if (res.data.code) {
-            wx.showModal({
-              title: '测试验证码',
-              content: '验证码是: ' + res.data.code,
-              showCancel: false,
-              confirmText: '自动填写',
-              success: (modalRes) => {
-                if (modalRes.confirm) {
-                  this.setData({ emailCode: res.data.code });
-                }
-              }
-            });
-          }
           let timer = setInterval(() => {
             if (this.data.count <= 0) {
               clearInterval(timer);

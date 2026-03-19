@@ -61,20 +61,6 @@ Page({
           wx.showToast({ title: '验证码已发送', icon: 'success' });
           this.startCountdown();
 
-          // DEV: Show code in modal for easier testing
-          if (res.data.code) {
-             wx.showModal({
-                 title: '测试验证码',
-                 content: '验证码是: ' + res.data.code,
-                 showCancel: false,
-                 confirmText: '自动填写',
-                 success: (modalRes) => {
-                     if (modalRes.confirm) {
-                        this.setData({ code: res.data.code });
-                     }
-                 }
-             });
-          }
         } else {
           wx.showToast({ title: '发送失败: ' + (res.data.error || '未知错误'), icon: 'none' });
         }
@@ -101,19 +87,6 @@ Page({
         if (res.statusCode === 200) {
           wx.showToast({ title: '验证码已发送', icon: 'success' });
           this.startCountdown();
-          if (res.data.code) {
-            wx.showModal({
-              title: '测试验证码',
-              content: '验证码是: ' + res.data.code,
-              showCancel: false,
-              confirmText: '自动填写',
-              success: (modalRes) => {
-                if (modalRes.confirm) {
-                  this.setData({ emailCode: res.data.code });
-                }
-              }
-            });
-          }
         } else {
           wx.showToast({ title: res.data.error || '发送失败', icon: 'none' });
         }

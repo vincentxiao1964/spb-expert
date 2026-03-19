@@ -4,6 +4,7 @@ from .models import CustomUser
 from django.utils.translation import gettext_lazy as _
 from django.core.cache import cache
 from django.contrib.auth import get_user_model
+from django.conf import settings
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError as DjangoValidationError
 
@@ -17,17 +18,26 @@ class AccountCreationForm(UserCreationForm):
         fields = ('username', 'email', 'phone_number', 'company_name')
 
 class CustomUserCreationForm(UserCreationForm):
-    sms_code = forms.CharField(label=_('SMS Verification Code'), required=True, help_text=_("Enter '123456' for testing."))
+    sms_code = forms.CharField(label=_('SMS Verification Code'), required=True, help_text='')
 
     class Meta:
         model = CustomUser
         fields = ('phone_number', 'email', 'company_name')
 
     def clean_sms_code(self):
-        code = self.cleaned_data.get('sms_code')
-        # Mock verification: accept '123456'
-        if code != '123456':
-            raise forms.ValidationError(_("Invalid verification code. Use '123456' for testing."))
+        code = str(self.cleaned_data.get('sms_code') or '').strip()
+        phone = str(self.cleaned_data.get('phone_number') or '').replace(' ', '').strip()
+
+        if settings.DEBUG and code == '123456':
+            return code
+
+        if not phone or not code:
+            raise forms.ValidationError(_("Invalid or expired verification code."))
+
+        cache_key = f"sms_code_{phone}"
+        cached_code = cache.get(cache_key)
+        if not cached_code or str(cached_code) != str(code):
+            raise forms.ValidationError(_("Invalid or expired verification code."))
         return code
 
     def save(self, commit=True):
@@ -51,9 +61,8 @@ class WebSMSLoginForm(forms.Form):
             cache_key = f"sms_code_{phone_number}"
             cached_code = cache.get(cache_key)
             
-            # Allow '123456' as universal backdoor for testing if real SMS fails
-            if code == '123456':
-                pass # Allow for testing
+            if settings.DEBUG and code == '123456':
+                pass
             elif not cached_code or str(cached_code) != str(code):
                  raise forms.ValidationError(_("Invalid or expired verification code."))
                  
