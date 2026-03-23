@@ -30,8 +30,8 @@ class MediaCheckTask(models.Model):
 
     class Meta:
         indexes = [
-            models.Index(fields=['object_type', 'object_id']),
-            models.Index(fields=['status', 'created_at']),
+            models.Index(fields=['object_type', 'object_id'], name='api_mediam_object__16ca75_idx'),
+            models.Index(fields=['status', 'created_at'], name='api_mediam_status_17ca5f_idx'),
         ]
 
 
@@ -63,5 +63,5 @@ class ModerationRule(models.Model):
 
     class Meta:
         indexes = [
-            models.Index(fields=['enabled', 'scope']),
+            models.Index(fields=['enabled', 'scope'], name='api_moder_enabled_0e9c8c_idx'),
         ]

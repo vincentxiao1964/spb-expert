@@ -96,6 +96,6 @@ class ChannelEvent(models.Model):
 
     class Meta:
         indexes = [
-            models.Index(fields=['event_type', 'created_at']),
+            models.Index(fields=['event_type', 'created_at'], name='users_chann_event_t_8a6a8e_idx'),
         ]
         ordering = ['-created_at']
