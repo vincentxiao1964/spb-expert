@@ -54,6 +54,12 @@
   overflow: hidden;
 }
 
+.item-meta {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+
 .item-actions {
   display: flex;
   justify-content: flex-end;

@@ -44,5 +44,11 @@ Page({
     wx.navigateTo({
         url: '/pages/admin/ships/list/list?status=PENDING'
     });
+  },
+
+  goToForumModeration() {
+    wx.navigateTo({
+      url: '/pages/admin/messages/list/list'
+    });
   }
 });

@@ -9,6 +9,12 @@ Page({
   },
 
   onShow() {
+    const userInfo = wx.getStorageSync('user_info');
+    if (!userInfo || !(userInfo.is_staff || userInfo.is_superuser)) {
+      wx.showToast({ title: '无权限', icon: 'none' });
+      wx.navigateBack();
+      return;
+    }
     this.setData({ page: 1, messages: [], hasMore: true });
     this.fetchMessages();
   },
@@ -40,12 +46,15 @@ Page({
       },
       success: (res) => {
         if (res.statusCode === 200) {
-          const newMessages = res.data.results;
+          const newMessages = res.data.results || res.data || [];
           this.setData({
             messages: [...this.data.messages, ...newMessages],
             page: this.data.page + 1,
             hasMore: !!res.data.next
           });
+          if (!res.data.next && !res.data.results) {
+            this.setData({ hasMore: false });
+          }
         }
       },
       complete: () => {

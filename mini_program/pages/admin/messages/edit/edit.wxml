@@ -7,6 +7,26 @@
 
     <view class="btn-area">
       <button formType="submit" class="btn-submit" loading="{{isSubmitting}}">保存修改</button>
+      <button type="warn" class="btn-delete-topic" bindtap="deleteTopic">删除帖子</button>
     </view>
   </form>
+
+  <view class="reply-section">
+    <view class="reply-title">回复列表 ({{replies.length}})</view>
+    <block wx:for="{{replies}}" wx:key="id">
+      <view class="reply-item">
+        <view class="reply-header">
+          <text class="reply-user">{{item.user_name}}</text>
+          <text class="reply-date">{{item.created_at}}</text>
+        </view>
+        <view class="reply-content">{{item.content}}</view>
+        <view class="reply-actions">
+          <button type="warn" size="mini" class="btn-delete-reply" data-id="{{item.id}}" bindtap="deleteReply">删除</button>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{replies.length === 0}}" class="empty-tip">
+      <text>暂无回复</text>
+    </view>
+  </view>
 </view>

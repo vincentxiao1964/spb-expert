@@ -33,3 +33,62 @@
   font-size: 32rpx;
   border-radius: 44rpx;
 }
+
+.btn-delete-topic {
+  margin-top: 20rpx;
+  border-radius: 44rpx;
+}
+
+.reply-section {
+  margin-top: 40rpx;
+}
+
+.reply-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+.reply-item {
+  padding: 20rpx;
+  border-radius: 12rpx;
+  background: #fff;
+  border: 1rpx solid #eee;
+  margin-bottom: 16rpx;
+}
+
+.reply-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.reply-user {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+.reply-date {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.reply-content {
+  font-size: 26rpx;
+  color: #444;
+  white-space: pre-wrap;
+}
+
+.reply-actions {
+  margin-top: 14rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #999;
+  margin-top: 20rpx;
+}

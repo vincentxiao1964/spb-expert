@@ -7,11 +7,14 @@
     <block wx:for="{{messages}}" wx:key="id">
       <view class="list-item" bindtap="navigateToEdit" data-id="{{item.id}}">
         <view class="item-header">
-          <text class="item-user">{{item.user_name}} (Lv.{{item.membership_level}})</text>
+          <text class="item-user">{{item.user_name}}</text>
           <text class="item-date">{{item.created_at}}</text>
         </view>
         <view class="item-content">
           <text>{{item.content}}</text>
+        </view>
+        <view class="item-meta">
+          <text>回复：{{item.replies_count || 0}}</text>
         </view>
         <view class="item-actions">
           <button class="btn-delete" catchtap="handleDelete" data-id="{{item.id}}">删除</button>
