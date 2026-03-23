@@ -38,6 +38,28 @@ def _get_local_text_blocklist():
         '毒品',
     ]
 
+def _load_db_rules(scope='ANY'):
+    try:
+        from .models import ModerationRule
+    except Exception:
+        return []
+
+    cache_key = f"moderation_rules_v1_{scope}"
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return cached
+
+    try:
+        qs = ModerationRule.objects.filter(enabled=True)
+        if scope and scope != 'ANY':
+            qs = qs.filter(scope__in=['ANY', scope])
+        rules = list(qs.values('rule_type', 'pattern'))
+    except Exception:
+        rules = []
+
+    cache.set(cache_key, rules, timeout=60)
+    return rules
+
 
 def _normalize_text_for_moderation(content):
     s = str(content or '')
@@ -53,7 +75,7 @@ def _normalize_text_for_moderation(content):
     return s
 
 
-def local_text_risk_check(content):
+def local_text_risk_check(content, scope='ANY'):
     raw = str(content or '').strip()
     if not raw:
         return True, None
@@ -62,12 +84,20 @@ def local_text_risk_check(content):
     if not s:
         return True, None
 
-    patterns = [
-        r'(想吃你|想吃妳|吃你|吃妳|舔你|舔妳).*鲍鱼',
-    ]
-    for p in patterns:
-        if re.search(p, s, flags=re.IGNORECASE):
-            return False, "Content contains sensitive information"
+    for rule in _load_db_rules(scope=scope):
+        t = rule.get('rule_type')
+        p = (rule.get('pattern') or '').strip()
+        if not p:
+            continue
+        if t == 'REGEX':
+            try:
+                if re.search(p, s, flags=re.IGNORECASE):
+                    return False, "Content contains sensitive information"
+            except Exception:
+                continue
+        else:
+            if p.lower() in s:
+                return False, "Content contains sensitive information"
 
     blocklist = _get_local_text_blocklist()
     for w in blocklist:
@@ -110,7 +140,7 @@ def get_wechat_access_token():
         logger.error(f"Exception getting WeChat access token: {e}")
         return None
 
-def check_msg_sec(content, openid, scene=2):
+def check_msg_sec(content, openid, scene=2, scope='ANY'):
     """
     Check text content for security violations using WeChat msg_sec_check (v2).
     Returns (True, None) if safe.
@@ -119,7 +149,7 @@ def check_msg_sec(content, openid, scene=2):
     if not content:
         return True, None
 
-    ok, reason = local_text_risk_check(content)
+    ok, reason = local_text_risk_check(content, scope=scope)
     if not ok:
         return False, reason
         
