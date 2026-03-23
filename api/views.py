@@ -1310,7 +1310,7 @@ class AdvertisementViewSet(viewsets.ModelViewSet):
 
 class MemberMessageViewSet(viewsets.ModelViewSet):
     queryset = MemberMessage.objects.all().order_by('-created_at')
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrAdmin]
     
     def get_serializer_class(self):
         if self.action == 'retrieve':
@@ -1334,7 +1334,7 @@ class MemberMessageViewSet(viewsets.ModelViewSet):
 class MessageReplyViewSet(viewsets.ModelViewSet):
     queryset = MessageReply.objects.all().order_by('created_at')
     serializer_class = MessageReplySerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrAdmin]
     
     def perform_create(self, serializer):
         content = serializer.validated_data.get('content', '')
