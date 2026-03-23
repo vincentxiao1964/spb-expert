@@ -12,6 +12,45 @@ def _is_strict_mode():
         return not getattr(settings, 'DEBUG', False)
     return bool(strict)
 
+def _get_local_text_blocklist():
+    configured = getattr(settings, 'LOCAL_TEXT_BLOCKLIST', None)
+    if configured and isinstance(configured, (list, tuple)):
+        return [str(x).strip() for x in configured if str(x).strip()]
+    return [
+        '成人',
+        '成人电影',
+        '色情',
+        '约炮',
+        '裸聊',
+        '嫖娼',
+        '赌博',
+        '博彩',
+        '枪',
+        '枪支',
+        '子弹',
+        '弹药',
+        '武器',
+        '炸药',
+        '暴力',
+        '血腥',
+        '毒品',
+    ]
+
+
+def local_text_risk_check(content):
+    s = str(content or '').strip()
+    if not s:
+        return True, None
+    blocklist = _get_local_text_blocklist()
+    lower = s.lower()
+    for w in blocklist:
+        if not w:
+            continue
+        if w.lower() in lower:
+            return False, "Content contains sensitive information"
+    return True, None
+
+
 def get_wechat_access_token():
     """
     Get WeChat Mini Program Access Token, using cache.
@@ -44,7 +83,7 @@ def get_wechat_access_token():
         logger.error(f"Exception getting WeChat access token: {e}")
         return None
 
-def check_msg_sec(content, openid):
+def check_msg_sec(content, openid, scene=2):
     """
     Check text content for security violations using WeChat msg_sec_check (v2).
     Returns (True, None) if safe.
@@ -52,6 +91,10 @@ def check_msg_sec(content, openid):
     """
     if not content:
         return True, None
+
+    ok, reason = local_text_risk_check(content)
+    if not ok:
+        return False, reason
         
     token = get_wechat_access_token()
     if not token:
@@ -64,13 +107,14 @@ def check_msg_sec(content, openid):
     
     openid = (openid or '').strip()
     use_v2 = bool(openid)
+    scene = int(scene or 2)
     
     try:
         if use_v2:
             data = {
                 "version": 2,
                 "openid": openid,
-                "scene": 2,
+                "scene": scene,
                 "content": content
             }
             response = requests.post(url, json=data, timeout=8)

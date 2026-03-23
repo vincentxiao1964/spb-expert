@@ -1349,7 +1349,7 @@ class ShipListingViewSet(viewsets.ModelViewSet):
             str(data.get('description_en', '') or ''),
             str(data.get('contact_info', '') or ''),
         ]).strip()
-        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''), scene=4)
         if not is_safe:
             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
              
@@ -1366,7 +1366,7 @@ class ShipListingViewSet(viewsets.ModelViewSet):
             str(data.get('description_en', '') or ''),
             str(data.get('contact_info', '') or ''),
         ]).strip()
-        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''), scene=4)
         if not is_safe:
             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
              
@@ -1434,7 +1434,7 @@ class MarketNewsViewSet(viewsets.ModelViewSet):
             str(data.get('source_url', '') or ''),
             str(data.get('original_source', '') or ''),
         ]).strip()
-        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''), scene=4)
         if not is_safe:
             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save(user=self.request.user)
@@ -1449,7 +1449,7 @@ class MarketNewsViewSet(viewsets.ModelViewSet):
             str(data.get('source_url', '') or ''),
             str(data.get('original_source', '') or ''),
         ]).strip()
-        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''), scene=4)
         if not is_safe:
             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save()
@@ -1493,7 +1493,7 @@ class AdvertisementViewSet(viewsets.ModelViewSet):
             str(data.get('description', '') or ''),
             str(data.get('link', '') or ''),
         ]).strip()
-        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''), scene=4)
         if not is_safe:
             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
 
@@ -1515,7 +1515,7 @@ class AdvertisementViewSet(viewsets.ModelViewSet):
             str(data.get('description', '') or ''),
             str(data.get('link', '') or ''),
         ]).strip()
-        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''), scene=4)
         if not is_safe:
             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
 
@@ -1541,14 +1541,14 @@ class MemberMessageViewSet(viewsets.ModelViewSet):
     
     def perform_create(self, serializer):
         content = serializer.validated_data.get('content', '')
-        is_safe, reason = check_msg_sec(content, getattr(self.request.user, 'openid', ''))
+        is_safe, reason = check_msg_sec(content, getattr(self.request.user, 'openid', ''), scene=3)
         if not is_safe:
              raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save(user=self.request.user)
 
     def perform_update(self, serializer):
         content = serializer.validated_data.get('content', '')
-        is_safe, _ = check_msg_sec(content, getattr(self.request.user, 'openid', ''))
+        is_safe, _ = check_msg_sec(content, getattr(self.request.user, 'openid', ''), scene=3)
         if not is_safe:
             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save()
@@ -1560,14 +1560,14 @@ class MessageReplyViewSet(viewsets.ModelViewSet):
     
     def perform_create(self, serializer):
         content = serializer.validated_data.get('content', '')
-        is_safe, reason = check_msg_sec(content, getattr(self.request.user, 'openid', ''))
+        is_safe, reason = check_msg_sec(content, getattr(self.request.user, 'openid', ''), scene=3)
         if not is_safe:
              raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save(user=self.request.user)
 
     def perform_update(self, serializer):
         content = serializer.validated_data.get('content', '')
-        is_safe, _ = check_msg_sec(content, getattr(self.request.user, 'openid', ''))
+        is_safe, _ = check_msg_sec(content, getattr(self.request.user, 'openid', ''), scene=3)
         if not is_safe:
             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save()
@@ -1593,7 +1593,7 @@ class PrivateMessageViewSet(mixins.CreateModelMixin,
 
     def perform_create(self, serializer):
         content = serializer.validated_data.get('content', '')
-        is_safe, reason = check_msg_sec(content, getattr(self.request.user, 'openid', ''))
+        is_safe, reason = check_msg_sec(content, getattr(self.request.user, 'openid', ''), scene=4)
         if not is_safe:
              raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
 
@@ -1765,7 +1765,7 @@ class CrewListingViewSet(viewsets.ModelViewSet):
             str(data.get('phone', '') or ''),
             str(data.get('email', '') or ''),
         ]).strip()
-        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''), scene=1)
         if not is_safe:
             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save(user=self.request.user)
@@ -1783,7 +1783,7 @@ class CrewListingViewSet(viewsets.ModelViewSet):
             str(data.get('phone', '') or ''),
             str(data.get('email', '') or ''),
         ]).strip()
-        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''), scene=1)
         if not is_safe:
             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save()
