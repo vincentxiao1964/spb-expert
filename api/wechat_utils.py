@@ -141,3 +141,48 @@ def check_img_sec(file_bytes, filename='image.jpg'):
         if _is_strict_mode():
             return False, "Content security check is temporarily unavailable. Please try again."
         return True, None
+
+
+def submit_media_check_async(media_url, media_type=2, openid='', scene=2):
+    media_url = (media_url or '').strip()
+    openid = (openid or '').strip()
+
+    if not media_url:
+        return None, "Missing media_url"
+
+    token = get_wechat_access_token()
+    if not token:
+        if _is_strict_mode():
+            return None, "Content security check is temporarily unavailable. Please try again."
+        return None, "WeChat access token missing"
+
+    url = f"https://api.weixin.qq.com/wxa/media_check_async?access_token={token}"
+
+    try:
+        if openid:
+            payload = {
+                "openid": openid,
+                "scene": int(scene),
+                "version": 2,
+                "media_url": media_url,
+                "media_type": int(media_type),
+            }
+        else:
+            payload = {
+                "media_url": media_url,
+                "media_type": int(media_type),
+            }
+
+        response = requests.post(url, json=payload, timeout=10)
+        res_data = response.json()
+        if res_data.get('errcode') == 0 and res_data.get('trace_id'):
+            return res_data.get('trace_id'), None
+        logger.error(f"WeChat media_check_async error: {res_data}")
+        if _is_strict_mode():
+            return None, "Content security check is temporarily unavailable. Please try again."
+        return None, res_data.get('errmsg') or 'media_check_async error'
+    except Exception as e:
+        logger.error(f"Exception in media_check_async: {e}")
+        if _is_strict_mode():
+            return None, "Content security check is temporarily unavailable. Please try again."
+        return None, "media_check_async error"

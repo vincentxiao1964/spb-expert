@@ -21,7 +21,8 @@ from .serializers import (
     CrewListingSerializer, NotificationSerializer
 )
 from .permissions import IsOwnerOrAdmin
-from .wechat_utils import check_msg_sec, check_img_sec
+from .wechat_utils import check_msg_sec, check_img_sec, submit_media_check_async
+from .models import MediaCheckTask
 from django.db.models import Q, F, Sum, Count, Max
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -33,6 +34,9 @@ from django.db.models.functions import TruncHour
 import requests
 import random
 import uuid
+import hashlib
+import xml.etree.ElementTree as ET
+import json
 from django.core.cache import cache
 from django.core.mail import send_mail, get_connection
 from django.core.exceptions import ValidationError
@@ -153,6 +157,216 @@ def _track_channel_event(request, user, event_type):
         source_channel=channel,
         event_type=event_type,
     )
+
+def _build_public_media_url(request, file_url):
+    if not file_url:
+        return ''
+    url = file_url
+    if not url.startswith('http'):
+        try:
+            url = request.build_absolute_uri(url)
+        except Exception:
+            url = ''
+    if url.startswith('http://'):
+        try:
+            forwarded = request.META.get('HTTP_X_FORWARDED_PROTO')
+        except Exception:
+            forwarded = None
+        if forwarded == 'https' or getattr(settings, 'SECURE_PROXY_SSL_HEADER', None):
+            url = 'https://' + url[len('http://'):]
+    return url
+
+
+def _enqueue_media_check(request, object_type, object_id, file_url, object_field='image', scene=4):
+    media_url = _build_public_media_url(request, file_url)
+    if not media_url:
+        return None
+    openid = getattr(request.user, 'openid', '') if getattr(request, 'user', None) else ''
+    trace_id, _ = submit_media_check_async(media_url=media_url, media_type=2, openid=openid, scene=scene)
+    if not trace_id:
+        return None
+    try:
+        MediaCheckTask.objects.update_or_create(
+            trace_id=trace_id,
+            defaults={
+                'object_type': object_type,
+                'object_id': int(object_id),
+                'object_field': object_field,
+                'media_type': 2,
+                'media_url': media_url,
+                'scene': int(scene),
+                'openid': openid or None,
+            },
+        )
+    except Exception:
+        return None
+    return trace_id
+
+
+def _verify_wechat_signature(token, signature, timestamp, nonce):
+    token = (token or '').strip()
+    signature = (signature or '').strip()
+    timestamp = (timestamp or '').strip()
+    nonce = (nonce or '').strip()
+    if not token or not signature or not timestamp or not nonce:
+        return False
+    raw = ''.join(sorted([token, timestamp, nonce]))
+    return hashlib.sha1(raw.encode('utf-8')).hexdigest() == signature
+
+
+def _parse_wechat_xml(body_bytes):
+    root = ET.fromstring(body_bytes)
+    data = {}
+    for child in list(root):
+        data[child.tag] = child.text
+    return data
+
+
+def _safe_json_loads(value):
+    if not value:
+        return None
+    if isinstance(value, (dict, list)):
+        return value
+    s = str(value).strip()
+    if not s:
+        return None
+    if not (s.startswith('{') or s.startswith('[')):
+        return None
+    try:
+        return json.loads(s)
+    except Exception:
+        return None
+
+
+def _apply_media_check_enforcement(task):
+    if task.object_type == 'listing_image':
+        ListingImage.objects.filter(id=task.object_id).delete()
+        return
+    if task.object_type == 'market_news':
+        obj = MarketNews.objects.filter(id=task.object_id).first()
+        if not obj:
+            return
+        if obj.image:
+            try:
+                obj.image.delete(save=False)
+            except Exception:
+                pass
+        obj.image = None
+        obj.save(update_fields=['image'])
+        return
+    if task.object_type == 'advertisement':
+        obj = Advertisement.objects.filter(id=task.object_id).first()
+        if not obj:
+            return
+        if obj.image:
+            try:
+                obj.image.delete(save=False)
+            except Exception:
+                pass
+        obj.image = None
+        obj.save(update_fields=['image'])
+        return
+    if task.object_type == 'private_message':
+        obj = PrivateMessage.objects.filter(id=task.object_id).first()
+        if not obj:
+            return
+        if obj.image:
+            try:
+                obj.image.delete(save=False)
+            except Exception:
+                pass
+        obj.image = None
+        obj.content = ''
+        obj.save(update_fields=['image', 'content'])
+
+
+class WeChatMediaCheckCallbackView(views.APIView):
+    permission_classes = [AllowAny]
+    authentication_classes = []
+
+    def get(self, request):
+        token = getattr(settings, 'WECHAT_MSG_PUSH_TOKEN', None) or getattr(settings, 'WECHAT_MESSAGE_TOKEN', None) or ''
+        signature = request.query_params.get('signature', '') or request.query_params.get('msg_signature', '')
+        timestamp = request.query_params.get('timestamp', '')
+        nonce = request.query_params.get('nonce', '')
+        echostr = request.query_params.get('echostr', '')
+        if token and not _verify_wechat_signature(token, signature, timestamp, nonce):
+            return Response({'error': 'invalid signature'}, status=status.HTTP_403_FORBIDDEN)
+        return HttpResponse(echostr)
+
+    def post(self, request):
+        token = getattr(settings, 'WECHAT_MSG_PUSH_TOKEN', None) or getattr(settings, 'WECHAT_MESSAGE_TOKEN', None) or ''
+        signature = request.query_params.get('signature', '') or request.query_params.get('msg_signature', '')
+        timestamp = request.query_params.get('timestamp', '')
+        nonce = request.query_params.get('nonce', '')
+        if token and not _verify_wechat_signature(token, signature, timestamp, nonce):
+            return Response({'error': 'invalid signature'}, status=status.HTTP_403_FORBIDDEN)
+
+        body = request.body or b''
+        data = {}
+        try:
+            if body.strip().startswith(b'<'):
+                data = _parse_wechat_xml(body)
+            else:
+                data = json.loads(body.decode('utf-8'))
+        except Exception:
+            data = {}
+
+        trace_id = data.get('trace_id') or data.get('TraceId') or ''
+        if not trace_id:
+            return Response({'status': 'ok'})
+
+        try:
+            task = MediaCheckTask.objects.filter(trace_id=trace_id).first()
+        except Exception:
+            return Response({'status': 'ok'})
+        if not task:
+            return Response({'status': 'ok'})
+
+        appid = data.get('appid') or data.get('AppId')
+        errcode = data.get('errcode')
+        if errcode is None:
+            errcode = data.get('ErrCode')
+
+        status_code = data.get('status_code')
+        isrisky = data.get('isrisky')
+
+        result = data.get('result')
+        result_obj = _safe_json_loads(result) or (result if isinstance(result, dict) else None)
+        suggest = None
+        label = None
+        if isinstance(result_obj, dict):
+            suggest = result_obj.get('suggest')
+            label = result_obj.get('label')
+
+        final_status = MediaCheckTask.Status.PENDING
+        if str(errcode or '0') != '0':
+            final_status = MediaCheckTask.Status.ERROR
+        elif str(status_code or '0') in ('-1008', '4294966288'):
+            final_status = MediaCheckTask.Status.ERROR
+        elif str(isrisky or '0') == '1':
+            final_status = MediaCheckTask.Status.RISKY
+        elif suggest in ('risky', 'review'):
+            final_status = MediaCheckTask.Status.RISKY if suggest == 'risky' else MediaCheckTask.Status.REVIEW
+        elif label is not None and int(label) != 100:
+            final_status = MediaCheckTask.Status.RISKY
+        else:
+            final_status = MediaCheckTask.Status.PASS
+
+        try:
+            task.status = final_status
+            task.appid = appid or task.appid
+            task.suggest = suggest or task.suggest
+            task.label = label if label is not None else task.label
+            task.raw_result = data
+            task.save(update_fields=['status', 'appid', 'suggest', 'label', 'raw_result', 'updated_at'])
+        except Exception:
+            return Response({'status': 'ok'})
+
+        if task.status in (MediaCheckTask.Status.RISKY, MediaCheckTask.Status.REVIEW):
+            _apply_media_check_enforcement(task)
+
+        return Response({'status': 'ok'})
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
@@ -1184,6 +1398,8 @@ class ShipListingViewSet(viewsets.ModelViewSet):
             listing=listing,
             image=request.FILES['image']
         )
+
+        _enqueue_media_check(request, 'listing_image', image.id, getattr(image.image, 'url', ''), object_field='image', scene=4)
         
         serializer = ListingImageSerializer(image)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -1258,6 +1474,8 @@ class MarketNewsViewSet(viewsets.ModelViewSet):
         news.image = request.FILES['image']
         news.save()
         print(f"Image saved. Path: {news.image.path}")
+
+        _enqueue_media_check(request, 'market_news', news.id, getattr(news.image, 'url', ''), object_field='image', scene=4)
         
         serializer = self.get_serializer(news)
         return Response(serializer.data)
@@ -1286,7 +1504,9 @@ class AdvertisementViewSet(viewsets.ModelViewSet):
             ok, _ = check_img_sec(image_bytes, filename=image.name)
             if not ok:
                 raise exceptions.ValidationError({'detail': '图片可能含违规信息，请更换后重试'})
-        serializer.save(user=self.request.user)
+        obj = serializer.save(user=self.request.user)
+        if getattr(obj, 'image', None):
+            _enqueue_media_check(self.request, 'advertisement', obj.id, getattr(obj.image, 'url', ''), object_field='image', scene=4)
 
     def perform_update(self, serializer):
         data = serializer.validated_data
@@ -1306,7 +1526,9 @@ class AdvertisementViewSet(viewsets.ModelViewSet):
             ok, _ = check_img_sec(image_bytes, filename=image.name)
             if not ok:
                 raise exceptions.ValidationError({'detail': '图片可能含违规信息，请更换后重试'})
-        serializer.save()
+        obj = serializer.save()
+        if getattr(obj, 'image', None):
+            _enqueue_media_check(self.request, 'advertisement', obj.id, getattr(obj.image, 'url', ''), object_field='image', scene=4)
 
 class MemberMessageViewSet(viewsets.ModelViewSet):
     queryset = MemberMessage.objects.all().order_by('-created_at')
@@ -1382,7 +1604,9 @@ class PrivateMessageViewSet(mixins.CreateModelMixin,
             ok, _ = check_img_sec(image_bytes, filename=image.name)
             if not ok:
                 raise exceptions.ValidationError({'detail': '图片可能含违规信息，请更换后重试'})
-        serializer.save(sender=self.request.user)
+        msg = serializer.save(sender=self.request.user)
+        if getattr(msg, 'image', None):
+            _enqueue_media_check(self.request, 'private_message', msg.id, getattr(msg.image, 'url', ''), object_field='image', scene=4)
         _track_channel_event(self.request, self.request.user, ChannelEvent.EventType.PRIVATE_MESSAGE_SENT)
 
     @action(detail=False, methods=['GET'])

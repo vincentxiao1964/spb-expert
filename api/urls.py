@@ -31,6 +31,7 @@ router.register(r'reports', ReportViewSet, basename='report')
 router.register(r'regulatory', RegulatoryViewSet, basename='regulatory')
 
 urlpatterns = [
+    path('wechat/media-check/', views.WeChatMediaCheckCallbackView.as_view(), name='wechat_media_check'),
     path('user/info/', views.UserInfoView.as_view(), name='user_info'),
     path('user/search/', views.UserSearchView.as_view(), name='user_search'),
     path('admin/stats/', views.AdminStatsView.as_view(), name='admin_stats'),
