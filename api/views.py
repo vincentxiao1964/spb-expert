@@ -20,7 +20,7 @@ from .serializers import (
     MessageReplySerializer, MemberMessageDetailSerializer, UserFollowSerializer,
     CrewListingSerializer, NotificationSerializer
 )
-from .permissions import IsOwnerOrAdmin
+from .permissions import IsOwnerOrAdmin, IsActiveForWrite
 from .wechat_utils import check_msg_sec, check_img_sec, submit_media_check_async
 from .models import MediaCheckTask
 from django.db.models import Q, F, Sum, Count, Max
@@ -1313,7 +1313,7 @@ class WeChatOACallbackView(views.APIView):
 class ShipListingViewSet(viewsets.ModelViewSet):
     queryset = ShipListing.objects.all().order_by('-created_at')
     serializer_class = ShipListingSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsActiveForWrite]
     pagination_class = DefaultPagination
     
     def get_queryset(self):
@@ -1412,7 +1412,7 @@ class ListingImageViewSet(viewsets.ModelViewSet):
 class MarketNewsViewSet(viewsets.ModelViewSet):
     queryset = MarketNews.objects.all().select_related('user').order_by('-created_at')
     serializer_class = MarketNewsSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsActiveForWrite]
     filter_backends = [filters.SearchFilter]
     search_fields = ['title', 'content', 'title_en', 'content_en']
     pagination_class = DefaultPagination
@@ -1483,7 +1483,7 @@ class MarketNewsViewSet(viewsets.ModelViewSet):
 class AdvertisementViewSet(viewsets.ModelViewSet):
     queryset = Advertisement.objects.all()
     serializer_class = AdvertisementSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsActiveForWrite]
     parser_classes = [MultiPartParser, FormParser, JSONParser]
 
     def perform_create(self, serializer):
@@ -1532,7 +1532,7 @@ class AdvertisementViewSet(viewsets.ModelViewSet):
 
 class MemberMessageViewSet(viewsets.ModelViewSet):
     queryset = MemberMessage.objects.all().order_by('-created_at')
-    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrAdmin]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsActiveForWrite, IsOwnerOrAdmin]
     
     def get_serializer_class(self):
         if self.action == 'retrieve':
@@ -1556,7 +1556,7 @@ class MemberMessageViewSet(viewsets.ModelViewSet):
 class MessageReplyViewSet(viewsets.ModelViewSet):
     queryset = MessageReply.objects.all().order_by('created_at')
     serializer_class = MessageReplySerializer
-    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrAdmin]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsActiveForWrite, IsOwnerOrAdmin]
     
     def perform_create(self, serializer):
         content = serializer.validated_data.get('content', '')
@@ -1748,7 +1748,7 @@ class UserFollowViewSet(viewsets.ModelViewSet):
 class CrewListingViewSet(viewsets.ModelViewSet):
     queryset = CrewListing.objects.all().order_by('-created_at')
     serializer_class = CrewListingSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsActiveForWrite]
     filter_backends = [filters.SearchFilter]
     search_fields = ['name', 'position', 'nationality', 'residence', 'resume', 'cert_number']
 
