@@ -8,11 +8,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RenameIndex(
-            model_name='channelevent',
-            new_name='users_chann_event_t_0315f0_idx',
-            old_name='users_chann_event_t_8a6a8e_idx',
-        ),
         migrations.AlterField(
             model_name='channelevent',
             name='id',
