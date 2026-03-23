@@ -3,6 +3,7 @@ import requests
 from django.conf import settings
 from django.core.cache import cache
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 
@@ -20,6 +21,7 @@ def _get_local_text_blocklist():
         '成人',
         '成人电影',
         '色情',
+        '鲍鱼',
         '约炮',
         '裸聊',
         '嫖娼',
@@ -37,16 +39,41 @@ def _get_local_text_blocklist():
     ]
 
 
+def _normalize_text_for_moderation(content):
+    s = str(content or '')
+    s = s.replace('\u3000', ' ')
+    s = re.sub(r'[\u200B-\u200D\uFEFF]', '', s)
+    s = re.sub(r'\s+', '', s)
+    s = s.replace('＇', "'").replace('＂', '"')
+    s = s.replace('（', '(').replace('）', ')')
+    s = s.replace('【', '[').replace('】', ']')
+    s = s.replace('，', ',').replace('。', '.').replace('！', '!').replace('？', '?').replace('：', ':').replace('；', ';')
+    s = s.replace('＠', '@').replace('．', '.').replace('。', '.')
+    s = s.lower()
+    return s
+
+
 def local_text_risk_check(content):
-    s = str(content or '').strip()
+    raw = str(content or '').strip()
+    if not raw:
+        return True, None
+
+    s = _normalize_text_for_moderation(raw)
     if not s:
         return True, None
+
+    patterns = [
+        r'(想吃你|想吃妳|吃你|吃妳|舔你|舔妳).*鲍鱼',
+    ]
+    for p in patterns:
+        if re.search(p, s, flags=re.IGNORECASE):
+            return False, "Content contains sensitive information"
+
     blocklist = _get_local_text_blocklist()
-    lower = s.lower()
     for w in blocklist:
         if not w:
             continue
-        if w.lower() in lower:
+        if w.lower() in s:
             return False, "Content contains sensitive information"
     return True, None
 
