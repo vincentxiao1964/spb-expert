@@ -210,6 +210,11 @@ Page({
             }, 1500);
         } else {
           console.error(res);
+          if (res.statusCode === 400) {
+            wx.showToast({ title: '内容可能含违规信息', icon: 'none' });
+            this.setData({ submitting: false });
+            return;
+          }
           wx.showToast({ title: '回复失败: ' + (res.data.detail || '未知错误'), icon: 'none' });
           this.setData({ submitting: false });
         }

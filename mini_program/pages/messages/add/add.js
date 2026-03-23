@@ -47,6 +47,10 @@ Page({
           }, 1500);
         } else {
           this.setData({ submitting: false });
+          if (res.statusCode === 400) {
+            wx.showToast({ title: '内容可能含违规信息', icon: 'none' });
+            return;
+          }
           wx.showToast({
             title: '发帖失败',
             icon: 'none'

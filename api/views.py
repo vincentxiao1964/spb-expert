@@ -21,7 +21,7 @@ from .serializers import (
     CrewListingSerializer, NotificationSerializer
 )
 from .permissions import IsOwnerOrAdmin
-from .wechat_utils import check_msg_sec
+from .wechat_utils import check_msg_sec, check_img_sec
 from django.db.models import Q, F, Sum, Count, Max
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -1126,23 +1126,35 @@ class ShipListingViewSet(viewsets.ModelViewSet):
         return queryset
     
     def perform_create(self, serializer):
-        # Security Check
         data = serializer.validated_data
-        check_content = f"{data.get('name', '')} {data.get('resume', '')}"
-        is_safe, reason = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        check_content = " ".join([
+            str(data.get('delivery_area', '') or ''),
+            str(data.get('class_society', '') or ''),
+            str(data.get('flag_state', '') or ''),
+            str(data.get('description', '') or ''),
+            str(data.get('description_en', '') or ''),
+            str(data.get('contact_info', '') or ''),
+        ]).strip()
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
         if not is_safe:
-             raise exceptions.ValidationError({'detail': reason})
+            raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
              
         serializer.save(user=self.request.user)
         _track_channel_event(self.request, self.request.user, ChannelEvent.EventType.LISTING_CREATE)
 
     def perform_update(self, serializer):
-        # Security Check
         data = serializer.validated_data
-        check_content = f"{data.get('name', '')} {data.get('resume', '')}"
-        is_safe, reason = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        check_content = " ".join([
+            str(data.get('delivery_area', '') or ''),
+            str(data.get('class_society', '') or ''),
+            str(data.get('flag_state', '') or ''),
+            str(data.get('description', '') or ''),
+            str(data.get('description_en', '') or ''),
+            str(data.get('contact_info', '') or ''),
+        ]).strip()
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
         if not is_safe:
-             raise exceptions.ValidationError({'detail': reason})
+            raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
              
         serializer.save()
 
@@ -1160,6 +1172,13 @@ class ShipListingViewSet(viewsets.ModelViewSet):
         listing = self.get_object()
         if 'image' not in request.FILES:
             return Response({'error': 'No image provided'}, status=status.HTTP_400_BAD_REQUEST)
+
+        uploaded = request.FILES['image']
+        image_bytes = uploaded.read()
+        uploaded.seek(0)
+        is_safe, _ = check_img_sec(image_bytes, filename=uploaded.name)
+        if not is_safe:
+            return Response({'error': '图片可能含违规信息，请更换后重试'}, status=status.HTTP_400_BAD_REQUEST)
         
         image = ListingImage.objects.create(
             listing=listing,
@@ -1190,7 +1209,34 @@ class MarketNewsViewSet(viewsets.ModelViewSet):
         return queryset.filter(status=MarketNews.Status.APPROVED)
 
     def perform_create(self, serializer):
+        data = serializer.validated_data
+        check_content = " ".join([
+            str(data.get('title', '') or ''),
+            str(data.get('title_en', '') or ''),
+            str(data.get('content', '') or ''),
+            str(data.get('content_en', '') or ''),
+            str(data.get('source_url', '') or ''),
+            str(data.get('original_source', '') or ''),
+        ]).strip()
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        if not is_safe:
+            raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save(user=self.request.user)
+
+    def perform_update(self, serializer):
+        data = serializer.validated_data
+        check_content = " ".join([
+            str(data.get('title', '') or ''),
+            str(data.get('title_en', '') or ''),
+            str(data.get('content', '') or ''),
+            str(data.get('content_en', '') or ''),
+            str(data.get('source_url', '') or ''),
+            str(data.get('original_source', '') or ''),
+        ]).strip()
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        if not is_safe:
+            raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
+        serializer.save()
 
     @action(detail=True, methods=['POST'], parser_classes=[MultiPartParser])
     def upload_image(self, request, pk=None):
@@ -1200,6 +1246,13 @@ class MarketNewsViewSet(viewsets.ModelViewSet):
         if 'image' not in request.FILES:
             print("No image in request.FILES")
             return Response({'error': 'No image provided'}, status=status.HTTP_400_BAD_REQUEST)
+
+        uploaded = request.FILES['image']
+        image_bytes = uploaded.read()
+        uploaded.seek(0)
+        is_safe, _ = check_img_sec(image_bytes, filename=uploaded.name)
+        if not is_safe:
+            return Response({'error': '图片可能含违规信息，请更换后重试'}, status=status.HTTP_400_BAD_REQUEST)
         
         print(f"Saving image: {request.FILES['image']}")
         news.image = request.FILES['image']
@@ -1213,6 +1266,47 @@ class AdvertisementViewSet(viewsets.ModelViewSet):
     queryset = Advertisement.objects.all()
     serializer_class = AdvertisementSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    parser_classes = [MultiPartParser, FormParser, JSONParser]
+
+    def perform_create(self, serializer):
+        data = serializer.validated_data
+        check_content = " ".join([
+            str(data.get('title', '') or ''),
+            str(data.get('description', '') or ''),
+            str(data.get('link', '') or ''),
+        ]).strip()
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        if not is_safe:
+            raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
+
+        image = self.request.FILES.get('image')
+        if image:
+            image_bytes = image.read()
+            image.seek(0)
+            ok, _ = check_img_sec(image_bytes, filename=image.name)
+            if not ok:
+                raise exceptions.ValidationError({'detail': '图片可能含违规信息，请更换后重试'})
+        serializer.save(user=self.request.user)
+
+    def perform_update(self, serializer):
+        data = serializer.validated_data
+        check_content = " ".join([
+            str(data.get('title', '') or ''),
+            str(data.get('description', '') or ''),
+            str(data.get('link', '') or ''),
+        ]).strip()
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        if not is_safe:
+            raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
+
+        image = self.request.FILES.get('image')
+        if image:
+            image_bytes = image.read()
+            image.seek(0)
+            ok, _ = check_img_sec(image_bytes, filename=image.name)
+            if not ok:
+                raise exceptions.ValidationError({'detail': '图片可能含违规信息，请更换后重试'})
+        serializer.save()
 
 class MemberMessageViewSet(viewsets.ModelViewSet):
     queryset = MemberMessage.objects.all().order_by('-created_at')
@@ -1227,8 +1321,15 @@ class MemberMessageViewSet(viewsets.ModelViewSet):
         content = serializer.validated_data.get('content', '')
         is_safe, reason = check_msg_sec(content, getattr(self.request.user, 'openid', ''))
         if not is_safe:
-             raise exceptions.ValidationError({'content': reason})
+             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save(user=self.request.user)
+
+    def perform_update(self, serializer):
+        content = serializer.validated_data.get('content', '')
+        is_safe, _ = check_msg_sec(content, getattr(self.request.user, 'openid', ''))
+        if not is_safe:
+            raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
+        serializer.save()
 
 class MessageReplyViewSet(viewsets.ModelViewSet):
     queryset = MessageReply.objects.all().order_by('created_at')
@@ -1239,8 +1340,15 @@ class MessageReplyViewSet(viewsets.ModelViewSet):
         content = serializer.validated_data.get('content', '')
         is_safe, reason = check_msg_sec(content, getattr(self.request.user, 'openid', ''))
         if not is_safe:
-             raise exceptions.ValidationError({'content': reason})
+             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save(user=self.request.user)
+
+    def perform_update(self, serializer):
+        content = serializer.validated_data.get('content', '')
+        is_safe, _ = check_msg_sec(content, getattr(self.request.user, 'openid', ''))
+        if not is_safe:
+            raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
+        serializer.save()
 
 class ListingMatchViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ListingMatchSerializer
@@ -1265,7 +1373,15 @@ class PrivateMessageViewSet(mixins.CreateModelMixin,
         content = serializer.validated_data.get('content', '')
         is_safe, reason = check_msg_sec(content, getattr(self.request.user, 'openid', ''))
         if not is_safe:
-             raise exceptions.ValidationError({'content': reason})
+             raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
+
+        image = self.request.FILES.get('image')
+        if image:
+            image_bytes = image.read()
+            image.seek(0)
+            ok, _ = check_img_sec(image_bytes, filename=image.name)
+            if not ok:
+                raise exceptions.ValidationError({'detail': '图片可能含违规信息，请更换后重试'})
         serializer.save(sender=self.request.user)
         _track_channel_event(self.request, self.request.user, ChannelEvent.EventType.PRIVATE_MESSAGE_SENT)
 
@@ -1413,7 +1529,40 @@ class CrewListingViewSet(viewsets.ModelViewSet):
     search_fields = ['name', 'position', 'nationality', 'residence', 'resume', 'cert_number']
 
     def perform_create(self, serializer):
+        data = serializer.validated_data
+        check_content = " ".join([
+            str(data.get('name', '') or ''),
+            str(data.get('nationality', '') or ''),
+            str(data.get('residence', '') or ''),
+            str(data.get('position', '') or ''),
+            str(data.get('cert_number', '') or ''),
+            str(data.get('expected_salary', '') or ''),
+            str(data.get('resume', '') or ''),
+            str(data.get('phone', '') or ''),
+            str(data.get('email', '') or ''),
+        ]).strip()
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        if not is_safe:
+            raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
         serializer.save(user=self.request.user)
+
+    def perform_update(self, serializer):
+        data = serializer.validated_data
+        check_content = " ".join([
+            str(data.get('name', '') or ''),
+            str(data.get('nationality', '') or ''),
+            str(data.get('residence', '') or ''),
+            str(data.get('position', '') or ''),
+            str(data.get('cert_number', '') or ''),
+            str(data.get('expected_salary', '') or ''),
+            str(data.get('resume', '') or ''),
+            str(data.get('phone', '') or ''),
+            str(data.get('email', '') or ''),
+        ]).strip()
+        is_safe, _ = check_msg_sec(check_content, getattr(self.request.user, 'openid', ''))
+        if not is_safe:
+            raise exceptions.ValidationError({'detail': '内容可能含违规信息，请修改后重试'})
+        serializer.save()
 
 class NotificationViewSet(viewsets.ModelViewSet):
     serializer_class = NotificationSerializer

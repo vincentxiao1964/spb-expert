@@ -104,6 +104,15 @@ Page({
         if (res.statusCode === 201) {
           this.fetchMessages(true);
         } else {
+          if (res.statusCode === 400) {
+            let msg = '内容可能含违规信息';
+            try {
+              const data = typeof res.data === 'string' ? JSON.parse(res.data) : res.data;
+              if (data && (data.detail || data.error)) msg = data.detail || data.error;
+            } catch (e) {}
+            wx.showToast({ title: msg, icon: 'none' });
+            return;
+          }
           wx.showToast({ title: '发送失败', icon: 'none' });
         }
       },
@@ -154,6 +163,10 @@ Page({
                 this.setData({ inputValue: '' });
                 this.fetchMessages(true);
             } else {
+                if (res.statusCode === 400) {
+                    wx.showToast({ title: '内容可能含违规信息', icon: 'none' });
+                    return;
+                }
                 wx.showToast({ title: '发送失败', icon: 'none' });
             }
         }

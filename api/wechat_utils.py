@@ -6,6 +6,12 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+def _is_strict_mode():
+    strict = getattr(settings, 'WECHAT_CONTENT_SECURITY_STRICT', None)
+    if strict is None:
+        return not getattr(settings, 'DEBUG', False)
+    return bool(strict)
+
 def get_wechat_access_token():
     """
     Get WeChat Mini Program Access Token, using cache.
@@ -49,35 +55,83 @@ def check_msg_sec(content, openid):
         
     token = get_wechat_access_token()
     if not token:
-        logger.warning("Skipping content check due to missing access token")
+        logger.error("WeChat access token missing")
+        if _is_strict_mode():
+            return False, "Content security check is temporarily unavailable. Please try again."
         return True, None 
         
     url = f"https://api.weixin.qq.com/wxa/msg_sec_check?access_token={token}"
     
-    # version 2
-    data = {
-        "version": 2,
-        "openid": openid,
-        "scene": 2, # 2: Comment/Reply
-        "content": content
-    }
+    openid = (openid or '').strip()
+    use_v2 = bool(openid)
     
     try:
-        response = requests.post(url, json=data)
+        if use_v2:
+            data = {
+                "version": 2,
+                "openid": openid,
+                "scene": 2,
+                "content": content
+            }
+            response = requests.post(url, json=data, timeout=8)
+            res_data = response.json()
+            if res_data.get('errcode') == 0:
+                result = res_data.get('result', {})
+                label = result.get('label')
+                if label == 100:
+                    return True, None
+                return False, "Content contains sensitive information"
+            if res_data.get('errcode') == 87014:
+                return False, "Content contains sensitive information"
+            logger.error(f"WeChat msg_sec_check v2 error: {res_data}")
+            if _is_strict_mode():
+                return False, "Content security check is temporarily unavailable. Please try again."
+            return True, None
+
+        data = { "content": content }
+        response = requests.post(url, json=data, timeout=8)
         res_data = response.json()
-        
         if res_data.get('errcode') == 0:
-            result = res_data.get('result', {})
-            label = result.get('label')
-            if label == 100: # 100 is Normal
-                return True, None
-            else:
-                return False, f"Content contains sensitive information (Label: {label})"
-        elif res_data.get('errcode') == 87014:
-             return False, "Content contains sensitive information"
-        else:
-            logger.error(f"WeChat msg_sec_check error: {res_data}")
-            return True, None # Fail open on technical error
+            return True, None
+        if res_data.get('errcode') == 87014:
+            return False, "Content contains sensitive information"
+        logger.error(f"WeChat msg_sec_check v1 error: {res_data}")
+        if _is_strict_mode():
+            return False, "Content security check is temporarily unavailable. Please try again."
+        return True, None
     except Exception as e:
         logger.error(f"Exception in msg_sec_check: {e}")
+        if _is_strict_mode():
+            return False, "Content security check is temporarily unavailable. Please try again."
+        return True, None
+
+
+def check_img_sec(file_bytes, filename='image.jpg'):
+    if not file_bytes:
+        return True, None
+
+    token = get_wechat_access_token()
+    if not token:
+        logger.error("WeChat access token missing (img check)")
+        if _is_strict_mode():
+            return False, "Content security check is temporarily unavailable. Please try again."
+        return True, None
+
+    url = f"https://api.weixin.qq.com/wxa/img_sec_check?access_token={token}"
+    try:
+        files = {'media': (filename, file_bytes)}
+        response = requests.post(url, files=files, timeout=15)
+        res_data = response.json()
+        if res_data.get('errcode') == 0:
+            return True, None
+        if res_data.get('errcode') == 87014:
+            return False, "Image contains sensitive information"
+        logger.error(f"WeChat img_sec_check error: {res_data}")
+        if _is_strict_mode():
+            return False, "Content security check is temporarily unavailable. Please try again."
+        return True, None
+    except Exception as e:
+        logger.error(f"Exception in img_sec_check: {e}")
+        if _is_strict_mode():
+            return False, "Content security check is temporarily unavailable. Please try again."
         return True, None
