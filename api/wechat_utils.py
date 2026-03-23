@@ -92,6 +92,12 @@ def check_msg_sec(content, openid):
         response = requests.post(url, json=data, timeout=8)
         res_data = response.json()
         if res_data.get('errcode') == 0:
+            result = res_data.get('result')
+            if isinstance(result, dict) and 'label' in result:
+                label = result.get('label')
+                if label == 100:
+                    return True, None
+                return False, "Content contains sensitive information"
             return True, None
         if res_data.get('errcode') == 87014:
             return False, "Content contains sensitive information"
